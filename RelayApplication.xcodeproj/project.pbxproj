@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,11 @@
 		A3D4A51324C7017700A93215 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D4A51224C7017700A93215 /* Preview Assets.xcassets */; };
 		A3D4A51624C7017700A93215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D4A51424C7017700A93215 /* LaunchScreen.storyboard */; };
 		A3D4A51E24C7020300A93215 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3D4A51D24C7020300A93215 /* GoogleService-Info.plist */; };
+		A3D4A52024C705D700A93215 /* Homescreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A51F24C705D700A93215 /* Homescreen.swift */; };
+		A3D4A52224C7060100A93215 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52124C7060100A93215 /* RelayView.swift */; };
+		A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52324C7064D00A93215 /* ManagerView.swift */; };
+		A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52624C7074A00A93215 /* LooginView.swift */; };
+		A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52924C7078600A93215 /* SingUpView.swift */; };
 		ACAA7300EDFD604F1759D338 /* Pods_RelayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +37,11 @@
 		A3D4A51524C7017700A93215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3D4A51724C7017700A93215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3D4A51D24C7020300A93215 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A3D4A51F24C705D700A93215 /* Homescreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homescreen.swift; sourceTree = "<group>"; };
+		A3D4A52124C7060100A93215 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
+		A3D4A52324C7064D00A93215 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
+		A3D4A52624C7074A00A93215 /* LooginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooginView.swift; sourceTree = "<group>"; };
+		A3D4A52924C7078600A93215 /* SingUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,8 @@
 		A3D4A50524C7017600A93215 /* RelayApplication */ = {
 			isa = PBXGroup;
 			children = (
+				A3D4A52824C7077200A93215 /* SingUp */,
+				A3D4A52524C706D600A93215 /* Login */,
 				A3D4A51D24C7020300A93215 /* GoogleService-Info.plist */,
 				A3D4A50624C7017600A93215 /* AppDelegate.swift */,
 				A3D4A50824C7017600A93215 /* SceneDelegate.swift */,
@@ -76,6 +88,9 @@
 				A3D4A51724C7017700A93215 /* Info.plist */,
 				A3D4A50A24C7017600A93215 /* RelayApplication.xcdatamodeld */,
 				A3D4A51124C7017700A93215 /* Preview Content */,
+				A3D4A51F24C705D700A93215 /* Homescreen.swift */,
+				A3D4A52124C7060100A93215 /* RelayView.swift */,
+				A3D4A52324C7064D00A93215 /* ManagerView.swift */,
 			);
 			path = RelayApplication;
 			sourceTree = "<group>";
@@ -88,13 +103,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A3D4A52524C706D600A93215 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4A52624C7074A00A93215 /* LooginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A3D4A52824C7077200A93215 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4A52924C7078600A93215 /* SingUpView.swift */,
+			);
+			path = SingUp;
+			sourceTree = "<group>";
+		};
 		B275EE6B64BF59DF5BAFB272 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1E0254F1E36F9930BB8C6D7D /* Pods-RelayApplication.debug.xcconfig */,
 				5A773736354E286946E6B8FA /* Pods-RelayApplication.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,8 +254,13 @@
 			files = (
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
+				A3D4A52224C7060100A93215 /* RelayView.swift in Sources */,
 				A3D4A50E24C7017600A93215 /* ContentView.swift in Sources */,
 				A3D4A50924C7017600A93215 /* SceneDelegate.swift in Sources */,
+				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
+				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
+				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,
+				A3D4A52024C705D700A93215 /* Homescreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@ target 'RelayApplication' do
   # Pods for RelayApplication
 pod 'Firebase/Firestore'
 pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
 
 
 end
