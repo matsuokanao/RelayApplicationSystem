@@ -10,34 +10,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
 
-    var body: some View {
-        NavigationView{
+var body: some View {
+    NavigationView{
                     
-            VStack{
+        VStack{
+            
         //ログインしていたらHOMESCREENへ移動
-                if self.status{
-                    TabView{
-                        Homescreen()
-                            .tabItem{ Text("HOME")}
-                        RelayView()
-                            .tabItem{Text("試合に申し込む")}
-                        ManagerView()
-                            .tabItem{Text("大会関係者ページ")}
+            if self.status{
+                TabView{
+                    Homescreen(show: .constant(false))
+                        .tabItem{ Text("HOME")}
+                    RelayView()
+                        .tabItem{Text("試合に申し込む")}
+                    ManagerView()
+                        .tabItem{Text("大会関係者ページ")}
                 }
             } else {
         ZStack{
-            NavigationLink(destination: SingUpView(show: self.$show), isActive: self.$show){
+            
+NavigationLink(destination: SingUpView(show: self.$show), isActive: self.$show){
                     Text("")
-                            }
-                        .hidden()
+                            }.hidden()
                             LooginView(show: self.$show)
-                        }
+                        
                     }
                 }
+            }
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
@@ -57,3 +58,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

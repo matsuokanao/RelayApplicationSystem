@@ -41,7 +41,7 @@ struct LooginView: View {
                         //自動大文字入力制御
                         .autocapitalization(.none)
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkwhiteorange") : (Color("blackcolor")),lineWidth:  2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
                         .background(Color("darkwhiteyellow"))
                         .padding(.top, 25)
                     
@@ -75,7 +75,7 @@ struct LooginView: View {
                         }
                     }
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 5).stroke(self.pass != "" ? Color("darkwhiteorange") : (Color("blackcolor")),lineWidth:  2))
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(self.pass != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
                         .background(Color("darkwhiteyellow"))
                     .padding(.top, 10)
                     

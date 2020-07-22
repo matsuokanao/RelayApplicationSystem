@@ -18,6 +18,7 @@ struct SingUpView: View {
     @State var visible = false
     @State var revisible = false
     @Binding var show : Bool
+    @State var first = "first"
     @State var alert = false
     @State var error = ""
     
@@ -33,17 +34,25 @@ struct SingUpView: View {
                         Text("アカウント新規作成")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(self.color)
-                                    
-                        TextField("メールアドレス", text: self.$email)
-                            //自動大文字入力制御
-                            .autocapitalization(.none)
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("PinkRed") : self.color,lineWidth:  2))
-                            .padding(.top, 25)
+                            .foregroundColor(Color("whiteorange"))
+                       
+            HStack {
+                Image(systemName: "envelope")
+                    TextField("メールアドレス", text: self.$email)
+                    }
+            //自動大文字入力制御
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
+                    .background(Color("darkwhiteyellow"))
+                    .padding(.top, 25)
                         
-                        HStack(spacing: 15){
-                            VStack{
+                        
+                        
+            HStack(spacing: 15){
+                HStack {
+                    Image(systemName: "questionmark")
+                        VStack{
                             if self.visible{
                                 TextField("パスワード", text:  self.$pass)
                                 .autocapitalization(.none)
@@ -54,19 +63,24 @@ struct SingUpView: View {
 
                                 }
                             }
+                        }
                             Button(action: {
                                 //クリックによってパスワードを表示
                                 self.visible.toggle()
                                 }) {
                                     Image(systemName: self.visible ? "eye.slash.fill": "eye.fill")
-                                        .foregroundColor(self.color)
+                                        .foregroundColor(Color("blackcolor"))
                             }
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("PinkRed") : self.color,lineWidth:  2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
+                        .background(Color("darkwhiteyellow"))
                         .padding(.top, 25)
                         
-                     HStack(spacing: 15){
+                HStack {
+                    Image(systemName: "questionmark")
+                        
+                    HStack(spacing: 15){
                          VStack{
                          if self.revisible{
                              TextField("再入力", text:  self.$repass)
@@ -78,16 +92,18 @@ struct SingUpView: View {
 
                              }
                          }
+                    }
                          Button(action: {
                              //クリックによってパスワードを表示
                              self.revisible.toggle()
                              }) {
                                  Image(systemName: self.revisible ? "eye.slash.fill": "eye.fill")
-                                     .foregroundColor(self.color)
+                                     .foregroundColor(Color("blackcolor"))
                          }
                      }
                      .padding()
-                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("PinkRed") : self.color,lineWidth:  2))
+                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
+                    .background(Color("darkwhiteyellow"))
                      .padding(.top, 25)
 
                       //登録ボタンアクション
@@ -100,7 +116,7 @@ struct SingUpView: View {
                                 .frame(width: UIScreen.main.bounds.width - 50)
                         }
                         .background(Color("darkwhiteyellow"))
-                        .cornerRadius(10)
+                        .cornerRadius(40)
                         .padding(.top, 25)
                         }
                         .padding(.horizontal, 25)
@@ -131,14 +147,7 @@ struct SingUpView: View {
                         
                         Auth.auth().createUser(withEmail: self.email, password: self.pass){
                             (res, err) in
-                            
-                            if err != nil{
-                                self.error = ""
-                                self.alert.toggle()
-                                return
-                            }
                             print("成功しました")
-                            
                             UserDefaults.standard.set(true, forKey: "status")
                             NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                         }
@@ -148,12 +157,12 @@ struct SingUpView: View {
                         self.alert.toggle()
                     }
                 }
-                else{
-                    self.error = "すべての項目を入力してください"
-                    self.alert.toggle()
-                }
-            }
+        else{
+            self.error = "すべての項目を入力してください"
+            self.alert.toggle()
         }
+    }
+}
 
 
 struct SingUpView_Previews: PreviewProvider {
