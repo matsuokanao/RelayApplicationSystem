@@ -10,7 +10,6 @@ import SwiftUI
 import Firebase
 
 struct LooginView: View {
-    @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var pass = ""
     @State var visible = false
@@ -20,32 +19,42 @@ struct LooginView: View {
 
     var body: some View {
         ZStack{
-                ZStack(alignment: .topTrailing) {
+            
+            ZStack(alignment: .topTrailing) {
                     GeometryReader{_ in
                 
                 VStack{
-                    Image("loginview")
+                    Image("runcatview")
                         .resizable()
-                        .frame(width: 300.0 , height: 180.0)
-                    Text("おかえりなさい")
+                        .frame(width: 300.0 , height: 300.0)
+                    Text("メールでログイン")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(self.color)
-                    Text("--ログインしてください--")
-                        .foregroundColor(self.color)
-                        .padding(.top, 10)
+                        .foregroundColor(Color("whiteorange"))
                     
-                    TextField("メールアドレス", text: self.$email)
+                    HStack {
+                        Image(systemName: "envelope")
+
+                        TextField("メールアドレス", text: self.$email)
+                        .foregroundColor(Color("blackcolor"))
+                    }
                         //自動大文字入力制御
                         .autocapitalization(.none)
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("PinkRed") : self.color,lineWidth:  2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkwhiteorange") : (Color("blackcolor")),lineWidth:  2))
+                        .background(Color("darkwhiteyellow"))
                         .padding(.top, 25)
+                    
                     
                     HStack(spacing: 15){
                         
+                        HStack {
+                            
+                        Image(systemName: "questionmark")
+                            
                         VStack{
                             
+
                         if self.visible{
                             TextField("パスワード", text:  self.$pass)
                             .autocapitalization(.none)
@@ -56,17 +65,19 @@ struct LooginView: View {
 
                             }
                         }
+                    }
                         Button(action: {
                             //クリックによってパスワードを表示
                             self.visible.toggle()
                             }) {
                                 Image(systemName: self.visible ? "eye.slash.fill": "eye.fill")
-                                    .foregroundColor(self.color)
+                                    .foregroundColor(Color("blackcolor"))
                         }
                     }
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("PinkRed") : self.color,lineWidth:  2))
-                    .padding(.top, 25)
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(self.pass != "" ? Color("darkwhiteorange") : (Color("blackcolor")),lineWidth:  2))
+                        .background(Color("darkwhiteyellow"))
+                    .padding(.top, 10)
                     
                     //パスワード再設定処理
                     HStack{
@@ -76,35 +87,40 @@ struct LooginView: View {
                             })  {
                             Text("パスワードを忘れました")
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("PinkRed"))
+                                .foregroundColor(Color("whiteorange"))
                         }
                     }
-                    .padding(.top,20)
+                    .padding(.top,10)
                     
                     Button(action: {
                         self.verify()
                     }){
                         Text("ログイン")
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("blackcolor"))
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 50)
                     }
-                    .background(Color("PinkRed"))
-                    .cornerRadius(10)
-                    .padding(.top, 25)
+                    .background(Color("darkwhiteyellow"))
+                    .cornerRadius(30)
+                    .padding(.top, 10)
                     }
                     .padding(.horizontal, 25)
                     }
-                    
+        
+                    Text("アカウントをお持ちでないですか？")
+                
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("blackcolor"))
                     Button(action: {
                         self.show.toggle()
                     })  {
-                        Text("アカウントを作成する")
+                        Text("新規作成")
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("PinkRed"))
-                    }
-                .padding()
+                                .foregroundColor(Color("whiteorange"))
+                        .padding(.top, 10)
+                    }.padding()
                 }
+            
                 
                 if self.alert{
                     Text("aaa")

@@ -27,10 +27,10 @@ struct SingUpView: View {
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack{
-                        Image("loginview")
+                        Image("runcatview")
                             .resizable()
-                            .frame(width: 300.0 , height: 180.0)
-                        Text("アカウント登録")
+                            .frame(width: 200.0 , height: 200.0)
+                        Text("アカウント新規作成")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
@@ -94,12 +94,12 @@ struct SingUpView: View {
                         Button(action: {
                             self.register()
                         }){
-                            Text("登録")
-                                .foregroundColor(.white)
+                            Text("新規登録")
+                                .foregroundColor(Color("blackcolor"))
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
                         }
-                        .background(Color("PinkRed"))
+                        .background(Color("darkwhiteyellow"))
                         .cornerRadius(10)
                         .padding(.top, 25)
                         }
@@ -111,7 +111,7 @@ struct SingUpView: View {
                         })  {
                            Image(systemName: "chevron.left")
                             .font(.title)
-                            .foregroundColor(Color("PinkRed"))
+                            .foregroundColor(Color("blackcolor"))
                         }
                     .padding()
                     }
