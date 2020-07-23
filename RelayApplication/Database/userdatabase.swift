@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 
 
-struct userdatalist: Identifiable {
+struct userlist: Identifiable {
 var id: String
 var username: String
 var email: String
@@ -18,11 +18,11 @@ var email: String
 
 //読み込み
 class getUserdataList : ObservableObject{
-    @Published var data = [userdatalist]()
+    @Published var data = [userlist]()
     
     init() {
         let db = Firestore.firestore()
-        db.collection("userdatalist").getDocuments{ (snap, err) in
+        db.collection("userlist").getDocuments{ (snap, err) in
             if err != nil{
                 print((err?.localizedDescription)!)
                 return
@@ -34,7 +34,7 @@ class getUserdataList : ObservableObject{
                 let email = i.get("email") as! String
                 
                 
-                self.data.append(userdatalist(id: id, username: username, email: email))
+                self.data.append(userlist(id: id, username: username, email: email))
             }
         }
     }

@@ -9,6 +9,7 @@
 import SwiftUI
 import Firebase
 
+
 struct UserCreate: View {
     @State var username = ""
     @State var email = ""
@@ -53,3 +54,10 @@ struct UserCreate_Previews: PreviewProvider {
         UserCreate()
     }
 }
+
+struct User : Identifiable {
+     
+     var id : String
+     var username : String
+     var email: String
+ }

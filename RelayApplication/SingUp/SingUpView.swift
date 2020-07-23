@@ -28,13 +28,7 @@ struct SingUpView: View {
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack{
-                        Image("runcatview")
-                            .resizable()
-                            .frame(width: 200.0 , height: 200.0)
-                        Text("アカウント新規作成")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("whiteorange"))
+                                                
                        
             HStack {
                 Image(systemName: "envelope")
@@ -45,7 +39,7 @@ struct SingUpView: View {
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
                     .background(Color("darkwhiteyellow"))
-                    .padding(.top, 25)
+                    
                         
                         
                         
