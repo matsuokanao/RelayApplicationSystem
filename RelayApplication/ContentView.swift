@@ -21,7 +21,7 @@ var body: some View {
         //ログインしていたらHOMESCREENへ移動
             if self.status{
                 TabView{
-                    Homescreen(show: .constant(false))
+                    Homescreen()
                         .tabItem{ Text("HOME")}
                     RelayView()
                         .tabItem{Text("試合に申し込む")}
@@ -39,14 +39,14 @@ NavigationLink(destination: SingUpView(show: self.$show), isActive: self.$show){
                     }
                 }
             }
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-                .onAppear{
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .onAppear{
                     
-                        NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main)   { (_) in
+    NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main)   { (_) in
                             
-                            self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
             }
         }
