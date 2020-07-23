@@ -7,10 +7,25 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ManagerView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+                try! Auth.auth().signOut()
+        UserDefaults.standard.set(false, forKey: "status")
+            NotificationCenter.default.post(name: NSNotification.Name("status"),
+                    object: nil)
+                                
+            }){
+        Text("ログアウト")
+            .foregroundColor(.white)
+            .padding(.vertical)
+            .frame(width: UIScreen.main.bounds.width - 250)
+                }
+            .background(Color("blackcolor"))
+            .cornerRadius(10)
+            .padding(.top, 10)
     }
 }
 
