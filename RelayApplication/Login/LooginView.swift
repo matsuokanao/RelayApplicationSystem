@@ -24,9 +24,9 @@ struct LooginView: View {
                     GeometryReader{_ in
                 
                 VStack{
-                    Image("runcatview")
+                    Image("welcomeview")
                         .resizable()
-                        .frame(width: 300.0 , height: 300.0)
+                        .frame(width: 300.0 , height: 200.0)
                     Text("メールでログイン")
                         .font(.title)
                         .fontWeight(.bold)

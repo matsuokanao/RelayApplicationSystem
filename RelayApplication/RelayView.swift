@@ -32,7 +32,7 @@ struct RelayView_Previews: PreviewProvider {
     var gamedata : gamelist
     var userdata : userlist
  var body: some View {
-    VStack{
+    HStack{
         Text(gamedata.gamename)
         Text(userdata.username)
     }

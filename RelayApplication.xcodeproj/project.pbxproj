@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */; };
+		A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */; };
 		A3D4867424C9395100511354 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867324C9395100511354 /* WelcomeView.swift */; };
 		A3D4867724C9667A00511354 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* RelayView.swift */; };
 		A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867924C96AB500511354 /* userdatabase.swift */; };
-		A3D4868024C99F8A00511354 /* UserCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867F24C99F8A00511354 /* UserCreate.swift */; };
+		A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867F24C99F8A00511354 /* UserCreateView.swift */; };
 		A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A50624C7017600A93215 /* AppDelegate.swift */; };
 		A3D4A50924C7017600A93215 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A50824C7017600A93215 /* SceneDelegate.swift */; };
 		A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A50A24C7017600A93215 /* RelayApplication.xcdatamodeld */; };
@@ -33,10 +34,11 @@
 		52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RelayApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A773736354E286946E6B8FA /* Pods-RelayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RelayApplication.release.xcconfig"; path = "Target Support Files/Pods-RelayApplication/Pods-RelayApplication.release.xcconfig"; sourceTree = "<group>"; };
 		A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamedatabase.swift; sourceTree = "<group>"; };
+		A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateFinishView.swift; sourceTree = "<group>"; };
 		A3D4867324C9395100511354 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A3D4867624C9667A00511354 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
 		A3D4867924C96AB500511354 /* userdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userdatabase.swift; sourceTree = "<group>"; };
-		A3D4867F24C99F8A00511354 /* UserCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreate.swift; sourceTree = "<group>"; };
+		A3D4867F24C99F8A00511354 /* UserCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateView.swift; sourceTree = "<group>"; };
 		A3D4A50324C7017600A93215 /* RelayApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelayApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D4A50624C7017600A93215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D4A50824C7017600A93215 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,18 +85,12 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		A3D4867B24C96BD400511354 /* ConnectDatabase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ConnectDatabase;
-			sourceTree = "<group>";
-		};
 		A3D4867E24C99F5800511354 /* Homescreen */ = {
 			isa = PBXGroup;
 			children = (
 				A3D4A52124C7060100A93215 /* Homescreen.swift */,
-				A3D4867F24C99F8A00511354 /* UserCreate.swift */,
+				A3D4867F24C99F8A00511354 /* UserCreateView.swift */,
+				A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -121,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				A3D4867E24C99F5800511354 /* Homescreen */,
-				A3D4867B24C96BD400511354 /* ConnectDatabase */,
 				A3D4867824C96AA300511354 /* Database */,
 				A3D4867224C9393A00511354 /* Welcome */,
 				A3D4A52824C7077200A93215 /* SingUp */,
@@ -300,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
+				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
 				A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */,
 				A3D4A50E24C7017600A93215 /* ContentView.swift in Sources */,
@@ -308,7 +304,7 @@
 				A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */,
 				A3D4867724C9667A00511354 /* RelayView.swift in Sources */,
 				A3D4867424C9395100511354 /* WelcomeView.swift in Sources */,
-				A3D4868024C99F8A00511354 /* UserCreate.swift in Sources */,
+				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
 				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,

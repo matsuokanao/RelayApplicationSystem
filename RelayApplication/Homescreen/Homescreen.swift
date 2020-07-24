@@ -30,7 +30,7 @@ struct Homescreen: View {
             ZStack{
             RoundedRectangle(cornerRadius: 20,
                              style: .continuous)
-                .fill(Color.red)
+                .fill(Color("red"))
                 .frame(width:170,height: 150)
                 VStack{
                     Image(systemName: "faceid")
@@ -38,67 +38,115 @@ struct Homescreen: View {
                         .padding()
                         .background(Color.white.opacity(0.12))
                         .clipShape(Circle())
+                    Text("まずは自分の情報を登録しましょう")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(width:170,height:60)
                         
         Button(action: {
             self.show.toggle()
         }){
-            Text("ユーザー情報")
+            Text("ユーザー登録")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-            .sheet(isPresented: $show){
-            UserCreate()
+                .sheet(isPresented: $show){
+            UserCreateView()
                     }
                 }
             }
         }
             
-            //
+        //ユーザー情報編集
             ZStack{
                 RoundedRectangle(cornerRadius: 20,
                                  style: .continuous)
-                    .fill(Color.red)
+                    .fill(Color("skyblue"))
                     .frame(width:170,height: 150)
+                VStack{
+                    Image(systemName: "book.fill")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.white.opacity(0.12))
+                        .clipShape(Circle())
+                    Text("ユーザー情報変更")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(width:170,height:60)
+                    
             Button(action: {
                 self.show.toggle()
             }){
-                Text("aa")
+                Text("変更する")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
                 .sheet(isPresented: $show){
-                UserCreate()
-                        }
-                    }
+                UserCreateView()
                 }
             }
+        }
+    }
+}
             
            //2段目
-            HStack{
+    HStack{
                 //
-                ZStack{
-                RoundedRectangle(cornerRadius: 20,
-                                 style: .continuous)
-                    .fill(Color.red)
+        ZStack{
+            RoundedRectangle(cornerRadius: 20,
+                style: .continuous)
+                    .fill(Color("whiteorange"))
                     .frame(width:170,height: 150)
+            VStack{
+                Image(systemName: "person.3.fill")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.white.opacity(0.12))
+                        .clipShape(Circle())
+                Text("所属団体情報情報")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(width:170,height:60)
             Button(action: {
                 self.show.toggle()
             }){
-                Text("aa")
-                .sheet(isPresented: $show){
-                UserCreate()
-                        }
-                    }
-                }
+                Text("開く")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .sheet(isPresented: $show){
+                UserCreateView()
+            }
+        }
+    }
+}
                 ZStack{
                     //
                     RoundedRectangle(cornerRadius: 20,
                                      style: .continuous)
-                        .fill(Color.red)
+                        .fill(Color("green"))
                         .frame(width:170,height: 150)
+                    VStack{
+                    Image(systemName: "tray.and.arrow.up.fill")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.white.opacity(0.12))
+                            .clipShape(Circle())
+                    Text("ログアウトしますか？")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(width:100,height:60)
                 Button(action: {
-                    self.show.toggle()
+                    try! Auth.auth().signOut()
+                    UserDefaults.standard.set(false, forKey: "status")
+                        NotificationCenter.default.post(name: NSNotification.Name("status"),
+                                object: nil)
                 }){
-                    Text("aa")
+                    Text("ログアウトする")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    
                     .sheet(isPresented: $show){
-                    UserCreate()
+                        UserCreateView()
                             }
+                        }
                     }
                 }
             }.padding(.top,30)
