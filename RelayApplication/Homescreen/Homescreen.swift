@@ -11,6 +11,8 @@ import Firebase
 
 struct Homescreen: View {
     @State var show = false
+    @State var usereditshow = false
+
     
     var body: some View {
         VStack{
@@ -74,13 +76,13 @@ struct Homescreen: View {
                         .frame(width:170,height:60)
                     
             Button(action: {
-                self.show.toggle()
+                self.usereditshow.toggle()
             }){
                 Text("変更する")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                .sheet(isPresented: $show){
-                UserCreateView()
+                .sheet(isPresented: $usereditshow){
+                UserEditView()
                 }
             }
         }
@@ -143,9 +145,6 @@ struct Homescreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     
-                    .sheet(isPresented: $show){
-                        UserCreateView()
-                            }
                         }
                     }
                 }

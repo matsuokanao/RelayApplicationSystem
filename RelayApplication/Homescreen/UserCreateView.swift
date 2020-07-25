@@ -23,8 +23,10 @@ struct UserCreateView: View {
     @State var Email = ""
     //電話番号
     @State var PhoneNumber = ""
-    //パスワード
+    //ユーザーパスワード
     @State var UserPass = ""
+    //団体パスワード
+    @State var BelongPass = ""
 
     @State var color = Color.black.opacity(0.7)
     
@@ -43,6 +45,9 @@ struct UserCreateView: View {
             .fontWeight(.bold)
             .font(.system(size: 35, weight: .bold))
             .foregroundColor(.white)
+        Text("・所属団体パスワード,試合パスワードの詳しい説明に関しましてはHOME画面の良くある質問をご参照下さい")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
         Group{
         Text("名前")
             .fontWeight(.bold)
@@ -50,6 +55,7 @@ struct UserCreateView: View {
             .padding(.top,10)
         VStack{
             TextField("名前", text: $UserName)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
@@ -60,6 +66,7 @@ struct UserCreateView: View {
                 .padding(.top,10)
         VStack{
             TextField("登録陸連", text: $Jaaf)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
@@ -70,6 +77,7 @@ struct UserCreateView: View {
                 .padding(.top,10)
         VStack{
             TextField("所属団体", text: $Belong)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
@@ -80,17 +88,19 @@ struct UserCreateView: View {
                 .padding(.top,10)
         VStack{
             TextField("代表者名", text: $Ceo)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
             }
-        
+    Group{
         Text("メールアドレス　*ご自身の連絡の取れるメールアドレスを入力して下さい")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.top,10)
         VStack{
             TextField("メールアドレス", text: $Email)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
@@ -100,20 +110,36 @@ struct UserCreateView: View {
                 .foregroundColor(.white)
                 .padding(.top,10)
         VStack{
-            TextField("電話番号電話", text: $PhoneNumber).keyboardType(.numberPad)
+            TextField("電話番号電話", text: $PhoneNumber)
+                .keyboardType(.numberPad)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
+        
+        Text("所属団体パスワードを入力する")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+            .padding(.top,10)
+        VStack{
+        TextField("所属団体パスワード", text: $BelongPass)
+            .foregroundColor(.white)
+            Divider()
+                .background(Color.white)
+            }
 
-        Text("最後に試合登録、閲覧等に使用するパスワードを入力して下さい　*6文字以上で入力して下さい")
+
+        Text("試合パスワードを入力して下さい　*6文字以上で入力して下さい")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.top,10)
         VStack{
             TextField("パスワード", text: $UserPass)
+                .foregroundColor(.white)
                 Divider()
                     .background(Color.white)
                 }
+            }
 
         HStack{
                 Spacer()

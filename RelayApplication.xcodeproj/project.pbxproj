@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */; };
 		A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */; };
+		A3BA94AB24CAD1D100553216 /* groupdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* groupdatabase.swift */; };
+		A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AC24CAD2DC00553216 /* UserEditView.swift */; };
 		A3D4867424C9395100511354 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867324C9395100511354 /* WelcomeView.swift */; };
 		A3D4867724C9667A00511354 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* RelayView.swift */; };
 		A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867924C96AB500511354 /* userdatabase.swift */; };
@@ -35,6 +37,8 @@
 		5A773736354E286946E6B8FA /* Pods-RelayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RelayApplication.release.xcconfig"; path = "Target Support Files/Pods-RelayApplication/Pods-RelayApplication.release.xcconfig"; sourceTree = "<group>"; };
 		A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamedatabase.swift; sourceTree = "<group>"; };
 		A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateFinishView.swift; sourceTree = "<group>"; };
+		A3BA94AA24CAD1D100553216 /* groupdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupdatabase.swift; sourceTree = "<group>"; };
+		A3BA94AC24CAD2DC00553216 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		A3D4867324C9395100511354 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A3D4867624C9667A00511354 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
 		A3D4867924C96AB500511354 /* userdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userdatabase.swift; sourceTree = "<group>"; };
@@ -68,6 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A387D7AB24CC61E7007A46AD /* Relay */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4867624C9667A00511354 /* RelayView.swift */,
+			);
+			path = Relay;
+			sourceTree = "<group>";
+		};
+		A387D7AC24CC61F9007A46AD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4A52324C7064D00A93215 /* ManagerView.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A3D4867224C9393A00511354 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +101,7 @@
 			children = (
 				A3D4867924C96AB500511354 /* userdatabase.swift */,
 				A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */,
+				A3BA94AA24CAD1D100553216 /* groupdatabase.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -91,6 +112,7 @@
 				A3D4A52124C7060100A93215 /* Homescreen.swift */,
 				A3D4867F24C99F8A00511354 /* UserCreateView.swift */,
 				A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */,
+				A3BA94AC24CAD2DC00553216 /* UserEditView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -116,6 +138,8 @@
 		A3D4A50524C7017600A93215 /* RelayApplication */ = {
 			isa = PBXGroup;
 			children = (
+				A387D7AC24CC61F9007A46AD /* Manager */,
+				A387D7AB24CC61E7007A46AD /* Relay */,
 				A3D4867E24C99F5800511354 /* Homescreen */,
 				A3D4867824C96AA300511354 /* Database */,
 				A3D4867224C9393A00511354 /* Welcome */,
@@ -131,8 +155,6 @@
 				A3D4A50A24C7017600A93215 /* RelayApplication.xcdatamodeld */,
 				A3D4A51124C7017700A93215 /* Preview Content */,
 				A3D4A51F24C705D700A93215 /* HandlingView.swift */,
-				A3D4A52324C7064D00A93215 /* ManagerView.swift */,
-				A3D4867624C9667A00511354 /* RelayView.swift */,
 			);
 			path = RelayApplication;
 			sourceTree = "<group>";
@@ -294,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BA94AB24CAD1D100553216 /* groupdatabase.swift in Sources */,
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
 				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
@@ -305,6 +328,7 @@
 				A3D4867724C9667A00511354 /* RelayView.swift in Sources */,
 				A3D4867424C9395100511354 /* WelcomeView.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
+				A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
 				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,
