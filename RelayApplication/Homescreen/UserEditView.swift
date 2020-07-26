@@ -63,159 +63,134 @@ struct UserEditView_Previews: PreviewProvider {
     var Email : String
 
  var body: some View {
-    HStack{
+    VStack{
         if Pass == userdata.userpass && Email == userdata.email{
-            Text(userdata.username)
-            .font(.headline)
-            .fontWeight(.heavy)
+            List{
+                HStack {
+                    Image(systemName: "person.fill")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.username)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata, name: "username")
+                        }
+                    }
+                    
+                    HStack {
+                    Image(systemName: "flame.fill")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.jaaf)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "jaaf")
+                        }
+                    }
+                    
+                    HStack {
+                    Image(systemName: "person.3.fill")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.belong)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "belong")
+                        }
+                    }
+                    
+                    HStack {
+                    Image(systemName: "rosette")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.ceo)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "ceo")
+                        }
+                    }
+                    
+                    HStack {
+                    Image(systemName: "envelope.fill")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.email)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "email")
+                        }
+                    }
+                    
+                    HStack {
+                    Image(systemName: "phone.fill")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.phonenumber)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "phonenumber")
+                        }
+                    }
+                    
+                    HStack {
+                    Image(systemName: "folder.fill.badge.person.crop")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.userpass)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "userpass")
+                        }
+                    }
 
-            Text(userdata.belong)
-            .font(.headline)
-            .fontWeight(.heavy)
-                
-            Spacer()
-            Button(action: {
-                self.show.toggle()
-                    }) {
-            Image(systemName: "play.fill")
-                    .foregroundColor(Color("skyblue"))
-                    }.sheet(isPresented: self.$show) {
-                        UserEditPreparationView(userdata: self.userdata)
+                    HStack {
+                    Image(systemName: "flag.fill")
+                        .foregroundColor(Color("skyblue"))
+                    Text(userdata.belongpass)
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Image(systemName: "play.fill")
+                                .foregroundColor(Color("skyblue"))
+                                }.sheet(isPresented: self.$show) {
+                                UserEditPracticeView(userdata: self.userdata,name: "belongpass")
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-struct UserEditPreparationView: View {
-    var userdata : userlist
-    @State var show = false
-    var body: some View {
-        VStack{
-        List{
-            HStack {
-            Image(systemName: "person.fill")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.username)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata, name: "username")
-                }
-            }
-            
-            HStack {
-            Image(systemName: "flame.fill")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.jaaf)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "jaaf")
-                }
-            }
-            
-            HStack {
-            Image(systemName: "person.3.fill")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.belong)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "belong")
-                }
-            }
-            
-            HStack {
-            Image(systemName: "rosette")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.ceo)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "ceo")
-                }
-            }
-            
-            HStack {
-            Image(systemName: "envelope.fill")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.email)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "email")
-                }
-            }
-            
-            HStack {
-            Image(systemName: "phone.fill")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.phonenumber)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "phonenumber")
-                }
-            }
-            
-            HStack {
-            Image(systemName: "folder.fill.badge.person.crop")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.userpass)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "userpass")
-                }
-            }
-
-            HStack {
-            Image(systemName: "flag.fill")
-                .foregroundColor(Color("skyblue"))
-            Text(userdata.belongpass)
-                Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                Image(systemName: "play.fill")
-                        .foregroundColor(Color("skyblue"))
-                        }.sheet(isPresented: self.$show) {
-                        UserEditPracticeView(userdata: self.userdata,name: "belongpass")
-                    }
-                }
-            }
-        }.frame(width: 300, height: 500)
-    }
-}
 
 struct UserEditPracticeView: View {
 var userdata : userlist
