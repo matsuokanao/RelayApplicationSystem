@@ -46,7 +46,6 @@ struct UserCreateFinishView: View {
                     .padding(.top, 25)
 
             }.frame(width: 300, height: 600)
-        .lineSpacing(1)
     }
 }
 

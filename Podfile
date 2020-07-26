@@ -9,6 +9,6 @@ target 'RelayApplication' do
 pod 'Firebase/Firestore'
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
-
+pod 'FirebaseFirestoreSwift'
 
 end

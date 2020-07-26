@@ -70,15 +70,18 @@ struct Homescreen: View {
                         .padding()
                         .background(Color.white.opacity(0.12))
                         .clipShape(Circle())
-                    Text("ユーザー情報変更")
+                    Text("ユーザー情報")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .frame(width:170,height:60)
-                    
+                        
+                    Text("閲覧と編集")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                                        
             Button(action: {
                 self.usereditshow.toggle()
             }){
-                Text("変更する")
+                Text("開く")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 .sheet(isPresented: $usereditshow){

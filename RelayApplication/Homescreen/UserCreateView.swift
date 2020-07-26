@@ -146,7 +146,7 @@ struct UserCreateView: View {
             Button(action: {
                 self.show.toggle()
                 let db = Firestore.firestore()
-                let data: [String : Any] = ["username":self.UserName, "email":self.Email]
+                let data: [String : Any] = ["username": self.UserName, "jaaf": self.Jaaf, "belong": self.Belong, "ceo": self.Ceo, "email": self.Email, "phonenumber": self.PhoneNumber, "userpass": self.UserPass, "belongpass": self.BelongPass]
                 //試合申し込み完了テーブルに入れる
                 db.collection("userlist")
                     .document(self.Email)
@@ -174,7 +174,7 @@ struct UserCreateView: View {
                         Spacer()
                     }
                 }
-            }
+            }.frame(width: 350, height: 600)
         }
     }
 }
