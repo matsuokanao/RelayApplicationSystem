@@ -144,6 +144,20 @@ struct SingUpView: View {
                             print("成功しました")
                             UserDefaults.standard.set(true, forKey: "status")
                             NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                            
+                            let db = Firestore.firestore()
+                            let data: [String : Any] = ["email": self.email]
+                            //試合申し込み完了テーブルに入れる
+                            db.collection("authority")
+                                .document(self.email)
+                                .setData(data)
+                                    { (err) in
+                                        if err != nil{
+                                            print((err?.localizedDescription)!)
+                                                return
+                                    }
+                                }
+
                         }
                     }
                     else{

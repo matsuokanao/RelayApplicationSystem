@@ -10,41 +10,21 @@ import SwiftUI
 import FirebaseFirestore
 
 struct UserEditView: View {
+    @ObservedObject var authority = getAuthorityList()
     @ObservedObject var userdata = getUserdataList()
-    @State var PassEmail = ""
-    @State var PassPass = ""
     
     var body: some View {
         ZStack{
         Color("skyblue")
             .edgesIgnoringSafeArea(.all)
-            
-
-        VStack(alignment: .leading, spacing: 20){
-            Text("ユーザーのメールアドレスとユーザーパスを入力して下さい")
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-            Text("メールアドレス")
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-            TextField("メールアドレス", text: self.$PassEmail)
-                .background(RoundedRectangle(cornerRadius: 4).stroke(self.PassEmail != "" ? Color("blackcolor") : (Color.white),lineWidth:  2))
-                .background(Color.white)
-            
-            Text("ユーザーパス")
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-            
-            TextField("ユーザーパス", text: self.$PassPass)
-                .background(RoundedRectangle(cornerRadius: 4).stroke(self.PassPass != "" ? Color("blackcolor") : (Color.white),lineWidth:  2))
-                .background(Color.white)
-
         VStack{
             ForEach(self.userdata.data,id: \.id){i in
-            CellView(userdata: i,Pass: self.PassPass,Email: self.PassEmail)
+                ForEach(self.authority.data,id: \.id){a in
+                    
+            UserEditCellView(userdata: i, authoritydata: a)
                     }
                 }
-            }.frame(width: 350, height: 600)
+            }
         }
     }
 }
@@ -55,16 +35,14 @@ struct UserEditView_Previews: PreviewProvider {
     }
 }
 
- struct CellView :View {
- @State var color = Color.black.opacity(0.7)
- @State var show = false
+ struct UserEditCellView :View {
+    @State var show = false
     var userdata : userlist
-    var Pass : String
-    var Email : String
+    var authoritydata : authority
 
  var body: some View {
     VStack{
-        if Pass == userdata.userpass && Email == userdata.email{
+        if authoritydata.email == userdata.email{
             List{
                 HStack {
                     Image(systemName: "person.fill")

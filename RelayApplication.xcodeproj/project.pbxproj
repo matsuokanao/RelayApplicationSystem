@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */; };
 		A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */; };
-		A3ACD7E024CD846700211BB9 /* BelongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DF24CD846700211BB9 /* BelongView.swift */; };
+		A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DF24CD846700211BB9 /* DiaryView.swift */; };
+		A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */; };
 		A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */; };
-		A3BA94AB24CAD1D100553216 /* groupdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* groupdatabase.swift */; };
+		A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* diarydatabase.swift */; };
 		A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AC24CAD2DC00553216 /* UserEditView.swift */; };
 		A3D4867424C9395100511354 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867324C9395100511354 /* WelcomeView.swift */; };
 		A3D4867724C9667A00511354 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* RelayView.swift */; };
@@ -39,9 +40,10 @@
 		5A773736354E286946E6B8FA /* Pods-RelayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RelayApplication.release.xcconfig"; path = "Target Support Files/Pods-RelayApplication/Pods-RelayApplication.release.xcconfig"; sourceTree = "<group>"; };
 		A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamedatabase.swift; sourceTree = "<group>"; };
 		A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditFinishView.swift; sourceTree = "<group>"; };
-		A3ACD7DF24CD846700211BB9 /* BelongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelongView.swift; sourceTree = "<group>"; };
+		A3ACD7DF24CD846700211BB9 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authoritydatabase.swift; sourceTree = "<group>"; };
 		A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateFinishView.swift; sourceTree = "<group>"; };
-		A3BA94AA24CAD1D100553216 /* groupdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupdatabase.swift; sourceTree = "<group>"; };
+		A3BA94AA24CAD1D100553216 /* diarydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diarydatabase.swift; sourceTree = "<group>"; };
 		A3BA94AC24CAD2DC00553216 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		A3D4867324C9395100511354 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A3D4867624C9667A00511354 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
@@ -112,7 +114,8 @@
 			children = (
 				A3D4867924C96AB500511354 /* userdatabase.swift */,
 				A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */,
-				A3BA94AA24CAD1D100553216 /* groupdatabase.swift */,
+				A3BA94AA24CAD1D100553216 /* diarydatabase.swift */,
+				A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -125,7 +128,7 @@
 				A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */,
 				A3BA94AC24CAD2DC00553216 /* UserEditView.swift */,
 				A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */,
-				A3ACD7DF24CD846700211BB9 /* BelongView.swift */,
+				A3ACD7DF24CD846700211BB9 /* DiaryView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -330,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BA94AB24CAD1D100553216 /* groupdatabase.swift in Sources */,
+				A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */,
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
 				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
@@ -342,10 +345,11 @@
 				A3D4867724C9667A00511354 /* RelayView.swift in Sources */,
 				A3D4867424C9395100511354 /* WelcomeView.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
+				A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */,
 				A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
 				A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */,
-				A3ACD7E024CD846700211BB9 /* BelongView.swift in Sources */,
+				A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */,
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
 				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,
 				A3D4A52024C705D700A93215 /* HandlingView.swift in Sources */,

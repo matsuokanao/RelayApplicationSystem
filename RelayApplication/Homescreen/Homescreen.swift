@@ -12,6 +12,7 @@ import Firebase
 struct Homescreen: View {
     @State var show = false
     @State var usereditshow = false
+    @State var diaryshow = false
 
     
     var body: some View {
@@ -106,18 +107,22 @@ struct Homescreen: View {
                         .padding()
                         .background(Color.white.opacity(0.12))
                         .clipShape(Circle())
-                Text("所属団体情報情報")
+                Text("陸上日記")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .frame(width:170,height:60)
+                Text("今日の練習、試合はどうでしたか？")
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .frame(width:170,height:60)
+
             Button(action: {
-                self.show.toggle()
+                self.diaryshow.toggle()
             }){
                 Text("開く")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .sheet(isPresented: $show){
-                UserCreateView()
+                    .sheet(isPresented: $diaryshow){
+                DiaryView()
             }
         }
     }
