@@ -27,7 +27,7 @@ var body: some View {
                         .tabItem{Text("試合")}
                     GameView()
                         .tabItem{ Text("リレー")}
-                    ManagerView()
+                    ManagerTopView()
                         .tabItem{Text("大会関係者ページ")}
                 }
             } else {

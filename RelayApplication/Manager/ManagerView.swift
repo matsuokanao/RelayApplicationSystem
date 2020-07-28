@@ -1,5 +1,5 @@
 //
-//  managerView.swift
+//  ManagerView.swift
 //  RelayApplication
 //
 //  Created by 松岡奈央 on 2020/07/21.
@@ -147,8 +147,8 @@ struct ManagerView: View {
             .foregroundColor(.white)
                         }
                     }
-                }.padding(.top,30)
-            }
+                }
+            }.padding(.top,30)
         }
     }
 }

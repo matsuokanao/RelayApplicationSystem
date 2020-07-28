@@ -34,6 +34,7 @@
 		A3D7121024CECA0600A3B298 /* DiaryFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7120F24CECA0600A3B298 /* DiaryFinishView.swift */; };
 		A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7121124CECB1300A3B298 /* DiaryListView.swift */; };
 		A3E3C94724CFC55D0009D4D2 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94624CFC55D0009D4D2 /* GameView.swift */; };
+		A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */; };
 		ACAA7300EDFD604F1759D338 /* Pods_RelayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		A3D7120F24CECA0600A3B298 /* DiaryFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryFinishView.swift; sourceTree = "<group>"; };
 		A3D7121124CECB1300A3B298 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
 		A3E3C94624CFC55D0009D4D2 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D4A52324C7064D00A93215 /* ManagerView.swift */,
+				A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */,
 				A3D4A50E24C7017600A93215 /* ContentView.swift in Sources */,
 				A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */,
+				A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */,
 				A3D4A50924C7017600A93215 /* SceneDelegate.swift in Sources */,
 				A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */,
 				A3D4867724C9667A00511354 /* RelayView.swift in Sources */,
