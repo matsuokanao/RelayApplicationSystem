@@ -9,13 +9,19 @@
 import SwiftUI
 
 struct ManagerView: View {
-    @State var show = false
-    @State var usereditshow = false
-    @State var diaryshow = false
+    @State var createshow = false
+    @State var questionshow = false
+    @State var makegameshow = false
+    @State var approveshow = false
+    @State var ordershow = false
+    @State var entryshow = false
+
     var body: some View {
-        VStack{
+    
+    VStack{
+        ScrollView{
             HStack{
-                Text("HOME")
+                Text("大会関係者専用ページ")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("blackcolor"))
@@ -23,34 +29,102 @@ struct ManagerView: View {
                     Spacer(minLength: 0)
                 }
                     .padding(.horizontal)
-                        
-    //1段目
+   
+            //1段目
+                HStack{
+                //ユーザー情報
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20,
+                                        style: .continuous)
+                            .fill(Color("green1"))
+                            .frame(width:170,height: 150)
+                    VStack{
+                        Image(systemName: "faceid")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.white.opacity(0.12))
+                                                .clipShape(Circle())
+                        Text("運営団体情報を")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            
+                        Text("入力する")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    Button(action: {
+                                    self.createshow.toggle()
+                                }){
+                        Text("開く")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .sheet(isPresented: $createshow){
+                        ManagerCreateView()
+                        }
+                    }
+                }
+            }
+                                    
+            //ユーザー情報編集
+                ZStack{
+                    RoundedRectangle(cornerRadius: 20,
+                                     style: .continuous)
+                        .fill(Color("green2"))
+                        .frame(width:170,height: 150)
+                VStack{
+                    Image(systemName: "questionmark.circle.fill")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.white.opacity(0.12))
+                        .clipShape(Circle())
+                    Text("分からない事がありますか？")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(width:170,height:60)
+                Button(action: {
+                                self.questionshow.toggle()
+                            }){
+                    Text("ページの説明")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .sheet(isPresented: $questionshow){
+                                    ManagerQuestion()
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+            
+            
+            
+    //2段目
     HStack{
     //ユーザー情報
         ZStack{
             RoundedRectangle(cornerRadius: 20,
                             style: .continuous)
-                .fill(Color("red"))
+                .fill(Color("green3"))
                 .frame(width:170,height: 150)
         VStack{
-            Image(systemName: "faceid")
+            Image(systemName: "pencil")
                 .foregroundColor(.white)
                 .padding()
                 .background(Color.white.opacity(0.12))
                                     .clipShape(Circle())
-            Text("まずは自分の情報を登録しましょう")
+            Text("試合を作成する")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .frame(width:170,height:60)
                                     
         Button(action: {
-                        self.show.toggle()
+                        self.makegameshow.toggle()
                     }){
-            Text("ユーザー登録")
+            Text("開く")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .sheet(isPresented: $show){
-            UserCreateView()
+                    .sheet(isPresented: $makegameshow){
+            MakeGameView()
             }
         }
     }
@@ -60,43 +134,43 @@ struct ManagerView: View {
     ZStack{
         RoundedRectangle(cornerRadius: 20,
                          style: .continuous)
-            .fill(Color("skyblue"))
+            .fill(Color("green4"))
             .frame(width:170,height: 150)
     VStack{
-        Image(systemName: "book.fill")
+        Image(systemName: "hand.thumbsup.fill")
             .foregroundColor(.white)
             .padding()
             .background(Color.white.opacity(0.12))
             .clipShape(Circle())
-        Text("ユーザー情報")
+        Text("エントリーを")
             .fontWeight(.bold)
             .foregroundColor(.white)
                                     
-        Text("閲覧と編集")
+        Text("承認する")
             .fontWeight(.bold)
             .foregroundColor(.white)
                                                     
     Button(action: {
-                    self.usereditshow.toggle()
+                    self.approveshow.toggle()
                 }){
         Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .sheet(isPresented: $usereditshow){
-                        UserEditView()
+            .sheet(isPresented: $approveshow){
+                        ApproveView()
                 }
             }
         }
     }
 }
                         
-                       //2段目
+    //3段目
     HStack{
                 //
         ZStack{
             RoundedRectangle(cornerRadius: 20,
                 style: .continuous)
-                    .fill(Color("whiteorange"))
+                    .fill(Color("green5"))
                     .frame(width:170,height: 150)
         VStack{
             Image(systemName: "person.3.fill")
@@ -104,22 +178,21 @@ struct ManagerView: View {
                 .padding()
                 .background(Color.white.opacity(0.12))
                 .clipShape(Circle())
-            Text("陸上日記")
+            Text("リレーの")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-            Text("今日の練習、試合はどうでしたか？")
+            Text("オーダーリスト")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-                .frame(width:170,height:60)
-
+                
         Button(action: {
-                    self.diaryshow.toggle()
+                    self.ordershow.toggle()
                     }){
             Text("開く")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-                .sheet(isPresented: $diaryshow){
-                        DiaryView()
+                .sheet(isPresented: $ordershow){
+                        OrderListView()
             }
         }
     }
@@ -128,23 +201,30 @@ struct ManagerView: View {
                 //
         RoundedRectangle(cornerRadius: 20,
                             style: .continuous)
-                .fill(Color("green"))
+                .fill(Color("green6"))
                 .frame(width:170,height: 150)
     VStack{
-        Image(systemName: "tray.and.arrow.up.fill")
+        Image(systemName: "book.fill")
             .foregroundColor(.white)
             .padding()
             .background(Color.white.opacity(0.12))
             .clipShape(Circle())
-        Text("ログアウトしますか？")
+        Text("試合の")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .frame(width:100,height:60)
+        Text("エントリーリスト")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
     Button(action: {
-                            }){
-        Text("ログアウトする")
+        self.entryshow.toggle()
+                    }){
+        Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
+            .sheet(isPresented: $entryshow){
+                EntryListView()
+                                }
+                            }
                         }
                     }
                 }

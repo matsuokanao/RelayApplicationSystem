@@ -19,14 +19,14 @@ struct DiaryFinishView: View {
             .frame(height: 15)
                                     
         Text("編集完了！！")
-            .foregroundColor(Color("whiteorange"))
+            .foregroundColor(Color("red3"))
             .font(.title)
             .fontWeight(.bold)
                         
         Text("・編集したユーザーの情報はHOME画面の「ユーザー情報確認画面」にてご確認できます。")
             .fontWeight(.bold)
         Text("トラブル防止の為、パスワードの管理には十分お気をつけください。また、パスワードは定期的にご変更ください。")
-            .foregroundColor(Color("whiteorange"))
+            .foregroundColor(Color("red3"))
             .fontWeight(.bold)
 
                                             
@@ -40,7 +40,7 @@ struct DiaryFinishView: View {
         .padding(.vertical)
         .frame(width: UIScreen.main.bounds.width - 50)
             }
-        .background(Color("whiteorange"))
+        .background(Color("red3"))
         .cornerRadius(10)
         .padding(.top, 25)
 

@@ -2,152 +2,155 @@
 //  GameView.swift
 //  RelayApplication
 //
-//  Created by 松岡奈央 on 2020/07/28.
+//  Created by 松岡奈央 on 2020/07/23.
 //  Copyright © 2020 松岡奈央. All rights reserved.
 //
 
 import SwiftUI
 
 struct GameView: View {
-    
     @State var show = false
     @State var usereditshow = false
     @State var diaryshow = false
-    
+
     var body: some View {
         VStack{
+        ScrollView{
             HStack{
-                Text("HOME")
+                Text("試合")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("blackcolor"))
-                                
-                    Spacer(minLength: 0)
-                }
-                    .padding(.horizontal)
-                            
-    //1段目
-    HStack{
-    //ユーザー情報
-        ZStack{
-            RoundedRectangle(cornerRadius: 20,
-                            style: .continuous)
-                .fill(Color("red"))
-                .frame(width:170,height: 150)
-    VStack{
-        Image(systemName: "faceid")
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.white.opacity(0.12))
-            .clipShape(Circle())
-        Text("まずは自分の情報を登録しましょう")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-            .frame(width:170,height:60)
-                                        
-    Button(action: {
-                    self.show.toggle()
-                        }){
-        Text("ユーザー登録")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-                .sheet(isPresented: $show){
-            UserCreateView()
+                    
+                Spacer(minLength: 0)
             }
-        }
-    }
-}
+            .padding(.horizontal)
+                
+        //1段目
+        HStack{
+            //ユーザー情報
+            ZStack{
+                RoundedRectangle(cornerRadius: 20,
+                                 style: .continuous)
+                    .fill(Color("blue1"))
+                    .frame(width:170,height: 150)
+                VStack{
+                    Image(systemName: "flame.fill")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.white.opacity(0.12))
+                            .clipShape(Circle())
+                    Text("試合に申し込もう！")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(width:170,height:60)
                             
-                    //ユーザー情報編集
+            Button(action: {
+                self.show.toggle()
+            }){
+                Text("申し込む")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .sheet(isPresented: $show){
+                UserCreateView()
+                        }
+                    }
+                }
+            }
+                
+        //ユーザー情報編集
     ZStack{
         RoundedRectangle(cornerRadius: 20,
                         style: .continuous)
-            .fill(Color("skyblue"))
-            .frame(width:170,height: 150)
+                .fill(Color("blue2"))
+                .frame(width:170,height: 150)
     VStack{
-        Image(systemName: "book.fill")
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.white.opacity(0.12))
-            .clipShape(Circle())
-        Text("ユーザー情報")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-                                        
-        Text("閲覧と編集")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-                                                        
-    Button(action: {
-                    self.usereditshow.toggle()
-                    }){
-        Text("開く")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-            .sheet(isPresented: $usereditshow){
-                        UserEditView()
-                }
-            }
-        }
-    }
-}
-                            
-    //2段目
-    HStack{
-    //
-        ZStack{
-            RoundedRectangle(cornerRadius: 20,
-                style: .continuous)
-                    .fill(Color("whiteorange"))
-                    .frame(width:170,height: 150)
-        VStack{
-            Image(systemName: "person.3.fill")
+            Image(systemName: "book.fill")
                 .foregroundColor(.white)
                 .padding()
                 .background(Color.white.opacity(0.12))
                 .clipShape(Circle())
-            Text("陸上日記")
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-            Text("今日の練習、試合はどうでしたか？")
+            Text("試合申し込みリスト")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .frame(width:170,height:60)
-
+                                            
     Button(action: {
-                    self.diaryshow.toggle()
-                        }){
+                    self.usereditshow.toggle()
+                }){
         Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .sheet(isPresented: $diaryshow){
-                        DiaryView()
+            .sheet(isPresented: $usereditshow){
+                UserEditView()
+                }
             }
         }
     }
 }
-        
-    ZStack{
-    //
-        RoundedRectangle(cornerRadius: 20,
-                         style: .continuous)
-            .fill(Color("green"))
-            .frame(width:170,height: 150)
+                
+               //2段目
+    HStack{
+        //
+        ZStack{
+            RoundedRectangle(cornerRadius: 20,
+                style: .continuous)
+                    .fill(Color("blue3"))
+                    .frame(width:170,height: 150)
     VStack{
-        Image(systemName: "tray.and.arrow.up.fill")
+        Image(systemName: "hare.fill")
             .foregroundColor(.white)
             .padding()
             .background(Color.white.opacity(0.12))
             .clipShape(Circle())
-        Text("ログアウトしますか？")
+        Text("記録表")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .frame(width:100,height:60)
+        Text("試合の結果を")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+        Text("まとめよう")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+
     Button(action: {
-                        }){
-        Text("ログアウトする")
+            self.diaryshow.toggle()
+            }){
+        Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
+            .sheet(isPresented: $diaryshow){
+                DiaryView()
+            }
+        }
+    }
+}
+    ZStack{
+        //
+        RoundedRectangle(cornerRadius: 20,
+                            style: .continuous)
+                .fill(Color("blue4"))
+                .frame(width:170,height: 150)
+            VStack{
+                Image(systemName: "questionmark.circle.fill")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.white.opacity(0.12))
+                                .clipShape(Circle())
+            Text("分からない事がありますか？")
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .frame(width:140,height:50)
+        Button(action: {
+                self.diaryshow.toggle()
+                }){
+            Text("試合ページの説明")
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .sheet(isPresented: $diaryshow){
+                    DiaryView()
+                                }
+                            }
                         }
                     }
                 }

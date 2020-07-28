@@ -15,7 +15,7 @@ struct UserEditView: View {
     
     var body: some View {
         ZStack{
-        Color("skyblue")
+        Color("red2")
             .edgesIgnoringSafeArea(.all)
         VStack{
             ForEach(self.userdata.data,id: \.id){i in
@@ -46,14 +46,14 @@ struct UserEditView_Previews: PreviewProvider {
             List{
                 HStack {
                     Image(systemName: "person.fill")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.username)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata, name: "username")
                         }
@@ -68,7 +68,7 @@ struct UserEditView_Previews: PreviewProvider {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "jaaf")
                         }
@@ -76,14 +76,14 @@ struct UserEditView_Previews: PreviewProvider {
                     
                     HStack {
                     Image(systemName: "person.3.fill")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.belong)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "belong")
                         }
@@ -91,14 +91,14 @@ struct UserEditView_Previews: PreviewProvider {
                     
                     HStack {
                     Image(systemName: "rosette")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.ceo)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "ceo")
                         }
@@ -106,14 +106,14 @@ struct UserEditView_Previews: PreviewProvider {
                     
                     HStack {
                     Image(systemName: "envelope.fill")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.email)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "email")
                         }
@@ -121,14 +121,14 @@ struct UserEditView_Previews: PreviewProvider {
                     
                     HStack {
                     Image(systemName: "phone.fill")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.phonenumber)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "phonenumber")
                         }
@@ -136,14 +136,14 @@ struct UserEditView_Previews: PreviewProvider {
                     
                     HStack {
                     Image(systemName: "folder.fill.badge.person.crop")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.userpass)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "userpass")
                         }
@@ -151,14 +151,14 @@ struct UserEditView_Previews: PreviewProvider {
 
                     HStack {
                     Image(systemName: "flag.fill")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.belongpass)
                         Spacer()
                         Button(action: {
                             self.show.toggle()
                                 }) {
                         Image(systemName: "play.fill")
-                                .foregroundColor(Color("skyblue"))
+                                .foregroundColor(Color("red2"))
                                 }.sheet(isPresented: self.$show) {
                                 UserEditPracticeView(userdata: self.userdata,name: "belongpass")
                         }
@@ -181,11 +181,11 @@ var body: some View {
     Text("変更内容を入力して下さい")
         .font(.headline)
         .fontWeight(.heavy)
-        .foregroundColor(Color("skyblue"))
+        .foregroundColor(Color("red2"))
         
     TextField("変更内容", text: self.$edit)
         .textFieldStyle(RoundedBorderTextFieldStyle())
-        .background(Color("skyblue"))
+        .background(Color("red2"))
         
     Button(action: {
         self.show.toggle()
@@ -207,7 +207,7 @@ var body: some View {
             .sheet(isPresented: $show){
                 UserEditFinishView()
                         }
-                    }.background(Color("skyblue"))
+                    }.background(Color("red2"))
                     .foregroundColor(.white)
                     .cornerRadius(10)
         }.frame(width: 300, height: 500)

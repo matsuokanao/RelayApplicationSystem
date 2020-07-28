@@ -18,14 +18,14 @@ struct UserEditFinishView: View {
                         Spacer().frame(height: 15)
                             
             Text("編集完了！！")
-                .foregroundColor(Color("skyblue"))
+                .foregroundColor(Color("red2"))
                 .font(.title)
                 .fontWeight(.bold)
                 
             Text("・編集したユーザーの情報はHOME画面の「ユーザー情報確認画面」にてご確認できます。")
                 .fontWeight(.bold)
             Text("トラブル防止の為、パスワードの管理には十分お気をつけください。また、パスワードは定期的にご変更ください。")
-                .foregroundColor(Color("skyblue"))
+                .foregroundColor(Color("red2"))
                 .fontWeight(.bold)
 
                                     
@@ -39,7 +39,7 @@ struct UserEditFinishView: View {
                 .padding(.vertical)
                 .frame(width: UIScreen.main.bounds.width - 50)
             }
-            .background(Color("skyblue"))
+            .background(Color("red2"))
             .cornerRadius(10)
             .padding(.top, 25)
 

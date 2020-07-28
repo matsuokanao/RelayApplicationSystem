@@ -17,6 +17,7 @@ struct Homescreen: View {
     
     var body: some View {
         VStack{
+        ScrollView{
             HStack{
             Text("HOME")
                     .font(.title)
@@ -33,7 +34,7 @@ struct Homescreen: View {
             ZStack{
             RoundedRectangle(cornerRadius: 20,
                              style: .continuous)
-                .fill(Color("red"))
+                .fill(Color("red1"))
                 .frame(width:170,height: 150)
                 VStack{
                     Image(systemName: "faceid")
@@ -63,7 +64,7 @@ struct Homescreen: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 20,
                                  style: .continuous)
-                    .fill(Color("skyblue"))
+                    .fill(Color("red2"))
                     .frame(width:170,height: 150)
                 VStack{
                     Image(systemName: "book.fill")
@@ -99,7 +100,7 @@ struct Homescreen: View {
         ZStack{
             RoundedRectangle(cornerRadius: 20,
                 style: .continuous)
-                    .fill(Color("whiteorange"))
+                    .fill(Color("red3"))
                     .frame(width:170,height: 150)
             VStack{
                 Image(systemName: "person.3.fill")
@@ -131,7 +132,7 @@ struct Homescreen: View {
                     //
                     RoundedRectangle(cornerRadius: 20,
                                      style: .continuous)
-                        .fill(Color("green"))
+                        .fill(Color("red4"))
                         .frame(width:170,height: 150)
                     VStack{
                     Image(systemName: "tray.and.arrow.up.fill")
@@ -152,7 +153,7 @@ struct Homescreen: View {
                     Text("ログアウトする")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                    
+                            }
                         }
                     }
                 }

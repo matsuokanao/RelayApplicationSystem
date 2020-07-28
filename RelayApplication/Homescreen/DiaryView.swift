@@ -62,12 +62,12 @@ struct DiaryCellView: View {
             .fontWeight(.bold)
             .foregroundColor(.white)
         }.frame(width:500,height: 100)
-            .background(Color("whiteorange"))
+            .background(Color("red3"))
         ScrollView{
             VStack(alignment: .leading, spacing: 20){
                 HStack{
                 Image(systemName: "calendar")
-                        .foregroundColor(Color("whiteorange"))
+                        .foregroundColor(Color("red3"))
                 Text("日付")
                     Spacer()
                 Button(action: {
@@ -79,7 +79,7 @@ struct DiaryCellView: View {
                         .sheet(isPresented: $show){
                             DiaryListView()
                                     }
-                                }.background(Color("whiteorange"))
+                                }.background(Color("red3"))
                                 .foregroundColor(.white)
 
                 }
@@ -87,42 +87,42 @@ struct DiaryCellView: View {
             TextField("", text: self.$year)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("whiteorange"))
+                    .background(Color("red3"))
             Text("年")
                 
             TextField("", text: self.$month)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("whiteorange"))
+                    .background(Color("red3"))
             Text("月")
                 
             TextField("", text: self.$day)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("whiteorange"))
+                    .background(Color("red3"))
             Text("日")
                     }
             HStack{
                 Image(systemName: "sun.max.fill")
-                        .foregroundColor(Color("whiteorange"))
+                        .foregroundColor(Color("red3"))
             Text("天気")
             TextField("", text: self.$weather)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("whiteorange"))
+                    .background(Color("red3"))
               
                 
             Image(systemName: "heart.fill")
-                .foregroundColor(Color("whiteorange"))
+                .foregroundColor(Color("red3"))
             Text("気持ち")
             TextField("", text: self.$mental)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("whiteorange"))
+                .background(Color("red3"))
                     }
             HStack{
                 Image(systemName: "sparkles")
-                .foregroundColor(Color("whiteorange"))
+                .foregroundColor(Color("red3"))
                 Text("項目（大会名や題名など）")
                 }
                 
@@ -131,11 +131,11 @@ struct DiaryCellView: View {
             TextField("", text: self.$tournamentname)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("whiteorange"))
+                .background(Color("red3"))
                 }
                 HStack{
                     Image(systemName: "book.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
                     Text("気持ち")
                     }
                 VStack{
@@ -165,7 +165,7 @@ struct DiaryCellView: View {
                         .foregroundColor(Color.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 50)
-                        .background(Color("whiteorange"))
+                        .background(Color("red3"))
                         .cornerRadius(30)
                         .padding(.top, 10)
 

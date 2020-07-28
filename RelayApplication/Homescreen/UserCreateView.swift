@@ -35,7 +35,7 @@ struct UserCreateView: View {
     var body: some View {
 
         ZStack{
-            Color("red")
+            Color("red1")
             .edgesIgnoringSafeArea(.all)
     //画面スクロール処理
     ScrollView(.vertical){
@@ -160,7 +160,7 @@ struct UserCreateView: View {
             }){
                 Text("登録する")
                     .fontWeight(.bold)
-                    .foregroundColor(Color("red"))
+                    .foregroundColor(Color("red1"))
                     .padding(.vertical)
                     .padding(.horizontal,45)
                     .background(Color.white)

@@ -20,7 +20,7 @@ struct DiaryListView: View {
     
         var body: some View {
             ZStack{
-            Color("whiteorange")
+            Color("red3")
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
                 Text("日付の日付を入力して下さい")
@@ -30,7 +30,7 @@ struct DiaryListView: View {
                     TextField("", text: self.$year)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(Color("whiteorange"))
+                        .background(Color("red3"))
                     Text("年")
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
@@ -39,7 +39,7 @@ struct DiaryListView: View {
                     TextField("", text: self.$month)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(Color("whiteorange"))
+                        .background(Color("red3"))
                     Text("月")
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
@@ -48,7 +48,7 @@ struct DiaryListView: View {
                     TextField("", text: self.$day)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(Color("whiteorange"))
+                        .background(Color("red3"))
                 Text("日")
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
@@ -84,14 +84,14 @@ struct DiaryListCellView: View {
             if diary.year == self.year {
                 HStack {
                 Image(systemName: "circle.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
                                 Text(diary.diary)
                     Spacer()
                     Button(action: {
                         self.show.toggle()
                             }) {
                     Image(systemName: "play.fill")
-                            .foregroundColor(Color("whiteorange"))
+                            .foregroundColor(Color("red3"))
                             }.sheet(isPresented: self.$show) {
                                 DiaryListOpenView(diary: self.diary)                    }
                 }
@@ -100,14 +100,14 @@ struct DiaryListCellView: View {
             } else if diary.month == self.month{
                 HStack {
                 Image(systemName: "circle.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
                 Text(diary.diary)
                     Spacer()
                 Button(action: {
                         self.show.toggle()
                             }) {
                 Image(systemName: "play.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
                         }.sheet(isPresented: self.$show) {
                     DiaryListOpenView(diary: self.diary)                    }
                     }
@@ -116,14 +116,14 @@ struct DiaryListCellView: View {
                 } else if diary.day == self.day {
                 HStack {
                 Image(systemName: "circle.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
                 Text(diary.diary)
                     Spacer()
                 Button(action: {
                         self.show.toggle()
                             }) {
                 Image(systemName: "play.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
                         }.sheet(isPresented: self.$show) {
                     DiaryListOpenView(diary: self.diary)                    }
                         }
@@ -142,49 +142,46 @@ struct DiaryListOpenView: View {
         VStack(spacing: 20){
             HStack{
             Image(systemName: "calendar")
-                    .foregroundColor(Color("whiteorange"))
+                .foregroundColor(Color("red3"))
             Text("日付")
             }
             HStack{
                 Text(diary.year)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("whiteorange"))
-        Text("年")
+            Text("年")
             
                 Text(diary.month)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("whiteorange"))
+
         Text("月")
             
                 Text(diary.day)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("whiteorange"))
+
         Text("日")
                 }
         HStack{
             Image(systemName: "sun.max.fill")
-                    .foregroundColor(Color("whiteorange"))
+                    .foregroundColor(Color("red3"))
         Text("天気")
             Text(diary.weather)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("whiteorange"))
-          
             
         Image(systemName: "heart.fill")
-            .foregroundColor(Color("whiteorange"))
+            .foregroundColor(Color("red3"))
         Text("気持ち")
             Text(diary.mental)
             .keyboardType(.numberPad)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .background(Color("whiteorange"))
+            
                 }
         HStack{
             Image(systemName: "sparkles")
-            .foregroundColor(Color("whiteorange"))
+            .foregroundColor(Color("red3"))
             Text("項目（大会名や題名など）")
             }
             
@@ -193,11 +190,10 @@ struct DiaryListOpenView: View {
             Text(diary.tournamentname)
             .keyboardType(.numberPad)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .background(Color("whiteorange"))
             }
             HStack{
                 Image(systemName: "book.fill")
-                .foregroundColor(Color("whiteorange"))
+                .foregroundColor(Color("red3"))
                 Text("気持ち")
                 }
             VStack{

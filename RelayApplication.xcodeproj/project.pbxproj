@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */; };
+		A38629F324CFFA87004D4155 /* MakeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629F224CFFA87004D4155 /* MakeGameView.swift */; };
+		A38629F524CFFAF7004D4155 /* ApproveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629F424CFFAF7004D4155 /* ApproveView.swift */; };
+		A38629F724CFFB67004D4155 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629F624CFFB67004D4155 /* OrderListView.swift */; };
+		A38629F924CFFC02004D4155 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629F824CFFC02004D4155 /* EntryListView.swift */; };
+		A38629FB24D00746004D4155 /* ManagerCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629FA24D00746004D4155 /* ManagerCreateView.swift */; };
+		A38629FD24D007BC004D4155 /* ManagerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629FC24D007BC004D4155 /* ManagerQuestion.swift */; };
 		A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */; };
 		A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DF24CD846700211BB9 /* DiaryView.swift */; };
 		A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */; };
@@ -15,7 +21,7 @@
 		A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* diarydatabase.swift */; };
 		A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AC24CAD2DC00553216 /* UserEditView.swift */; };
 		A3D4867424C9395100511354 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867324C9395100511354 /* WelcomeView.swift */; };
-		A3D4867724C9667A00511354 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* RelayView.swift */; };
+		A3D4867724C9667A00511354 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* GameView.swift */; };
 		A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867924C96AB500511354 /* userdatabase.swift */; };
 		A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867F24C99F8A00511354 /* UserCreateView.swift */; };
 		A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A50624C7017600A93215 /* AppDelegate.swift */; };
@@ -33,7 +39,7 @@
 		A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52924C7078600A93215 /* SingUpView.swift */; };
 		A3D7121024CECA0600A3B298 /* DiaryFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7120F24CECA0600A3B298 /* DiaryFinishView.swift */; };
 		A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7121124CECB1300A3B298 /* DiaryListView.swift */; };
-		A3E3C94724CFC55D0009D4D2 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94624CFC55D0009D4D2 /* GameView.swift */; };
+		A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94624CFC55D0009D4D2 /* RelayView.swift */; };
 		A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */; };
 		ACAA7300EDFD604F1759D338 /* Pods_RelayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +49,12 @@
 		52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RelayApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A773736354E286946E6B8FA /* Pods-RelayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RelayApplication.release.xcconfig"; path = "Target Support Files/Pods-RelayApplication/Pods-RelayApplication.release.xcconfig"; sourceTree = "<group>"; };
 		A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamedatabase.swift; sourceTree = "<group>"; };
+		A38629F224CFFA87004D4155 /* MakeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeGameView.swift; sourceTree = "<group>"; };
+		A38629F424CFFAF7004D4155 /* ApproveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveView.swift; sourceTree = "<group>"; };
+		A38629F624CFFB67004D4155 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		A38629F824CFFC02004D4155 /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
+		A38629FA24D00746004D4155 /* ManagerCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerCreateView.swift; sourceTree = "<group>"; };
+		A38629FC24D007BC004D4155 /* ManagerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerQuestion.swift; sourceTree = "<group>"; };
 		A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditFinishView.swift; sourceTree = "<group>"; };
 		A3ACD7DF24CD846700211BB9 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authoritydatabase.swift; sourceTree = "<group>"; };
@@ -50,7 +62,7 @@
 		A3BA94AA24CAD1D100553216 /* diarydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diarydatabase.swift; sourceTree = "<group>"; };
 		A3BA94AC24CAD2DC00553216 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		A3D4867324C9395100511354 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		A3D4867624C9667A00511354 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
+		A3D4867624C9667A00511354 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A3D4867924C96AB500511354 /* userdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userdatabase.swift; sourceTree = "<group>"; };
 		A3D4867F24C99F8A00511354 /* UserCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateView.swift; sourceTree = "<group>"; };
 		A3D4A50324C7017600A93215 /* RelayApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelayApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +82,7 @@
 		A3D4A52924C7078600A93215 /* SingUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpView.swift; sourceTree = "<group>"; };
 		A3D7120F24CECA0600A3B298 /* DiaryFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryFinishView.swift; sourceTree = "<group>"; };
 		A3D7121124CECB1300A3B298 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
-		A3E3C94624CFC55D0009D4D2 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A3E3C94624CFC55D0009D4D2 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
 		A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +101,7 @@
 		A387D7AB24CC61E7007A46AD /* Relay */ = {
 			isa = PBXGroup;
 			children = (
-				A3D4867624C9667A00511354 /* RelayView.swift */,
+				A3E3C94624CFC55D0009D4D2 /* RelayView.swift */,
 			);
 			path = Relay;
 			sourceTree = "<group>";
@@ -97,8 +109,14 @@
 		A387D7AC24CC61F9007A46AD /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				A3D4A52324C7064D00A93215 /* ManagerView.swift */,
 				A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */,
+				A3D4A52324C7064D00A93215 /* ManagerView.swift */,
+				A38629FA24D00746004D4155 /* ManagerCreateView.swift */,
+				A38629F224CFFA87004D4155 /* MakeGameView.swift */,
+				A38629F424CFFAF7004D4155 /* ApproveView.swift */,
+				A38629F624CFFB67004D4155 /* OrderListView.swift */,
+				A38629F824CFFC02004D4155 /* EntryListView.swift */,
+				A38629FC24D007BC004D4155 /* ManagerQuestion.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -207,7 +225,7 @@
 		A3E3C94524CFC53F0009D4D2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				A3E3C94624CFC55D0009D4D2 /* GameView.swift */,
+				A3D4867624C9667A00511354 /* GameView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -346,27 +364,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */,
+				A38629F324CFFA87004D4155 /* MakeGameView.swift in Sources */,
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
+				A38629FB24D00746004D4155 /* ManagerCreateView.swift in Sources */,
 				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
 				A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */,
 				A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */,
+				A38629F924CFFC02004D4155 /* EntryListView.swift in Sources */,
+				A38629FD24D007BC004D4155 /* ManagerQuestion.swift in Sources */,
 				A3D4A50E24C7017600A93215 /* ContentView.swift in Sources */,
 				A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */,
 				A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */,
 				A3D4A50924C7017600A93215 /* SceneDelegate.swift in Sources */,
 				A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */,
-				A3D4867724C9667A00511354 /* RelayView.swift in Sources */,
+				A3D4867724C9667A00511354 /* GameView.swift in Sources */,
 				A3D4867424C9395100511354 /* WelcomeView.swift in Sources */,
-				A3E3C94724CFC55D0009D4D2 /* GameView.swift in Sources */,
+				A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
 				A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */,
 				A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */,
 				A3D7121024CECA0600A3B298 /* DiaryFinishView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
+				A38629F524CFFAF7004D4155 /* ApproveView.swift in Sources */,
 				A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */,
 				A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */,
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
+				A38629F724CFFB67004D4155 /* OrderListView.swift in Sources */,
 				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,
 				A3D4A52024C705D700A93215 /* HandlingView.swift in Sources */,
 			);

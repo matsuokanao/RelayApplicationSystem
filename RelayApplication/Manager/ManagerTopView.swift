@@ -17,7 +17,7 @@ struct ManagerTopView: View {
     var body: some View {
         VStack(spacing:10){
             Text("大会関係者専用ページです！！")
-                .foregroundColor(.red)
+                .foregroundColor(Color("green1"))
                 .fontWeight(.heavy)
                 .font(.headline)
 
@@ -27,13 +27,15 @@ struct ManagerTopView: View {
                     Spacer().frame(height: 15)
                         
             Text("・大会関係者の方は指定されたパスワードを入力して下さい。")
+                .fontWeight(.heavy)
+                .foregroundColor(Color("green1"))
             TextField("1つ目のパスワードを入力して下さい", text: $firstPass)
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.firstPass != "" ? Color("PinkRed") : self.color,lineWidth:  2))
+                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.firstPass != "" ? Color("green1") : self.color,lineWidth:  2))
                         
             TextField("2つ目のパスワードを入力して下さい", text: $secondPass)
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.secondPass != "" ? Color("PinkRed") : self.color,lineWidth:  2))
+                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.secondPass != "" ? Color("green1") : self.color,lineWidth:  2))
                  
     if self.firstPass == "AAA" && self.secondPass == "BBB"{
         Button(action: {
@@ -46,7 +48,7 @@ struct ManagerTopView: View {
                 .sheet(isPresented: $show){
                         ManagerView()
                             }
-                        }.background(Color("PinkRed"))
+                        }.background(Color("green3"))
                         .cornerRadius(10)
                         .padding(.top, 25)
                         .foregroundColor(.white)
