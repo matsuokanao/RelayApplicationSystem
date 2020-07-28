@@ -24,7 +24,9 @@ var body: some View {
                     Homescreen()
                         .tabItem{ Text("HOME")}
                     RelayView()
-                        .tabItem{Text("試合に申し込む")}
+                        .tabItem{Text("試合")}
+                    GameView()
+                        .tabItem{ Text("リレー")}
                     ManagerView()
                         .tabItem{Text("大会関係者ページ")}
                 }

@@ -33,6 +33,7 @@ struct DiaryView_Previews: PreviewProvider {
 
 struct DiaryCellView: View {
     @State var show = false
+    @State var diaryfinishshow = false
     var authority : authority
     
     //日記内容
@@ -49,6 +50,7 @@ struct DiaryCellView: View {
     @State var mental = ""
     //大会名
     @State var tournamentname = ""
+    @State var alert = false
 
     var body: some View {
     VStack{
@@ -67,6 +69,19 @@ struct DiaryCellView: View {
                 Image(systemName: "calendar")
                         .foregroundColor(Color("whiteorange"))
                 Text("日付")
+                    Spacer()
+                Button(action: {
+                    self.show.toggle()
+                        }) {
+                    Text("日記一覧")
+                        .padding(.vertical)
+                        .frame(width: 100,height: 30)
+                        .sheet(isPresented: $show){
+                            DiaryListView()
+                                    }
+                                }.background(Color("whiteorange"))
+                                .foregroundColor(.white)
+
                 }
             HStack{
             TextField("", text: self.$year)
@@ -87,10 +102,123 @@ struct DiaryCellView: View {
                     .background(Color("whiteorange"))
             Text("日")
                     }
+            HStack{
+                Image(systemName: "sun.max.fill")
+                        .foregroundColor(Color("whiteorange"))
+            Text("天気")
+            TextField("", text: self.$weather)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("whiteorange"))
+              
+                
+            Image(systemName: "heart.fill")
+                .foregroundColor(Color("whiteorange"))
+            Text("気持ち")
+            TextField("", text: self.$mental)
+                .keyboardType(.numberPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .background(Color("whiteorange"))
+                    }
+            HStack{
+                Image(systemName: "sparkles")
+                .foregroundColor(Color("whiteorange"))
+                Text("項目（大会名や題名など）")
                 }
-            }.frame(width: 300, height: 600)
-        }
+                
+                
+            VStack{
+            TextField("", text: self.$tournamentname)
+                .keyboardType(.numberPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .background(Color("whiteorange"))
+                }
+                HStack{
+                    Image(systemName: "book.fill")
+                    .foregroundColor(Color("whiteorange"))
+                    Text("気持ち")
+                    }
+                VStack{
+                MultilineTextField(text: self.$diary)
+                    .frame(width: UIScreen.main.bounds.width * 0.8, height: 500)
+                    .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black))
+                    }
+                
+                
+                Button(action: {
+                    self.diaryfinishshow.toggle()
+                    let db = Firestore.firestore()
+                    let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname, "email": self.authority.email]
+                    //試合申し込み完了テーブルに入れる
+                    db.collection("diarylist")
+                        .addDocument(data:data)
+                            { (err) in
+                                if err != nil{
+                                    print((err?.localizedDescription)!)
+                                        return
+                            }
+                        }
+                }){
+                    Text("保存する")
+                        .foregroundColor(Color.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                        .background(Color("whiteorange"))
+                        .cornerRadius(30)
+                        .padding(.top, 10)
+
+                    .sheet(isPresented: $diaryfinishshow){
+                        DiaryFinishView()
+                        }
+                    }
+                }
+            }
+        }.frame(width: 300, height: 600)
     }
 }
 
-  
+
+
+// 複数行入力するためのTextField
+struct MultilineTextField: UIViewRepresentable {
+    @Binding var text: String
+
+    func makeUIView(context: Context) -> UITextView {
+        let view = UITextView()
+        view.delegate = context.coordinator
+        view.isScrollEnabled = true
+        view.isEditable = true
+        view.isUserInteractionEnabled = true
+        view.font = UIFont.systemFont(ofSize: 18)
+        return view
+    }
+
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        if uiView.text != text {
+            uiView.text = text
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator : NSObject, UITextViewDelegate {
+
+        var parent: MultilineTextField
+
+        init(_ textView: MultilineTextField) {
+            self.parent = textView
+        }
+
+        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            return true
+        }
+
+        func textViewDidChange(_ textView: UITextView) {
+            self.parent.text = textView.text
+        }
+    }
+}

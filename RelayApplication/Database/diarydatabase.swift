@@ -35,13 +35,12 @@ class getDiaryList : ObservableObject{
     
     init() {
         let db = Firestore.firestore()
-        db.collection("authority").getDocuments{ (snap, err) in
+        db.collection("diarylist").getDocuments{ (snap, err) in
             if err != nil{
                 print((err?.localizedDescription)!)
                 return
             }
             for i in snap!.documents{
-                
                 let id = i.documentID
                 let diary = i.get("diary") as! String
                 let year = i.get("year") as! String
