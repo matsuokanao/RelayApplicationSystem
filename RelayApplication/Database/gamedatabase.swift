@@ -11,9 +11,18 @@ import FirebaseFirestore
 
 
 struct gamelist: Identifiable {
-var id: String
-var gamename: String
-var place: String
+    var id: String
+    var gamename: String
+    var year: String
+    var month: String
+    var day: String
+    var place: String
+    var gamevenue: String
+    var png: String
+    var link: String
+    var groupname : String
+    var groupnum : String
+    var email : String
 }
 
 //読み込み
@@ -31,9 +40,18 @@ class getGamedataList : ObservableObject{
                 
                 let id = i.documentID
                 let gamename = i.get("gamename") as! String
+                let year = i.get("year") as! String
+                let month = i.get("month") as! String
+                let day = i.get("day") as! String
                 let place = i.get("place") as! String
-                
-                self.data.append(gamelist(id: id, gamename: gamename, place: place))
+                let gamevenue = i.get("gamevenue") as! String
+                let png = i.get("png") as! String
+                let link = i.get("link") as! String
+                let groupname = i.get("groupname") as! String
+                let groupnum = i.get("groupnum") as! String
+                let email = i.get("email") as! String
+
+                self.data.append(gamelist(id: id, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, png: png, link: link, groupname: groupname, groupnum: groupnum, email: email))
             }
         }
     }

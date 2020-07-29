@@ -10,7 +10,7 @@ import SwiftUI
 import Firebase
 
 struct ManagerCreateView: View {
-    @State var show = false
+    @State var showAlert = false
     //団体名
     @State var groupname = ""
     //団体番号
@@ -54,6 +54,7 @@ struct ManagerCreateView: View {
                         .padding(.top,10)
                 VStack{
                     TextField("登録陸連", text: $groupnum)
+                        .keyboardType(.numberPad)
                         .foregroundColor(.white)
                         Divider()
                             .background(Color.white)
@@ -85,11 +86,11 @@ struct ManagerCreateView: View {
                 HStack{
                         Spacer()
                     Button(action: {
-                        self.show.toggle()
+                        self.showAlert = true
                         let db = Firestore.firestore()
                         let data: [String : Any] = ["groupname": self.groupnum,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]                        //試合申し込み完了テーブルに入れる
-                        db.collection("userlist")
-                            .document(self.groupnum)
+                        db.collection("managerlist")
+                            .document(self.email)
                             .setData(data)
                                 { (err) in
                                     if err != nil{
@@ -106,11 +107,11 @@ struct ManagerCreateView: View {
                             .background(Color.white)
                             .clipShape(Capsule())
                             
-                        .sheet(isPresented: $show){
-                            UserCreateFinishView()
-                    
-                            }
-                        }
+                    }.alert(isPresented: $showAlert){
+                        Alert(title: Text("保存完了！"),
+                              message: Text("内容を保存しました。"),
+                              dismissButton: .default(Text("わかりました")))
+                    }
                         Spacer()
                     }
                 }

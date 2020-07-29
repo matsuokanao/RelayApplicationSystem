@@ -12,11 +12,15 @@ import FirebaseFirestore
 struct UserEditView: View {
     @ObservedObject var authority = getAuthorityList()
     @ObservedObject var userdata = getUserdataList()
-    
+        
     var body: some View {
         ZStack{
         Color("red2")
             .edgesIgnoringSafeArea(.all)
+            Text("ユーザー情報が見つかりません")
+            .font(.title)
+            .fontWeight(.bold)
+            .foregroundColor(Color.white)
         VStack{
             ForEach(self.userdata.data,id: \.id){i in
                 ForEach(self.authority.data,id: \.id){a in
@@ -61,7 +65,7 @@ struct UserEditView_Previews: PreviewProvider {
                     
                     HStack {
                     Image(systemName: "flame.fill")
-                        .foregroundColor(Color("skyblue"))
+                        .foregroundColor(Color("red2"))
                     Text(userdata.jaaf)
                         Spacer()
                         Button(action: {

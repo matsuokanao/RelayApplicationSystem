@@ -15,6 +15,7 @@ struct ManagerView: View {
     @State var approveshow = false
     @State var ordershow = false
     @State var entryshow = false
+    @State var gameeditshow = false
 
     var body: some View {
     
@@ -163,8 +164,78 @@ struct ManagerView: View {
         }
     }
 }
+            
+            
+//3段目
+    HStack{
+//ユーザー情報
+        ZStack{
+                RoundedRectangle(cornerRadius: 20,
+                                style: .continuous)
+                    .fill(Color("green7"))
+                    .frame(width:170,height: 150)
+        VStack{
+            Image(systemName: "pencil")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.white.opacity(0.12))
+                                                .clipShape(Circle())
+            Text("試合情報を")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            Text("閲覧、編集する")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+
+        Button(action: {
+                        self.gameeditshow.toggle()
+                                }){
+            Text("開く")
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .sheet(isPresented: $gameeditshow){
+                    GameEditView()
+            }
+        }
+    }
+}
+        
+//ユーザー情報編集
+        ZStack{
+            RoundedRectangle(cornerRadius: 20,
+                            style: .continuous)
+                        .fill(Color("green8"))
+                        .frame(width:170,height: 150)
+                VStack{
+                    Image(systemName: "hand.thumbsup.fill")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.white.opacity(0.12))
+                        .clipShape(Circle())
+                    Text("営業団体情報を")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                                                
+                    Text("閲覧する")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                                                                
+                Button(action: {
+                                self.approveshow.toggle()
+                            }){
+                    Text("開く")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .sheet(isPresented: $approveshow){
+                                    ManagerEditView()
+                }
+            }
+        }
+    }
+}
+
                         
-    //3段目
+    //4段目
     HStack{
                 //
         ZStack{
