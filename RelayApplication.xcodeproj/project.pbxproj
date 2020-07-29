@@ -16,6 +16,7 @@
 		A38629FD24D007BC004D4155 /* ManagerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629FC24D007BC004D4155 /* ManagerQuestion.swift */; };
 		A38629FF24D00C0B004D4155 /* managerdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38629FE24D00C0B004D4155 /* managerdatabase.swift */; };
 		A38CA31C24D1832B0092592D /* ManagerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CA31B24D1832B0092592D /* ManagerEditView.swift */; };
+		A38CA31E24D18BEB0092592D /* GameApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CA31D24D18BEB0092592D /* GameApplicationView.swift */; };
 		A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */; };
 		A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DF24CD846700211BB9 /* DiaryView.swift */; };
 		A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */; };
@@ -60,6 +61,7 @@
 		A38629FC24D007BC004D4155 /* ManagerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerQuestion.swift; sourceTree = "<group>"; };
 		A38629FE24D00C0B004D4155 /* managerdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = managerdatabase.swift; sourceTree = "<group>"; };
 		A38CA31B24D1832B0092592D /* ManagerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerEditView.swift; sourceTree = "<group>"; };
+		A38CA31D24D18BEB0092592D /* GameApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameApplicationView.swift; sourceTree = "<group>"; };
 		A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditFinishView.swift; sourceTree = "<group>"; };
 		A3ACD7DF24CD846700211BB9 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authoritydatabase.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D4867624C9667A00511354 /* GameView.swift */,
+				A38CA31D24D18BEB0092592D /* GameApplicationView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				A3D7121024CECA0600A3B298 /* DiaryFinishView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
 				A38629F524CFFAF7004D4155 /* ApproveView.swift in Sources */,
+				A38CA31E24D18BEB0092592D /* GameApplicationView.swift in Sources */,
 				A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */,
 				A38CA31C24D1832B0092592D /* ManagerEditView.swift in Sources */,
 				A38629FF24D00C0B004D4155 /* managerdatabase.swift in Sources */,

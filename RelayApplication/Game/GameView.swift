@@ -52,7 +52,7 @@ struct GameView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .sheet(isPresented: $show){
-                UserCreateView()
+                GameApplicationView()
                         }
                     }
                 }

@@ -40,14 +40,14 @@ struct CellManagerEditView: View {
         List{
             HStack {
                 Image(systemName: "person.fill")
-                            .foregroundColor(Color("red2"))
+                            .foregroundColor(Color("green8"))
                 Text(managerdata.groupname)
                             Spacer()
             Button(action: {
                             self.show.toggle()
                                         }) {
                 Image(systemName: "play.fill")
-                        .foregroundColor(Color("red2"))
+                        .foregroundColor(Color("green8"))
                                 }.sheet(isPresented: self.$show) {
                                 ManagerEditPracticeView(managerdata: self.managerdata, name: "groupname")
                                 }
@@ -55,14 +55,14 @@ struct CellManagerEditView: View {
                             
                             HStack {
                             Image(systemName: "flame.fill")
-                                .foregroundColor(Color("red2"))
+                                .foregroundColor(Color("green8"))
                                 Text(managerdata.groupnum)
                                 Spacer()
                                 Button(action: {
                                     self.show.toggle()
                                         }) {
                                 Image(systemName: "play.fill")
-                                        .foregroundColor(Color("red2"))
+                                        .foregroundColor(Color("green8"))
                                         }.sheet(isPresented: self.$show) {
                                         ManagerEditPracticeView(managerdata: self.managerdata,name: "groupnum")
                                 }
@@ -70,14 +70,14 @@ struct CellManagerEditView: View {
                             
                             HStack {
                             Image(systemName: "person.3.fill")
-                                .foregroundColor(Color("red2"))
+                                .foregroundColor(Color("green8"))
                                 Text(managerdata.grouppass)
                                 Spacer()
                                 Button(action: {
                                     self.show.toggle()
                                         }) {
                                 Image(systemName: "play.fill")
-                                        .foregroundColor(Color("red2"))
+                                        .foregroundColor(Color("green8"))
                                         }.sheet(isPresented: self.$show) {
                                         ManagerEditPracticeView(managerdata: self.managerdata,name: "grouppass")
                                 }
@@ -85,14 +85,14 @@ struct CellManagerEditView: View {
                             
                             HStack {
                             Image(systemName: "rosette")
-                                .foregroundColor(Color("red2"))
+                                .foregroundColor(Color("green8"))
                             Text(managerdata.email)
                                 Spacer()
                                 Button(action: {
                                     self.show.toggle()
                                         }) {
                                 Image(systemName: "play.fill")
-                                        .foregroundColor(Color("red2"))
+                                        .foregroundColor(Color("green8"))
                                         }.sheet(isPresented: self.$show) {
                                 ManagerEditPracticeView(managerdata: self.managerdata,name: "email")
                             
@@ -116,11 +116,11 @@ struct CellManagerEditView: View {
             Text("変更内容を入力して下さい")
                 .font(.headline)
                 .fontWeight(.heavy)
-                .foregroundColor(Color("red2"))
+                .foregroundColor(Color("green8"))
                 
             TextField("変更内容", text: self.$edit)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("red2"))
+                .background(Color("green8"))
                 
             Button(action: {
                 self.show.toggle()
@@ -142,7 +142,7 @@ struct CellManagerEditView: View {
                     .sheet(isPresented: $show){
                         UserEditFinishView()
                                 }
-                            }.background(Color("red2"))
+                            }.background(Color("green8"))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                 }.frame(width: 300, height: 500)
