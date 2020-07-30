@@ -97,6 +97,8 @@ struct GameApplicationListView: View {
     @State var event1 = ""
     @State var event2 = ""
     @State var event3 = ""
+    //試合費用支払い状況
+    @State var pay = "false"
     @State var userpass = ""
     @State var email = ""
 
@@ -109,6 +111,7 @@ struct GameApplicationListView: View {
                 
             VStack(alignment: .leading, spacing: 25){
                 WebView(loadUrl: self.gamedata.png).frame(height: 400)
+                
                 Text("・所属団体パスワード,試合パスワードの詳しい説明に関しましてはHOME画面の良くある質問をご参照下さい")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -173,14 +176,13 @@ struct GameApplicationListView: View {
                     Button(action: {
                         self.show.toggle()
                         let db = Firestore.firestore()
-                        let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userpass, "email": self.email, "pay": self.pay,]
+                        let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userpass, "email": self.email, "pay": self.pay,"gamename":self.gamedata.gamename,"year":self.gamedata.year,"month":self.gamedata.month,"day":self.gamedata.day,"place":self.gamedata.place,"gamevenue":self.gamedata.gamevenue]
                         //試合申し込み完了テーブルに入れる
                         db.collection("provisionallist")
                             .document(self.email)
                             .setData(data)
                                 { (err) in
                                     if err != nil{
-                                        print((err?.localizedDescription)!)
                                             return
                                 }
                             }
