@@ -16,6 +16,7 @@ struct LooginView: View {
     @Binding var show : Bool
     @State var alert = false
     @State var error = ""
+    @ObservedObject var keyboard = KeyboardObserver()
 
     var body: some View {
         ZStack{
@@ -120,12 +121,14 @@ struct LooginView: View {
                         .padding(.top, 10)
                     }.padding()
                 }
-            
-                
                 if self.alert{
                     Text("aaa")
                     }
-                }
+        }.onAppear{
+            self.keyboard.startObserve()
+        }.onDisappear{
+            self.keyboard.stopObserve()
+        }.padding(.bottom, keyboard.keyboardHeight)
             }
             //エラー分岐
             func verify(){
