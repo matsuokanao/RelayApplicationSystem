@@ -25,7 +25,6 @@ struct GameApplicationView: View {
                             .fontWeight(.bold)
         
             TextField("", text: self.$place)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("blue1"))
            
@@ -176,7 +175,8 @@ struct GameApplicationListView: View {
                     Button(action: {
                         self.show.toggle()
                         let db = Firestore.firestore()
-                        let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userpass, "email": self.email, "pay": self.pay,"gamename":self.gamedata.gamename,"year":self.gamedata.year,"month":self.gamedata.month,"day":self.gamedata.day,"place":self.gamedata.place,"gamevenue":self.gamedata.gamevenue]
+                        let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userpass, "email": self.email, "pay": self.pay,"gamename":self.gamedata.gamename,"year":self.gamedata.year,"month":self.gamedata.month,"day":self.gamedata.day,"place":self.gamedata.place,"gamevenue":self.gamedata.gamevenue,"grouppass":self.gamedata.gamename,"groupnum":self.gamedata.groupnum,"groupname":self.gamedata.groupname
+                        ]
                         //試合申し込み完了テーブルに入れる
                         db.collection("provisionallist")
                             .document(self.email)

@@ -23,6 +23,7 @@ struct gamelist: Identifiable {
     var groupname : String
     var groupnum : String
     var email : String
+    var grouppass : String
 }
 
 //読み込み
@@ -50,8 +51,9 @@ class getGamedataList : ObservableObject{
                 let groupname = i.get("groupname") as! String
                 let groupnum = i.get("groupnum") as! String
                 let email = i.get("email") as! String
+                let grouppass = i.get("grouppass") as! String
 
-                self.data.append(gamelist(id: id, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, png: png, link: link, groupname: groupname, groupnum: groupnum, email: email))
+                self.data.append(gamelist(id: id, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, png: png, link: link, groupname: groupname, groupnum: groupnum, email: email,grouppass :grouppass))
             }
         }
     }

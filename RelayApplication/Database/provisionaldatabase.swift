@@ -24,6 +24,10 @@ struct provisionallist: Identifiable {
     var day: String
     var place: String
     var gamevenue: String
+    var groupname : String
+    var groupnum : String
+    var grouppass : String
+
     
 }
 
@@ -52,8 +56,11 @@ class getProvisionalList : ObservableObject{
                 let day = i.get("day") as! String
                 let place = i.get("place") as! String
                 let gamevenue = i.get("gamevenue") as! String
+                let groupname = i.get("groupname") as! String
+                let groupnum = i.get("groupnum") as! String
+                let grouppass = i.get("grouppass") as! String
                 
-                self.data.append(provisionallist(id: id, event1: event1, event2: event2, event3: event3, userpass: userpass, email: email, pay: pay,gamename:gamename,year: year,month : month,day :day,place :place,gamevenue : gamevenue))
+                self.data.append(provisionallist(id: id, event1: event1, event2: event2, event3: event3, userpass: userpass, email: email, pay: pay,gamename:gamename,year: year,month : month,day :day,place :place,gamevenue : gamevenue,groupname : groupname,groupnum:groupnum,grouppass : grouppass))
             }
         }
     }
