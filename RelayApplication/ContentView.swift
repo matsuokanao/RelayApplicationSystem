@@ -20,6 +20,7 @@ var body: some View {
             
         //ログインしていたらHOMESCREENへ移動
             if self.status{
+                
                 TabView{
                     Homescreen()
                         .tabItem{ Text("HOME")}

@@ -8,27 +8,49 @@
 
 import SwiftUI
 import FirebaseFirestore
+import Firebase
 
 struct UserEditView: View {
-    @ObservedObject var authority = getAuthorityList()
     @ObservedObject var userdata = getUserdataList()
+    @State var email = ""
+    @State var pass = ""
         
     var body: some View {
         ZStack{
         Color("red2")
             .edgesIgnoringSafeArea(.all)
-            Text("ユーザー情報が見つかりません")
-            .font(.title)
-            .fontWeight(.bold)
-            .foregroundColor(Color.white)
-        VStack{
+        VStack(alignment: .leading){
+                Text("編集したいユーザーのメールアドレスとユーザーパスを入力して下さい")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+
+                Text("メールアドレス")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(.top,20)
+
+                               
+                TextField("", text: self.$email)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+                Text("ユーザーパス")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+
+                               
+                TextField("", text: self.$pass)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+
             ForEach(self.userdata.data,id: \.id){i in
-                ForEach(self.authority.data,id: \.id){a in
-                    
-            UserEditCellView(userdata: i, authoritydata: a)
-                    }
+                                        
+                UserEditCellView(userdata: i, email: self.email, pass: self.pass)
+                   // }
                 }
-            }
+            }.padding(.top,20)
+            .frame(width: 300, height: 600)
         }
     }
 }
@@ -42,11 +64,13 @@ struct UserEditView_Previews: PreviewProvider {
  struct UserEditCellView :View {
     @State var show = false
     var userdata : userlist
-    var authoritydata : authority
-
- var body: some View {
+    var email : String
+    var pass : String
+        
+    var body: some View {
     VStack{
-        if authoritydata.email == userdata.email{
+        
+        if email == userdata.email && pass == userdata.userpass{
             List{
                 HStack {
                     Image(systemName: "person.fill")

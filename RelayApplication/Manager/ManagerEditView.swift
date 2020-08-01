@@ -10,15 +10,43 @@ import SwiftUI
 import Firebase
 
 struct ManagerEditView: View {
-    @ObservedObject var authority = getAuthorityList()
     @ObservedObject var data = getManagerList()
+    @State var num = ""
+    @State var pass = ""
     var body: some View {
-        VStack{
+        ZStack{
+        Color("green8")
+            .edgesIgnoringSafeArea(.all)
+        VStack(alignment: .leading){
+                Text("編集したい運営団体の運営団体番号と運営団体パスワードを入力して下さい")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+
+                Text("運営団体番号")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(.top,20)
+
+                               
+                TextField("", text: self.$num)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("green8"))
+            
+                Text("運営団パスワード")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+
+                               
+                TextField("", text: self.$pass)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("green8"))
+            
             ForEach(self.data.data,id: \.id){i in
-                    ForEach(self.authority.data,id: \.id){a in
-                CellManagerEditView(authority: a, managerdata: i)
+                CellManagerEditView(managerdata: i, num: self.num, pass: self.pass)
                 }
-            }
+            }.frame(width: 300, height: 500)
         }
     }
 }
@@ -30,13 +58,14 @@ struct ManagerEditView_Previews: PreviewProvider {
 }
 
 struct CellManagerEditView: View {
-    var authority :authority
     var managerdata :managerlist
+    var num : String
+    var pass : String
     @State var show = false
     
     var body: some View {
         VStack{
-        if authority.email == managerdata.email{
+            if managerdata.groupnum == num && managerdata.grouppass == pass{
         List{
             HStack {
                 Image(systemName: "person.fill")

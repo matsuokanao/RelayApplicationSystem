@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DiaryListView: View {
-    @ObservedObject var authority = getAuthorityList()
+
     @ObservedObject var diarydata = getDiaryList()
     //日付　年
     @State var year = ""
@@ -17,12 +17,31 @@ struct DiaryListView: View {
     @State var month = ""
     //日付　日
     @State var day = ""
+    @State var email = ""
+    @State var pass = ""
     
         var body: some View {
             ZStack{
             Color("red3")
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
+                Text("ユーザーのメールアドレスを入力して下さい")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                TextField("", text: self.$email)
+                .keyboardType(.numberPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .background(Color("red3"))
+                
+            Text("ユーザーパスを入力して下さい")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+            TextField("", text: self.$pass)
+                .keyboardType(.numberPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .background(Color("red3"))
+
+                
                 Text("日付の日付を入力して下さい")
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
@@ -44,23 +63,14 @@ struct DiaryListView: View {
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
 
-                                   
-                    TextField("", text: self.$day)
-                        .keyboardType(.numberPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(Color("red3"))
-                Text("日")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-
                 }
 
-                        ForEach(self.authority.data,id: \.id){i in
-                        List(self.diarydata.data,id: \.id){d in
-                            DiaryListCellView(diary: d, authority: i, year: self.year, month: self.month, day: self.day)
-                }.padding(.top,20)
-            }
-        }.frame(width: 300, height: 600)
+            ForEach(self.diarydata.data,id: \.id){i in
+                DiaryListCellView(diary: i, year: self.year, month: self.month, email: self.email, pass: self.pass)
+                
+            }.padding(.top,20)
+            }.frame(width: 300, height: 600)
+        }
     }
 }
 
@@ -72,60 +82,44 @@ struct DiaryListVIew_Previews: PreviewProvider {
 
 struct DiaryListCellView: View {
     var diary : diarylist
-    var authority : authority
     var year : String
     var month : String
-    var day : String
+    var email : String
+    var pass : String
+    
     @State var show = false
     
     var body: some View {
         VStack{
-            if authority.email == diary.email {
-            if diary.year == self.year {
+            if email == diary.email && pass == diary.userpass {
+                if diary.year == self.year && diary.month == self.month {
                 HStack {
                 Image(systemName: "circle.fill")
-                    .foregroundColor(Color("red3"))
-                                Text(diary.diary)
+                    .foregroundColor(Color.white)
+            Text(diary.month)
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+            Text("月")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+            Text(diary.day)
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+            Text("日")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+            Text(diary.tournamentname)
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                    
                     Spacer()
                     Button(action: {
                         self.show.toggle()
                             }) {
                     Image(systemName: "play.fill")
-                            .foregroundColor(Color("red3"))
+                        .foregroundColor(Color.white)
                             }.sheet(isPresented: self.$show) {
-                                DiaryListOpenView(diary: self.diary)                    }
-                }
-                
-                
-            } else if diary.month == self.month{
-                HStack {
-                Image(systemName: "circle.fill")
-                    .foregroundColor(Color("red3"))
-                Text(diary.diary)
-                    Spacer()
-                Button(action: {
-                        self.show.toggle()
-                            }) {
-                Image(systemName: "play.fill")
-                    .foregroundColor(Color("red3"))
-                        }.sheet(isPresented: self.$show) {
-                    DiaryListOpenView(diary: self.diary)                    }
-                    }
-                
-                
-                } else if diary.day == self.day {
-                HStack {
-                Image(systemName: "circle.fill")
-                    .foregroundColor(Color("red3"))
-                Text(diary.diary)
-                    Spacer()
-                Button(action: {
-                        self.show.toggle()
-                            }) {
-                Image(systemName: "play.fill")
-                    .foregroundColor(Color("red3"))
-                        }.sheet(isPresented: self.$show) {
-                    DiaryListOpenView(diary: self.diary)                    }
+                                DiaryListOpenView(diary: self.diary)
                         }
                     }
                 }

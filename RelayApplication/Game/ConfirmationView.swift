@@ -66,10 +66,10 @@ struct CellConfirmationView: View {
                 Button(action: {
                     self.show.toggle()
                     let db = Firestore.firestore()
-                    let data: [String : Any] = ["event1": self.provisionallist.event1, "event2": self.provisionallist.event2, "event3": self.provisionallist.event3, "userpass": self.provisionallist.userpass, "email": self.provisionallist.email, "pay": self.provisionallist.pay,"gamename":self.provisionallist.gamename,"year":self.provisionallist.year,"month":self.provisionallist.month,"day":self.provisionallist.day,"place":self.provisionallist.place,"gamevenue":self.provisionallist.gamevenue,"groupnum":self.provisionallist.groupnum,"groupname":self.provisionallist.groupname,"grouppass": self.provisionallist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo]
+                    let data: [String : Any] = ["event1": self.provisionallist.event1, "event2": self.provisionallist.event2, "event3": self.provisionallist.event3, "userpass": self.provisionallist.userpass, "email": self.provisionallist.email, "pay": self.provisionallist.pay,"gamename":self.provisionallist.gamename,"year":self.provisionallist.year,"month":self.provisionallist.month,"day":self.provisionallist.day,"place":self.provisionallist.place,"gamevenue":self.provisionallist.gamevenue,"groupnum":self.provisionallist.groupnum,"groupname":self.provisionallist.groupname,"grouppass": self.provisionallist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username]
                     //試合申し込み完了テーブルに入れる
                     db.collection("gamecomplete")
-                        .document(self.provisionallist.email)
+                        .document(self.provisionallist.id)
                         .setData(data)
                             { (err) in
                                 if err != nil{

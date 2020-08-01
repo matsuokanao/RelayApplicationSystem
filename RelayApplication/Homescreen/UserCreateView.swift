@@ -129,7 +129,7 @@ struct UserCreateView: View {
             }
 
 
-        Text("試合パスワードを入力して下さい　*6文字以上で入力して下さい")
+        Text("ユーザーパスを入力して下さい　*6文字以上で入力して下さい")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.top,10)

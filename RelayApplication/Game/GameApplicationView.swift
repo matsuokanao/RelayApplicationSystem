@@ -58,7 +58,8 @@ var body: some View {
                         WebView(loadUrl: self.gamedata.png).frame(height: 400)
                 HStack{
                     VStack(alignment: .leading){
-                            Text(gamedata.gamename).font(.title).fontWeight(.heavy)
+                        Text(gamedata.gamename).fontWeight(.heavy).font(.body)
+
                             Text(gamedata.place).fontWeight(.heavy).font(.body)
                         
                                 }
@@ -96,8 +97,6 @@ struct GameApplicationListView: View {
     @State var event1 = ""
     @State var event2 = ""
     @State var event3 = ""
-    //試合費用支払い状況
-    @State var pay = "false"
     @State var userpass = ""
     @State var email = ""
 
@@ -120,7 +119,7 @@ struct GameApplicationListView: View {
                     .foregroundColor(.white)
                     .padding(.top,10)
                 VStack{
-                    TextField("名前", text: $event1)
+                    TextField("出場種目1", text: $event1)
                         .foregroundColor(.white)
                         Divider()
                             .background(Color.white)
@@ -131,7 +130,7 @@ struct GameApplicationListView: View {
                         .foregroundColor(.white)
                         .padding(.top,10)
                 VStack{
-                    TextField("登録陸連", text: $event2)
+                    TextField("出場種目2", text: $event2)
                         .foregroundColor(.white)
                         Divider()
                             .background(Color.white)
@@ -142,18 +141,18 @@ struct GameApplicationListView: View {
                         .foregroundColor(.white)
                         .padding(.top,10)
                 VStack{
-                    TextField("所属団体", text: $event3)
+                    TextField("出場種目３", text: $event3)
                         .foregroundColor(.white)
                         Divider()
                             .background(Color.white)
                         }
                 
-                Text("ユーザーパスワード")
+                Text("ユーザーパス")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top,10)
                 VStack{
-                    TextField("代表者名", text: $userpass)
+                    TextField("ユーザーパス", text: $userpass)
                         .foregroundColor(.white)
                         Divider()
                             .background(Color.white)
@@ -174,18 +173,7 @@ struct GameApplicationListView: View {
                         Spacer()
                     Button(action: {
                         self.show.toggle()
-                        let db = Firestore.firestore()
-                        let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userpass, "email": self.email, "pay": self.pay,"gamename":self.gamedata.gamename,"year":self.gamedata.year,"month":self.gamedata.month,"day":self.gamedata.day,"place":self.gamedata.place,"gamevenue":self.gamedata.gamevenue,"grouppass":self.gamedata.gamename,"groupnum":self.gamedata.groupnum,"groupname":self.gamedata.groupname
-                        ]
-                        //試合申し込み完了テーブルに入れる
-                        db.collection("provisionallist")
-                            .document(self.email)
-                            .setData(data)
-                                { (err) in
-                                    if err != nil{
-                                            return
-                                }
-                            }
+                            
                     }){
                         Text("確認する")
                             .fontWeight(.bold)
@@ -196,7 +184,7 @@ struct GameApplicationListView: View {
                             .clipShape(Capsule())
                             
                         .sheet(isPresented: $show){
-                            ConfirmationView()
+                            ConfirmationViews(event1: self.email, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
                     
                                     }
                                 }
@@ -207,6 +195,117 @@ struct GameApplicationListView: View {
                 }
             }
         }
+
+struct ConfirmationViews: View {
+    var event1 :String
+    var event2 :String
+    var event3 :String
+    var userpass :String
+    var email :String
+    var gamedata : gamelist
+  @ObservedObject var userdata = getUserdataList()
+    
+    var body: some View {
+        VStack{
+                ForEach(self.userdata.data,id: \.id){i in
+                    
+                    CellConfirmationViews(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
+                
+            }
+        }
+    }
+}
+
+
+struct CellConfirmationViews: View {
+    var event1 :String
+    var event2 :String
+    var event3 :String
+    var userpass :String
+    var email :String
+    var gamelist : gamelist
+    var userlist : userlist
+    @State var show = false
+    @State var pay = "false"
+
+    
+    var body: some View {
+        VStack{
+           if userlist.userpass == userpass && userlist.email == email{
+                Group{
+                Text("試合名")
+                Text(gamelist.gamename)
+                Text("開催都道府県")
+                Text(gamelist.place)
+                Text("試合会場")
+                Text(gamelist.gamevenue)
+                Text("名前")
+                Text(userlist.username)
+                Text("登録陸連")
+                Text(userlist.jaaf)
+                }
+                Text("所属名")
+                Text(userlist.belong)
+                Text("参加種目")
+                Text(event1)
+                Text(event2)
+                Text(event3)
+
+                HStack{
+                    Spacer()
+                Button(action: {
+                    self.show.toggle()
+                    let db = Firestore.firestore()
+                    let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username]
+                    //試合申し込み完了テーブルに入れる
+                    db.collection("gamecomplete")
+                        .document(self.gamelist.id)
+                        .setData(data)
+                            { (err) in
+                                if err != nil{
+                                        return
+                            }
+                        }
+                }){
+                    Text("完了")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("blue1"))
+                        .padding(.vertical)
+                        .padding(.horizontal,45)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                        
+                    .sheet(isPresented: $show){
+                        GameApplicationFinishView()
+                
+                                }
+                            }
+                            Spacer()
+                        }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

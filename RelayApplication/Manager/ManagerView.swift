@@ -16,6 +16,7 @@ struct ManagerView: View {
     @State var ordershow = false
     @State var entryshow = false
     @State var gameeditshow = false
+    @State var editshow = false
 
     var body: some View {
     
@@ -212,7 +213,7 @@ struct ManagerView: View {
                         .padding()
                         .background(Color.white.opacity(0.12))
                         .clipShape(Circle())
-                    Text("営業団体情報を")
+                    Text("運営団体情報を")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                                                 
@@ -221,12 +222,12 @@ struct ManagerView: View {
                         .foregroundColor(.white)
                                                                 
                 Button(action: {
-                                self.approveshow.toggle()
+                                self.editshow.toggle()
                             }){
                     Text("開く")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .sheet(isPresented: $approveshow){
+                        .sheet(isPresented: $editshow){
                                     ManagerEditView()
                 }
             }

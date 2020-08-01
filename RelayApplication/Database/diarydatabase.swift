@@ -27,6 +27,7 @@ struct diarylist: Identifiable {
     //大会名
     var tournamentname: String
     var email : String
+    var userpass :String
 }
 
 //読み込み
@@ -50,8 +51,9 @@ class getDiaryList : ObservableObject{
                 let mental = i.get("mental") as! String
                  let tournamentname = i.get("tournamentname") as! String
                 let email = i.get("email") as! String
+                let userpass = i.get("userpass") as! String
                 
-                self.data.append(diarylist(id: id, diary: diary, year: year, month: month, day: day, weather: weather, mental:mental,tournamentname: tournamentname,email: email))
+                self.data.append(diarylist(id: id, diary: diary, year: year, month: month, day: day, weather: weather, mental:mental,tournamentname: tournamentname,email: email,userpass : userpass))
             }
         }
     }

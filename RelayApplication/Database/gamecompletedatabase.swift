@@ -1,16 +1,14 @@
 //
-//  provisionaldatabase.swift
+//  gamecompletedatabase.swift
 //  RelayApplication
 //
-//  Created by 松岡奈央 on 2020/07/30.
+//  Created by 松岡奈央 on 2020/07/31.
 //  Copyright © 2020 松岡奈央. All rights reserved.
 //
-
 import Foundation
 import Firebase
 
-
-struct provisionallist: Identifiable {
+struct gamecomplete: Identifiable {
     var id: String
     var event1 : String
     var event2 : String
@@ -27,17 +25,20 @@ struct provisionallist: Identifiable {
     var groupname : String
     var groupnum : String
     var grouppass : String
-
-    
+    var jaaf : String
+    var belong : String
+    var phonenumber : String
+    var ceo : String
+    var username : String
 }
 
 //読み込み
-class getProvisionalList : ObservableObject{
-    @Published var data = [provisionallist]()
+class getGameCompleteList : ObservableObject{
+    @Published var data = [gamecomplete]()
     
     init() {
         let db = Firestore.firestore()
-        db.collection("provisionallist").getDocuments{ (snap, err) in
+        db.collection("gamecomplete").getDocuments{ (snap, err) in
             if err != nil{
                 print((err?.localizedDescription)!)
                 return
@@ -59,10 +60,16 @@ class getProvisionalList : ObservableObject{
                 let groupname = i.get("groupname") as! String
                 let groupnum = i.get("groupnum") as! String
                 let grouppass = i.get("grouppass") as! String
+                let jaaf = i.get("jaaf") as! String
+                let belong = i.get("belong") as! String
+                let phonenumber = i.get("phonenumber") as! String
+                let ceo = i.get("ceo") as! String
+                let username = i.get("username") as! String
                 
-                self.data.append(provisionallist(id: id, event1: event1, event2: event2, event3: event3, userpass: userpass, email: email, pay: pay,gamename:gamename,year: year,month : month,day :day,place :place,gamevenue : gamevenue,groupname : groupname,groupnum:groupnum,grouppass : grouppass))
+                
+                self.data.append(gamecomplete(id: id, event1: event1, event2: event2, event3: event3, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username))
+                
             }
         }
     }
 }
-

@@ -60,7 +60,7 @@ struct ManagerCreateView: View {
                             .background(Color.white)
                         }
                 
-                Text("団体団体パスワード")
+                Text("運営団体パスワード")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top,10)

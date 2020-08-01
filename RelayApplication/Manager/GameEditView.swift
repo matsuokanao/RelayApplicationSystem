@@ -64,22 +64,6 @@ struct GameEditSelectView: View {
     @State var show = false
 var body: some View {
         List{
-            HStack {
-                Image(systemName: "person.fill")
-                    .foregroundColor(Color("green7"))
-            Text(gamedata.gamename)
-                            Spacer()
-        Button(action: {
-                            self.show.toggle()
-                                    }) {
-        Image(systemName: "play.fill")
-                .foregroundColor(Color("green7"))
-                }.sheet(isPresented: self.$show) {
-            GameEditPracticeView(gamedata: self.gamedata, name: "username")
-                                }
-                            }
-
-                        
                         HStack {
                             Image(systemName: "person.fill")
                                     .foregroundColor(Color("green7"))

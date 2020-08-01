@@ -10,16 +10,9 @@ import SwiftUI
 import Firebase
 
 struct DiaryView: View {
-    @ObservedObject var authority = getAuthorityList()
-
+    
     var body: some View {
-        VStack{
-            VStack{
-                ForEach(self.authority.data,id: \.id){i in
-                        DiaryCellView(authority: i)
-                }
-            }
-        }
+        DiaryCellView()
     }
 }
 
@@ -34,7 +27,6 @@ struct DiaryView_Previews: PreviewProvider {
 struct DiaryCellView: View {
     @State var show = false
     @State var diaryfinishshow = false
-    var authority : authority
     
     //日記内容
     @State var diary = ""
@@ -51,10 +43,12 @@ struct DiaryCellView: View {
     //大会名
     @State var tournamentname = ""
     @State var alert = false
+    @State var email = ""
+    @State var userpass = ""
 
     var body: some View {
     VStack{
-        VStack{
+                VStack{
            Text("今日の陸上はどうでしたか？")
             .fontWeight(.bold)
             .foregroundColor(.white)
@@ -107,7 +101,6 @@ struct DiaryCellView: View {
                         .foregroundColor(Color("red3"))
             Text("天気")
             TextField("", text: self.$weather)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("red3"))
               
@@ -116,7 +109,6 @@ struct DiaryCellView: View {
                 .foregroundColor(Color("red3"))
             Text("気持ち")
             TextField("", text: self.$mental)
-                .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .background(Color("red3"))
                     }
@@ -129,7 +121,6 @@ struct DiaryCellView: View {
                 
             VStack{
             TextField("", text: self.$tournamentname)
-                .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .background(Color("red3"))
                 }
@@ -140,17 +131,44 @@ struct DiaryCellView: View {
                     }
                 VStack{
                 MultilineTextField(text: self.$diary)
-                    .frame(width: UIScreen.main.bounds.width * 0.8, height: 500)
+                    .frame(height: 500)
                     .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black))
                     }
                 
-                
+                Group{
+                HStack{
+                    Image(systemName: "sparkles")
+                    .foregroundColor(Color("red3"))
+                    Text("メールアドレス")
+                    }
+                    
+                    
+                VStack{
+                TextField("", text: self.$email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+                    }
+
+                HStack{
+                    Image(systemName: "sparkles")
+                    .foregroundColor(Color("red3"))
+                    Text("ユーザーパス")
+                    }
+                    
+                    
+                VStack{
+                TextField("", text: self.$userpass)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+                    }
+                }
                 Button(action: {
                     self.diaryfinishshow.toggle()
+                
                     let db = Firestore.firestore()
-                    let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname, "email": self.authority.email]
+                    let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname,"email": self.email,"userpass": self.userpass]
                     //試合申し込み完了テーブルに入れる
                     db.collection("diarylist")
                         .addDocument(data:data)
@@ -171,6 +189,7 @@ struct DiaryCellView: View {
 
                     .sheet(isPresented: $diaryfinishshow){
                         DiaryFinishView()
+                            
                         }
                     }
                 }
