@@ -11,14 +11,42 @@ import Firebase
 
 struct GameEditView: View {
     @ObservedObject var gamedata = getGamedataList()
-    @ObservedObject var data = getManagerList()
+    @State var num = ""
+    @State var pass = ""
     
     var body: some View {
         VStack{
-        ForEach(self.data.data,id: \.id){i in
-            List(self.gamedata.data,id: \.id){g in
-        CellGameEditView(gamedata: g, managerdata: i)
-                }
+            ZStack{
+            Color("green2")
+                .edgesIgnoringSafeArea(.all)
+            VStack(alignment: .leading){
+                    Text("試合の団体番号と団体パスワードを入力して下さい")
+                                .foregroundColor(Color.white)
+                                .fontWeight(.bold)
+
+                    Text("団体番号")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
+
+                                   
+                    TextField("", text: self.$num)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .background(Color("green7"))
+                    Text("団体パスワード")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+
+                                   
+                    TextField("", text: self.$pass)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .background(Color("green7"))
+
+            ForEach(self.gamedata.data,id: \.id){i in
+                CellGameEditView(gamedata: i, num: self.num, pass: self.pass)
+                    }
+                }.frame(width: 300, height: 500)
             }
         }
     }
@@ -32,25 +60,30 @@ struct GameEditView_Previews: PreviewProvider {
 
 struct CellGameEditView: View {
     var gamedata : gamelist
-    var managerdata : managerlist
+    var num : String
+    var pass : String
     @State var show = false
 
 var body: some View {
     VStack{
-        if gamedata.groupnum == managerdata.groupnum && gamedata.groupname == managerdata.groupnum {
-            List{
+        if gamedata.groupnum == num && gamedata.grouppass == pass{
                 HStack {
                     Image(systemName: "person.fill")
-                            .foregroundColor(Color("green7"))
+                        .foregroundColor(Color.white)
                     Text(gamedata.gamename)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.top,10)
+
                             Spacer()
                 Button(action: {
                         self.show.toggle()
                                     }) {
                 Image(systemName: "play.fill")
-                            .foregroundColor(Color("green7"))
+                    .foregroundColor(Color.white)
                                 }.sheet(isPresented: self.$show) {
-                                    GameEditSelectView(gamedata: self.gamedata)
+                            GameEditSelectView(gamedata: self.gamedata)
+                        
                     }
                 }
             }
@@ -64,8 +97,8 @@ struct GameEditSelectView: View {
     @State var show = false
 var body: some View {
         List{
-                        HStack {
-                            Image(systemName: "person.fill")
+            HStack {
+                Image(systemName: "person.fill")
                                     .foregroundColor(Color("green7"))
                             Text(gamedata.gamename)
                                     Spacer()
@@ -187,7 +220,7 @@ var body: some View {
                         }
                     }
                 }
-            }
+
         
 
 

@@ -16,19 +16,15 @@ struct ManagerTopView: View {
 
     var body: some View {
         VStack(spacing:10){
-            Text("大会関係者専用ページです！！")
+            Text("大会関係者専用ページ")
                 .foregroundColor(Color("green1"))
                 .fontWeight(.heavy)
-                .font(.headline)
+                .font(.title)
 
-            Image("attentionview")
-                .resizable()
-                .frame(width: 300.0 , height: 220.0)
-                    Spacer().frame(height: 15)
-                        
             Text("・大会関係者の方は指定されたパスワードを入力して下さい。")
                 .fontWeight(.heavy)
                 .foregroundColor(Color("green1"))
+            
             TextField("1つ目のパスワードを入力して下さい", text: $firstPass)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.firstPass != "" ? Color("green1") : self.color,lineWidth:  2))
@@ -48,9 +44,9 @@ struct ManagerTopView: View {
                 .sheet(isPresented: $show){
                         ManagerView()
                             }
-                        }.background(Color("green3"))
+                        }.background(Color("green1"))
                         .cornerRadius(10)
-                        .padding(.top, 25)
+                        
                         .foregroundColor(.white)
                 }
             }.frame(width: 300, height: 600)

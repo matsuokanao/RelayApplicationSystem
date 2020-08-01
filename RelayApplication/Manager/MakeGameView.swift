@@ -10,15 +10,42 @@ import SwiftUI
 import Firebase
 
 struct MakeGameView: View {
-    @ObservedObject var authority = getAuthorityList()
+    @State var num = ""
+    @State var pass = ""
     @ObservedObject var data = getManagerList()
     var body: some View {
-        VStack{
-           ForEach(self.data.data,id: \.id){i in
-            ForEach(self.authority.data,id: \.id){a in
-            MakeGamCellView(managerdata: i, authoritydata: a)
+        ZStack{
+        Color("green2")
+            .edgesIgnoringSafeArea(.all)
+        VStack(alignment: .leading){
+                Text("試合の団体番号と団体パスワードを入力して下さい")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+
+                Text("団体番号")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(.top,20)
+
+                               
+                TextField("", text: self.$num)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+                Text("団体パスワード")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+
+                               
+                TextField("", text: self.$pass)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+            
+            ForEach(self.data.data,id: \.id){i in
+                MakeGamCellView(managerdata: i, num: self.num, pass: self.pass)
                 }
-            }
+            }.frame(width: 300, height: 600)
         }
     }
 }
@@ -33,7 +60,8 @@ struct MakeGameView_Previews: PreviewProvider {
 
 struct MakeGamCellView: View {
     var managerdata : managerlist
-    var authoritydata : authority
+    var num :String
+    var pass : String
     @State var showAlert = false
     @State var gamename = ""
     @State var year = ""
@@ -48,7 +76,7 @@ struct MakeGamCellView: View {
     var body: some View {
         
         ZStack{
-            if authoritydata.email == managerdata.email {
+            if num == managerdata.groupnum && pass == managerdata.grouppass {
                                 Color("green2")
                                     .edgesIgnoringSafeArea(.all)
                         //画面スクロール処理

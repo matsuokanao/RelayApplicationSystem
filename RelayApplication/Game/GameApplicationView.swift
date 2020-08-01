@@ -93,7 +93,7 @@ var body: some View {
 
 struct GameApplicationListView: View {
     var gamedata : gamelist
-    @State var show = false
+    @State var shows = false
     @State var event1 = ""
     @State var event2 = ""
     @State var event3 = ""
@@ -172,8 +172,7 @@ struct GameApplicationListView: View {
                 HStack{
                         Spacer()
                     Button(action: {
-                        self.show.toggle()
-                            
+                        self.shows.toggle()
                     }){
                         Text("確認する")
                             .fontWeight(.bold)
@@ -183,8 +182,8 @@ struct GameApplicationListView: View {
                             .background(Color.white)
                             .clipShape(Capsule())
                             
-                        .sheet(isPresented: $show){
-                            ConfirmationViews(event1: self.email, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
+                        .sheet(isPresented: $shows){
+                            ConfirmationViews(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
                     
                                     }
                                 }
@@ -203,6 +202,7 @@ struct ConfirmationViews: View {
     var userpass :String
     var email :String
     var gamedata : gamelist
+    
   @ObservedObject var userdata = getUserdataList()
     
     var body: some View {
@@ -259,8 +259,7 @@ struct CellConfirmationViews: View {
                     let data: [String : Any] = ["event1": self.event1, "event2": self.event2, "event3": self.event3, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username]
                     //試合申し込み完了テーブルに入れる
                     db.collection("gamecomplete")
-                        .document(self.gamelist.id)
-                        .setData(data)
+                       .addDocument(data:data)
                             { (err) in
                                 if err != nil{
                                         return

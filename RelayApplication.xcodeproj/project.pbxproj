@@ -22,7 +22,6 @@
 		A3AA150C24D3F03A00D5DFB0 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AA150B24D3F03A00D5DFB0 /* GameListView.swift */; };
 		A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */; };
 		A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DF24CD846700211BB9 /* DiaryView.swift */; };
-		A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */; };
 		A3B3F30024D5230C005A7042 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F2FF24D5230C005A7042 /* TimeView.swift */; };
 		A3B3F30224D5232A005A7042 /* TimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30124D5232A005A7042 /* TimeListView.swift */; };
 		A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30324D5293A005A7042 /* timedatabase.swift */; };
@@ -74,7 +73,6 @@
 		A3AA150B24D3F03A00D5DFB0 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		A3ACD7DD24CD781E00211BB9 /* UserEditFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditFinishView.swift; sourceTree = "<group>"; };
 		A3ACD7DF24CD846700211BB9 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
-		A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authoritydatabase.swift; sourceTree = "<group>"; };
 		A3B3F2FF24D5230C005A7042 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		A3B3F30124D5232A005A7042 /* TimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeListView.swift; sourceTree = "<group>"; };
 		A3B3F30324D5293A005A7042 /* timedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timedatabase.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				A3D4867924C96AB500511354 /* userdatabase.swift */,
 				A385A8C724C9E2D6006F57C9 /* gamedatabase.swift */,
 				A3BA94AA24CAD1D100553216 /* diarydatabase.swift */,
-				A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */,
 				A38629FE24D00C0B004D4155 /* managerdatabase.swift */,
 				A3AA150924D3ECD800D5DFB0 /* gamecompletedatabase.swift */,
 				A3B3F30324D5293A005A7042 /* timedatabase.swift */,
@@ -420,7 +417,6 @@
 				A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */,
 				A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
-				A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */,
 				A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */,
 				A3D7121024CECA0600A3B298 /* DiaryFinishView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,

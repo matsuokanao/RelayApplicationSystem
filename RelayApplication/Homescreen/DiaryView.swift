@@ -42,9 +42,10 @@ struct DiaryCellView: View {
     @State var mental = ""
     //大会名
     @State var tournamentname = ""
-    @State var alert = false
+    @State var showAlert = false
     @State var email = ""
     @State var userpass = ""
+    
 
     var body: some View {
     VStack{
@@ -164,9 +165,10 @@ struct DiaryCellView: View {
                     .background(Color("red3"))
                     }
                 }
+                HStack{
+                Spacer()
                 Button(action: {
-                    self.diaryfinishshow.toggle()
-                
+                    self.showAlert = true
                     let db = Firestore.firestore()
                     let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname,"email": self.email,"userpass": self.userpass]
                     //試合申し込み完了テーブルに入れる
@@ -179,18 +181,20 @@ struct DiaryCellView: View {
                             }
                         }
                 }){
-                    Text("保存する")
-                        .foregroundColor(Color.white)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 50)
-                        .background(Color("red3"))
-                        .cornerRadius(30)
-                        .padding(.top, 10)
-
-                    .sheet(isPresented: $diaryfinishshow){
-                        DiaryFinishView()
+                        Text("登録する")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                            .padding(.vertical)
+                            .padding(.horizontal,45)
+                            .background(Color("red3"))
+                            .clipShape(Capsule())
                             
+                    }.alert(isPresented: $showAlert){
+                        Alert(title: Text("保存完了！"),
+                              message: Text("内容を保存しました。"),
+                              dismissButton: .default(Text("わかりました")))
                         }
+                        Spacer()
                     }
                 }
             }
