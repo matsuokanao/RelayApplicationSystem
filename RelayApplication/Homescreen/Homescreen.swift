@@ -111,7 +111,7 @@ struct Homescreen: View {
                 Text("陸上日記")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                Text("今日の練習、試合はどうでしたか？")
+                Text("今日の練習はどうでしたか？")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .frame(width:170,height:60)

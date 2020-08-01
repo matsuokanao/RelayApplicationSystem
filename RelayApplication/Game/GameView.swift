@@ -12,6 +12,7 @@ struct GameView: View {
     @State var show = false
     @State var usereditshow = false
     @State var diaryshow = false
+    @State var timeshow = false
 
     var body: some View {
         VStack{
@@ -103,24 +104,24 @@ struct GameView: View {
             .padding()
             .background(Color.white.opacity(0.12))
             .clipShape(Circle())
-        Text("記録表")
+        Text("試合日記")
             .fontWeight(.bold)
             .foregroundColor(.white)
-        Text("試合の結果を")
+        Text("今日の試合は")
             .fontWeight(.bold)
             .foregroundColor(.white)
-        Text("まとめよう")
+        Text("どうでしたか？")
             .fontWeight(.bold)
             .foregroundColor(.white)
 
     Button(action: {
-            self.diaryshow.toggle()
+            self.timeshow.toggle()
             }){
-        Text("開く")
+        Text("日記を書く")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .sheet(isPresented: $diaryshow){
-                DiaryView()
+            .sheet(isPresented: $timeshow){
+                TimeView()
             }
         }
     }

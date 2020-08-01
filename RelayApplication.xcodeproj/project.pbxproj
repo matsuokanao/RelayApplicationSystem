@@ -24,7 +24,8 @@
 		A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7DF24CD846700211BB9 /* DiaryView.swift */; };
 		A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */; };
 		A3B3F30024D5230C005A7042 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F2FF24D5230C005A7042 /* TimeView.swift */; };
-		A3B3F30224D5232A005A7042 /* TimeShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30124D5232A005A7042 /* TimeShowView.swift */; };
+		A3B3F30224D5232A005A7042 /* TimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30124D5232A005A7042 /* TimeListView.swift */; };
+		A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30324D5293A005A7042 /* timedatabase.swift */; };
 		A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */; };
 		A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* diarydatabase.swift */; };
 		A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AC24CAD2DC00553216 /* UserEditView.swift */; };
@@ -51,7 +52,6 @@
 		A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7121124CECB1300A3B298 /* DiaryListView.swift */; };
 		A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94624CFC55D0009D4D2 /* RelayView.swift */; };
 		A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */; };
-		A3E652F424D1B730003C45E4 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E652F324D1B730003C45E4 /* ConfirmationView.swift */; };
 		ACAA7300EDFD604F1759D338 /* Pods_RelayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +76,8 @@
 		A3ACD7DF24CD846700211BB9 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authoritydatabase.swift; sourceTree = "<group>"; };
 		A3B3F2FF24D5230C005A7042 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
-		A3B3F30124D5232A005A7042 /* TimeShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeShowView.swift; sourceTree = "<group>"; };
+		A3B3F30124D5232A005A7042 /* TimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeListView.swift; sourceTree = "<group>"; };
+		A3B3F30324D5293A005A7042 /* timedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timedatabase.swift; sourceTree = "<group>"; };
 		A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateFinishView.swift; sourceTree = "<group>"; };
 		A3BA94AA24CAD1D100553216 /* diarydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diarydatabase.swift; sourceTree = "<group>"; };
 		A3BA94AC24CAD2DC00553216 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		A3D7121124CECB1300A3B298 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
 		A3E3C94624CFC55D0009D4D2 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
 		A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTopView.swift; sourceTree = "<group>"; };
-		A3E652F324D1B730003C45E4 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +162,7 @@
 				A3ACD7E124CDA54200211BB9 /* authoritydatabase.swift */,
 				A38629FE24D00C0B004D4155 /* managerdatabase.swift */,
 				A3AA150924D3ECD800D5DFB0 /* gamecompletedatabase.swift */,
+				A3B3F30324D5293A005A7042 /* timedatabase.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -254,11 +255,10 @@
 			children = (
 				A3D4867624C9667A00511354 /* GameView.swift */,
 				A38CA31D24D18BEB0092592D /* GameApplicationView.swift */,
-				A3E652F324D1B730003C45E4 /* ConfirmationView.swift */,
 				A3AA150724D3E0B900D5DFB0 /* GameApplicationFinishView.swift */,
 				A3AA150B24D3F03A00D5DFB0 /* GameListView.swift */,
 				A3B3F2FF24D5230C005A7042 /* TimeView.swift */,
-				A3B3F30124D5232A005A7042 /* TimeShowView.swift */,
+				A3B3F30124D5232A005A7042 /* TimeListView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -402,7 +402,7 @@
 				A38629FB24D00746004D4155 /* ManagerCreateView.swift in Sources */,
 				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
-				A3B3F30224D5232A005A7042 /* TimeShowView.swift in Sources */,
+				A3B3F30224D5232A005A7042 /* TimeListView.swift in Sources */,
 				A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */,
 				A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */,
 				A3CCC74024D0618E0018E78D /* GameEditView.swift in Sources */,
@@ -418,6 +418,7 @@
 				A3D4867724C9667A00511354 /* GameView.swift in Sources */,
 				A3D4867424C9395100511354 /* WelcomeView.swift in Sources */,
 				A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */,
+				A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
 				A3ACD7E224CDA54200211BB9 /* authoritydatabase.swift in Sources */,
 				A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */,
@@ -428,7 +429,6 @@
 				A38629F524CFFAF7004D4155 /* ApproveView.swift in Sources */,
 				A38CA31E24D18BEB0092592D /* GameApplicationView.swift in Sources */,
 				A3AA150C24D3F03A00D5DFB0 /* GameListView.swift in Sources */,
-				A3E652F424D1B730003C45E4 /* ConfirmationView.swift in Sources */,
 				A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */,
 				A38CA31C24D1832B0092592D /* ManagerEditView.swift in Sources */,
 				A38629FF24D00C0B004D4155 /* managerdatabase.swift in Sources */,

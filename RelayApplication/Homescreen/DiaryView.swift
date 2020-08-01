@@ -49,7 +49,7 @@ struct DiaryCellView: View {
     var body: some View {
     VStack{
                 VStack{
-           Text("今日の陸上はどうでしたか？")
+           Text("今日の練習はどうでしたか？")
             .fontWeight(.bold)
             .foregroundColor(.white)
             Text("思った事を書き出してみましょう")

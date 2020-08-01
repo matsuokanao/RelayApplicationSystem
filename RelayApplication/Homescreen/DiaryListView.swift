@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct DiaryListView: View {
-
     @ObservedObject var diarydata = getDiaryList()
     //日付　年
     @State var year = ""
