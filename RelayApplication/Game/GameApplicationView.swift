@@ -183,7 +183,7 @@ struct GameApplicationListView: View {
                             .clipShape(Capsule())
                             
                         .sheet(isPresented: $shows){
-                            ConfirmationViews(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
+                            ConfirmationView(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
                     
                                     }
                                 }
@@ -195,7 +195,7 @@ struct GameApplicationListView: View {
             }
         }
 
-struct ConfirmationViews: View {
+struct ConfirmationView: View {
     var event1 :String
     var event2 :String
     var event3 :String
@@ -209,7 +209,7 @@ struct ConfirmationViews: View {
         VStack{
                 ForEach(self.userdata.data,id: \.id){i in
                     
-                    CellConfirmationViews(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
+                    CellConfirmationView(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
                 
             }
         }
@@ -217,7 +217,7 @@ struct ConfirmationViews: View {
 }
 
 
-struct CellConfirmationViews: View {
+struct CellConfirmationView: View {
     var event1 :String
     var event2 :String
     var event3 :String
