@@ -93,12 +93,12 @@ struct CellRelayApplicationView: View {
 struct RelayApplicationListView: View {
 var gamedata : gamelist
     @State var shows = false
-    @State var manber1 = ""
-    @State var manber2 = ""
-    @State var manber3 = ""
-    @State var manber4 = ""
-    @State var manber5 = ""
-    @State var manber6 = ""
+    @State var member1 = ""
+    @State var member2 = ""
+    @State var member3 = ""
+    @State var member4 = ""
+    @State var member5 = ""
+    @State var member6 = ""
     @State var userpass = ""
     @State var email = ""
     var body: some View {
@@ -120,7 +120,7 @@ var gamedata : gamelist
                         .foregroundColor(.white)
                         .padding(.top,10)
                     VStack{
-                        TextField("出場種目1", text: $manber1)
+                        TextField("出場種目1", text: $member1)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -131,7 +131,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目2", text: $manber2)
+                        TextField("出場種目2", text: $member2)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -142,7 +142,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $manber3)
+                        TextField("出場種目３", text: $member3)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -152,7 +152,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $manber4)
+                        TextField("出場種目３", text: $member4)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -164,7 +164,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $manber5)
+                        TextField("出場種目３", text: $member5)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -175,14 +175,17 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $manber6)
+                        TextField("出場種目３", text: $member6)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
                             }
                     
-                    
-                    Text("ユーザーパス")
+                    Text("リレーのオーダーを提出する代表者のユーザーパスとメールアドレスを入力して下さい")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.top,10)
+                    Text("代表者のユーザーパス")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .padding(.top,10)
@@ -193,7 +196,7 @@ var gamedata : gamelist
                                 .background(Color.white)
                             }
                         
-                    Text("メールアドレス")
+                    Text("代表者のメールアドレス")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .padding(.top,10)
@@ -218,7 +221,7 @@ var gamedata : gamelist
                                 .clipShape(Capsule())
                                 
                             .sheet(isPresented: $shows){
-                                UserView(manber1: self.manber1, manber2: self.manber2, manber3: self.manber3,manber4: self.manber4,manber5: self.manber5,manber6: self.manber6, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
+                                UserView(member1: self.member1, member2: self.member2, member3: self.member3,member4: self.member4,member5: self.member5,member6: self.member6, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
                         
                                         }
                                     }
@@ -232,12 +235,12 @@ var gamedata : gamelist
 
 
 struct UserView: View {
-    var manber1 :String
-    var manber2 :String
-    var manber3 :String
-    var manber4 :String
-    var manber5 :String
-    var manber6 :String
+    var member1 :String
+    var member2 :String
+    var member3 :String
+    var member4 :String
+    var member5 :String
+    var member6 :String
     var userpass :String
     var email :String
     var gamedata : gamelist
@@ -247,7 +250,7 @@ struct UserView: View {
     var body: some View {
         VStack{
                 ForEach(self.userdata.data,id: \.id){i in
-                    CellUserView(manber1: self.manber1, manber2: self.manber2, manber3: self.manber3,manber4: self.manber4,manber5: self.manber5,manber6: self.manber6, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
+                    CellUserView(member1: self.member1, member2: self.member2, member3: self.member3,member4: self.member4,member5: self.member5,member6: self.member6, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
                 
             }
         }
@@ -256,12 +259,12 @@ struct UserView: View {
 
 
 struct CellUserView: View {
-    var manber1 :String
-    var manber2 :String
-    var manber3 :String
-    var manber4 :String
-    var manber5 :String
-    var manber6 :String
+    var member1 :String
+    var member2 :String
+    var member3 :String
+    var member4 :String
+    var member5 :String
+    var member6 :String
     var userpass :String
     var email :String
     var gamelist : gamelist
@@ -288,21 +291,24 @@ struct CellUserView: View {
             Group{
                 Text("所属名")
                 Text(userlist.belong)
-                Text("参加種目")
-                Text(manber1)
-                Text(manber2)
-                Text(manber3)
-                Text(manber4)
-                Text(manber5)
-                Text(manber6)
+                Text("組織代表者名")
+                Text(userlist.username)
+                Text("リレーオーダーメンバー")
+                Text(member1)
+                Text(member2)
+                Text(member3)
+                Text(member4)
+                Text(member5)
             }
+                Text(member6)
+            
 
                 HStack{
                     Spacer()
                 Button(action: {
                     self.show.toggle()
                     let db = Firestore.firestore()
-                    let data: [String : Any] = ["manber1": self.manber1, "manber2": self.manber2, "manber3": self.manber3, "manber4": self.manber4, "manber5": self.manber5, "manber6": self.manber6, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username]
+                    let data: [String : Any] = ["member1": self.member1, "member2": self.member2, "member3": self.member3, "member4": self.member4, "member5": self.member5, "member6": self.member6, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username]
                     //試合申し込み完了テーブルに入れる
                     db.collection("relaycomplete")
                        .addDocument(data:data)

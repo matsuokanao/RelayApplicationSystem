@@ -92,7 +92,7 @@ struct GameShowListView: View {
    var completedata : gamecomplete
     @State var show = false
     @State var showingAlert = false
-    @State var pay = "true"
+    
     
     var body: some View {
         VStack{

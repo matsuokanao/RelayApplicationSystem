@@ -43,7 +43,7 @@ struct ApproveView: View {
                     .background(Color("green4"))
             
             ForEach(self.gamedata.data,id: \.id){i in
-                CellApproveView(num: self.num, pass: self.pass, gamelist: i)
+                CellApproveView(gamelist: i, num: self.num, pass: self.pass)
                             
                 }
             }.frame(width: 300, height: 500)
@@ -58,16 +58,18 @@ struct ApproveView_Previews: PreviewProvider {
 }
 
 struct CellApproveView: View {
-    
+    var gamelist : gamelist
     var num : String
     var pass : String
-    var gamelist : gamelist
     @State var show = false
+    @State var relayshow = false
     @ObservedObject var completelist = getGameCompleteList()
     
     var body: some View {
     VStack{
+        
        if gamelist.grouppass == pass && gamelist.groupnum == num{
+
         HStack {
             
             Image(systemName: "person.fill")
@@ -100,7 +102,6 @@ struct CellApproveView: View {
 struct ApproveSelectView: View {
     var gamelist : gamelist
     var completelist : gamecomplete
-
     @State var show = false
 var body: some View {
         HStack {
@@ -109,6 +110,7 @@ var body: some View {
                         .foregroundColor(Color("green7"))
                 
             Text(completelist.username)
+            Text(completelist.belong)
                                 Spacer()
                     Button(action: {
                             self.show.toggle()
@@ -116,6 +118,7 @@ var body: some View {
                     Image(systemName: "play.fill")
                                 .foregroundColor(Color("green7"))
                                     }.sheet(isPresented: self.$show) {
+                                        
                                         ApprovecompleateView(gamelist: self.gamelist, completelist: self.completelist)
                 }
             }
@@ -129,20 +132,26 @@ struct ApprovecompleateView: View {
     var gamelist : gamelist
     var completelist : gamecomplete
     @State var Alertshow = false
-    @State var pay = "true"
+    @State var pay = "pay"
+    @State var t = "true"
 var body: some View {
     HStack {
             Image(systemName: "person.fill")
                             .foregroundColor(Color("green7"))
-        Text(gamelist.gamename)
-                            Spacer()
+        VStack{
+        Text(completelist.username)
+            Text(completelist.event1)
+            Text(completelist.event2)
+            Text(completelist.event3)
+        }
+                        Spacer()
                     Button(action: {
                         self.Alertshow = true
                             let db = Firestore.firestore()
                             //試合申し込み完了テーブルに入れる
                             db.collection("gamecomplete")
                                 .document(self.completelist.id)
-                                .updateData(["pay": "true"])
+                                .updateData([self.pay: self.t])
                                 { (err) in
                         if err != nil{
                             print((err?.localizedDescription)!)
@@ -151,22 +160,21 @@ var body: some View {
                                     }
 
                             }) {
-                        
-                                    Text("承認")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color("green2"))
-                                        .padding(.vertical)
-                                        .padding(.horizontal,45)
-                                        .background(Color.white)
-                                        .clipShape(Capsule())
+                        Text("承認")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("green2"))
+                            .padding(.vertical)
+                            .padding(.horizontal,45)
+                            .background(Color.white)
+                            .clipShape(Capsule())
                                         
                                 }.alert(isPresented: $Alertshow){
-                                    Alert(title: Text("登録完了！"),
-                                          message: Text("登録が完了しました。内容をご確認下さい。"),
-                                          dismissButton: .default(Text("わかりました")))
+                            Alert(title: Text("登録完了！"),
+                            message: Text("登録が完了しました。内容をご確認下さい。"),
+                            dismissButton: .default(Text("わかりました")))
                     }
             Spacer()
-        }
+        }.padding(.top,10)
     }
 }
 
