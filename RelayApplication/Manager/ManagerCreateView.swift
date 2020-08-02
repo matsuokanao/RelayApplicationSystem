@@ -88,9 +88,9 @@ struct ManagerCreateView: View {
                     Button(action: {
                         self.showAlert = true
                         let db = Firestore.firestore()
-                        let data: [String : Any] = ["groupname": self.groupnum,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]                        //試合申し込み完了テーブルに入れる
+                        let data: [String : Any] = ["groupname": self.groupname,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]                        //試合申し込み完了テーブルに入れる
                         db.collection("managerlist")
-                            .document(self.email)
+                            .document(self.groupname)
                             .setData(data)
                                 { (err) in
                                     if err != nil{

@@ -65,7 +65,6 @@ struct GameListView_Previews: PreviewProvider {
      var body: some View {
          VStack{
             if completedata.email == email && completedata.userpass ==  pass{
-                    
                         HStack {
                             Image(systemName: "person.fill")
                                 .foregroundColor(Color.white)
@@ -79,7 +78,8 @@ struct GameListView_Previews: PreviewProvider {
                             Image(systemName: "play.fill")
                                 .foregroundColor(Color.white)
                                             }.sheet(isPresented: self.$show) {
-                                                GameShowListView(completedata: self.completedata)
+
+                                                    GameShowListView(completedata: self.completedata)
                         
                     }
                 }.padding(.top,20)
@@ -96,6 +96,7 @@ struct GameShowListView: View {
     
     var body: some View {
         VStack{
+            
             Group{
             Text("試合名")
             Text(completedata.gamename)
@@ -114,9 +115,12 @@ struct GameShowListView: View {
             Text(completedata.event1)
             Text(completedata.event2)
             Text(completedata.event3)
-            if completedata.pay == "false"{
+            if completedata.pay == "true" {
+                Text("試合費用の確認ができました。")
+                            } else{
                 Text("試合費用のお支払いが完了していません。")
                 Text("お支払いが確認できない場合は自動キャンセルとなります。")
+                
             }
         }
     }

@@ -127,7 +127,7 @@ struct CellManagerEditView: View {
                             
                         }
                     }
-                }
+                }.padding(.top,10)
             }
         }
     }
@@ -137,7 +137,7 @@ struct CellManagerEditView: View {
     struct ManagerEditPracticeView: View {
         var managerdata : managerlist
             @State var edit = ""
-            @State var show = false
+            @State var showAlert = false
             @State var name : String
 
         var body: some View {
@@ -152,7 +152,7 @@ struct CellManagerEditView: View {
                 .background(Color("green8"))
                 
             Button(action: {
-                self.show.toggle()
+                self.showAlert = true
                     let db = Firestore.firestore()
                     //試合申し込み完了テーブルに入れる
                     db.collection("managerlist")
@@ -165,15 +165,19 @@ struct CellManagerEditView: View {
                                 }
                             }
                     }) {
-                Text("編集する")
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 30)
-                    .sheet(isPresented: $show){
-                        UserEditFinishView()
+                Text("登録")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("green7"))
+                        .padding(.vertical)
+                        .padding(.horizontal,45)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                        
+                }.alert(isPresented: $showAlert){
+                    Alert(title: Text("登録完了！"),
+                          message: Text("登録が完了しました。内容をご確認下さい。"),
+                          dismissButton: .default(Text("わかりました")))
                                 }
-                            }.background(Color("green8"))
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                 }.frame(width: 300, height: 500)
             }
         }

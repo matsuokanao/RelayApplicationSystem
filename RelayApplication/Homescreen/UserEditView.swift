@@ -178,9 +178,6 @@ struct UserEditView_Previews: PreviewProvider {
                     }
 
                     HStack {
-                    Image(systemName: "flag.fill")
-                        .foregroundColor(Color("red2"))
-                    Text(userdata.belongpass)
                         Spacer()
                         Button(action: {
                             self.show.toggle()

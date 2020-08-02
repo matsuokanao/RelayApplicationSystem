@@ -86,25 +86,28 @@ struct CellApproveView: View {
                         .foregroundColor(Color.white)
                                     }.sheet(isPresented: self.$show) {
             ForEach(self.completelist.data,id: \.id){i in
-                ApproveSelectView(gamelist: self.gamelist, completelist: i)
-                                        }
+                    ApproveSelectView(gamelist: self.gamelist, completelist: i)
+                                        
                                     }
                                 }
                             }
                         }
                     }
                 }
-
+            }
 
 
 struct ApproveSelectView: View {
     var gamelist : gamelist
     var completelist : gamecomplete
+
     @State var show = false
 var body: some View {
         HStack {
+            if gamelist.gamename == completelist.gamename && completelist.pay == "false"{
             Image(systemName: "person.fill")
-                                .foregroundColor(Color("green7"))
+                        .foregroundColor(Color("green7"))
+                
             Text(completelist.username)
                                 Spacer()
                     Button(action: {
@@ -114,7 +117,7 @@ var body: some View {
                                 .foregroundColor(Color("green7"))
                                     }.sheet(isPresented: self.$show) {
                                         ApprovecompleateView(gamelist: self.gamelist, completelist: self.completelist)
-                
+                }
             }
         }
     }
@@ -129,23 +132,24 @@ struct ApprovecompleateView: View {
     @State var pay = "true"
 var body: some View {
     HStack {
-        Image(systemName: "person.fill")
+            Image(systemName: "person.fill")
                             .foregroundColor(Color("green7"))
         Text(gamelist.gamename)
                             Spacer()
                     Button(action: {
                         self.Alertshow = true
-                                let db = Firestore.firestore()
-                        let data: [String : Any] = ["event1": self.completelist.event1, "event2": self.completelist.event2, "event3": self.completelist.event3, "userpass": self.completelist.userpass, "email": self.completelist.email, "pay": self.pay, "gamename": self.completelist.gamename,"year": self.completelist.year,"month": self.completelist.month,"day": self.completelist.day, "place": self.completelist.place, "gamevenue": self.completelist.gamevenue, "groupname": self.completelist.groupname, "groupnum": self.completelist.groupnum, "grouppass": self.completelist.grouppass, "jaaf": self.completelist.jaaf,"belong": self.completelist.belong, "phonenumber": self.completelist.phonenumber, "ceo": self.completelist.ceo, "username": self.completelist.username]
-                                //試合申し込み完了テーブルに入れる
-                                db.collection("gameapprove")
-                                    .addDocument(data:data)
-                                        { (err) in
-                                            if err != nil{
-                                                print((err?.localizedDescription)!)
-                                                    return
+                            let db = Firestore.firestore()
+                            //試合申し込み完了テーブルに入れる
+                            db.collection("gamecomplete")
+                                .document(self.completelist.id)
+                                .updateData(["pay": "true"])
+                                { (err) in
+                        if err != nil{
+                            print((err?.localizedDescription)!)
+                                    return
                                         }
                                     }
+
                             }) {
                         
                                     Text("承認")
@@ -160,13 +164,11 @@ var body: some View {
                                     Alert(title: Text("登録完了！"),
                                           message: Text("登録が完了しました。内容をご確認下さい。"),
                                           dismissButton: .default(Text("わかりました")))
-                            }
-                        Spacer()}
-                                        
-                                    
-                        
-                    
-    } }
+                    }
+            Spacer()
+        }
+    }
+}
 
 
 

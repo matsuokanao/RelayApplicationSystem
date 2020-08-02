@@ -117,17 +117,6 @@ struct UserCreateView: View {
                     .background(Color.white)
                 }
         
-        Text("所属団体パスワードを入力する")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-            .padding(.top,10)
-        VStack{
-        TextField("所属団体パスワード", text: $BelongPass)
-            .foregroundColor(.white)
-            Divider()
-                .background(Color.white)
-            }
-
 
         Text("ユーザーパスを入力して下さい　*6文字以上で入力して下さい")
                 .fontWeight(.bold)
@@ -146,7 +135,7 @@ struct UserCreateView: View {
             Button(action: {
                 self.show.toggle()
                 let db = Firestore.firestore()
-                let data: [String : Any] = ["username": self.UserName, "jaaf": self.Jaaf, "belong": self.Belong, "ceo": self.Ceo, "email": self.Email, "phonenumber": self.PhoneNumber, "userpass": self.UserPass, "belongpass": self.BelongPass]
+                let data: [String : Any] = ["username": self.UserName, "jaaf": self.Jaaf, "belong": self.Belong, "ceo": self.Ceo, "email": self.Email, "phonenumber": self.PhoneNumber, "userpass": self.UserPass]
                 //試合申し込み完了テーブルに入れる
                 db.collection("userlist")
                     .document(self.Email)

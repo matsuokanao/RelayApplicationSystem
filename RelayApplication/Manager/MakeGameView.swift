@@ -31,7 +31,7 @@ struct MakeGameView: View {
                 TextField("", text: self.$num)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
+                    .background(Color("green2"))
                 Text("団体パスワード")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
@@ -40,7 +40,7 @@ struct MakeGameView: View {
                 TextField("", text: self.$pass)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
+                    .background(Color("green2"))
             
             ForEach(self.data.data,id: \.id){i in
                 MakeGamCellView(managerdata: i, num: self.num, pass: self.pass)
@@ -71,11 +71,13 @@ struct MakeGamCellView: View {
     @State var gamevenue = ""
     @State var png = ""
     @State var link = ""
+    @State var end = "false"
 
     
     var body: some View {
         
         ZStack{
+            
             if num == managerdata.groupnum && pass == managerdata.grouppass {
                                 Color("green2")
                                     .edgesIgnoringSafeArea(.all)
@@ -180,7 +182,7 @@ struct MakeGamCellView: View {
                             Button(action: {
                                     self.showAlert = true
                                     let db = Firestore.firestore()
-                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass]         //試合申し込み完了テーブルに入れる
+                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"end":self.end]         //試合申し込み完了テーブルに入れる
                                         db.collection("gamelist")
                                             .document(self.gamename)
                                             .setData(data)
@@ -207,7 +209,7 @@ struct MakeGamCellView: View {
                             Spacer()}
                         }
                     }
-                }.frame(width: 350, height: 600)
+                }.frame(width: 350, height: 400)
             }
         }
     }

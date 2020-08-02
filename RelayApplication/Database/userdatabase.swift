@@ -26,8 +26,7 @@ var username : String
     var phonenumber : String
 //ユーザーパスワード
     var userpass : String
-//団体パスワード
-    var belongpass : String
+
 }
 
 //読み込み
@@ -50,9 +49,8 @@ class getUserdataList : ObservableObject{
                 let ceo = i.get("ceo") as! String
                 let phonenumber = i.get("phonenumber") as! String
                 let userpass = i.get("userpass") as! String
-                let belongpass = i.get("belongpass") as! String
-                
-                self.data.append(userlist(id: id,username: username, jaaf: jaaf, belong: belong, ceo: ceo, email: email, phonenumber: phonenumber, userpass: userpass, belongpass: belongpass))
+                                
+                self.data.append(userlist(id: id,username: username, jaaf: jaaf, belong: belong, ceo: ceo, email: email, phonenumber: phonenumber, userpass: userpass))
             }
         }
     }
