@@ -17,7 +17,7 @@ struct GameEditView: View {
     var body: some View {
         VStack{
             ZStack{
-            Color("green2")
+            Color("green7")
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
                     Text("試合の団体番号と団体パスワードを入力して下さい")

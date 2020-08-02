@@ -32,10 +32,10 @@ struct GameApplicationView: View {
 
                         CellGameApplicationView(gamedata: i, place: self.place)
                         }.padding(.top,20)
-                    }.frame(width: 300, height: 600)
-                }
+                }.frame(width: 300, height: 600)
             }
         }
+    }
 }
 
 struct GameApplicationView_Previews: PreviewProvider {
@@ -285,25 +285,6 @@ struct CellConfirmationViews: View {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

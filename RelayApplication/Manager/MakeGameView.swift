@@ -15,7 +15,7 @@ struct MakeGameView: View {
     @ObservedObject var data = getManagerList()
     var body: some View {
         ZStack{
-        Color("green2")
+        Color("green3")
             .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
                 Text("試合の団体番号と団体パスワードを入力して下さい")
@@ -31,7 +31,7 @@ struct MakeGameView: View {
                 TextField("", text: self.$num)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("green2"))
+                    .background(Color("green3"))
                 Text("団体パスワード")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
@@ -40,7 +40,7 @@ struct MakeGameView: View {
                 TextField("", text: self.$pass)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("green2"))
+                    .background(Color("green3"))
             
             ForEach(self.data.data,id: \.id){i in
                 MakeGamCellView(managerdata: i, num: self.num, pass: self.pass)
@@ -71,7 +71,7 @@ struct MakeGamCellView: View {
     @State var gamevenue = ""
     @State var png = ""
     @State var link = ""
-    @State var end = "false"
+    @State var relay = ""
 
     
     var body: some View {
@@ -79,7 +79,7 @@ struct MakeGamCellView: View {
         ZStack{
             
             if num == managerdata.groupnum && pass == managerdata.grouppass {
-                                Color("green2")
+                                Color("green3")
                                     .edgesIgnoringSafeArea(.all)
                         //画面スクロール処理
                         ScrollView(.vertical){
@@ -94,7 +94,6 @@ struct MakeGamCellView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     .frame(width: 350, height: 60)
-                                Group{
                                 Text("試合名")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
@@ -130,6 +129,7 @@ struct MakeGamCellView: View {
                                         Divider()
                                             .background(Color.white)
                                         }
+                                }
                                 
                                 Text("開催都道府県")
                                         .fontWeight(.bold)
@@ -148,6 +148,16 @@ struct MakeGamCellView: View {
                                         .padding(.top,10)
                                 VStack{
                                     TextField("代表者名", text: $gamevenue)
+                                        .foregroundColor(.white)
+                                        Divider()
+                                            .background(Color.white)
+                                        }
+                                Text("リレー種目はありますか？")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .padding(.top,10)
+                                VStack{
+                                    TextField("例　はい　いいえ", text: $relay)
                                         .foregroundColor(.white)
                                         Divider()
                                             .background(Color.white)
@@ -182,7 +192,7 @@ struct MakeGamCellView: View {
                             Button(action: {
                                     self.showAlert = true
                                     let db = Firestore.firestore()
-                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"end":self.end]         //試合申し込み完了テーブルに入れる
+                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"relay":self.relay]         //試合申し込み完了テーブルに入れる
                                         db.collection("gamelist")
                                             .document(self.gamename)
                                             .setData(data)
@@ -206,14 +216,15 @@ struct MakeGamCellView: View {
                                               message: Text("登録が完了しました。内容をご確認下さい。"),
                                               dismissButton: .default(Text("わかりました")))
                                 }
-                            Spacer()}
+                            Spacer()
                         }
-                    }
-                }.frame(width: 350, height: 400)
+                    }.frame(width: 350, height: 400)
+
+                }
             }
         }
     }
-}
+
         
     
 

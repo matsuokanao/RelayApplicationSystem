@@ -10,7 +10,10 @@ import SwiftUI
 
 struct RelayView: View {
     
-    @State var show = false
+    @State var applicationshow = false
+    @State var ordershow = false
+    @State var listshow = false
+    @State var questionshow = false
     @State var usereditshow = false
     @State var diaryshow = false
     
@@ -51,13 +54,13 @@ struct RelayView: View {
 
                                         
     Button(action: {
-                    self.show.toggle()
+                    self.applicationshow.toggle()
                         }){
         Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
-                .sheet(isPresented: $show){
-            UserCreateView()
+                .sheet(isPresented: $applicationshow){
+            RelayApplicationView()
             }
         }
     }
@@ -85,13 +88,13 @@ struct RelayView: View {
 
                                         
     Button(action: {
-                    self.usereditshow.toggle()
+                    self.ordershow.toggle()
                     }){
         Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .sheet(isPresented: $usereditshow){
-                        UserEditView()
+            .sheet(isPresented: $ordershow){
+                        RelayOrderView()
                 }
             }
         }
@@ -121,13 +124,13 @@ struct RelayView: View {
                 .frame(width:140,height:30)
 
     Button(action: {
-                    self.diaryshow.toggle()
+                    self.listshow.toggle()
                         }){
         Text("開く")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .sheet(isPresented: $diaryshow){
-                        DiaryView()
+            .sheet(isPresented: $listshow){
+                        RelayListView()
             }
         }
     }
@@ -151,13 +154,13 @@ struct RelayView: View {
             .foregroundColor(.white)
             .frame(width:140,height:50)
     Button(action: {
-            self.diaryshow.toggle()
+            self.questionshow.toggle()
             }){
         Text("リレーページの説明")
             .fontWeight(.bold)
             .foregroundColor(.white)
-            .sheet(isPresented: $diaryshow){
-                DiaryView()
+            .sheet(isPresented: $questionshow){
+                RelayQuestionView()
                                 }
                             }
                         }
