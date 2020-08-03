@@ -10,6 +10,7 @@ import SwiftUI
 
 struct OrderListView: View {
     var body: some View {
+        //TODO 承認ボタンと当日エントリーボタンを作る
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }

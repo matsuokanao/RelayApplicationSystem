@@ -12,16 +12,39 @@ import Firebase
 struct ApproveView: View {
     @State var num = "" 
     @State var pass = ""
+    @State var relayshow = false
     @ObservedObject var gamedata = getGamedataList()
         var body: some View {
         ZStack{
         Color("green4")
             .edgesIgnoringSafeArea(.all)
+            
         VStack(alignment: .leading){
+            Text("エントリー承認ページ")
+                          .font(.title)
+                          .fontWeight(.bold)
+                .foregroundColor(Color.white)
+
+            HStack{
+            Spacer()
+            Button(action: {
+                self.relayshow.toggle()
+                    }) {
+                Text("リレー承認ページ")
+                    .padding(.vertical)
+                    .frame(width: 170,height: 40)
+                    .sheet(isPresented: $relayshow){
+                        RelayApproveView()
+                                }
+            }.background(Color.white)
+            .foregroundColor(Color("blackcolor"))
+                .padding(.top,30)
+            }
+
                 Text("試合の団体番号と団体パスワードを入力して下さい")
                             .foregroundColor(Color.white)
                             .fontWeight(.bold)
-
+                            .padding(.top,20)
                 Text("団体番号")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
