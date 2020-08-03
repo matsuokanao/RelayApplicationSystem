@@ -46,7 +46,6 @@ struct ManagerTopView: View {
                             }
                         }.background(Color("green1"))
                         .cornerRadius(10)
-                        
                         .foregroundColor(.white)
                 }
             }.frame(width: 300, height: 600)
