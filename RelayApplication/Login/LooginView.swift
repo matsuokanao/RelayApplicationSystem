@@ -135,6 +135,7 @@ struct LooginView: View {
                 if self.email != "" && self.pass != "" {
                     //メールアドレスとパスワードを送る
                     Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res,err) in
+                        if err == nil {
                         if err != nil {
                             self.error = ""
                             self.alert.toggle()
@@ -143,8 +144,12 @@ struct LooginView: View {
                         print("成功！！")
                         UserDefaults.standard.set(true, forKey: "status")
                         NotificationCenter.default.post(name: NSNotification.Name("status"),object: nil)
+                    }else{
+                        self.error = "エラーが発生しました。メールアドレス、パスワードが正しいか再度ご確認下さい。"
+                        self.alert.toggle()
+
                     }
-                    
+                    }
                 }else{
                 self.error = "すべての項目を埋めてください"
                     self.alert.toggle()

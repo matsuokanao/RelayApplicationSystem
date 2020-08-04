@@ -18,7 +18,6 @@ struct SingUpView: View {
     @State var visible = false
     @State var revisible = false
     @Binding var show : Bool
-    @State var first = "first"
     @State var alert = false
     @State var error = ""
     
@@ -125,7 +124,7 @@ struct SingUpView: View {
                         }
                     .padding()
                     }
-                    
+                
                     if self.alert{
                         ErrorView(alert: self.$alert, error: $error)
                     }
@@ -148,30 +147,28 @@ struct SingUpView: View {
                             if err == nil {
                               
                               if err != nil{
-                                let db = Firestore.firestore()
-                                    let data: [String : Any] = ["email": self.email]
-                                        db.collection("authority")
-                                            .document(self.email)
-                                            .setData(data)
-                                                { (err) in
-                                                if err != nil{
-                                                        print((err?.localizedDescription)!)
-                                                            return
-                                                }
-                                            }
+                             
                                   self.error = ""
                                   self.alert.toggle()
                                   return
                                 
                               }
                                 print("成功しました")
-                           
-
-                              
+                                let db = Firestore.firestore()
+                                let data: [String : Any] = ["email": self.email]
+                                    db.collection("authority")
+                                        .document(self.email)
+                                        .setData(data)
+                                { (err) in
+                                    if err != nil{
+                                            print((err?.localizedDescription)!)
+                                                    return
+                                    }
+                                }
                               UserDefaults.standard.set(true, forKey: "status")
                               NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                             }else{
-                                self.error = "エラーが発生しました"
+                                self.error = "このメールアドレスは使用されている可能性があります。再度ご確認下さい。"
                                 self.alert.toggle()
 
                             }

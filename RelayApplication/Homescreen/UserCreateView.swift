@@ -31,6 +31,11 @@ struct UserCreateView: View {
     @State var color = Color.black.opacity(0.7)
     
     @State var show = false
+    @State var showAlert = false
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
+    
     
     var body: some View {
 
@@ -118,7 +123,7 @@ struct UserCreateView: View {
                 }
         
 
-        Text("ユーザーパスを入力して下さい　*6文字以上で入力して下さい")
+        Text("ユーザーパスを入力して下さい　*4文字以上で入力して下さい")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.top,10)
@@ -133,6 +138,17 @@ struct UserCreateView: View {
         HStack{
                 Spacer()
             Button(action: {
+                if self.UserName == "" && self.Jaaf == "" && self.Belong == "" && self.Ceo == "" && self.Email == "" && self.PhoneNumber == "" && self.UserPass == "" {
+                self.showAlert.toggle()
+                    self.title = "エラー"
+                    self.message = "aaa"
+                    self.dismissButton = "aaa"
+                }else if self.UserPass.count < 3{
+                    self.showAlert.toggle()
+                    self.title = "エラー"
+                    self.message = "bbb"
+                    self.dismissButton = "bbb"
+                }else{
                 self.show.toggle()
                 let db = Firestore.firestore()
                 let data: [String : Any] = ["username": self.UserName, "jaaf": self.Jaaf, "belong": self.Belong, "ceo": self.Ceo, "email": self.Email, "phonenumber": self.PhoneNumber, "userpass": self.UserPass]
@@ -144,6 +160,7 @@ struct UserCreateView: View {
                             if err != nil{
                                 print((err?.localizedDescription)!)
                                     return
+                            }
                         }
                     }
             }){
@@ -159,7 +176,12 @@ struct UserCreateView: View {
                     UserCreateFinishView()
             
                             }
-                        }
+                        }.alert(isPresented: $showAlert){
+                            Alert(title: Text(self.title),
+                                  message: Text(self.message),
+                                  dismissButton: .default(Text(self.dismissButton)))
+            }
+            
                         Spacer()
                     }
                 }
