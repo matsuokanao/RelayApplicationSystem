@@ -18,14 +18,22 @@ struct EntryListView: View {
         Color("green6")
             .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
+            ScrollView{
+            Text("エントリーリスト")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+
+
                 Text("試合の運営団体番号と運営団体パスワードを入力して下さい")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                 Text("運営団体番号")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-                .padding(.top,20)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                                
                 TextField("", text: self.$num)
@@ -45,7 +53,7 @@ struct EntryListView: View {
 
                         ForEach(self.gamedata.data,id: \.id){i in
                             CellEntryListView(gamedata:i,pass: self.pass, num: self.num)
-                        
+                        }
                     }
                 }.frame(width: 300, height: 500)
             }

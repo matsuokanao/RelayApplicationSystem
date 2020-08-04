@@ -18,10 +18,16 @@ struct RelayApplicationView: View {
                     .edgesIgnoringSafeArea(.all)
 
                 VStack(alignment: .leading){
-                    ScrollView(.vertical){
+                    ScrollView{
+                    Text("リレー申し込み")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                        
                     Text("参加したい試合の都道府県を入力して下さい")
                                     .foregroundColor(Color.white)
                                     .fontWeight(.bold)
+                        .padding(.top,20)
                 
                     TextField("", text: self.$place)
                             .textFieldStyle(RoundedBorderTextFieldStyle())

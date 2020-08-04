@@ -20,6 +20,7 @@ struct ApproveView: View {
             .edgesIgnoringSafeArea(.all)
             
         VStack(alignment: .leading){
+            ScrollView{
             Text("エントリー承認ページ")
                           .font(.title)
                           .fontWeight(.bold)
@@ -67,7 +68,8 @@ struct ApproveView: View {
             
             ForEach(self.gamedata.data,id: \.id){i in
                 CellApproveView(gamelist: i, num: self.num, pass: self.pass)
-                            
+                
+                    }
                 }
             }.frame(width: 300, height: 500)
         }

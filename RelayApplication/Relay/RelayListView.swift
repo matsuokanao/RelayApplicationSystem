@@ -17,9 +17,16 @@ struct RelayListView: View {
                 Color("yello3")
                         .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
+            ScrollView{
+            Text("リレー申込みリスト")
+            .font(.title)
+            .fontWeight(.bold)
+            .foregroundColor(Color.white)
+
             Text("試合申し込み時に入力したユーザーパスとメールアドレスを入力して下さい")
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
+                    .padding(.top,20)
 
             Text("メールアドレス")
                     .foregroundColor(Color.white)
@@ -48,7 +55,7 @@ struct RelayListView: View {
                 }
             }
         }
-
+}
 
 struct RelayListView_Previews: PreviewProvider {
     static var previews: some View {

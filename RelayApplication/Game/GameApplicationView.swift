@@ -19,10 +19,16 @@ struct GameApplicationView: View {
                         .edgesIgnoringSafeArea(.all)
 
         VStack(alignment: .leading){
-            ScrollView(.vertical){
+            ScrollView{
+                Text("試合申し込み")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+
             Text("参加したい試合の都道府県を入力して下さい")
                             .foregroundColor(Color.white)
                             .fontWeight(.bold)
+                            .padding(.top,30)
         
             TextField("", text: self.$place)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -108,6 +114,7 @@ struct GameApplicationListView: View {
             ScrollView(.vertical){
                 
             VStack(alignment: .leading, spacing: 25){
+                
                 WebView(loadUrl: self.gamedata.png).frame(height: 400)
                 
                 Text("・所属団体パスワード,試合パスワードの詳しい説明に関しましてはHOME画面の良くある質問をご参照下さい")

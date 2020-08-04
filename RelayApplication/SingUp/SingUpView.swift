@@ -127,47 +127,68 @@ struct SingUpView: View {
                     }
                     
                     if self.alert{
-                        
-                        Text(self.error)
+                        ErrorView(alert: self.$alert, error: $error)
                     }
                 }
                 .navigationBarBackButtonHidden(true)
             }
           //登録ボタンを押した時の処理
-            func register(){
-                if self.email != "" {
-                    
-                    if self.pass == self.repass{
-                        
-                        Auth.auth().createUser(withEmail: self.email, password: self.pass){
-                            (res, err) in
-                            print("成功しました")
-                            UserDefaults.standard.set(true, forKey: "status")
-                            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                            
-                            let db = Firestore.firestore()
-                            let data: [String : Any] = ["email": self.email]
-                            //試合申し込み完了テーブルに入れる
-                            db.collection("authority")
-                                .document(self.email)
-                                .setData(data)
-                                    { (err) in
-                                        if err != nil{
-                                            print((err?.localizedDescription)!)
-                                                return
-                                    }
-                                }
+              func register(){
 
+                if self.email != "" {
+                      
+                      if self.pass == self.repass{
+                        
+                        if self.pass.count >= 6 {
+                            
+                            
+                          
+                          Auth.auth().createUser(withEmail: self.email, password: self.pass){
+                              (res, err) in
+                            if err == nil {
+                              
+                              if err != nil{
+                                let db = Firestore.firestore()
+                                    let data: [String : Any] = ["email": self.email]
+                                        db.collection("authority")
+                                            .document(self.email)
+                                            .setData(data)
+                                                { (err) in
+                                                if err != nil{
+                                                        print((err?.localizedDescription)!)
+                                                            return
+                                                }
+                                            }
+                                  self.error = ""
+                                  self.alert.toggle()
+                                  return
+                                
+                              }
+                                print("成功しました")
+                           
+
+                              
+                              UserDefaults.standard.set(true, forKey: "status")
+                              NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                            }else{
+                                self.error = "エラーが発生しました"
+                                self.alert.toggle()
+
+                            }
                         }
-                    }
-                    else{
-                        self.error = "パスワードが一致していません"
+                      }else{
+                      self.error = "パスワードは６文字以上で入力して下さい。"
                         self.alert.toggle()
+                        
                     }
-                }
-        else{
-            self.error = "すべての項目を入力してください"
-            self.alert.toggle()
+                      }
+                      else{
+                          self.error = "パスワードが一致していません"
+                          self.alert.toggle()
+                      }
+                  }else{
+                      self.error = "すべての項目を入力してください"
+                      self.alert.toggle()
         }
     }
 }

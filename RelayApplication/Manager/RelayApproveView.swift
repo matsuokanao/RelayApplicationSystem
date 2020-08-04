@@ -20,9 +20,10 @@ struct RelayApproveView: View {
                     .edgesIgnoringSafeArea(.all)
                    
                 VStack(alignment: .leading){
+                    ScrollView{
                     Text("リレー承認ページ")
-                                      .font(.title)
-                                      .fontWeight(.bold)
+                        .font(.title)
+                        .fontWeight(.bold)
                         .foregroundColor(Color.white)
                                               
                         Text("試合の団体番号と団体パスワードを入力して下さい")
@@ -51,12 +52,13 @@ struct RelayApproveView: View {
                     
                     ForEach(self.gamedata.data,id: \.id){i in
                         CellRelayApproveView(gamelist: i, num: self.num, pass: self.pass)
-                                    
+                        
                         }
-                    }.frame(width: 300, height: 500)
-                }
+                    }
+                }.frame(width: 300, height: 500)
             }
         }
+    }
 
 
 struct RelayApproveView_Previews: PreviewProvider {

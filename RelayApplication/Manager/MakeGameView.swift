@@ -18,11 +18,18 @@ struct MakeGameView: View {
         Color("green3")
             .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
-                Text("試合の団体番号と団体パスワードを入力して下さい")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
+            ScrollView{
+            Text("試合作成")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+                
+            Text("試合の団体番号と団体パスワードを入力して下さい")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(.top,20)
 
-                Text("団体番号")
+            Text("団体番号")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
                 .padding(.top,20)
@@ -33,8 +40,8 @@ struct MakeGameView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("green3"))
                 Text("団体パスワード")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
 
                                
                 TextField("", text: self.$pass)
@@ -44,6 +51,7 @@ struct MakeGameView: View {
             
             ForEach(self.data.data,id: \.id){i in
                 MakeGamCellView(managerdata: i, num: self.num, pass: self.pass)
+                    }
                 }
             }.frame(width: 300, height: 600)
         }

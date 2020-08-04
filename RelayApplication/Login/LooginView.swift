@@ -122,7 +122,7 @@ struct LooginView: View {
                     }.padding()
                 }
                 if self.alert{
-                    Text("aaa")
+                    ErrorView(alert: self.$alert, error: $error)
                     }
         }.onAppear{
             self.keyboard.startObserve()
@@ -146,7 +146,7 @@ struct LooginView: View {
                     }
                     
                 }else{
-                    self.error = "すべての項目を埋めてください"
+                self.error = "すべての項目を埋めてください"
                     self.alert.toggle()
                 }
             }
@@ -178,5 +178,52 @@ struct LooginView: View {
 struct LooginView_Previews: PreviewProvider {
     static var previews: some View {
         LooginView(show: .constant(false))
+    }
+}
+
+
+//エラー処理
+struct  ErrorView : View {
+    @State var color = Color.black.opacity(0.7)
+    @Binding var alert : Bool
+    @Binding var error : String
+    
+    var body: some View {
+        
+        GeometryReader{_ in
+            VStack{
+                HStack{
+                    Text(self.error == "REST" ? "Message" :"エラー")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.black)
+                    Spacer()
+                }
+                .padding(.horizontal, 25)
+                
+                Text(self.error == "REST" ? "入力したメールアドレスにパスワードのリセットURLを送信しました" : self.error)
+                    .padding(.horizontal, 25)
+                    .padding(.top)
+                    .padding(.horizontal,25)
+                
+                Button(action: {
+                    //エラ-をキャンセルボタンで消す
+                    self.alert.toggle()
+                }) {
+                    Text(self.error == "REST" ? "OK" : "戻る")
+                    .foregroundColor(.black)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 120)
+                }
+                .background(Color.white)
+            .cornerRadius(10)
+            .padding(.top, 25)
+            }
+            .padding(.vertical, 25)
+            .frame(width: UIScreen.main.bounds.width - 70)
+            .background(Color.white)
+            .cornerRadius(15)
+        }
+        .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
     }
 }

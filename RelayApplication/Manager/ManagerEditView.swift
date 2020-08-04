@@ -18,14 +18,20 @@ struct ManagerEditView: View {
         Color("green8")
             .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
+            ScrollView{
+                Text("運営団体編集")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
                 Text("編集したい運営団体の運営団体番号と運営団体パスワードを入力して下さい")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                 Text("運営団体番号")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-                .padding(.top,20)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                                
                 TextField("", text: self.$num)
@@ -34,8 +40,8 @@ struct ManagerEditView: View {
                     .background(Color("green8"))
             
                 Text("運営団パスワード")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
 
                                
                 TextField("", text: self.$pass)
@@ -45,6 +51,7 @@ struct ManagerEditView: View {
             
             ForEach(self.data.data,id: \.id){i in
                 CellManagerEditView(managerdata: i, num: self.num, pass: self.pass)
+                    }
                 }
             }.frame(width: 300, height: 500)
         }

@@ -18,14 +18,21 @@ struct OrderListView: View {
                     Color("green7")
                         .edgesIgnoringSafeArea(.all)
                     VStack(alignment: .leading){
+                        ScrollView{
+                        Text("当日オーダーリスト")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+
                             Text("試合の団体番号と団体パスワードを入力して下さい")
-                                        .foregroundColor(Color.white)
-                                        .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                                .fontWeight(.bold)
+                                .padding(.top,20)
 
                             Text("団体番号")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
-                            .padding(.top,20)
+                                .foregroundColor(Color.white)
+                                .fontWeight(.bold)
+                                .padding(.top,20)
 
                                            
                             TextField("", text: self.$num)
@@ -43,6 +50,7 @@ struct OrderListView: View {
 
                     ForEach(self.gamedata.data,id: \.id){i in
                         CellOrderListView(gamedata: i, num: self.num, pass: self.pass)
+                                }
                             }
                         }.frame(width: 300, height: 500)
                     }
@@ -108,7 +116,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                             ForEach(self.ordercomplete.data,id: \.id){i in
-                                                OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "1組目",num: self.num,pass : self.pass)
+                                                OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "1",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -124,7 +132,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                            ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "2組目",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "2",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -140,7 +148,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                             ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "3組目",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "3",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -156,7 +164,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                            ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "4組目",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "4",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -172,7 +180,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                          ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5組目",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -188,7 +196,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                          ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "6組目",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "6",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -204,7 +212,7 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
                                             ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5組目",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5",num: self.num,pass : self.pass)
                                     }
                                 }
                             }
@@ -224,9 +232,35 @@ struct OrderListShowView: View {
     @State var show = false
 var body: some View {
     VStack{
-        if ordercomplete.pay == "true" && ordercomplete.groupnum == num && ordercomplete.userpass == pass{
-        //relaydataテーブルではなくorederテーブルからとってくる
-        Text("")
+        if ordercomplete.pay == "true" && ordercomplete.groupnum == num && ordercomplete.grouppass == pass{
+            if ordercomplete.sex == "男" && ordercomplete.set == name {
+                Text("男子")
+                HStack{
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+            } else if ordercomplete.sex == "女" && ordercomplete.set == name {
+                Text("女子")
+                HStack{
+                    
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+                }
             }
         }
     }

@@ -17,10 +17,17 @@ struct GameListView: View {
          ZStack{
                Color("blue2")
                    .edgesIgnoringSafeArea(.all)
+            ScrollView{
                VStack(alignment: .leading){
-                    Text("試合申し込み時に入力したユーザーパスとメールアドレスを入力して下さい")
+                Text("試合申し込み")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    
+            Text("試合申し込み時に入力したユーザーパスとメールアドレスを入力して下さい")
                                 .foregroundColor(Color.white)
                                 .fontWeight(.bold)
+                .padding(.top,20)
 
         Text("メールアドレス")
             .foregroundColor(Color.white)
@@ -44,6 +51,7 @@ struct GameListView: View {
 
                 ForEach(self.data.data,id: \.id){i in
                     CellGameListView(completedata: i, pass: self.pass, email: self.email)
+                    }
                 }
             }.frame(width: 300, height: 600)
         }

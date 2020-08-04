@@ -20,14 +20,21 @@ struct GameEditView: View {
             Color("green7")
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
+                ScrollView{
+                    Text("試合内容編集")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+
                     Text("試合の団体番号と団体パスワードを入力して下さい")
-                                .foregroundColor(Color.white)
-                                .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                        .padding(.top,20)
 
                     Text("団体番号")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-                    .padding(.top,20)
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                        .padding(.top,20)
 
                                    
                     TextField("", text: self.$num)
@@ -45,6 +52,7 @@ struct GameEditView: View {
 
             ForEach(self.gamedata.data,id: \.id){i in
                 CellGameEditView(gamedata: i, num: self.num, pass: self.pass)
+                        }
                     }
                 }.frame(width: 300, height: 500)
             }

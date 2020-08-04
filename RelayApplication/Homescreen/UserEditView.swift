@@ -20,14 +20,21 @@ struct UserEditView: View {
         Color("red2")
             .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
+            ScrollView{
+            Text("リレー申し込み")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+                
                 Text("編集したいユーザーのメールアドレスとユーザーパスを入力して下さい")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                 Text("メールアドレス")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-                .padding(.top,20)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                                
                 TextField("", text: self.$email)
@@ -47,7 +54,7 @@ struct UserEditView: View {
             ForEach(self.userdata.data,id: \.id){i in
                                         
                 UserEditCellView(userdata: i, email: self.email, pass: self.pass)
-                   // }
+                    }
                 }
             }.padding(.top,20)
             .frame(width: 300, height: 600)

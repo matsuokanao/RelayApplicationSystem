@@ -41,7 +41,7 @@ struct UserCreateView: View {
     ScrollView(.vertical){
         
     VStack(alignment: .leading, spacing: 25){
-        Text("User Data")
+        Text("ユーザー登録")
             .fontWeight(.bold)
             .font(.system(size: 35, weight: .bold))
             .foregroundColor(.white)
