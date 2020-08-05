@@ -25,7 +25,7 @@ struct GameApplicationView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.white)
 
-            Text("参加したい試合の都道府県を入力して下さい")
+            Text("参加したい試合の都道府県を入力して下さい  （例　東京都　大阪府）")
                             .foregroundColor(Color.white)
                             .fontWeight(.bold)
                             .padding(.top,30)
@@ -63,6 +63,7 @@ var body: some View {
                 VStack{
                         WebView(loadUrl: self.gamedata.png).frame(height: 400)
                 HStack{
+                    
                     VStack(alignment: .leading){
                         Text(gamedata.gamename).fontWeight(.heavy).font(.body)
 
@@ -105,6 +106,12 @@ struct GameApplicationListView: View {
     @State var event3 = ""
     @State var userpass = ""
     @State var email = ""
+    @State var showAlert = false
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
+    @State var eventAlert = false
+    
 
     var body: some View {
     ZStack{
@@ -121,6 +128,30 @@ struct GameApplicationListView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 Group{
+                    HStack{
+                        Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundColor(Color.white)
+                Text("競技種目、種目数は試合要項を確認しご記入下さい。下の試合表の指示通りに種目を記入して下さい。")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.top,10)
+                    }
+                    Button(action: {
+                            self.eventAlert.toggle()
+                    }){
+                        Text("試合表を参照する")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("blue1"))
+                            .padding(.vertical)
+                            .padding(.horizontal,45)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                            
+                        .sheet(isPresented: $eventAlert){
+                           EventListView()
+                        }
+                    }
+              
                 Text("出場種目1")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -153,7 +184,8 @@ struct GameApplicationListView: View {
                         Divider()
                             .background(Color.white)
                         }
-                
+                }
+                    Group{
                 Text("ユーザーパス")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -179,7 +211,14 @@ struct GameApplicationListView: View {
                 HStack{
                         Spacer()
                     Button(action: {
+                        if self.event1 == "" || self.event2 == "" || self.event3 == "" || self.userpass == "" || self.email == "" {
+                            self.showAlert.toggle()
+                            self.title = "エラー"
+                            self.message = "全ての項目を入力して下さい。"
+                            self.dismissButton = "OK"
+                        }else{
                         self.shows.toggle()
+                        }
                     }){
                         Text("確認する")
                             .fontWeight(.bold)
@@ -193,6 +232,10 @@ struct GameApplicationListView: View {
                             ConfirmationView(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
                     
                                     }
+                                }.alert(isPresented: $showAlert){
+                                    Alert(title: Text(self.title),
+                                          message: Text(self.message),
+                                          dismissButton: .default(Text(self.dismissButton)))
                                 }
                                 Spacer()
                             }
@@ -214,6 +257,10 @@ struct ConfirmationView: View {
     
     var body: some View {
         VStack{
+            Text("確認リストが表示されない場合されない場合は、エントリーパス、メールアドレスが間違っている可能性があります。前のページに戻り再度ご確認下さい。")
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                    .padding(.top,30)
                 ForEach(self.userdata.data,id: \.id){i in
                     
                     CellConfirmationView(event1: self.event1, event2: self.event2, event3: self.event3, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
@@ -225,6 +272,7 @@ struct ConfirmationView: View {
 
 
 struct CellConfirmationView: View {
+    
     var event1 :String
     var event2 :String
     var event3 :String
@@ -235,25 +283,35 @@ struct CellConfirmationView: View {
     @State var show = false
     @State var pay = "false"
 
+
     
     var body: some View {
+        
         VStack{
            if userlist.userpass == userpass && userlist.email == email{
+            ScrollView{
                 Group{
                 Text("試合名")
+                    .padding(.top,10)
                 Text(gamelist.gamename)
                 Text("開催都道府県")
+                    .padding(.top,10)
                 Text(gamelist.place)
                 Text("試合会場")
+                    .padding(.top,10)
                 Text(gamelist.gamevenue)
                 Text("名前")
+                    .padding(.top,10)
                 Text(userlist.username)
                 Text("登録陸連")
+                    .padding(.top,10)
                 Text(userlist.jaaf)
                 }
                 Text("所属名")
+                .padding(.top,10)
                 Text(userlist.belong)
                 Text("参加種目")
+                .padding(.top,10)
                 Text(event1)
                 Text(event2)
                 Text(event3)
@@ -273,22 +331,22 @@ struct CellConfirmationView: View {
                             }
                         }
                 }){
-                    Text("完了")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("blue1"))
+                    Text("申込み")
+                         .fontWeight(.bold)
+                        .foregroundColor(Color.white)
                         .padding(.vertical)
                         .padding(.horizontal,45)
-                        .background(Color.white)
+                        .background(Color.red)
                         .clipShape(Capsule())
-                        
                     .sheet(isPresented: $show){
                         GameApplicationFinishView()
                 
-                                }
                             }
-                            Spacer()
-                        }
-            }
+                        }.padding(.top,20)
+                    Spacer()
+                    }
+                }
+           }
         }
     }
 }
@@ -313,5 +371,3 @@ struct WebView: UIViewRepresentable {
 
 
     
-
-

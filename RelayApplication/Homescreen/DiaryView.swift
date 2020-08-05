@@ -43,8 +43,13 @@ struct DiaryCellView: View {
     //大会名
     @State var tournamentname = ""
     @State var showAlert = false
+    @State var FshowAlert = false
     @State var email = ""
     @State var userpass = ""
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
+
     
 
     var body: some View {
@@ -168,7 +173,17 @@ struct DiaryCellView: View {
                 HStack{
                 Spacer()
                 Button(action: {
-                    self.showAlert = true
+                    if self.diary == "" || self.email == "" || self.userpass == "" || self.year == "" || self.month == "" || self.day == "" || self.weather == "" || self.mental == "" || self.tournamentname == ""{
+                    self.showAlert.toggle()
+                        self.title = "エラー"
+                        self.message = "メールアドレス、ユーザーパスを入力して下さい。"
+                        self.dismissButton = "OK"
+                    }else{
+                        self.showAlert .toggle()
+                        self.title = "完了"
+                        self.message = "日記の書き込みが完了しました！"
+                        self.dismissButton = "OK"
+
                     let db = Firestore.firestore()
                     let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname,"email": self.email,"userpass": self.userpass]
                     //試合申し込み完了テーブルに入れる
@@ -178,10 +193,10 @@ struct DiaryCellView: View {
                                 if err != nil{
                                     print((err?.localizedDescription)!)
                                         return
+                                }
                             }
                         }
-                }){
-                        Text("登録する")
+                }){Text("登録する")
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                             .padding(.vertical)
@@ -189,10 +204,10 @@ struct DiaryCellView: View {
                             .background(Color("red3"))
                             .clipShape(Capsule())
                             
-                    }.alert(isPresented: $showAlert){
-                        Alert(title: Text("保存完了！"),
-                              message: Text("内容を保存しました。"),
-                              dismissButton: .default(Text("わかりました")))
+                        }.alert(isPresented: $showAlert){
+                        Alert(title: Text(self.title),
+                              message: Text(self.message),
+                              dismissButton: .default(Text(self.dismissButton)))
                         }
                         Spacer()
                     }

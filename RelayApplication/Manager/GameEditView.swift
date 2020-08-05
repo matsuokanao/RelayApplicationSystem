@@ -71,7 +71,9 @@ struct CellGameEditView: View {
     var num : String
     var pass : String
     @State var show = false
-
+    @State var showAlert = false
+    
+    
 var body: some View {
     VStack{
         if gamedata.groupnum == num && gamedata.grouppass == pass{
@@ -84,6 +86,27 @@ var body: some View {
                     .padding(.top,10)
 
                             Spacer()
+                    Button("削除") {
+                        self.showAlert.toggle()
+                    }
+                    .alert(isPresented: $showAlert) {
+                         Alert(title: Text("警告"),
+                                    message: Text("試合が削除されますがよろしいですか？"),
+                                    primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
+                                secondaryButton: .destructive(Text("削除"),
+                                            action:{
+                                            let db = Firestore.firestore()
+                                             db.collection("gamelist")
+                                                 .document(self.gamedata.id)
+                                                    .delete()
+                                                { (err) in
+                                                 if err != nil{
+                                                     print((err?.localizedDescription)!)
+                                                         return
+                                                    } }
+                                }))}// 破壊的変更用
+                            
+                        
                 Button(action: {
                         self.show.toggle()
                                     }) {
@@ -103,6 +126,7 @@ var body: some View {
 struct GameEditSelectView: View {
     var gamedata : gamelist
     @State var show = false
+    
 var body: some View {
         List{
             HStack {
@@ -110,8 +134,10 @@ var body: some View {
                                     .foregroundColor(Color("green7"))
                             Text(gamedata.gamename)
                                     Spacer()
+                
                         Button(action: {
                                 self.show.toggle()
+                            
                                             }) {
                         Image(systemName: "play.fill")
                                     .foregroundColor(Color("green7"))

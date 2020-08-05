@@ -24,7 +24,7 @@ struct RelayApplicationView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                         
-                    Text("参加したい試合の都道府県を入力して下さい")
+                    Text("参加したい試合の都道府県を入力して下さい  （例　東京都　大阪府）")
                                     .foregroundColor(Color.white)
                                     .fontWeight(.bold)
                         .padding(.top,20)
@@ -107,6 +107,13 @@ var gamedata : gamelist
     @State var member6 = ""
     @State var userpass = ""
     @State var email = ""
+    @State var event = ""
+    @State var showAlert = false
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
+    @State var eventAlert = false
+
     var body: some View {
         ZStack{
             Color("yello1")
@@ -121,12 +128,48 @@ var gamedata : gamelist
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     Group{
+                        HStack{
+                            Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundColor(Color.white)
+                    Text("競技種目、種目数は試合要項を確認しご記入下さい。下の試合表の指示通りに種目を記入して下さい。")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.top,10)
+                        }
+                        Button(action: {
+                                self.eventAlert.toggle()
+                        }){
+                            Text("試合表を参照する")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("yello1"))
+                                .padding(.vertical)
+                                .padding(.horizontal,45)
+                                .background(Color.white)
+                                .clipShape(Capsule())
+                                
+                            .sheet(isPresented: $eventAlert){
+                               RelayEventListView()
+                            }
+                        }
+                    }
+                    Group{
+                        Text("種目")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(.top,10)
+                        VStack{
+                            TextField("種目", text: $event)
+                                .foregroundColor(.white)
+                                Divider()
+                                    .background(Color.white)
+                                }
+                        
                     Text("メンバー1")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top,10)
                     VStack{
-                        TextField("出場種目1", text: $member1)
+                        TextField("名前", text: $member1)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -137,7 +180,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目2", text: $member2)
+                        TextField("名前", text: $member2)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -148,7 +191,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $member3)
+                        TextField("名前", text: $member3)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -158,7 +201,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $member4)
+                        TextField("名前", text: $member4)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -170,7 +213,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $member5)
+                        TextField("名前", text: $member5)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -181,7 +224,7 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             .padding(.top,10)
                     VStack{
-                        TextField("出場種目３", text: $member6)
+                        TextField("名前", text: $member6)
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
@@ -216,7 +259,15 @@ var gamedata : gamelist
                     HStack{
                             Spacer()
                         Button(action: {
+                            if self.event == "" || self.member1 == "" || self.member2 == "" || self.member3 == "" || self.member4 == "" ||
+                            self.member5 == "" || self.member6 == "" || self.userpass == "" || self.email == ""{
+                                self.showAlert.toggle()
+                                self.title = "エラー"
+                                self.message = "全ての項目を入力して下さい。"
+                                self.dismissButton = "OK"
+                            }else{
                             self.shows.toggle()
+                            }
                         }){
                             Text("確認する")
                                 .fontWeight(.bold)
@@ -227,8 +278,12 @@ var gamedata : gamelist
                                 .clipShape(Capsule())
                                 
                             .sheet(isPresented: $shows){
-                                UserView(member1: self.member1, member2: self.member2, member3: self.member3,member4: self.member4,member5: self.member5,member6: self.member6, userpass: self.userpass, email: self.email, gamedata: self.gamedata)
+                                UserView(member1: self.member1, member2: self.member2, member3: self.member3,member4: self.member4,member5: self.member5,member6: self.member6, userpass: self.userpass, email: self.email, gamedata: self.gamedata,event: self.event)
                         
+                                        }.alert(isPresented: $showAlert){
+                                            Alert(title: Text(self.title),
+                                                  message: Text(self.message),
+                                                  dismissButton: .default(Text(self.dismissButton)))
                                         }
                                     }
                                     Spacer()
@@ -250,13 +305,18 @@ struct UserView: View {
     var userpass :String
     var email :String
     var gamedata : gamelist
+    var event : String
     
   @ObservedObject var userdata = getUserdataList()
     
     var body: some View {
         VStack{
+            Text("確認リストが表示されない場合されない場合は、エントリーパス、メールアドレスが間違っている可能性があります。前のページに戻り再度ご確認下さい。")
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                    .padding(.top,30)
                 ForEach(self.userdata.data,id: \.id){i in
-                    CellUserView(member1: self.member1, member2: self.member2, member3: self.member3,member4: self.member4,member5: self.member5,member6: self.member6, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i)
+                    CellUserView(member1: self.member1, member2: self.member2, member3: self.member3,member4: self.member4,member5: self.member5,member6: self.member6, userpass: self.userpass, email: self.email, gamelist: self.gamedata, userlist: i,event: self.event)
                 
             }
         }
@@ -275,6 +335,7 @@ struct CellUserView: View {
     var email :String
     var gamelist : gamelist
     var userlist : userlist
+    var event : String
     @State var show = false
     @State var pay = "false"
 
@@ -282,24 +343,37 @@ struct CellUserView: View {
     var body: some View {
         VStack{
            if userlist.userpass == userpass && userlist.email == email{
+            ScrollView{
                 Group{
                 Text("試合名")
+                     .padding(.top,10)
                 Text(gamelist.gamename)
+                Text("種目")
+                    .padding(.top,10)
+                Text(event)
                 Text("開催都道府県")
+                    .padding(.top,10)
                 Text(gamelist.place)
                 Text("試合会場")
+                    .padding(.top,10)
                 Text(gamelist.gamevenue)
                 Text("名前")
+                    .padding(.top,10)
                 Text(userlist.username)
+            }
                 Text("登録陸連")
+                .padding(.top,10)
                 Text(userlist.jaaf)
-                }
+                
             Group{
                 Text("所属名")
+                .padding(.top,10)
                 Text(userlist.belong)
                 Text("組織代表者名")
+                .padding(.top,10)
                 Text(userlist.username)
                 Text("リレーオーダーメンバー")
+                .padding(.top,10)
                 Text(member1)
                 Text(member2)
                 Text(member3)
@@ -314,7 +388,7 @@ struct CellUserView: View {
                 Button(action: {
                     self.show.toggle()
                     let db = Firestore.firestore()
-                    let data: [String : Any] = ["member1": self.member1, "member2": self.member2, "member3": self.member3, "member4": self.member4, "member5": self.member5, "member6": self.member6, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username]
+                    let data: [String : Any] = ["member1": self.member1, "member2": self.member2, "member3": self.member3, "member4": self.member4, "member5": self.member5, "member6": self.member6, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username,"event":self.event]
                     //試合申し込み完了テーブルに入れる
                     db.collection("relaycomplete")
                        .addDocument(data:data)
@@ -324,20 +398,20 @@ struct CellUserView: View {
                             }
                         }
                 }){
-                    Text("完了")
+                    Text("申込み")
                         .fontWeight(.bold)
-                        .foregroundColor(Color("blue1"))
+                        .foregroundColor(Color.white)
                         .padding(.vertical)
                         .padding(.horizontal,45)
-                        .background(Color.white)
+                        .background(Color.red)
                         .clipShape(Capsule())
-                        
                     .sheet(isPresented: $show){
                         RelayApplicationFinishView()
                 
                             }
-                        }
+                        }.padding(.top,20)
                     Spacer()
+                    }
                 }
             }
         }

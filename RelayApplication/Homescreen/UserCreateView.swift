@@ -141,13 +141,13 @@ struct UserCreateView: View {
                 if self.UserName == "" && self.Jaaf == "" && self.Belong == "" && self.Ceo == "" && self.Email == "" && self.PhoneNumber == "" && self.UserPass == "" {
                 self.showAlert.toggle()
                     self.title = "エラー"
-                    self.message = "aaa"
-                    self.dismissButton = "aaa"
-                }else if self.UserPass.count < 3{
+                    self.message = "全ての項目を入力して下さい。"
+                    self.dismissButton = "OK"
+                }else if self.UserPass.count >= 4{
                     self.showAlert.toggle()
                     self.title = "エラー"
-                    self.message = "bbb"
-                    self.dismissButton = "bbb"
+                    self.message = "パスワードは4文字以上入力して下さい。"
+                    self.dismissButton = "OK"
                 }else{
                 self.show.toggle()
                 let db = Firestore.firestore()
@@ -176,12 +176,11 @@ struct UserCreateView: View {
                     UserCreateFinishView()
             
                             }
-                        }.alert(isPresented: $showAlert){
+                    }.alert(isPresented: $showAlert){
                             Alert(title: Text(self.title),
                                   message: Text(self.message),
                                   dismissButton: .default(Text(self.dismissButton)))
-            }
-            
+                        }
                         Spacer()
                     }
                 }

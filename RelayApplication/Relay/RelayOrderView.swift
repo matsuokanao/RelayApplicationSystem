@@ -103,7 +103,7 @@ struct RelayOrderShowView: View {
     @State var order4 = ""
     @State var set = ""
     @State var lanes = ""
-    @State var sex = ""
+    
     var relaylist : relaycomplete
     
 var body: some View {
@@ -140,10 +140,7 @@ var body: some View {
            
         }
         Group{
-        Text("性別")
-        TextField("性別", text: self.$sex)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .background(Color("yello3"))
+        
         Text("1走者")
         TextField("1走者", text: self.$order1)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -174,7 +171,7 @@ var body: some View {
                 .frame(width: UIScreen.main.bounds.width - 30)
 
             .sheet(isPresented: $show){
-                CellRelayView(order1: self.order1, order2: self.order2, order3: self.order3,order4: self.order4,set :self.set, lanes: self.lanes,relaylist : self.relaylist,sex: self.sex)
+                CellRelayView(order1: self.order1, order2: self.order2, order3: self.order3,order4: self.order4,set :self.set, lanes: self.lanes,relaylist : self.relaylist)
         
                         }
                     }.background(Color("yello3"))
@@ -195,7 +192,6 @@ struct CellRelayView: View {
     var lanes : String
     @State var show = false
     var relaylist : relaycomplete
-    var sex : String
 
     
     var body: some View {
@@ -207,6 +203,8 @@ struct CellRelayView: View {
                 Text(relaylist.belong)
                 Text("組織代表者名")
                 Text(relaylist.username)
+                Text("種目")
+                Text(relaylist.event)
             }
             HStack{
                 Text(set)
@@ -225,7 +223,7 @@ struct CellRelayView: View {
                 Button(action: {
                     self.show.toggle()
                     let db = Firestore.firestore()
-                    let data: [String : Any] = ["set": self.set,"lanes":self.lanes,"sex":self.sex,"order1": self.order1, "order2": self.order2,"order3": self.order3,"order4": self.order4,"userpass": self.relaylist.userpass, "email": self.relaylist.email, "pay": self.relaylist.pay,"gamename":self.relaylist.gamename,"year":self.relaylist.year,"month":self.relaylist.month,"day":self.relaylist.day,"place":self.relaylist.place,"gamevenue":self.relaylist.gamevenue,"groupnum":self.relaylist.groupnum,"groupname":self.relaylist.groupname,"grouppass": self.relaylist.grouppass,"jaaf":self.relaylist.jaaf,"belong":self.relaylist.belong,"phonenumber":self.relaylist.phonenumber,"ceo":self.relaylist.ceo,"username":self.relaylist.username]
+                    let data: [String : Any] = ["set": self.set,"lanes":self.lanes,"event":self.relaylist.event,"order1": self.order1, "order2": self.order2,"order3": self.order3,"order4": self.order4,"userpass": self.relaylist.userpass, "email": self.relaylist.email, "pay": self.relaylist.pay,"gamename":self.relaylist.gamename,"year":self.relaylist.year,"month":self.relaylist.month,"day":self.relaylist.day,"place":self.relaylist.place,"gamevenue":self.relaylist.gamevenue,"groupnum":self.relaylist.groupnum,"groupname":self.relaylist.groupname,"grouppass": self.relaylist.grouppass,"jaaf":self.relaylist.jaaf,"belong":self.relaylist.belong,"phonenumber":self.relaylist.phonenumber,"ceo":self.relaylist.ceo,"username":self.relaylist.username]
                     //試合申し込み完了テーブルに入れる
                     db.collection("ordercomplete")
                        .addDocument(data:data)

@@ -34,6 +34,7 @@ struct relaycomplete: Identifiable {
     var member4 :String
     var member5 :String
     var member6 :String
+    var event : String
 
 }
 
@@ -73,9 +74,10 @@ class getRelayCompleteList : ObservableObject{
                 let member4 = i.get("member4") as! String
                 let member5 = i.get("member5") as! String
                 let member6 = i.get("member6") as! String
+                let event = i.get("event") as! String
                 
                 
-                self.data.append(relaycomplete(id: id, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username,member1:member1,member2:member2,member3:member3,member4:member4,member5:member5,member6:member6))
+                self.data.append(relaycomplete(id: id, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username,member1:member1,member2:member2,member3:member3,member4:member4,member5:member5,member6:member6,event: event))
                 
             }
         }

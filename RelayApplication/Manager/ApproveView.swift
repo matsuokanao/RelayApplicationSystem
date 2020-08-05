@@ -171,7 +171,7 @@ var body: some View {
         }
                         Spacer()
                     Button(action: {
-                        self.Alertshow = true
+                        self.Alertshow.toggle()
                             let db = Firestore.firestore()
                             //試合申し込み完了テーブルに入れる
                             db.collection("gamecomplete")

@@ -86,7 +86,7 @@ struct ManagerCreateView: View {
                 HStack{
                         Spacer()
                     Button(action: {
-                        self.showAlert = true
+                        self.showAlert.toggle()
                         let db = Firestore.firestore()
                         let data: [String : Any] = ["groupname": self.groupname,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]                        //試合申し込み完了テーブルに入れる
                         db.collection("managerlist")

@@ -35,6 +35,10 @@ struct TimeView: View {
             @State var email = ""
             @State var userpass = ""
             @State var showAlert = false
+      @State var FshowAlert = false
+      @State var title = ""
+      @State var message = ""
+      @State var dismissButton = ""
 
             var body: some View {
             VStack{
@@ -185,6 +189,12 @@ struct TimeView: View {
                         HStack{
                         Spacer()
                         Button(action: {
+                            if self.diary == "" || self.email == "" || self.userpass == "" || self.year == "" || self.month == "" || self.day == "" || self.weather == "" || self.mental == "" || self.tournamentname == "" || self.time == "" || self.event == ""{
+                            self.showAlert.toggle()
+                                self.title = "エラー"
+                                self.message = "メールアドレス、ユーザーパスを入力して下さい。"
+                                self.dismissButton = "OK"
+                            }else{
                             self.showAlert = true
                             let db = Firestore.firestore()
                             let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname,"email": self.email,"userpass": self.userpass,"event": self.event,"time":self.time]
@@ -195,6 +205,7 @@ struct TimeView: View {
                                         if err != nil{
                                             print((err?.localizedDescription)!)
                                                 return
+                                        }
                                     }
                                 }
                         }){

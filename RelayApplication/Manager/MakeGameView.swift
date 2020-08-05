@@ -83,25 +83,18 @@ struct MakeGamCellView: View {
 
     
     var body: some View {
-        
-        ZStack{
-            
+        VStack{
             if num == managerdata.groupnum && pass == managerdata.grouppass {
-                                Color("green3")
-                                    .edgesIgnoringSafeArea(.all)
-                        //画面スクロール処理
-                        ScrollView(.vertical){
                                 
-                            VStack(alignment: .leading, spacing: 25){
+                            VStack{
                                 Group{
-                                Text("試合を作成する")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 35, weight: .bold))
-                                    .foregroundColor(.white)
-                                Text("・作成した試合情報は試合関係者ページにて確認できます。")
+                                
+                                Text("作成した試合情報は試合関係者")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
-                                    .frame(width: 350, height: 60)
+                                    Text("ページにて確認できます。")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
                                 Text("試合名")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
@@ -118,17 +111,17 @@ struct MakeGamCellView: View {
                                         .foregroundColor(.white)
                                         .padding(.top,10)
                                 HStack{
-                                    TextField("例　2020", text: $year)
+                                    TextField("2020", text: $year)
                                         .keyboardType(.numberPad)
                                         .foregroundColor(.white)
                                     Text("年")
                                         .foregroundColor(.white)
-                                    TextField("例　10", text: $month)
+                                    TextField("10", text: $month)
                                         .keyboardType(.numberPad)
                                         .foregroundColor(.white)
                                     Text("月")
                                         .foregroundColor(.white)
-                                    TextField("例　29", text: $day)
+                                    TextField("29", text: $day)
                                         .keyboardType(.numberPad)
                                         .foregroundColor(.white)
                                     Text("日")
@@ -172,17 +165,21 @@ struct MakeGamCellView: View {
                                         }
                                     
                             
-                                        Text("試合要項（PDFファイルを貼って下さい）")
+                                        Text("試合要項")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.white)
                                                 .padding(.top,10)
-                                        VStack{
+                                Text("(PDFファイルを貼って下さい）")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                    
+                                VStack{
                                             TextField("試合要項画像のPDFをお貼り下さい", text: $png)
                                                 .foregroundColor(.white)
                                             Divider()
                                                 .background(Color.white)
                                            
-                                    Text("大会ホームページのURLリンク(http://.....)")
+                                    Text("大会ホームページのURLリンク")
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.white)
                                                     .padding(.top,10)
@@ -193,7 +190,8 @@ struct MakeGamCellView: View {
                                                     .background(Color.white)
                                         }
                                     }
-                                }
+                            }
+                
 
                         HStack{
                                 Spacer()
@@ -223,15 +221,14 @@ struct MakeGamCellView: View {
                                         Alert(title: Text("登録完了！"),
                                               message: Text("登録が完了しました。内容をご確認下さい。"),
                                               dismissButton: .default(Text("わかりました")))
-                                }
-                            Spacer()
-                        }
-                    }.frame(width: 350, height: 400)
-
-                }
+                            }
+                        Spacer()
+                    }
+                
             }
         }
     }
+}
 
         
     

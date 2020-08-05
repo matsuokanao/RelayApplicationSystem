@@ -104,28 +104,49 @@ struct RelayShowListView: View {
         
     var body: some View {
         VStack{
-            
+            VStack{
+                Text(relaylist.gamename)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                        }.frame(width:500,height: 100)
+                        .background(Color("yello3"))
+        
+            ScrollView{
+
             Group{
-            Text("試合名")
-            Text(relaylist.gamename)
             Text("開催都道府県")
+                .padding(.top,10)
             Text(relaylist.place)
             Text("試合会場")
+                .padding(.top,10)
             Text(relaylist.gamevenue)
             Text("名前")
+                .padding(.top,10)
             Text(relaylist.username)
             Text("登録陸連")
+                .padding(.top,10)
             Text(relaylist.jaaf)
             }
             Text("所属名")
+                .padding(.top,10)
             Text(relaylist.belong)
             Text("参加種目")
+                .padding(.top,10)
             if relaylist.pay == "true" {
                 Text("試合費用の確認ができました。")
+                .foregroundColor(.red)
+                .fontWeight(.bold)
+                .padding(.top,10)
                             } else{
                 Text("試合費用のお支払いが完了していません。")
+                .foregroundColor(.red)
+                .fontWeight(.bold)
+                .padding(.top,10)
                 Text("お支払いが確認できない場合は自動キャンセルとなります。")
+                .foregroundColor(.red)
+                .fontWeight(.bold)
                 
+                }
             }
         }
     }

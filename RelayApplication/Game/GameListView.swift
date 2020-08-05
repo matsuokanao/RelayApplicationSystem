@@ -104,31 +104,53 @@ struct GameShowListView: View {
     
     var body: some View {
         VStack{
-            
+        VStack{
+                    Text(completedata.gamename)
+
+                       .fontWeight(.bold)
+                       .foregroundColor(.white)
+                   }.frame(width:500,height: 100)
+                       .background(Color("blue2"))
+    ScrollView{
+        VStack{
             Group{
-            Text("試合名")
-            Text(completedata.gamename)
+        
             Text("開催都道府県")
+                .padding(.top,10)
             Text(completedata.place)
             Text("試合会場")
+                .padding(.top,10)
             Text(completedata.gamevenue)
             Text("名前")
+                .padding(.top,10)
             Text(completedata.username)
             Text("登録陸連")
+                .padding(.top,10)
             Text(completedata.jaaf)
             }
             Text("所属名")
+                .padding(.top,10)
             Text(completedata.belong)
             Text("参加種目")
+                .padding(.top,10)
             Text(completedata.event1)
             Text(completedata.event2)
             Text(completedata.event3)
             if completedata.pay == "true" {
                 Text("試合費用の確認ができました。")
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                    .padding(.top,10)
                             } else{
                 Text("試合費用のお支払いが完了していません。")
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                    .padding(.top,10)
                 Text("お支払いが確認できない場合は自動キャンセルとなります。")
-                
+                .foregroundColor(.red)
+                .fontWeight(.bold)
+            }
+            }
             }
         }
     }

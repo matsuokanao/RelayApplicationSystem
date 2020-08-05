@@ -21,7 +21,7 @@ struct UserEditView: View {
             .edgesIgnoringSafeArea(.all)
         VStack(alignment: .leading){
             ScrollView{
-            Text("リレー申し込み")
+            Text("ユーザー情報")
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(Color.white)
@@ -183,19 +183,8 @@ struct UserEditView_Previews: PreviewProvider {
                                 UserEditPracticeView(userdata: self.userdata,name: "userpass")
                         }
                     }
-
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.show.toggle()
-                                }) {
-                        Image(systemName: "play.fill")
-                                .foregroundColor(Color("red2"))
-                                }.sheet(isPresented: self.$show) {
-                                UserEditPracticeView(userdata: self.userdata,name: "belongpass")
-                        }
-                    }
-                }
+                }.frame(width: 300, height: 400)
+                .padding(.top,20)
             }
         }
     }
@@ -205,8 +194,12 @@ struct UserEditView_Previews: PreviewProvider {
 struct UserEditPracticeView: View {
 var userdata : userlist
     @State var edit = ""
-    @State var show = false
     @State var name : String
+    @State var showAlert = false
+    @State var FshowAlert = false
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
 
 var body: some View {
     VStack{
@@ -220,7 +213,14 @@ var body: some View {
         .background(Color("red2"))
         
     Button(action: {
-        self.show.toggle()
+        if self.edit == "" {
+            self.showAlert.toggle()
+            self.title = "エラー"
+            self.message = "項目を入力して下さい。"
+            self.dismissButton = "OK"
+
+        }else{
+        self.FshowAlert.toggle()
             let db = Firestore.firestore()
             //試合申し込み完了テーブルに入れる
             db.collection("userlist")
@@ -230,18 +230,28 @@ var body: some View {
         if err != nil{
             print((err?.localizedDescription)!)
                     return
+                            }
                         }
                     }
             }) {
-        Text("編集する")
-            .padding(.vertical)
-            .frame(width: UIScreen.main.bounds.width - 30)
-            .sheet(isPresented: $show){
-                UserEditFinishView()
-                        }
-                    }.background(Color("red2"))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+        Text("登録する")
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+                .padding(.vertical)
+                .padding(.horizontal,45)
+                .background(Color("red3"))
+                .clipShape(Capsule())
+                
+        }.alert(isPresented: $FshowAlert){
+            Alert(title: Text("保存完了！"),
+                  message: Text("内容を保存しました。"),
+                  dismissButton: .default(Text("わかりました")))
+            }
+        .alert(isPresented: $showAlert){
+                        Alert(title: Text(self.title),
+                              message: Text(self.message),
+                              dismissButton: .default(Text(self.dismissButton)))
+        }
         }.frame(width: 300, height: 500)
     }
 }
