@@ -106,7 +106,6 @@ struct CellApproveView: View {
 
                         Spacer()
             Button(action: {
-                
                             self.show.toggle()
                                         }) {
                 Image(systemName: "play.fill")

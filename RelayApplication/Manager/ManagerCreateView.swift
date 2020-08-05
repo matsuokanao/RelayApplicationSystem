@@ -19,6 +19,9 @@ struct ManagerCreateView: View {
     @State var grouppass = ""
     //メールアドレス
     @State var email = ""
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
             
     var body: some View {
 
@@ -60,7 +63,7 @@ struct ManagerCreateView: View {
                             .background(Color.white)
                         }
                 
-                Text("運営団体パスワード")
+                Text("運営団体パスワード  4文字以上でご記入下さい")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top,10)
@@ -86,7 +89,21 @@ struct ManagerCreateView: View {
                 HStack{
                         Spacer()
                     Button(action: {
+                        if self.groupname == "" && self.groupnum == "" && self.grouppass == "" && self.email == ""  {
                         self.showAlert.toggle()
+                            self.title = "エラー"
+                            self.message = "全ての項目を入力して下さい。"
+                            self.dismissButton = "OK"
+                        }else if self.grouppass.count >= 4{
+                            self.showAlert.toggle()
+                            self.title = "エラー"
+                            self.message = "パスワードは4文字以上入力して下さい。"
+                            self.dismissButton = "OK"
+                        }else{
+                        self.showAlert.toggle()
+                            self.title = "保存完了！"
+                            self.message = "内容を保存しました。"
+                            self.dismissButton = "OK"
                         let db = Firestore.firestore()
                         let data: [String : Any] = ["groupname": self.groupname,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]                        //試合申し込み完了テーブルに入れる
                         db.collection("managerlist")
@@ -96,6 +113,7 @@ struct ManagerCreateView: View {
                                     if err != nil{
                                         print((err?.localizedDescription)!)
                                             return
+                                    }
                                 }
                             }
                     }){
@@ -107,11 +125,13 @@ struct ManagerCreateView: View {
                             .background(Color.white)
                             .clipShape(Capsule())
                             
+                    
                     }.alert(isPresented: $showAlert){
-                        Alert(title: Text("保存完了！"),
-                              message: Text("内容を保存しました。"),
-                              dismissButton: .default(Text("わかりました")))
+                        Alert(title: Text(self.title),
+                              message: Text(self.message),
+                              dismissButton: .default(Text(self.dismissButton)))
                     }
+
                         Spacer()
                     }
                 }

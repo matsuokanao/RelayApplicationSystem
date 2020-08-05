@@ -111,7 +111,7 @@ struct EntryShowListView: View {
     @State var show = false
     var body: some View {
         VStack{
-            if completedata.pay == "true"{
+            if completedata.pay == "true" && gamedata.gamename == completedata.gamename{
                 Text(completedata.username)
             }
         }

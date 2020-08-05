@@ -135,6 +135,7 @@ struct CellManagerEditView: View {
                         }
                     }
                 }.padding(.top,10)
+                .frame(width: 300, height: 500)
             }
         }
     }

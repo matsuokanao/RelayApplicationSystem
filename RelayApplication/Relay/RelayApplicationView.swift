@@ -113,6 +113,8 @@ var gamedata : gamelist
     @State var message = ""
     @State var dismissButton = ""
     @State var eventAlert = false
+    @State var linkshow = false
+
 
     var body: some View {
         ZStack{
@@ -123,6 +125,21 @@ var gamedata : gamelist
                     
                 VStack(alignment: .leading, spacing: 25){
                     WebView(loadUrl: self.gamedata.png).frame(height: 400)
+                    
+                    Button(action: {
+                            self.linkshow.toggle()
+                                }) {
+                        Text("大会ホームページを開く")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("blue1"))
+                            .padding(.vertical)
+                            .padding(.horizontal,25)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                                    }.padding(.top,20)
+                    .sheet(isPresented: self.$linkshow) {
+                            WebViewLink(gamedata: self.gamedata)
+                                    }
                     
                     Text("・所属団体パスワード,試合パスワードの詳しい説明に関しましてはHOME画面の良くある質問をご参照下さい")
                         .fontWeight(.bold)
