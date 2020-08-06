@@ -131,7 +131,7 @@ var gamedata : gamelist
                                 }) {
                         Text("大会ホームページを開く")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("blue1"))
+                            .foregroundColor(Color("yello1"))
                             .padding(.vertical)
                             .padding(.horizontal,25)
                             .background(Color.white)
@@ -144,11 +144,12 @@ var gamedata : gamelist
                     Text("・所属団体パスワード,試合パスワードの詳しい説明に関しましてはHOME画面の良くある質問をご参照下さい")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
+                        .padding(.top,20)
                     Group{
                         HStack{
                             Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundColor(Color.white)
-                    Text("競技種目、種目数は試合要項を確認しご記入下さい。下の試合表の指示通りに種目を記入して下さい。")
+                    Text("競技種目、種目数は試合要項を確認しご記入下さい。下の種目表の指示通りに種目を記入して下さい。")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top,10)
@@ -156,7 +157,7 @@ var gamedata : gamelist
                         Button(action: {
                                 self.eventAlert.toggle()
                         }){
-                            Text("試合表を参照する")
+                            Text("種目表を参照する")
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("yello1"))
                                 .padding(.vertical)
@@ -273,6 +274,7 @@ var gamedata : gamelist
                                 .background(Color.white)
                         }
                     }
+                 
                     HStack{
                             Spacer()
                         Button(action: {
@@ -282,7 +284,14 @@ var gamedata : gamelist
                                 self.title = "エラー"
                                 self.message = "全ての項目を入力して下さい。"
                                 self.dismissButton = "OK"
-                            }else{
+                                
+                            }else if self.event != "男子4*100mR" && self.event != "女子4*100mR" && self.event != "男子4*400mR" && self.event != "女子4*400mR" && self.event != "男女混合4*400mR" {
+                                self.showAlert.toggle()
+                                self.title = "エラー"
+                            self.message = "種目表通りに種目をご記入下さい。"
+                                self.dismissButton = "OK"
+                                
+                                }else{
                             self.shows.toggle()
                             }
                         }){
