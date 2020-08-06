@@ -21,26 +21,29 @@ struct ApproveView: View {
             
         VStack(alignment: .leading){
             ScrollView{
-            Text("エントリー承認ページ")
+            Text("承認ページ")
                           .font(.title)
                           .fontWeight(.bold)
                 .foregroundColor(Color.white)
+                
+                HStack{
+                                Spacer()
+                    Button(action: {
+                            self.relayshow.toggle()
+                                }) {
+                        Text("リレー承認ページ")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("blue1"))
+                            .padding(.vertical)
+                            .padding(.horizontal,10)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                                    }.padding(.top,20)
+                    .sheet(isPresented: self.$relayshow) {
+                            RelayApproveView()
+                        }
+                }
 
-            HStack{
-            Spacer()
-            Button(action: {
-                self.relayshow.toggle()
-                    }) {
-                Text("リレー承認ページ")
-                    .padding(.vertical)
-                    .frame(width: 170,height: 40)
-                    .sheet(isPresented: $relayshow){
-                        RelayApproveView()
-                                }
-            }.background(Color.white)
-            .foregroundColor(Color("blackcolor"))
-                .padding(.top,30)
-            }
 
                 Text("試合の団体番号と団体パスワードを入力して下さい")
                             .foregroundColor(Color.white)
@@ -93,7 +96,7 @@ struct CellApproveView: View {
     var body: some View {
     VStack{
         
-       if gamelist.grouppass == pass && gamelist.groupnum == num{
+        if gamelist.grouppass == pass && gamelist.groupnum == num && gamelist.end == "false"{
 
         HStack {
             

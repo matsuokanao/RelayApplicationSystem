@@ -71,6 +71,10 @@ struct MakeGamCellView: View {
     var num :String
     var pass : String
     @State var showAlert = false
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
+    
     @State var gamename = ""
     @State var year = ""
     @State var month = ""
@@ -80,6 +84,7 @@ struct MakeGamCellView: View {
     @State var png = ""
     @State var link = ""
     @State var relay = ""
+    @State var end = "false"
 
     
     var body: some View {
@@ -89,7 +94,7 @@ struct MakeGamCellView: View {
                             VStack{
                                 Group{
                                 
-                                Text("作成した試合情報は試合関係者")
+                                Text("作成した試合情報は試合編集")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     Text("ページにて確認できます。")
@@ -116,12 +121,12 @@ struct MakeGamCellView: View {
                                         .foregroundColor(.white)
                                     Text("年")
                                         .foregroundColor(.white)
-                                    TextField("10", text: $month)
+                                    TextField("01", text: $month)
                                         .keyboardType(.numberPad)
                                         .foregroundColor(.white)
                                     Text("月")
                                         .foregroundColor(.white)
-                                    TextField("29", text: $day)
+                                    TextField("01", text: $day)
                                         .keyboardType(.numberPad)
                                         .foregroundColor(.white)
                                     Text("日")
@@ -196,9 +201,40 @@ struct MakeGamCellView: View {
                         HStack{
                                 Spacer()
                             Button(action: {
+                                
+                                if self.gamename == "" || self.year == "" || self.month == "" || self.day == "" || self.place == "" || self.gamevenue == "" || self.png == "" || self.link == "" ||  self.relay == "" {
+                                self.showAlert.toggle()
+                                    self.title = "エラー"
+                                    self.message = "全ての項目を入力して下さい。"
+                                    self.dismissButton = "OK"
+                                    
+                                }else if self.relay != "はい" && self.relay != "いいえ"{
+                                    self.showAlert.toggle()
+                                    self.title = "エラー"
+                                    self.message = "リレー種目は「はい」か「いいえ」でお答え下さい。"
+                                    self.dismissButton = "OK"
+                                    
+                                }else if self.year.count != 4{
+                                    self.showAlert.toggle()
+                                    self.title = "エラー"
+                                    self.message = "正しい「年」を入力して下さい。(例　2020年)"
+                                    self.dismissButton = "OK"
+                                    
+                                }else if self.month.count != 2 || self.day.count != 2{
+                                    self.showAlert.toggle()
+                                    self.title = "エラー"
+                                    self.message = "正しい日程を入力して下さい。(例　01月01日)"
+                                    self.dismissButton = "OK"
+                                    
+                                }else{
+                                    self.title = "保存完了！"
+                                    self.message = "内容を保存しました。"
+                                    self.dismissButton = "OK"
                                     self.showAlert = true
+                                    
                                     let db = Firestore.firestore()
-                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"relay":self.relay]         //試合申し込み完了テーブルに入れる
+                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"relay":self.relay,"end":self.end]
+                                //試合申し込み完了テーブルに入れる
                                         db.collection("gamelist")
                                             .document(self.gamename)
                                             .setData(data)
@@ -206,6 +242,7 @@ struct MakeGamCellView: View {
                                                     if err != nil{
                                                         print((err?.localizedDescription)!)
                                                             return
+                                                    }
                                                 }
                                             }
                                     }){
@@ -218,9 +255,9 @@ struct MakeGamCellView: View {
                                             .clipShape(Capsule())
                                             
                                     }.alert(isPresented: $showAlert){
-                                        Alert(title: Text("登録完了！"),
-                                              message: Text("登録が完了しました。内容をご確認下さい。"),
-                                              dismissButton: .default(Text("わかりました")))
+                                        Alert(title: Text(self.title),
+                                        message: Text(self.message),
+                                        dismissButton: .default(Text(self.dismissButton)))
                             }
                         Spacer()
                     }

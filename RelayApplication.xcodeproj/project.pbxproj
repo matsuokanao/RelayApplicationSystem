@@ -33,6 +33,10 @@
 		A3B2CCC824D678D5004E345E /* RelayOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B2CCC724D678D5004E345E /* RelayOrderView.swift */; };
 		A3B2CCCA24D678FA004E345E /* RelayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B2CCC924D678FA004E345E /* RelayListView.swift */; };
 		A3B2CCCC24D6791A004E345E /* RelayQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B2CCCB24D6791A004E345E /* RelayQuestionView.swift */; };
+		A3B3D27524DACF50005B79A1 /* GameEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3D27424DACF50005B79A1 /* GameEndView.swift */; };
+		A3B3D27724DACF67005B79A1 /* ManagerEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3D27624DACF67005B79A1 /* ManagerEndView.swift */; };
+		A3B3D27924DACF7B005B79A1 /* RelayEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3D27824DACF7B005B79A1 /* RelayEndView.swift */; };
+		A3B3D27B24DAD332005B79A1 /* GameFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3D27A24DAD332005B79A1 /* GameFinishView.swift */; };
 		A3B3F30024D5230C005A7042 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F2FF24D5230C005A7042 /* TimeView.swift */; };
 		A3B3F30224D5232A005A7042 /* TimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30124D5232A005A7042 /* TimeListView.swift */; };
 		A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3F30324D5293A005A7042 /* timedatabase.swift */; };
@@ -94,6 +98,10 @@
 		A3B2CCC724D678D5004E345E /* RelayOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOrderView.swift; sourceTree = "<group>"; };
 		A3B2CCC924D678FA004E345E /* RelayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListView.swift; sourceTree = "<group>"; };
 		A3B2CCCB24D6791A004E345E /* RelayQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayQuestionView.swift; sourceTree = "<group>"; };
+		A3B3D27424DACF50005B79A1 /* GameEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndView.swift; sourceTree = "<group>"; };
+		A3B3D27624DACF67005B79A1 /* ManagerEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerEndView.swift; sourceTree = "<group>"; };
+		A3B3D27824DACF7B005B79A1 /* RelayEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayEndView.swift; sourceTree = "<group>"; };
+		A3B3D27A24DAD332005B79A1 /* GameFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFinishView.swift; sourceTree = "<group>"; };
 		A3B3F2FF24D5230C005A7042 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		A3B3F30124D5232A005A7042 /* TimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeListView.swift; sourceTree = "<group>"; };
 		A3B3F30324D5293A005A7042 /* timedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timedatabase.swift; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 				A3B2CCC924D678FA004E345E /* RelayListView.swift */,
 				A3B2CCCB24D6791A004E345E /* RelayQuestionView.swift */,
 				A37B201624DA37BC00F5C28F /* RelayEventListView.swift */,
+				A3B3D27824DACF7B005B79A1 /* RelayEndView.swift */,
 			);
 			path = Relay;
 			sourceTree = "<group>";
@@ -166,6 +175,8 @@
 				A38629F624CFFB67004D4155 /* OrderListView.swift */,
 				A38629F824CFFC02004D4155 /* EntryListView.swift */,
 				A38629FC24D007BC004D4155 /* ManagerQuestion.swift */,
+				A3B3D27624DACF67005B79A1 /* ManagerEndView.swift */,
+				A3B3D27A24DAD332005B79A1 /* GameFinishView.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -286,6 +297,7 @@
 				A3B3F30124D5232A005A7042 /* TimeListView.swift */,
 				A30A039524D99AE900792EFF /* EventListView.swift */,
 				A37B201824DA5B4A00F5C28F /* WebView.swift */,
+				A3B3D27424DACF50005B79A1 /* GameEndView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -435,6 +447,7 @@
 				A3CCC74024D0618E0018E78D /* GameEditView.swift in Sources */,
 				A38629F924CFFC02004D4155 /* EntryListView.swift in Sources */,
 				A37B201924DA5B4A00F5C28F /* WebView.swift in Sources */,
+				A3B3D27524DACF50005B79A1 /* GameEndView.swift in Sources */,
 				A3D6A1CB24D2D024001270E0 /* KeyboardObserver.swift in Sources */,
 				A38629FD24D007BC004D4155 /* ManagerQuestion.swift in Sources */,
 				A3D4A50E24C7017600A93215 /* ContentView.swift in Sources */,
@@ -452,6 +465,8 @@
 				A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */,
 				A384B94024D6CBF400B9087D /* RelayApproveView.swift in Sources */,
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
+				A3B3D27924DACF7B005B79A1 /* RelayEndView.swift in Sources */,
+				A3B3D27B24DAD332005B79A1 /* GameFinishView.swift in Sources */,
 				A3AA150824D3E0B900D5DFB0 /* GameApplicationFinishView.swift in Sources */,
 				A3B2CCC624D6787C004E345E /* RelayApplicationFinishView.swift in Sources */,
 				A3B2CCC424D67852004E345E /* RelayApplicationView.swift in Sources */,
@@ -466,6 +481,7 @@
 				A37B201724DA37BC00F5C28F /* RelayEventListView.swift in Sources */,
 				A38629FF24D00C0B004D4155 /* managerdatabase.swift in Sources */,
 				A37B201D24DA61AF00F5C28F /* GameApplicationView.swift in Sources */,
+				A3B3D27724DACF67005B79A1 /* ManagerEndView.swift in Sources */,
 				A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */,
 				A3B2CCCA24D678FA004E345E /* RelayListView.swift in Sources */,
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,

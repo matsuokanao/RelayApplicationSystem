@@ -13,6 +13,8 @@ struct EntryListView: View {
     @ObservedObject var gamedata = getGamedataList()
     @State var pass = ""
     @State var num = ""
+    @State var finishshow = false
+    
     var body: some View {
         ZStack{
         Color("green6")
@@ -24,6 +26,23 @@ struct EntryListView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.white)
 
+                HStack{
+                        Spacer()
+                    Button(action: {
+                            self.finishshow.toggle()
+                                }) {
+                        Text("試合を終了させる")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("blue1"))
+                            .padding(.vertical)
+                            .padding(.horizontal,10)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                                    }.padding(.top,20)
+                    .sheet(isPresented: self.$finishshow) {
+                            ManagerEndView()
+                        }
+                }
 
                 Text("試合の運営団体番号と運営団体パスワードを入力して下さい")
                     .foregroundColor(Color.white)
@@ -75,7 +94,7 @@ struct CellEntryListView: View {
     @State var show = false
     var body: some View {
         VStack{
-            if gamedata.grouppass == pass && gamedata.groupnum == num {
+            if gamedata.grouppass == pass && gamedata.groupnum == num && gamedata.end == "false" {
                 HStack {
                         Image(systemName: "person.fill")
                                 .foregroundColor(Color.white)

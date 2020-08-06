@@ -13,21 +13,42 @@ struct GameListView: View {
     @ObservedObject var data = getGameCompleteList()
     @State var email = ""
     @State var pass =   ""
+    @State var show = false
+    
     var body: some View {
          ZStack{
                Color("blue2")
                    .edgesIgnoringSafeArea(.all)
             ScrollView{
                VStack(alignment: .leading){
-                Text("試合申し込み")
+                Text("試合申し込みリスト")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
-                    
+                
+                HStack{
+                                Spacer()
+                    Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Text("終了した試合一覧")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("blue1"))
+                            .padding(.vertical)
+                            .padding(.horizontal,10)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                                    }.padding(.top,20)
+                    .sheet(isPresented: self.$show) {
+                            GameEndView()
+                        }
+                }
+
             Text("試合申し込み時に入力したユーザーパスとメールアドレスを入力して下さい")
-                                .foregroundColor(Color.white)
-                                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
                 .padding(.top,20)
+                
 
         Text("メールアドレス")
             .foregroundColor(Color.white)
@@ -72,7 +93,7 @@ struct GameListView_Previews: PreviewProvider {
     @State var show = false
      var body: some View {
          VStack{
-            if completedata.email == email && completedata.userpass ==  pass{
+            if completedata.email == email && completedata.userpass ==  pass && completedata.end == "false"{
                         HStack {
                             Image(systemName: "person.fill")
                                 .foregroundColor(Color.white)
@@ -98,10 +119,9 @@ struct GameListView_Previews: PreviewProvider {
 
 struct GameShowListView: View {
    var completedata : gamecomplete
-    @State var show = false
-    @State var showingAlert = false
-    
-    
+    @State var showAlert = false
+    var name = "end"
+    var edit = "true"
     var body: some View {
         VStack{
         VStack{
@@ -113,8 +133,34 @@ struct GameShowListView: View {
                        .background(Color("blue2"))
     ScrollView{
         VStack{
+            HStack{
+                Spacer()
+                Button("試合を終了させる") {
+                                     self.showAlert.toggle()
+                                     }
+                             .alert(isPresented: $showAlert) {
+                                 Alert(title: Text("警告"),
+                                         message: Text("試合が終了されますがよろしいですか？"),
+                                             primaryButton: .cancel(Text("キャンセル")), // キャンセル用
+                                                     secondaryButton: .destructive(Text("終了"),
+                                                         action:{
+                                                             
+                            let db = Firestore.firestore()
+                                 //試合申し込み完了テーブルに入れる
+                             db.collection("gamecomplete")
+                                 .document(self.completedata.id)
+                                 .updateData([self.name: self.edit])
+                                     { (err) in
+                                 if err != nil{
+                                     print((err?.localizedDescription)!)
+                                         return
+                                         }
+                                     }
+                         
+                         }))}// 破壊的変更用
+            }
             Group{
-        
+    
             Text("開催都道府県")
                 .padding(.top,10)
             Text(completedata.place)
@@ -149,9 +195,10 @@ struct GameShowListView: View {
                 Text("お支払いが確認できない場合は自動キャンセルとなります。")
                 .foregroundColor(.red)
                 .fontWeight(.bold)
+        
             }
             }
             }
-        }
+        }.frame(width: 300, height: 600)
     }
 }

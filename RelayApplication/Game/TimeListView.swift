@@ -25,7 +25,14 @@ struct TimeListView: View {
     ZStack{
             Color("blue3")
                     .edgesIgnoringSafeArea(.all)
+        ScrollView{
+
         VStack(alignment: .leading){
+            Text("一覧")
+            .font(.title)
+            .fontWeight(.bold)
+                
+            .foregroundColor(Color.white)
             Text("ユーザーのメールアドレスを入力して下さい")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
@@ -75,12 +82,13 @@ struct TimeListView: View {
 
             ForEach(self.timadata.data,id: \.id){i in
                 CellTimeListView(time: i, year: self.year, month: self.month, email: self.email, pass: self.pass,event:self.event)
-                        
+            
                     }.padding(.top,20)
-                    }.frame(width: 300, height: 600)
                 }
-            }
+            }.frame(width: 300, height: 600)
         }
+    }
+}
 
 struct TimeListView_Previews: PreviewProvider {
     static var previews: some View {

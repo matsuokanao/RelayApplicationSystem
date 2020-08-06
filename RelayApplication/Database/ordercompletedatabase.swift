@@ -34,7 +34,7 @@ struct ordercomplete: Identifiable {
     var order4 :String
     var set : String
     var lanes : String
-    var sex : String
+    var event : String
 
 
 }
@@ -75,9 +75,9 @@ class getOrderCompleteList : ObservableObject{
                 let order4 = i.get("order4") as! String
                 let set = i.get("set") as! String
                 let lanes = i.get("lanes") as! String
-                let sex = i.get("sex") as! String
+                let event = i.get("event") as! String
                 
-                self.data.append(ordercomplete(id: id, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username,order1:order1,order2:order2,order3:order3,order4:order4,set:set,lanes:lanes,sex:sex))
+                self.data.append(ordercomplete(id: id, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username,order1:order1,order2:order2,order3:order3,order4:order4,set:set,lanes:lanes,event:event))
                 
             }
         }

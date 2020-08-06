@@ -12,6 +12,7 @@ struct RelayListView: View {
     @ObservedObject var data = getRelayCompleteList()
     @State var email = ""
     @State var pass =   ""
+    @State var show = false
     var body: some View {
         ZStack{
                 Color("yello3")
@@ -22,6 +23,24 @@ struct RelayListView: View {
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(Color.white)
+                
+                HStack{
+                        Spacer()
+                    Button(action: {
+                            self.show.toggle()
+                                }) {
+                        Text("試合を終了させる")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("blue1"))
+                            .padding(.vertical)
+                            .padding(.horizontal,10)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                                    }.padding(.top,20)
+                    .sheet(isPresented: self.$show) {
+                            RelayEndView()
+                        }
+                }
 
             Text("試合申し込み時に入力したユーザーパスとメールアドレスを入力して下さい")
                     .foregroundColor(Color.white)

@@ -233,7 +233,7 @@ struct OrderListShowView: View {
 var body: some View {
     VStack{
         if ordercomplete.pay == "true" && ordercomplete.groupnum == num && ordercomplete.grouppass == pass{
-            if ordercomplete.sex == "男子4*100m" && ordercomplete.set == name {
+            if ordercomplete.event == "男子4*100m" && ordercomplete.set == name {
                 Text("男子4*100m")
                 HStack{
                     Text(ordercomplete.set)
@@ -246,7 +246,7 @@ var body: some View {
                 Text(ordercomplete.order2)
                 Text(ordercomplete.order3)
                 Text(ordercomplete.order4)
-            } else if ordercomplete.sex == "女子4*100m" && ordercomplete.set == name {
+            } else if ordercomplete.event == "女子4*100m" && ordercomplete.set == name {
                 Text("女子4*100m")
                 HStack{
                     

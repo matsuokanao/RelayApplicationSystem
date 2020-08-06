@@ -11,36 +11,36 @@ import Firebase
 
 struct TimeView: View {
 
-         @State var timeshow = false
-            @State var diaryfinishshow = false
+    @State var timeshow = false
+    @State var diaryfinishshow = false
             
-            //日記内容
-            @State var diary = ""
-            //日付　年
-            @State var year = ""
-            //日付　月
-            @State var month = ""
-            //日付　日
-            @State var day = ""
-            //天気
-            @State var weather = ""
-            //気持ち
-            @State var mental = ""
-            //大会名
-            @State var tournamentname = ""
-            //記録
-            @State var time = ""
-            //種目
-            @State var event = ""
-            @State var email = ""
-            @State var userpass = ""
-            @State var showAlert = false
-      @State var FshowAlert = false
-      @State var title = ""
-      @State var message = ""
-      @State var dismissButton = ""
+    //日記内容
+    @State var diary = ""
+    //日付　年
+    @State var year = ""
+    //日付　月
+    @State var month = ""
+    //日付　日
+    @State var day = ""
+    //天気
+    @State var weather = ""
+    //気持ち
+    @State var mental = ""
+    //大会名
+    @State var tournamentname = ""
+    //記録
+    @State var time = ""
+    //種目
+    @State var event = ""
+    @State var email = ""
+    @State var userpass = ""
+    @State var showAlert = false
+    @State var FshowAlert = false
+    @State var title = ""
+    @State var message = ""
+    @State var dismissButton = ""
 
-            var body: some View {
+    var body: some View {
             VStack{
                         VStack{
                    Text("今日の試合はどうでしたか？")

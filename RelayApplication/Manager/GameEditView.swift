@@ -13,6 +13,7 @@ struct GameEditView: View {
     @ObservedObject var gamedata = getGamedataList()
     @State var num = ""
     @State var pass = ""
+    @State var show = false
     
     var body: some View {
         VStack{
@@ -25,7 +26,27 @@ struct GameEditView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
-
+                    HStack{
+                                    Spacer()
+                        Button(action: {
+                                self.show.toggle()
+                                    }) {
+                            Text("終了した試合一覧")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("blue1"))
+                                .padding(.vertical)
+                                .padding(.horizontal,10)
+                                .background(Color.white)
+                                .clipShape(Capsule())
+                                        }.padding(.top,20)
+                        .sheet(isPresented: self.$show) {
+                                ManagerEndView()
+                            }
+                    }
+                    Text("試合を終了させたい場合は「試合のエントリーリストを開く」ページを開いて下さい。")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                            .padding(.top,20)
                     Text("試合の団体番号と団体パスワードを入力して下さい")
                         .foregroundColor(Color.white)
                         .fontWeight(.bold)
@@ -76,7 +97,7 @@ struct CellGameEditView: View {
     
 var body: some View {
     VStack{
-        if gamedata.groupnum == num && gamedata.grouppass == pass{
+        if gamedata.groupnum == num && gamedata.grouppass == pass && gamedata.end == "false"{
                 HStack {
                     Image(systemName: "person.fill")
                         .foregroundColor(Color.white)
@@ -103,8 +124,10 @@ var body: some View {
                                                  if err != nil{
                                                      print((err?.localizedDescription)!)
                                                          return
-                                                    } }
-                                }))}// 破壊的変更用
+                                }
+                            }
+                        }))
+                    }
                             
                         
                 Button(action: {

@@ -30,6 +30,8 @@ struct gamecomplete: Identifiable {
     var phonenumber : String
     var ceo : String
     var username : String
+    var end : String
+    var sex : String
 }
 
 //読み込み
@@ -65,9 +67,11 @@ class getGameCompleteList : ObservableObject{
                 let phonenumber = i.get("phonenumber") as! String
                 let ceo = i.get("ceo") as! String
                 let username = i.get("username") as! String
+                let end = i.get("end") as! String
+                let sex = i.get("sex") as! String
                 
                 
-                self.data.append(gamecomplete(id: id, event1: event1, event2: event2, event3: event3, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username))
+                self.data.append(gamecomplete(id: id, event1: event1, event2: event2, event3: event3, userpass: userpass, email: email, pay: pay, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, groupname: groupname, groupnum: groupnum, grouppass: grouppass, jaaf: jaaf, belong: belong, phonenumber: phonenumber, ceo: ceo,username:username,end: end,sex: sex))
                 
             }
         }

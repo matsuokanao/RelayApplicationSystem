@@ -79,7 +79,7 @@ struct ManagerCreateView: View {
                         .foregroundColor(.white)
                         .padding(.top,10)
                 VStack{
-                    TextField("代表者名", text: $email)
+                    TextField("運営団体メールアドレス", text: $email)
                         .foregroundColor(.white)
                         Divider()
                             .background(Color.white)
@@ -89,12 +89,12 @@ struct ManagerCreateView: View {
                 HStack{
                         Spacer()
                     Button(action: {
-                        if self.groupname == "" && self.groupnum == "" && self.grouppass == "" && self.email == ""  {
+                        if self.groupname == "" || self.groupnum == "" || self.grouppass == "" || self.email == ""  {
                         self.showAlert.toggle()
                             self.title = "エラー"
                             self.message = "全ての項目を入力して下さい。"
                             self.dismissButton = "OK"
-                        }else if self.grouppass.count >= 4{
+                        }else if self.grouppass.count <= 4{
                             self.showAlert.toggle()
                             self.title = "エラー"
                             self.message = "パスワードは4文字以上入力して下さい。"
