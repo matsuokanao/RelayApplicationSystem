@@ -29,7 +29,7 @@ struct RelayListView: View {
                     Button(action: {
                             self.show.toggle()
                                 }) {
-                        Text("試合を終了させる")
+                        Text("終了した試合一覧")
                             .fontWeight(.bold)
                             .foregroundColor(Color("blue1"))
                             .padding(.vertical)

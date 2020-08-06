@@ -196,8 +196,8 @@ var body: some View {
                             .clipShape(Capsule())
                                         
                                 }.alert(isPresented: $Alertshow){
-                            Alert(title: Text("登録完了！"),
-                            message: Text("登録が完了しました。内容をご確認下さい。"),
+                            Alert(title: Text("承認完了！"),
+                            message: Text("承認が完了しました。内容をご確認下さい。"),
                             dismissButton: .default(Text("わかりました")))
                     }
             Spacer()

@@ -121,9 +121,9 @@ var gamedata : gamelist
             Color("yello1")
                 .edgesIgnoringSafeArea(.all)
                 //画面スクロール処理
-                ScrollView(.vertical){
+                ScrollView{
                     
-                VStack(alignment: .leading, spacing: 25){
+                VStack{
                     WebView(loadUrl: self.gamedata.png).frame(height: 400)
                     
                     Button(action: {

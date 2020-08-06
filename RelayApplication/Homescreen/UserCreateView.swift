@@ -143,7 +143,7 @@ struct UserCreateView: View {
                     self.title = "エラー"
                     self.message = "全ての項目を入力して下さい。"
                     self.dismissButton = "OK"
-                }else if self.UserPass.count >= 4{
+                }else if self.UserPass.count <= 4{
                     self.showAlert.toggle()
                     self.title = "エラー"
                     self.message = "パスワードは4文字以上入力して下さい。"

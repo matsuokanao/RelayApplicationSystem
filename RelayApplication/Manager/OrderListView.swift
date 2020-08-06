@@ -74,7 +74,7 @@ var body: some View {
     VStack{
         if gamedata.groupnum == num && gamedata.grouppass == pass && gamedata.relay == "はい"{
                 HStack {
-                    Image(systemName: "person.fill")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color.white)
                     Text(gamedata.gamename)
                     .fontWeight(.bold)
@@ -105,7 +105,7 @@ struct OrderListSelectView: View {
 var body: some View {
         List{
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("1組目")
                                     Spacer()
@@ -121,7 +121,7 @@ var body: some View {
                                 }
                             }
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("2組目")
                                     Spacer()
@@ -137,7 +137,7 @@ var body: some View {
                                 }
                             }
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("3組目")
                                     Spacer()
@@ -153,7 +153,7 @@ var body: some View {
                                 }
                             }
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("4組目")
                                     Spacer()
@@ -169,7 +169,7 @@ var body: some View {
                                 }
                             }
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("5組目")
                                     Spacer()
@@ -185,7 +185,7 @@ var body: some View {
                                 }
                             }
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("6組目")
                                     Spacer()
@@ -201,7 +201,7 @@ var body: some View {
                                 }
                             }
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
                             Text("7組目")
                                     Spacer()
@@ -233,8 +233,9 @@ struct OrderListShowView: View {
 var body: some View {
     VStack{
         if ordercomplete.pay == "true" && ordercomplete.groupnum == num && ordercomplete.grouppass == pass{
-            if ordercomplete.event == "男子4*100m" && ordercomplete.set == name {
-                Text("男子4*100m")
+            if ordercomplete.event == "男子4*100mR" && ordercomplete.set == name {
+                VStack{
+                    Text(ordercomplete.event)
                 HStack{
                     Text(ordercomplete.set)
                     Text("組")
@@ -246,8 +247,10 @@ var body: some View {
                 Text(ordercomplete.order2)
                 Text(ordercomplete.order3)
                 Text(ordercomplete.order4)
-            } else if ordercomplete.event == "女子4*100m" && ordercomplete.set == name {
-                Text("女子4*100m")
+                }
+            } else if ordercomplete.event == "女子4*100mR" && ordercomplete.set == name {
+                VStack{
+                Text(ordercomplete.event)
                 HStack{
                     
                     Text(ordercomplete.set)
@@ -261,6 +264,93 @@ var body: some View {
                 Text(ordercomplete.order3)
                 Text(ordercomplete.order4)
                 }
+                
+        }else if ordercomplete.event == "男子4*400mR" && ordercomplete.set == name {
+            VStack{
+                Text(ordercomplete.event)
+                HStack{
+                    
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+                }
+                
+                }else if ordercomplete.event == "女子4*400mR" && ordercomplete.set == name {
+                VStack{
+                Text(ordercomplete.event)
+                HStack{
+                    
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+                }
+                
+                }else if ordercomplete.event == "男女混成4*400mR" && ordercomplete.set == name {
+                VStack{
+                Text(ordercomplete.event)
+                HStack{
+                    
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+                }
+                
+                }else if ordercomplete.event == "女子4*100m" && ordercomplete.set == name {
+                VStack{
+                Text(ordercomplete.event)
+                HStack{
+                    
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+                }
+                
+                }else if ordercomplete.event == "女子4*100m" && ordercomplete.set == name {
+                VStack{
+                Text(ordercomplete.event)
+                HStack{
+                    
+                    Text(ordercomplete.set)
+                    Text("組")
+                    Text(ordercomplete.lanes)
+                    Text("レーン")
+                }
+                Text(ordercomplete.groupname)
+                Text(ordercomplete.order1)
+                Text(ordercomplete.order2)
+                Text(ordercomplete.order3)
+                Text(ordercomplete.order4)
+                }
+                }
+
             }
         }
     }

@@ -135,7 +135,7 @@ struct GameShowListView: View {
         VStack{
             HStack{
                 Spacer()
-                Button("試合を終了させる") {
+                Button("終了した試合ですか？") {
                                      self.showAlert.toggle()
                                      }
                              .alert(isPresented: $showAlert) {
@@ -193,11 +193,13 @@ struct GameShowListView: View {
                     .fontWeight(.bold)
                     .padding(.top,10)
                 Text("お支払いが確認できない場合は自動キャンセルとなります。")
-                .foregroundColor(.red)
-                .fontWeight(.bold)
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
+
         
-            }
-            }
+                    }
+                }
             }
         }.frame(width: 300, height: 600)
     }

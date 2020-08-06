@@ -87,7 +87,7 @@ struct EntryListView_Previews: PreviewProvider {
 }
 
 struct CellEntryListView: View {
-    @ObservedObject var completelist = getGameCompleteList()
+    
     var gamedata : gamelist
     var pass : String
     var num : String
@@ -96,7 +96,7 @@ struct CellEntryListView: View {
         VStack{
             if gamedata.grouppass == pass && gamedata.groupnum == num && gamedata.end == "false" {
                 HStack {
-                        Image(systemName: "person.fill")
+                        Image(systemName: "circle.fill")
                                 .foregroundColor(Color.white)
                         Text(gamedata.gamename)
                                 .fontWeight(.bold)
@@ -110,10 +110,8 @@ struct CellEntryListView: View {
                         Image(systemName: "play.fill")
                                     .foregroundColor(Color.white)
                                                 }.sheet(isPresented: self.$show) {
-                                                    ForEach(self.completelist.data,id: \.id){i in
-                                                    EntryShowListView(completedata: i,gamedata: self.gamedata)
+                                                    EntrySelectListView(gamedata: self.gamedata, pass: self.pass, num: self.num)
                                         
-                        }
                     }
                 }
             }
@@ -123,15 +121,163 @@ struct CellEntryListView: View {
 
 
 
-struct EntryShowListView: View {
-    
-    var completedata :gamecomplete
+struct EntrySelectListView: View {
+    @ObservedObject var completelist = getGameCompleteList()
     var gamedata : gamelist
+    var pass : String
+    var num : String
     @State var show = false
+    
     var body: some View {
-        VStack{
-            if completedata.pay == "true" && gamedata.gamename == completedata.gamename{
-                Text(completedata.username)
+         List{
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("100m")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                         ForEach(self.completelist.data,id: \.id){i in
+                                              EntryShowListView(completelist: i, gamedata: self.gamedata, name: "100m", num: self.num, pass: self.pass)
+                                 }
+                             }
+                         }
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("200m")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                        ForEach(self.completelist.data,id: \.id){i in
+                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "200m", num: self.num, pass: self.pass)
+                                 }
+                             }
+                         }
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("400m")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                         ForEach(self.completelist.data,id: \.id){i in
+                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "400m", num: self.num, pass: self.pass)
+                                 }
+                             }
+                         }
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("ハードル走")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                        ForEach(self.completelist.data,id: \.id){i in
+                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "ハードル走", num: self.num, pass: self.pass)                                 }
+                             }
+                         }
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("走り幅跳び")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                      ForEach(self.completelist.data,id: \.id){i in
+                                                     EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り幅跳び", num: self.num, pass: self.pass)
+                                 }
+                             }
+                         }
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("砲丸投げ")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                      ForEach(self.completelist.data,id: \.id){i in
+                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "砲丸投げ", num: self.num, pass: self.pass)
+                                 }
+                             }
+                         }
+         HStack {
+             Image(systemName: "circle.fill")
+                                 .foregroundColor(Color("green7"))
+                         Text("7組目")
+                                 Spacer()
+                     Button(action: {
+                             self.show.toggle()
+                                         }) {
+                     Image(systemName: "play.fill")
+                                 .foregroundColor(Color("green7"))
+                                     }.sheet(isPresented: self.$show) {
+                                         ForEach(self.completelist.data,id: \.id){i in
+                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り高跳び", num: self.num, pass: self.pass)
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+
+struct EntryShowListView: View {
+    var completelist : gamecomplete
+    var gamedata : gamelist
+    var name : String
+    var num : String
+    var pass : String
+    @State var show = false
+    
+    var body: some View {
+        List{
+            if completelist.pay == "true" && gamedata.gamename == completelist.gamename{
+                if completelist.sex == "男子"{
+                    if completelist.event1 == name || completelist.event2 == name || completelist.event3 == name{
+            HStack{
+                Image(systemName: "person.fill")
+                    .foregroundColor(Color("green7"))
+                Text(completelist.sex)
+                Text(completelist.username)
+                Text(completelist.groupname)
+                    }
+                }
+            }
+        if completelist.sex == "女子"{
+            if completelist.event1 == name || completelist.event2 == name || completelist.event3 == name {
+                HStack{
+                    Image(systemName: "person.fill")
+                        .foregroundColor(Color("green7"))
+                    Text(completelist.sex)
+                    Text(completelist.username)
+                    Text(completelist.groupname)
+                        }
+                    }
+                }
             }
         }
     }

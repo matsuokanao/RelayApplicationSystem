@@ -40,7 +40,7 @@ struct GameEditView: View {
                                 .clipShape(Capsule())
                                         }.padding(.top,20)
                         .sheet(isPresented: self.$show) {
-                                ManagerEndView()
+                                GameFinishView()
                             }
                     }
                     Text("試合を終了させたい場合は「試合のエントリーリストを開く」ページを開いて下さい。")

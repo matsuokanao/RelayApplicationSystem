@@ -77,7 +77,7 @@ struct CellRelayApproveView: View {
     var body: some View {
         VStack{
          
-        if gamelist.grouppass == pass && gamelist.groupnum == num{
+            if gamelist.grouppass == pass && gamelist.groupnum == num && gamelist.end == "false" && gamelist.relay == "はい"{
 
          HStack {
              

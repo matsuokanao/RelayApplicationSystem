@@ -42,7 +42,7 @@ struct TimeView: View {
 
     var body: some View {
             VStack{
-                        VStack{
+                VStack{
                    Text("今日の試合はどうでしたか？")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
