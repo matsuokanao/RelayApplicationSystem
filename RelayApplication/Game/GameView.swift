@@ -11,7 +11,7 @@ import SwiftUI
 struct GameView: View {
     @State var show = false
     @State var usereditshow = false
-    @State var diaryshow = false
+    @State var questionshow = false
     @State var timeshow = false
 
     var body: some View {
@@ -143,13 +143,13 @@ struct GameView: View {
                 .foregroundColor(.white)
                 .frame(width:140,height:50)
         Button(action: {
-                self.diaryshow.toggle()
+                self.questionshow.toggle()
                 }){
             Text("試合ページの説明")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-                .sheet(isPresented: $diaryshow){
-                    DiaryView()
+                .sheet(isPresented: $questionshow){
+                    GameQuestionView()
                                 }
                             }
                         }

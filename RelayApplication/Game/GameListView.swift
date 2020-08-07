@@ -33,7 +33,7 @@ struct GameListView: View {
                                 }) {
                         Text("終了した試合一覧")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("blue1"))
+                            .foregroundColor(Color("blue2"))
                             .padding(.vertical)
                             .padding(.horizontal,10)
                             .background(Color.white)

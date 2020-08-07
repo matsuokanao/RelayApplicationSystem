@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 struct DiaryListView: View {
     @ObservedObject var diarydata = getDiaryList()
@@ -130,6 +132,8 @@ struct DiaryListCellView: View {
 
 struct DiaryListOpenView: View {
     var diary : diarylist
+    @State var showAlert = false
+    
         var body: some View {
         ScrollView{
         VStack(spacing: 20){
@@ -197,6 +201,27 @@ struct DiaryListOpenView: View {
                 .stroke(Color.black))
                     
                 }
+            Button("この日記を削除する") {
+                              self.showAlert.toggle()
+                                  }
+                          .alert(isPresented: $showAlert) {
+                  Alert(title: Text("警告"),
+                          message: Text("日記が削除されますがよろしいですか？"),
+                          primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
+                          secondaryButton: .destructive(Text("削除"),
+                      action:{
+                              let db = Firestore.firestore()
+                                  db.collection("diarylist")
+                                      .document(self.diary.id)
+                                      .delete()
+                                  { (err) in
+                              if err != nil{
+                                  print((err?.localizedDescription)!)
+                                      return
+                                      }
+                                  }
+                              }))
+                          }
             }
         }.frame(width: 300, height: 600)
     }

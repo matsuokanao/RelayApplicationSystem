@@ -16,7 +16,7 @@ struct RelayApproveView: View {
     
     var body: some View {
                 ZStack{
-                Color("yello1")
+                    Color(.white)
                     .edgesIgnoringSafeArea(.all)
                    
                 VStack(alignment: .leading){
@@ -24,31 +24,30 @@ struct RelayApproveView: View {
                     Text("リレー承認ページ")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("green4"))
                                               
                         Text("試合の団体番号と団体パスワードを入力して下さい")
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(Color("green4"))
                                     .fontWeight(.bold)
                                     .padding(.top,20)
                         Text("団体番号")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
-                        .padding(.top,20)
+                            .foregroundColor(Color("green4"))
+                            .fontWeight(.bold)
+                            .padding(.top,30)
 
                                        
                         TextField("", text: self.$num)
                             .keyboardType(.numberPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .background(Color("yello1"))
+                            .background(Color("green4"))
                         Text("団体パスワード")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
+                        .foregroundColor(Color("green4"))                        .fontWeight(.bold)
 
                                        
                         TextField("", text: self.$pass)
                             .keyboardType(.numberPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .background(Color("yello1"))
+                            .background(Color("green4"))
                     
                     ForEach(self.gamedata.data,id: \.id){i in
                         CellRelayApproveView(gamelist: i, num: self.num, pass: self.pass)
@@ -77,15 +76,15 @@ struct CellRelayApproveView: View {
     var body: some View {
         VStack{
          
-            if gamelist.grouppass == pass && gamelist.groupnum == num && gamelist.end == "false" && gamelist.relay == "はい"{
+            if gamelist.grouppass == pass && gamelist.groupnum == num && gamelist.end == "false" && gamelist.relay == "はい" {
 
          HStack {
              
              Image(systemName: "person.fill")
-                     .foregroundColor(Color.white)
+                     .foregroundColor(Color("green4"))
              Text(gamelist.gamename)
                      .fontWeight(.bold)
-                     .foregroundColor(.white)
+                     .foregroundColor(Color("green4"))
                      .padding(.top,10)
 
                          Spacer()
@@ -94,7 +93,7 @@ struct CellRelayApproveView: View {
                              self.show.toggle()
                                          }) {
                  Image(systemName: "play.fill")
-                         .foregroundColor(Color.white)
+                         .foregroundColor(Color("green4"))
                                      }.sheet(isPresented: self.$show) {
              ForEach(self.relaydata.data,id: \.id){i in
                      RelayApproveShowView(gamelist: self.gamelist, relaylist: i)
@@ -115,16 +114,16 @@ var body: some View {
         HStack {
             if gamelist.gamename == relaylist.gamename && relaylist.pay == "false"{
             Image(systemName: "person.fill")
-                        .foregroundColor(Color("green7"))
+                .foregroundColor(Color("green4"))
              
             Text(relaylist.belong)
-            Text(relaylist.ceo)
+            Text(relaylist.event)
                                 Spacer()
                     Button(action: {
                             self.show.toggle()
                                         }) {
                     Image(systemName: "play.fill")
-                                .foregroundColor(Color("green7"))
+                                .foregroundColor(Color("green4"))
                                     }.sheet(isPresented: self.$show) {
                                         
                                         RelayApproveCompleteView(gamelist: self.gamelist, relaylist: self.relaylist)
@@ -144,9 +143,10 @@ struct RelayApproveCompleteView: View {
 var body: some View {
     HStack {
             Image(systemName: "person.fill")
-                            .foregroundColor(Color("green7"))
+                            .foregroundColor(Color("green4"))
+            Text(relaylist.belong)
         VStack{
-            Text(relaylist.groupnum)
+            Text(relaylist.event)
             Text(relaylist.member1)
             Text(relaylist.member2)
             Text(relaylist.member3)
@@ -172,7 +172,7 @@ var body: some View {
                             }) {
                         Text("承認")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("green2"))
+                            .foregroundColor(Color("green4"))
                             .padding(.vertical)
                             .padding(.horizontal,45)
                             .background(Color.white)

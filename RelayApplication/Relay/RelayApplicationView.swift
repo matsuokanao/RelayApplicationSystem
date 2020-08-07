@@ -252,16 +252,7 @@ var gamedata : gamelist
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top,10)
-                    Text("代表者のユーザーパス")
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(.top,10)
-                    VStack{
-                        TextField("ユーザーパス", text: $userpass)
-                            .foregroundColor(.white)
-                            Divider()
-                                .background(Color.white)
-                            }
+                
                         
                     Text("代表者のメールアドレス")
                             .fontWeight(.bold)
@@ -272,6 +263,17 @@ var gamedata : gamelist
                             .foregroundColor(.white)
                             Divider()
                                 .background(Color.white)
+                        }
+                        
+                        Text("代表者のユーザーパス")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(.top,10)
+            VStack{
+                    TextField("ユーザーパス", text: $userpass)
+                            .foregroundColor(.white)
+                                    Divider()
+                            .background(Color.white)
                         }
                     }
                  
@@ -364,6 +366,9 @@ struct CellUserView: View {
     var event : String
     @State var show = false
     @State var pay = "false"
+    @State var end = "false"
+    @State var order = "false"
+    
 
     
     var body: some View {
@@ -383,9 +388,7 @@ struct CellUserView: View {
                 Text("試合会場")
                     .padding(.top,10)
                 Text(gamelist.gamevenue)
-                Text("名前")
-                    .padding(.top,10)
-                Text(userlist.username)
+                
             }
                 Text("登録陸連")
                 .padding(.top,10)
@@ -414,7 +417,7 @@ struct CellUserView: View {
                 Button(action: {
                     self.show.toggle()
                     let db = Firestore.firestore()
-                    let data: [String : Any] = ["member1": self.member1, "member2": self.member2, "member3": self.member3, "member4": self.member4, "member5": self.member5, "member6": self.member6, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username,"event":self.event]
+                    let data: [String : Any] = ["member1": self.member1, "member2": self.member2, "member3": self.member3, "member4": self.member4, "member5": self.member5, "member6": self.member6, "userpass": self.userlist.userpass, "email": self.userlist.email, "pay": self.pay,"gamename":self.gamelist.gamename,"year":self.gamelist.year,"month":self.gamelist.month,"day":self.gamelist.day,"place":self.gamelist.place,"gamevenue":self.gamelist.gamevenue,"groupnum":self.gamelist.groupnum,"groupname":self.gamelist.groupname,"grouppass": self.gamelist.grouppass,"jaaf":self.userlist.jaaf,"belong":self.userlist.belong,"phonenumber":self.userlist.phonenumber,"ceo":self.userlist.ceo,"username":self.userlist.username,"event":self.event,"end":self.gamelist.end,"order": self.order]
                     //試合申し込み完了テーブルに入れる
                     db.collection("relaycomplete")
                        .addDocument(data:data)

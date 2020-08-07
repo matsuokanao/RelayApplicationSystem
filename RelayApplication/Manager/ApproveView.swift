@@ -33,7 +33,7 @@ struct ApproveView: View {
                                 }) {
                         Text("リレー承認ページ")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("blue1"))
+                            .foregroundColor(Color("green4"))
                             .padding(.vertical)
                             .padding(.horizontal,10)
                             .background(Color.white)
@@ -134,7 +134,7 @@ var body: some View {
         HStack {
             if gamelist.gamename == completelist.gamename && completelist.pay == "false"{
             Image(systemName: "person.fill")
-                        .foregroundColor(Color("green7"))
+                        .foregroundColor(Color("green4"))
                 
             Text(completelist.username)
             Text(completelist.belong)
@@ -143,7 +143,7 @@ var body: some View {
                             self.show.toggle()
                                         }) {
                     Image(systemName: "play.fill")
-                                .foregroundColor(Color("green7"))
+                                .foregroundColor(Color("green4"))
                                     }.sheet(isPresented: self.$show) {
                                         
                                         ApprovecompleateView(gamelist: self.gamelist, completelist: self.completelist)
@@ -164,7 +164,7 @@ struct ApprovecompleateView: View {
 var body: some View {
     HStack {
             Image(systemName: "person.fill")
-                            .foregroundColor(Color("green7"))
+                            .foregroundColor(Color("green4"))
         VStack{
         Text(completelist.username)
             Text(completelist.event1)
@@ -189,7 +189,7 @@ var body: some View {
                             }) {
                         Text("承認")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("green2"))
+                            .foregroundColor(Color("green4"))
                             .padding(.vertical)
                             .padding(.horizontal,45)
                             .background(Color.white)
@@ -201,7 +201,7 @@ var body: some View {
                             dismissButton: .default(Text("わかりました")))
                     }
             Spacer()
-        }.padding(.top,10)
+        }.padding(.top,20)
     }
 }
 

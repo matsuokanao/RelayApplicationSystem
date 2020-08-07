@@ -33,7 +33,7 @@ struct EntryListView: View {
                                 }) {
                         Text("試合を終了させる")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("blue1"))
+                            .foregroundColor(Color("green6"))
                             .padding(.vertical)
                             .padding(.horizontal,10)
                             .background(Color.white)
@@ -132,14 +132,14 @@ struct EntrySelectListView: View {
          List{
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("100m")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                          ForEach(self.completelist.data,id: \.id){i in
                                               EntryShowListView(completelist: i, gamedata: self.gamedata, name: "100m", num: self.num, pass: self.pass)
@@ -148,14 +148,14 @@ struct EntrySelectListView: View {
                          }
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("200m")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                         ForEach(self.completelist.data,id: \.id){i in
                                                       EntryShowListView(completelist: i, gamedata: self.gamedata, name: "200m", num: self.num, pass: self.pass)
@@ -164,14 +164,14 @@ struct EntrySelectListView: View {
                          }
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("400m")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                          ForEach(self.completelist.data,id: \.id){i in
                                                       EntryShowListView(completelist: i, gamedata: self.gamedata, name: "400m", num: self.num, pass: self.pass)
@@ -180,14 +180,14 @@ struct EntrySelectListView: View {
                          }
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("ハードル走")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                         ForEach(self.completelist.data,id: \.id){i in
                                                       EntryShowListView(completelist: i, gamedata: self.gamedata, name: "ハードル走", num: self.num, pass: self.pass)                                 }
@@ -195,14 +195,14 @@ struct EntrySelectListView: View {
                          }
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("走り幅跳び")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                       ForEach(self.completelist.data,id: \.id){i in
                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り幅跳び", num: self.num, pass: self.pass)
@@ -211,14 +211,14 @@ struct EntrySelectListView: View {
                          }
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("砲丸投げ")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                       ForEach(self.completelist.data,id: \.id){i in
                                                       EntryShowListView(completelist: i, gamedata: self.gamedata, name: "砲丸投げ", num: self.num, pass: self.pass)
@@ -227,14 +227,14 @@ struct EntrySelectListView: View {
                          }
          HStack {
              Image(systemName: "circle.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                          Text("7組目")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
                                          }) {
                      Image(systemName: "play.fill")
-                                 .foregroundColor(Color("green7"))
+                                 .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                          ForEach(self.completelist.data,id: \.id){i in
                                             EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り高跳び", num: self.num, pass: self.pass)
@@ -254,16 +254,16 @@ struct EntryShowListView: View {
     @State var show = false
     
     var body: some View {
-        List{
+        VStack{
             if completelist.pay == "true" && gamedata.gamename == completelist.gamename{
                 if completelist.sex == "男子"{
                     if completelist.event1 == name || completelist.event2 == name || completelist.event3 == name{
             HStack{
                 Image(systemName: "person.fill")
-                    .foregroundColor(Color("green7"))
+                    .foregroundColor(Color.blue)
                 Text(completelist.sex)
                 Text(completelist.username)
-                Text(completelist.groupname)
+                Text(completelist.belong)
                     }
                 }
             }
@@ -271,10 +271,11 @@ struct EntryShowListView: View {
             if completelist.event1 == name || completelist.event2 == name || completelist.event3 == name {
                 HStack{
                     Image(systemName: "person.fill")
-                        .foregroundColor(Color("green7"))
+                        .foregroundColor(Color.red)
                     Text(completelist.sex)
+                        .foregroundColor(Color.red)
                     Text(completelist.username)
-                    Text(completelist.groupname)
+                    Text(completelist.belong)
                         }
                     }
                 }

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct RelayListView: View {
     @ObservedObject var data = getRelayCompleteList()
@@ -31,7 +32,7 @@ struct RelayListView: View {
                                 }) {
                         Text("終了した試合一覧")
                             .fontWeight(.bold)
-                            .foregroundColor(Color("blue1"))
+                            .foregroundColor(Color("yello3"))
                             .padding(.vertical)
                             .padding(.horizontal,10)
                             .background(Color.white)
@@ -119,16 +120,47 @@ struct CellRelayListView: View {
 struct RelayShowListView: View {
    var relaylist : relaycomplete
     @State var show = false
-    @State var showingAlert = false
+    @State var showAlert = false
+    var name = "end"
+    var edit = "true"
+    
         
     var body: some View {
         VStack{
             VStack{
-                Text(relaylist.gamename)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                        }.frame(width:500,height: 100)
-                        .background(Color("yello3"))
+                          Text(relaylist.gamename)
+                              .fontWeight(.bold)
+                              .foregroundColor(.white)
+                                  }.frame(width:500,height: 100)
+                                  .background(Color("yello3"))
+            HStack{
+                Spacer()
+                Button("終了した試合ですか？") {
+                                     self.showAlert.toggle()
+                                     }
+                             .alert(isPresented: $showAlert) {
+                                 Alert(title: Text("警告"),
+                                         message: Text("試合が終了されますがよろしいですか？"),
+                                             primaryButton: .cancel(Text("キャンセル")), // キャンセル用
+                                                     secondaryButton: .destructive(Text("終了"),
+                                                         action:{
+                                                             
+                            let db = Firestore.firestore()
+                                 //試合申し込み完了テーブルに入れる
+                             db.collection("gamecomplete")
+                                 .document(self.relaylist.id)
+                                 .updateData([self.name: self.edit])
+                                     { (err) in
+                                 if err != nil{
+                                     print((err?.localizedDescription)!)
+                                         return
+                                         }
+                                     }
+                         
+                         }))}// 破壊的変更用
+            }.padding(.top,20)
+
+          
         
             ScrollView{
 
@@ -139,9 +171,7 @@ struct RelayShowListView: View {
             Text("試合会場")
                 .padding(.top,10)
             Text(relaylist.gamevenue)
-            Text("名前")
-                .padding(.top,10)
-            Text(relaylist.username)
+            
             Text("登録陸連")
                 .padding(.top,10)
             Text(relaylist.jaaf)
@@ -151,6 +181,18 @@ struct RelayShowListView: View {
             Text(relaylist.belong)
             Text("参加種目")
                 .padding(.top,10)
+            Text(relaylist.event)
+    Group{
+            Text("メンバー")
+                .padding(.top,10)
+            Text(relaylist.member1)
+            Text(relaylist.member2)
+            Text(relaylist.member3)
+            Text(relaylist.member4)
+            Text(relaylist.member5)
+            Text(relaylist.member6)
+                }
+            
             if relaylist.pay == "true" {
                 Text("試合費用の確認ができました。")
                 .foregroundColor(.red)
@@ -164,9 +206,10 @@ struct RelayShowListView: View {
                 Text("お支払いが確認できない場合は自動キャンセルとなります。")
                 .foregroundColor(.red)
                 .fontWeight(.bold)
+                .padding(.top,20)
                 
                 }
             }
-        }
+        }.frame(width: 300, height: 600)
     }
 }

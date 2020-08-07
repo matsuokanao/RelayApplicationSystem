@@ -32,7 +32,7 @@ struct HandlingView: View {
                 })  {
             Text("使い方ガイド")
                     .fontWeight(.bold)
-                    .foregroundColor(Color("whiteorange"))
+                .foregroundColor(Color.red)
 //            .sheet(isPresented: $isSelected) {
 //                      DismissView(isPresented: self.$isSelected)
                   }

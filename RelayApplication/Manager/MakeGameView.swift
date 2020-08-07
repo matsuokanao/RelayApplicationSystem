@@ -85,6 +85,7 @@ struct MakeGamCellView: View {
     @State var link = ""
     @State var relay = ""
     @State var end = "false"
+    
 
     
     var body: some View {
@@ -233,7 +234,7 @@ struct MakeGamCellView: View {
                                     self.showAlert = true
                                     
                                     let db = Firestore.firestore()
-                                let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"relay":self.relay,"end":self.end]
+                                    let data: [String : Any] = ["gamename": self.gamename,"year": self.year, "month": self.month, "day": self.day,"place": self.place,"gamevenue": self.gamevenue,"png": self.png,"link": self.link,"groupname": self.managerdata.groupname,"groupnum": self.managerdata.groupnum,"email": self.managerdata.email,"grouppass":self.managerdata.grouppass,"relay":self.relay,"end":self.end]
                                 //試合申し込み完了テーブルに入れる
                                         db.collection("gamelist")
                                             .document(self.gamename)

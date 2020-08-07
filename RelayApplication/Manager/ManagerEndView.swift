@@ -15,22 +15,22 @@ struct ManagerEndView: View {
        @State var num = ""
        var body: some View {
            ZStack{
-               Color("green1")
+            Color(.white)
                    .edgesIgnoringSafeArea(.all)
                VStack(alignment: .leading){
                    ScrollView{
                    Text("試合を終了させる")
                        .font(.title)
                        .fontWeight(.bold)
-                       .foregroundColor(Color.white)
+                       .foregroundColor(Color("green6"))
 
                        Text("終了させたい試合の運営団体番号と運営団体パスワードを入力して下さい。削除した試合は「試合情報を閲覧、編集する」ページにて確認できます。")
-                           .foregroundColor(Color.white)
+                           .foregroundColor(Color("green6"))
                            .fontWeight(.bold)
                            .padding(.top,20)
 
                        Text("運営団体番号")
-                           .foregroundColor(Color.white)
+                           .foregroundColor(Color("green6"))
                            .fontWeight(.bold)
                            .padding(.top,20)
 
@@ -38,17 +38,17 @@ struct ManagerEndView: View {
                        TextField("", text: self.$num)
                            .keyboardType(.numberPad)
                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                           .background(Color("green1"))
+                           .background(Color("green6"))
                    
                        Text("運営団パスワード")
-                       .foregroundColor(Color.white)
-                       .fontWeight(.bold)
+                        .foregroundColor(Color("green6"))
+                        .fontWeight(.bold)
 
                                       
                        TextField("", text: self.$pass)
                            .keyboardType(.numberPad)
                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                           .background(Color("green1"))
+                           .background(Color("green6"))
 
                                ForEach(self.gamedata.data,id: \.id){i in
                                    CellManagerEndViewView(gamedata:i,pass: self.pass, num: self.num)
@@ -78,10 +78,10 @@ struct CellManagerEndViewView: View {
             if gamedata.grouppass == pass && gamedata.groupnum == num && gamedata.end == "false"{
                 HStack {
                         Image(systemName: "person.fill")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color("green6"))
                         Text(gamedata.gamename)
                                 .fontWeight(.bold)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("green6"))
                                 .padding(.top,10)
 
                     Spacer()

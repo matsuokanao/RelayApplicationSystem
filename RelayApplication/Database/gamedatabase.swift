@@ -26,6 +26,7 @@ struct gamelist: Identifiable {
     var grouppass : String
     var relay : String
     var end : String
+    
 }
 
 //読み込み
@@ -56,6 +57,7 @@ class getGamedataList : ObservableObject{
                 let grouppass = i.get("grouppass") as! String
                 let relay = i.get("relay") as! String
                 let end = i.get("end") as! String
+                
 
                 self.data.append(gamelist(id: id, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, png: png, link: link, groupname: groupname, groupnum: groupnum, email: email,grouppass :grouppass,relay : relay,end : end))
             }

@@ -21,22 +21,22 @@ struct GameFinishView: View {
     
     var body: some View {
         ZStack{
-            Color("green1")
+            Color(.white)
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
                 ScrollView{
                 Text("終了した試合一覧")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color("green7"))
 
                     Text("試合の運営団体番号と運営団体パスワードを入力して下さい。試合を終了させたい場合は「試合のエントリーリストを開く」ページを開いて下さい。")
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("green7"))
                         .fontWeight(.bold)
                         .padding(.top,20)
 
                     Text("運営団体番号")
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("green7"))
                         .fontWeight(.bold)
                         .padding(.top,20)
 
@@ -44,17 +44,17 @@ struct GameFinishView: View {
                     TextField("", text: self.$num)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(Color("green1"))
+                        .background(Color("green7"))
                 
                     Text("運営団パスワード")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-
+                        .foregroundColor(Color("green7"))
+                        .fontWeight(.bold)
+                    
                                    
                     TextField("", text: self.$pass)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .background(Color("green1"))
+                        .background(Color("green7"))
                     
                     Text("試合の日付を入力して下さい")
                             .foregroundColor(Color.white)
@@ -63,18 +63,17 @@ struct GameFinishView: View {
                         TextField("", text: self.$year)
                             .keyboardType(.numberPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .background(Color("blue3"))
+                            .background(Color("green7"))
                         Text("年")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
+                            .foregroundColor(Color("green7"))               .fontWeight(.bold)
 
                                                        
                         TextField("", text: self.$month)
                                 .keyboardType(.numberPad)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .background(Color("blue3"))
+                                .background(Color("green7"))
                         Text("月")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("green7"))
                             .fontWeight(.bold)
                                     }
 
@@ -110,7 +109,7 @@ struct CellGameFinishView: View {
             if gamedata.grouppass == pass && gamedata.groupnum == num && gamedata.end == "true" && gamedata.year == year && gamedata.month == month{
                 HStack {
                         Image(systemName: "person.fill")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color("green7"))
                         Text(gamedata.gamename)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -120,7 +119,7 @@ struct CellGameFinishView: View {
                             self.show.toggle()
                                         }) {
                     Image(systemName: "play.fill")
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("green7"))
                                     }.sheet(isPresented: self.$show) {
                                 GameFinishShowView(gamedata: self.gamedata)
                             
@@ -144,7 +143,7 @@ struct GameFinishShowView: View {
                     .fontWeight(.bold)
                         .foregroundColor(.white)
                            }.frame(width:500,height: 100)
-                               .background(Color("green1"))
+                               .foregroundColor(Color("green7"))
     ScrollView{
         VStack{
             VStack(alignment: .leading, spacing: 25){

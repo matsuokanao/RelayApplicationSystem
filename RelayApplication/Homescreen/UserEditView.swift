@@ -220,11 +220,15 @@ var body: some View {
             self.dismissButton = "OK"
 
         }else{
-        self.FshowAlert.toggle()
+        self.showAlert.toggle()
+            self.title = "変更完了！"
+            self.message = "内容の変更が完了しました。"
+            self.dismissButton = "OK"
+
             let db = Firestore.firestore()
             //試合申し込み完了テーブルに入れる
             db.collection("userlist")
-                .document(self.userdata.email)
+                .document(self.userdata.id)
                 .updateData([self.name: self.edit])
                 { (err) in
         if err != nil{
@@ -242,11 +246,7 @@ var body: some View {
                 .background(Color("red3"))
                 .clipShape(Capsule())
                 
-        }.alert(isPresented: $FshowAlert){
-            Alert(title: Text("保存完了！"),
-                  message: Text("内容を保存しました。"),
-                  dismissButton: .default(Text("わかりました")))
-            }
+        }
         .alert(isPresented: $showAlert){
                         Alert(title: Text(self.title),
                               message: Text(self.message),

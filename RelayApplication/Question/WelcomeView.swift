@@ -81,7 +81,7 @@ struct WelcomeView: View {
                          .clipShape(Capsule())
                          .padding(.bottom, 70)
                      }
-                 }
+                 }.frame(width: 300, height: 600)
                  .edgesIgnoringSafeArea(.top)
              }
          }
@@ -95,7 +95,6 @@ struct WelcomeView_Previews: PreviewProvider {
 
 
 struct Board {
-    
     var title : String
     var detail : String
     var pic : String

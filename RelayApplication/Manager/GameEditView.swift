@@ -33,7 +33,7 @@ struct GameEditView: View {
                                     }) {
                             Text("終了した試合一覧")
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("blue1"))
+                                .foregroundColor(Color("green7"))
                                 .padding(.vertical)
                                 .padding(.horizontal,10)
                                 .background(Color.white)

@@ -47,7 +47,7 @@ struct RelayView: View {
         Text("リレーに")
             .fontWeight(.bold)
             .foregroundColor(.white)
-        Text("エントリーする")
+        Text("申し込む")
             .fontWeight(.bold)
             .foregroundColor(.white)
             .frame(width:140,height:30)

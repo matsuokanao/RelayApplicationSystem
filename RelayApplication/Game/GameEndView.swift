@@ -17,23 +17,23 @@ struct GameEndView: View {
         
         var body: some View {
              ZStack{
-                   Color("blue2")
+                Color(.white)
                        .edgesIgnoringSafeArea(.all)
                 ScrollView{
                    VStack(alignment: .leading){
                     Text("終了した試合リスト")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("blue2"))
                     
                 Text("試合申し込み時に入力したユーザーパスとメールアドレスを入力して下さい")
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color("blue2"))
                     .fontWeight(.bold)
                     .padding(.top,20)
                     
 
             Text("メールアドレス")
-                .foregroundColor(Color.white)
+                .foregroundColor(Color("blue2"))
                 .fontWeight(.bold)
                 .padding(.top,20)
 
@@ -43,7 +43,7 @@ struct GameEndView: View {
                 .background(Color("blue2"))
                     
                     Text("ユーザーパス")
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("blue2"))
                         .fontWeight(.bold)
                         .padding(.top,20)
 
@@ -78,16 +78,16 @@ struct GameEndView_Previews: PreviewProvider {
             if completedata.email == email && completedata.userpass ==  pass && completedata.end == "true"{
                         HStack {
                             Image(systemName: "person.fill")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color("blue2"))
                             Text(completedata.gamename)
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
+                                .foregroundColor(Color("blue2"))
+                                .fontWeight(.bold)
                                         Spacer()
                             Button(action: {
                                     self.show.toggle()
                                                 }) {
                             Image(systemName: "play.fill")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color("blue2"))
                                             }.sheet(isPresented: self.$show) {
                                                 ForEach(self.gamedata.data,id: \.id){i in
                                                 GameEndShowView(completedata: self.completedata,gamedata: i)
@@ -127,7 +127,7 @@ struct GameEndShowView: View {
                         }) {
                 Text("大会ホームページを開く")
                     .fontWeight(.bold)
-                    .foregroundColor(Color("blue1"))
+                    .foregroundColor(Color("blue2"))
                     .padding(.vertical)
                     .padding(.horizontal,25)
                     .background(Color.white)

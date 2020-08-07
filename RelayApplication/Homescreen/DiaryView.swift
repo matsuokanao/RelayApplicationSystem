@@ -121,7 +121,7 @@ struct DiaryCellView: View {
             HStack{
                 Image(systemName: "sparkles")
                 .foregroundColor(Color("red3"))
-                Text("項目（大会名や題名など）")
+                Text("目次")
                 }
                 
                 
