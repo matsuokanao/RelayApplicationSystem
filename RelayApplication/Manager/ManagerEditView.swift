@@ -175,7 +175,7 @@ struct CellManagerEditView: View {
                     }) {
                 Text("登録")
                         .fontWeight(.bold)
-                        .foregroundColor(Color("green7"))
+                        .foregroundColor(Color("green8"))
                         .padding(.vertical)
                         .padding(.horizontal,45)
                         .background(Color.white)

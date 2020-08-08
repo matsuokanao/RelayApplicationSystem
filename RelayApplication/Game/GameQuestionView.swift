@@ -45,9 +45,11 @@ struct GameQuestionView: View {
                 Text("試合ページ")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
+                    .font(.title)
                 Text("使い方ガイド")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
+                    .font(.title)
             }.frame(width:400,height: 100)
                 .background(Color("blue4"))
 

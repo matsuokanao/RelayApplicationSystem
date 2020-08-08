@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ManagerTopView: View {
     @State var show = false
+    @State var answershow = false
     @State var firstPass = ""
     @State var secondPass = ""
     @State var color = Color.black.opacity(0.7)
@@ -32,6 +33,28 @@ struct ManagerTopView: View {
             TextField("2つ目のパスワードを入力して下さい", text: $secondPass)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.secondPass != "" ? Color("green1") : self.color,lineWidth:  2))
+            
+            HStack{
+                Spacer()
+            VStack{
+                Text("こちらのページから試合の作成、運営を行うことが出来ます。大会関係者専用ページに遷移するためには申し込みが必要です。")
+                .foregroundColor(Color("green1"))
+                .fontWeight(.heavy)
+                
+            Button(action: {
+            self.answershow.toggle()
+                } ){
+            Text("申込みをする")
+                .fontWeight(.heavy)
+                .foregroundColor(.red)
+                .sheet(isPresented: $answershow){
+                    ManagerFirstCreate()
+                            }
+                    }
+                }
+            }
+                
+
                  
     if self.firstPass == "AAA" && self.secondPass == "BBB"{
         Button(action: {
