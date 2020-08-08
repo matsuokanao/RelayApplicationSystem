@@ -45,7 +45,6 @@
 		A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* diarydatabase.swift */; };
 		A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AC24CAD2DC00553216 /* UserEditView.swift */; };
 		A3CCC74024D0618E0018E78D /* GameEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCC73F24D0618E0018E78D /* GameEditView.swift */; };
-		A3D4867424C9395100511354 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867324C9395100511354 /* WelcomeView.swift */; };
 		A3D4867724C9667A00511354 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* GameView.swift */; };
 		A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867924C96AB500511354 /* userdatabase.swift */; };
 		A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867F24C99F8A00511354 /* UserCreateView.swift */; };
@@ -57,13 +56,18 @@
 		A3D4A51324C7017700A93215 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D4A51224C7017700A93215 /* Preview Assets.xcassets */; };
 		A3D4A51624C7017700A93215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D4A51424C7017700A93215 /* LaunchScreen.storyboard */; };
 		A3D4A51E24C7020300A93215 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3D4A51D24C7020300A93215 /* GoogleService-Info.plist */; };
-		A3D4A52024C705D700A93215 /* HandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A51F24C705D700A93215 /* HandlingView.swift */; };
 		A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52124C7060100A93215 /* Homescreen.swift */; };
 		A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52324C7064D00A93215 /* ManagerView.swift */; };
 		A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52624C7074A00A93215 /* LooginView.swift */; };
 		A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4A52924C7078600A93215 /* SingUpView.swift */; };
 		A3D6A1CB24D2D024001270E0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6A1CA24D2D024001270E0 /* KeyboardObserver.swift */; };
 		A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7121124CECB1300A3B298 /* DiaryListView.swift */; };
+		A3DD3B8024DE2AF8006D10C8 /* GameAnswerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B7F24DE2AF8006D10C8 /* GameAnswerApplication.swift */; };
+		A3DD3B8224DE2DF4006D10C8 /* GameAnswerApplicationFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8124DE2DF4006D10C8 /* GameAnswerApplicationFinish.swift */; };
+		A3DD3B8624DE36EE006D10C8 /* GameAnswerApplicationShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8524DE36EE006D10C8 /* GameAnswerApplicationShow.swift */; };
+		A3DD3B8824DE3B98006D10C8 /* GamaAnswerApplicationMistake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8724DE3B98006D10C8 /* GamaAnswerApplicationMistake.swift */; };
+		A3DD3B8A24DE3F32006D10C8 /* GameAnswerEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8924DE3F32006D10C8 /* GameAnswerEnd.swift */; };
+		A3DD3B8C24DE4344006D10C8 /* GameAnswerDiaryDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8B24DE4344006D10C8 /* GameAnswerDiaryDelete.swift */; };
 		A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94624CFC55D0009D4D2 /* RelayView.swift */; };
 		A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */; };
 		ACAA7300EDFD604F1759D338 /* Pods_RelayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */; };
@@ -111,7 +115,6 @@
 		A3BA94AA24CAD1D100553216 /* diarydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diarydatabase.swift; sourceTree = "<group>"; };
 		A3BA94AC24CAD2DC00553216 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		A3CCC73F24D0618E0018E78D /* GameEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEditView.swift; sourceTree = "<group>"; };
-		A3D4867324C9395100511354 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A3D4867624C9667A00511354 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A3D4867924C96AB500511354 /* userdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userdatabase.swift; sourceTree = "<group>"; };
 		A3D4867F24C99F8A00511354 /* UserCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateView.swift; sourceTree = "<group>"; };
@@ -125,13 +128,18 @@
 		A3D4A51524C7017700A93215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3D4A51724C7017700A93215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3D4A51D24C7020300A93215 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A3D4A51F24C705D700A93215 /* HandlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingView.swift; sourceTree = "<group>"; };
 		A3D4A52124C7060100A93215 /* Homescreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homescreen.swift; sourceTree = "<group>"; };
 		A3D4A52324C7064D00A93215 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
 		A3D4A52624C7074A00A93215 /* LooginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooginView.swift; sourceTree = "<group>"; };
 		A3D4A52924C7078600A93215 /* SingUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpView.swift; sourceTree = "<group>"; };
 		A3D6A1CA24D2D024001270E0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		A3D7121124CECB1300A3B298 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
+		A3DD3B7F24DE2AF8006D10C8 /* GameAnswerApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerApplication.swift; sourceTree = "<group>"; };
+		A3DD3B8124DE2DF4006D10C8 /* GameAnswerApplicationFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerApplicationFinish.swift; sourceTree = "<group>"; };
+		A3DD3B8524DE36EE006D10C8 /* GameAnswerApplicationShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerApplicationShow.swift; sourceTree = "<group>"; };
+		A3DD3B8724DE3B98006D10C8 /* GamaAnswerApplicationMistake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamaAnswerApplicationMistake.swift; sourceTree = "<group>"; };
+		A3DD3B8924DE3F32006D10C8 /* GameAnswerEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerEnd.swift; sourceTree = "<group>"; };
+		A3DD3B8B24DE4344006D10C8 /* GameAnswerDiaryDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerDiaryDelete.swift; sourceTree = "<group>"; };
 		A3E3C94624CFC55D0009D4D2 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
 		A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,7 +194,12 @@
 		A3D4867224C9393A00511354 /* Question */ = {
 			isa = PBXGroup;
 			children = (
-				A3D4867324C9395100511354 /* WelcomeView.swift */,
+				A3DD3B7F24DE2AF8006D10C8 /* GameAnswerApplication.swift */,
+				A3DD3B8524DE36EE006D10C8 /* GameAnswerApplicationShow.swift */,
+				A3DD3B8124DE2DF4006D10C8 /* GameAnswerApplicationFinish.swift */,
+				A3DD3B8724DE3B98006D10C8 /* GamaAnswerApplicationMistake.swift */,
+				A3DD3B8924DE3F32006D10C8 /* GameAnswerEnd.swift */,
+				A3DD3B8B24DE4344006D10C8 /* GameAnswerDiaryDelete.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -258,7 +271,6 @@
 				A3D4A51724C7017700A93215 /* Info.plist */,
 				A3D4A50A24C7017600A93215 /* RelayApplication.xcdatamodeld */,
 				A3D4A51124C7017700A93215 /* Preview Content */,
-				A3D4A51F24C705D700A93215 /* HandlingView.swift */,
 				A3D6A1CA24D2D024001270E0 /* KeyboardObserver.swift */,
 			);
 			path = RelayApplication;
@@ -442,6 +454,7 @@
 				A38629F324CFFA87004D4155 /* MakeGameView.swift in Sources */,
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
 				A38629FB24D00746004D4155 /* ManagerCreateView.swift in Sources */,
+				A3DD3B8824DE3B98006D10C8 /* GamaAnswerApplicationMistake.swift in Sources */,
 				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
 				A3B3F30224D5232A005A7042 /* TimeListView.swift in Sources */,
@@ -455,14 +468,15 @@
 				A38629FD24D007BC004D4155 /* ManagerQuestion.swift in Sources */,
 				A3D4A50E24C7017600A93215 /* ContentView.swift in Sources */,
 				A385A8C824C9E2D6006F57C9 /* gamedatabase.swift in Sources */,
+				A3DD3B8624DE36EE006D10C8 /* GameAnswerApplicationShow.swift in Sources */,
 				A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */,
 				A3D4A50924C7017600A93215 /* SceneDelegate.swift in Sources */,
 				A38E0CE524DD17E100D42C65 /* GameQuestionView.swift in Sources */,
 				A30A039624D99AE900792EFF /* EventListView.swift in Sources */,
+				A3DD3B8A24DE3F32006D10C8 /* GameAnswerEnd.swift in Sources */,
 				A3AA150A24D3ECD800D5DFB0 /* gamecompletedatabase.swift in Sources */,
 				A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */,
 				A3D4867724C9667A00511354 /* GameView.swift in Sources */,
-				A3D4867424C9395100511354 /* WelcomeView.swift in Sources */,
 				A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */,
 				A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
@@ -472,11 +486,14 @@
 				A3B3D27924DACF7B005B79A1 /* RelayEndView.swift in Sources */,
 				A3B3D27B24DAD332005B79A1 /* GameFinishView.swift in Sources */,
 				A3AA150824D3E0B900D5DFB0 /* GameApplicationFinishView.swift in Sources */,
+				A3DD3B8224DE2DF4006D10C8 /* GameAnswerApplicationFinish.swift in Sources */,
 				A3B2CCC624D6787C004E345E /* RelayApplicationFinishView.swift in Sources */,
 				A3B2CCC424D67852004E345E /* RelayApplicationView.swift in Sources */,
+				A3DD3B8024DE2AF8006D10C8 /* GameAnswerApplication.swift in Sources */,
 				A3B3F30024D5230C005A7042 /* TimeView.swift in Sources */,
 				A381367824D7C64500826754 /* ordercompletedatabase.swift in Sources */,
 				A38629F524CFFAF7004D4155 /* ApproveView.swift in Sources */,
+				A3DD3B8C24DE4344006D10C8 /* GameAnswerDiaryDelete.swift in Sources */,
 				A3B2CCCC24D6791A004E345E /* RelayQuestionView.swift in Sources */,
 				A3AA150C24D3F03A00D5DFB0 /* GameListView.swift in Sources */,
 				A3ACD7DE24CD781E00211BB9 /* UserEditFinishView.swift in Sources */,
@@ -491,7 +508,6 @@
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
 				A38629F724CFFB67004D4155 /* OrderListView.swift in Sources */,
 				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,
-				A3D4A52024C705D700A93215 /* HandlingView.swift in Sources */,
 				A3B2CCC824D678D5004E345E /* RelayOrderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

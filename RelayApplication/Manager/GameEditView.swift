@@ -130,7 +130,7 @@ var body: some View {
                     }
                             
                         
-                Button(action: {
+            Button(action: {
                         self.show.toggle()
                                     }) {
                 Image(systemName: "play.fill")
