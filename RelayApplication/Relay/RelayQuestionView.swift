@@ -10,35 +10,43 @@ import SwiftUI
 
 struct RelayQuestionView: View {
     
-    @State var ApplicationSelected: Bool = false
-    @State var ApplicationShowSelected: Bool = false
-    @State var GameFinishSelected: Bool = false
-    @State var GameMistakeSelected: Bool = false
-    @State var GameEndSelected: Bool = false
-    @State var GameDiaryDeleteSelected: Bool = false
+    @State var RelayApplicationSelected: Bool = false
+    @State var RelayApplicationShowSelected: Bool = false
+    @State var RelayFinishSelected: Bool = false
+    @State var RelayWhoSelected: Bool = false
+    @State var RelayOrderSelected: Bool = false
+    @State var RelayApplicationEditSelected: Bool = false
+    @State var RelayOrderEditSelected: Bool = false
+    @State var RelayEndSelected: Bool = false
 
     var body: some View {
         VStack{
                 ScrollView{
                 VStack{
 
-                if(self.ApplicationSelected == true){
-                    GameAnswerApplication(ApplicationSelected: self.$ApplicationSelected)
+                if(self.RelayApplicationSelected == true){
+                    RelayAnswerApplication(RelayApplicationSelected: self.$RelayApplicationSelected)
                     
-                } else if(self.ApplicationShowSelected == true){
-                    GameAnswerApplicationShow(ApplicationShowSelected: self.$ApplicationShowSelected)
+                } else if(self.RelayApplicationShowSelected == true){
+                    RelayAnsweApplicationShow(RelayApplicationShowSelected: self.$RelayApplicationShowSelected)
                     
-                } else if(self.GameFinishSelected == true){
-                    GameAnswerApplicationFinish(GameFinishSelected: self.$GameFinishSelected)
+                } else if(self.RelayFinishSelected == true){
+                    RelayAnswerApplicationFinish(RelayFinishSelected: self.$RelayFinishSelected)
                     
-                } else if(self.GameMistakeSelected == true){
-                    GamaAnswerApplicationMistake(GameMistakeSelected: self.$GameMistakeSelected)
+                } else if(self.RelayWhoSelected == true){
+                    RelayAnswerApplicationWho(RelayWhoSelected: self.$RelayWhoSelected)
                     
-                } else if(self.GameEndSelected == true){
-                    GameAnswerEnd(GameEndSelected: self.$GameEndSelected)
+                } else if(self.RelayOrderSelected == true){
+                    RelayAnswerApplicationOrder(RelayOrderSelected: self.$RelayOrderSelected)
                     
-                } else if(self.GameDiaryDeleteSelected == true){
-                    GameAnswerDiaryDelete(GameDiaryDeleteSelected: self.$GameDiaryDeleteSelected)
+                } else if(self.RelayApplicationEditSelected == true){
+                    RelayAnswerApplicationEdit(RelayApplicationEditSelected: self.$RelayApplicationEditSelected)
+                    
+                } else if(self.RelayOrderEditSelected == true){
+                    RelayAnswerApplicationOrderEdit(RelayOrderEditSelected: self.$RelayOrderEditSelected)
+                
+                } else if(self.RelayEndSelected == true){
+                    RelayAnswerApplicationEnd(RelayEndSelected: self.$RelayEndSelected)
 
                 }else {
     VStack{
@@ -62,7 +70,7 @@ struct RelayQuestionView: View {
                         
                         Spacer()
         Button(action: {
-                        self.ApplicationSelected.toggle()
+                        self.RelayApplicationSelected.toggle()
                             })  {
             Image(systemName: "play.fill")
                 .foregroundColor(Color("yello4"))
@@ -77,7 +85,7 @@ struct RelayQuestionView: View {
                 Text("申し込み中のリレーを見たい")
                                         Spacer()
                 Button(action: {
-                                self.ApplicationShowSelected.toggle()
+                                self.RelayApplicationShowSelected.toggle()
                                     })  {
                 Image(systemName: "play.fill")
                     .foregroundColor(Color("yello4"))
@@ -93,7 +101,7 @@ struct RelayQuestionView: View {
                 Text("エントリーが完了するには？")
                         Spacer()
             Button(action: {
-                            self.GameFinishSelected.toggle()
+                            self.RelayFinishSelected.toggle()
                             })  {
                 Image(systemName: "play.fill")
                             .foregroundColor(Color("yello4"))
@@ -107,7 +115,7 @@ struct RelayQuestionView: View {
                 Text("リレーオーダー表は誰が提出するの？")
                         Spacer()
             Button(action: {
-                            self.GameFinishSelected.toggle()
+                            self.RelayWhoSelected.toggle()
                         })  {
                 Image(systemName: "play.fill")
                         .foregroundColor(Color("yello4"))
@@ -121,7 +129,7 @@ struct RelayQuestionView: View {
                         Text("リレーオーダー表を提出したい!")
                 Spacer()
                 Button(action: {
-                        self.GameMistakeSelected.toggle()
+                        self.RelayOrderSelected.toggle()
                     })  {
                 Image(systemName: "play.fill")
                     .foregroundColor(Color("yello4"))
@@ -137,7 +145,7 @@ struct RelayQuestionView: View {
                 Text("リレー申し込み後、内容に不備を見つけた")
                         Spacer()
             Button(action: {
-                            self.GameMistakeSelected.toggle()
+                            self.RelayApplicationEditSelected.toggle()
                         })  {
                 Image(systemName: "play.fill")
                             .foregroundColor(Color("yello4"))
@@ -151,7 +159,7 @@ struct RelayQuestionView: View {
                 Text("提出したリレーオーダー表に不備を見つけた")
                     Spacer()
             Button(action: {
-                            self.GameEndSelected.toggle()
+                            self.RelayOrderEditSelected.toggle()
                         })  {
                 Image(systemName: "play.fill")
                         .foregroundColor(Color("yello4"))
@@ -165,7 +173,7 @@ struct RelayQuestionView: View {
                         Text("終了した試合を申込みリストから外したい")
                 Spacer()
             Button(action: {
-                        self.GameDiaryDeleteSelected.toggle()
+                        self.RelayEndSelected.toggle()
                     })  {
                 Image(systemName: "play.fill")
                     .foregroundColor(Color("yello4"))

@@ -44,6 +44,20 @@
 		A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */; };
 		A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AA24CAD1D100553216 /* diarydatabase.swift */; };
 		A3BA94AD24CAD2DC00553216 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BA94AC24CAD2DC00553216 /* UserEditView.swift */; };
+		A3BDA16524DF7F2200F94764 /* RelayAnswerApplicationFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA16424DF7F2200F94764 /* RelayAnswerApplicationFinish.swift */; };
+		A3BDA16724DF7F5300F94764 /* RelayAnswerApplicationWho.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA16624DF7F5300F94764 /* RelayAnswerApplicationWho.swift */; };
+		A3BDA16924DF7F6800F94764 /* RelayAnswerApplicationOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA16824DF7F6800F94764 /* RelayAnswerApplicationOrder.swift */; };
+		A3BDA16B24DF7F7E00F94764 /* RelayAnswerApplicationEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA16A24DF7F7E00F94764 /* RelayAnswerApplicationEdit.swift */; };
+		A3BDA16D24DF7F9100F94764 /* RelayAnswerApplicationOrderEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA16C24DF7F9100F94764 /* RelayAnswerApplicationOrderEdit.swift */; };
+		A3BDA16F24DF7FA100F94764 /* RelayAnswerApplicationEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA16E24DF7FA100F94764 /* RelayAnswerApplicationEnd.swift */; };
+		A3BDA17124DF80C100F94764 /* ManagerAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17024DF80C100F94764 /* ManagerAnswer.swift */; };
+		A3BDA17324DF822800F94764 /* ManagerAnswercreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17224DF822800F94764 /* ManagerAnswercreateGame.swift */; };
+		A3BDA17524DF824C00F94764 /* ManagerAnswerGameFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17424DF824C00F94764 /* ManagerAnswerGameFlow.swift */; };
+		A3BDA17724DF827C00F94764 /* ManagerAnswerGameEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17624DF827C00F94764 /* ManagerAnswerGameEdit.swift */; };
+		A3BDA17924DF829B00F94764 /* ManagerAnswerDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17824DF829B00F94764 /* ManagerAnswerDelete.swift */; };
+		A3BDA17B24DF82B400F94764 /* ManagerAnswerRelayOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17A24DF82B400F94764 /* ManagerAnswerRelayOrderList.swift */; };
+		A3BDA17D24DF82CC00F94764 /* ManagerAnswerGameEntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17C24DF82CC00F94764 /* ManagerAnswerGameEntryList.swift */; };
+		A3BDA17F24DF912300F94764 /* ManagerAnswerGameEndFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDA17E24DF912300F94764 /* ManagerAnswerGameEndFlow.swift */; };
 		A3CCC74024D0618E0018E78D /* GameEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCC73F24D0618E0018E78D /* GameEditView.swift */; };
 		A3D4867724C9667A00511354 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867624C9667A00511354 /* GameView.swift */; };
 		A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4867924C96AB500511354 /* userdatabase.swift */; };
@@ -69,6 +83,8 @@
 		A3DD3B8A24DE3F32006D10C8 /* GameAnswerEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8924DE3F32006D10C8 /* GameAnswerEnd.swift */; };
 		A3DD3B8C24DE4344006D10C8 /* GameAnswerDiaryDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8B24DE4344006D10C8 /* GameAnswerDiaryDelete.swift */; };
 		A3DD3B9024DE4D8E006D10C8 /* ManagerFirstCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B8F24DE4D8E006D10C8 /* ManagerFirstCreate.swift */; };
+		A3DD3B9624DE69F0006D10C8 /* RelayAnswerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B9524DE69F0006D10C8 /* RelayAnswerApplication.swift */; };
+		A3DD3B9824DE6A63006D10C8 /* RelayAnsweApplicationShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD3B9724DE6A63006D10C8 /* RelayAnsweApplicationShow.swift */; };
 		A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94624CFC55D0009D4D2 /* RelayView.swift */; };
 		A3E3C94924CFCA680009D4D2 /* ManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */; };
 		ACAA7300EDFD604F1759D338 /* Pods_RelayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EBDA172E8DB668E5F07575 /* Pods_RelayApplication.framework */; };
@@ -115,6 +131,20 @@
 		A3BA94A824CAC79D00553216 /* UserCreateFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateFinishView.swift; sourceTree = "<group>"; };
 		A3BA94AA24CAD1D100553216 /* diarydatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diarydatabase.swift; sourceTree = "<group>"; };
 		A3BA94AC24CAD2DC00553216 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
+		A3BDA16424DF7F2200F94764 /* RelayAnswerApplicationFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplicationFinish.swift; sourceTree = "<group>"; };
+		A3BDA16624DF7F5300F94764 /* RelayAnswerApplicationWho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplicationWho.swift; sourceTree = "<group>"; };
+		A3BDA16824DF7F6800F94764 /* RelayAnswerApplicationOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplicationOrder.swift; sourceTree = "<group>"; };
+		A3BDA16A24DF7F7E00F94764 /* RelayAnswerApplicationEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplicationEdit.swift; sourceTree = "<group>"; };
+		A3BDA16C24DF7F9100F94764 /* RelayAnswerApplicationOrderEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplicationOrderEdit.swift; sourceTree = "<group>"; };
+		A3BDA16E24DF7FA100F94764 /* RelayAnswerApplicationEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplicationEnd.swift; sourceTree = "<group>"; };
+		A3BDA17024DF80C100F94764 /* ManagerAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswer.swift; sourceTree = "<group>"; };
+		A3BDA17224DF822800F94764 /* ManagerAnswercreateGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswercreateGame.swift; sourceTree = "<group>"; };
+		A3BDA17424DF824C00F94764 /* ManagerAnswerGameFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswerGameFlow.swift; sourceTree = "<group>"; };
+		A3BDA17624DF827C00F94764 /* ManagerAnswerGameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswerGameEdit.swift; sourceTree = "<group>"; };
+		A3BDA17824DF829B00F94764 /* ManagerAnswerDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswerDelete.swift; sourceTree = "<group>"; };
+		A3BDA17A24DF82B400F94764 /* ManagerAnswerRelayOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswerRelayOrderList.swift; sourceTree = "<group>"; };
+		A3BDA17C24DF82CC00F94764 /* ManagerAnswerGameEntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswerGameEntryList.swift; sourceTree = "<group>"; };
+		A3BDA17E24DF912300F94764 /* ManagerAnswerGameEndFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAnswerGameEndFlow.swift; sourceTree = "<group>"; };
 		A3CCC73F24D0618E0018E78D /* GameEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEditView.swift; sourceTree = "<group>"; };
 		A3D4867624C9667A00511354 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A3D4867924C96AB500511354 /* userdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userdatabase.swift; sourceTree = "<group>"; };
@@ -142,6 +172,8 @@
 		A3DD3B8924DE3F32006D10C8 /* GameAnswerEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerEnd.swift; sourceTree = "<group>"; };
 		A3DD3B8B24DE4344006D10C8 /* GameAnswerDiaryDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnswerDiaryDelete.swift; sourceTree = "<group>"; };
 		A3DD3B8F24DE4D8E006D10C8 /* ManagerFirstCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerFirstCreate.swift; sourceTree = "<group>"; };
+		A3DD3B9524DE69F0006D10C8 /* RelayAnswerApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnswerApplication.swift; sourceTree = "<group>"; };
+		A3DD3B9724DE6A63006D10C8 /* RelayAnsweApplicationShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAnsweApplicationShow.swift; sourceTree = "<group>"; };
 		A3E3C94624CFC55D0009D4D2 /* RelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayView.swift; sourceTree = "<group>"; };
 		A3E3C94824CFCA680009D4D2 /* ManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,7 +226,7 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		A3D4867224C9393A00511354 /* Question */ = {
+		A3D4867224C9393A00511354 /* GameQuestion */ = {
 			isa = PBXGroup;
 			children = (
 				A3DD3B7F24DE2AF8006D10C8 /* GameAnswerApplication.swift */,
@@ -204,7 +236,7 @@
 				A3DD3B8924DE3F32006D10C8 /* GameAnswerEnd.swift */,
 				A3DD3B8B24DE4344006D10C8 /* GameAnswerDiaryDelete.swift */,
 			);
-			path = Question;
+			path = GameQuestion;
 			sourceTree = "<group>";
 		};
 		A3D4867824C96AA300511354 /* Database */ = {
@@ -257,12 +289,14 @@
 		A3D4A50524C7017600A93215 /* RelayApplication */ = {
 			isa = PBXGroup;
 			children = (
+				A3DD3B9324DE695A006D10C8 /* RelayQuestion */,
+				A3DD3B9424DE696B006D10C8 /* ManagerQuestion */,
 				A3E3C94524CFC53F0009D4D2 /* Game */,
 				A387D7AC24CC61F9007A46AD /* Manager */,
 				A387D7AB24CC61E7007A46AD /* Relay */,
 				A3D4867E24C99F5800511354 /* Homescreen */,
 				A3D4867824C96AA300511354 /* Database */,
-				A3D4867224C9393A00511354 /* Question */,
+				A3D4867224C9393A00511354 /* GameQuestion */,
 				A3D4A52824C7077200A93215 /* SingUp */,
 				A3D4A52524C706D600A93215 /* Login */,
 				A3D4A51D24C7020300A93215 /* GoogleService-Info.plist */,
@@ -301,6 +335,36 @@
 				A3D4A52924C7078600A93215 /* SingUpView.swift */,
 			);
 			path = SingUp;
+			sourceTree = "<group>";
+		};
+		A3DD3B9324DE695A006D10C8 /* RelayQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				A3DD3B9524DE69F0006D10C8 /* RelayAnswerApplication.swift */,
+				A3DD3B9724DE6A63006D10C8 /* RelayAnsweApplicationShow.swift */,
+				A3BDA16424DF7F2200F94764 /* RelayAnswerApplicationFinish.swift */,
+				A3BDA16624DF7F5300F94764 /* RelayAnswerApplicationWho.swift */,
+				A3BDA16824DF7F6800F94764 /* RelayAnswerApplicationOrder.swift */,
+				A3BDA16A24DF7F7E00F94764 /* RelayAnswerApplicationEdit.swift */,
+				A3BDA16C24DF7F9100F94764 /* RelayAnswerApplicationOrderEdit.swift */,
+				A3BDA16E24DF7FA100F94764 /* RelayAnswerApplicationEnd.swift */,
+			);
+			path = RelayQuestion;
+			sourceTree = "<group>";
+		};
+		A3DD3B9424DE696B006D10C8 /* ManagerQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				A3BDA17024DF80C100F94764 /* ManagerAnswer.swift */,
+				A3BDA17224DF822800F94764 /* ManagerAnswercreateGame.swift */,
+				A3BDA17424DF824C00F94764 /* ManagerAnswerGameFlow.swift */,
+				A3BDA17E24DF912300F94764 /* ManagerAnswerGameEndFlow.swift */,
+				A3BDA17624DF827C00F94764 /* ManagerAnswerGameEdit.swift */,
+				A3BDA17824DF829B00F94764 /* ManagerAnswerDelete.swift */,
+				A3BDA17A24DF82B400F94764 /* ManagerAnswerRelayOrderList.swift */,
+				A3BDA17C24DF82CC00F94764 /* ManagerAnswerGameEntryList.swift */,
+			);
+			path = ManagerQuestion;
 			sourceTree = "<group>";
 		};
 		A3E3C94524CFC53F0009D4D2 /* Game */ = {
@@ -454,16 +518,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BA94AB24CAD1D100553216 /* diarydatabase.swift in Sources */,
+				A3BDA16D24DF7F9100F94764 /* RelayAnswerApplicationOrderEdit.swift in Sources */,
 				A38629F324CFFA87004D4155 /* MakeGameView.swift in Sources */,
 				A3D4A50724C7017600A93215 /* AppDelegate.swift in Sources */,
+				A3BDA16924DF7F6800F94764 /* RelayAnswerApplicationOrder.swift in Sources */,
 				A38629FB24D00746004D4155 /* ManagerCreateView.swift in Sources */,
 				A3DD3B8824DE3B98006D10C8 /* GamaAnswerApplicationMistake.swift in Sources */,
 				A3BA94A924CAC79D00553216 /* UserCreateFinishView.swift in Sources */,
 				A3D4A50C24C7017600A93215 /* RelayApplication.xcdatamodeld in Sources */,
+				A3BDA17724DF827C00F94764 /* ManagerAnswerGameEdit.swift in Sources */,
 				A3B3F30224D5232A005A7042 /* TimeListView.swift in Sources */,
 				A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */,
+				A3BDA16724DF7F5300F94764 /* RelayAnswerApplicationWho.swift in Sources */,
 				A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */,
 				A3CCC74024D0618E0018E78D /* GameEditView.swift in Sources */,
+				A3BDA16524DF7F2200F94764 /* RelayAnswerApplicationFinish.swift in Sources */,
 				A38629F924CFFC02004D4155 /* EntryListView.swift in Sources */,
 				A37B201924DA5B4A00F5C28F /* WebView.swift in Sources */,
 				A3B3D27524DACF50005B79A1 /* GameEndView.swift in Sources */,
@@ -477,10 +546,12 @@
 				A3D4A50924C7017600A93215 /* SceneDelegate.swift in Sources */,
 				A38E0CE524DD17E100D42C65 /* GameQuestionView.swift in Sources */,
 				A30A039624D99AE900792EFF /* EventListView.swift in Sources */,
+				A3BDA17124DF80C100F94764 /* ManagerAnswer.swift in Sources */,
 				A3DD3B8A24DE3F32006D10C8 /* GameAnswerEnd.swift in Sources */,
 				A3AA150A24D3ECD800D5DFB0 /* gamecompletedatabase.swift in Sources */,
 				A3D4867A24C96AB500511354 /* userdatabase.swift in Sources */,
 				A3D4867724C9667A00511354 /* GameView.swift in Sources */,
+				A3DD3B9824DE6A63006D10C8 /* RelayAnsweApplicationShow.swift in Sources */,
 				A3E3C94724CFC55D0009D4D2 /* RelayView.swift in Sources */,
 				A3B3F30424D5293A005A7042 /* timedatabase.swift in Sources */,
 				A3D4868024C99F8A00511354 /* UserCreateView.swift in Sources */,
@@ -489,11 +560,16 @@
 				A3D4A52A24C7078600A93215 /* SingUpView.swift in Sources */,
 				A3B3D27924DACF7B005B79A1 /* RelayEndView.swift in Sources */,
 				A3B3D27B24DAD332005B79A1 /* GameFinishView.swift in Sources */,
+				A3BDA17924DF829B00F94764 /* ManagerAnswerDelete.swift in Sources */,
 				A3AA150824D3E0B900D5DFB0 /* GameApplicationFinishView.swift in Sources */,
+				A3BDA16F24DF7FA100F94764 /* RelayAnswerApplicationEnd.swift in Sources */,
 				A3DD3B8224DE2DF4006D10C8 /* GameAnswerApplicationFinish.swift in Sources */,
+				A3BDA17324DF822800F94764 /* ManagerAnswercreateGame.swift in Sources */,
 				A3B2CCC624D6787C004E345E /* RelayApplicationFinishView.swift in Sources */,
 				A3B2CCC424D67852004E345E /* RelayApplicationView.swift in Sources */,
+				A3BDA16B24DF7F7E00F94764 /* RelayAnswerApplicationEdit.swift in Sources */,
 				A3DD3B8024DE2AF8006D10C8 /* GameAnswerApplication.swift in Sources */,
+				A3BDA17524DF824C00F94764 /* ManagerAnswerGameFlow.swift in Sources */,
 				A3B3F30024D5230C005A7042 /* TimeView.swift in Sources */,
 				A381367824D7C64500826754 /* ordercompletedatabase.swift in Sources */,
 				A38629F524CFFAF7004D4155 /* ApproveView.swift in Sources */,
@@ -508,9 +584,13 @@
 				A37B201D24DA61AF00F5C28F /* GameApplicationView.swift in Sources */,
 				A3B3D27724DACF67005B79A1 /* ManagerEndView.swift in Sources */,
 				A3ACD7E024CD846700211BB9 /* DiaryView.swift in Sources */,
+				A3DD3B9624DE69F0006D10C8 /* RelayAnswerApplication.swift in Sources */,
 				A3B2CCCA24D678FA004E345E /* RelayListView.swift in Sources */,
 				A3D4A52424C7064D00A93215 /* ManagerView.swift in Sources */,
+				A3BDA17B24DF82B400F94764 /* ManagerAnswerRelayOrderList.swift in Sources */,
 				A38629F724CFFB67004D4155 /* OrderListView.swift in Sources */,
+				A3BDA17D24DF82CC00F94764 /* ManagerAnswerGameEntryList.swift in Sources */,
+				A3BDA17F24DF912300F94764 /* ManagerAnswerGameEndFlow.swift in Sources */,
 				A3D4A52724C7074A00A93215 /* LooginView.swift in Sources */,
 				A3B2CCC824D678D5004E345E /* RelayOrderView.swift in Sources */,
 			);

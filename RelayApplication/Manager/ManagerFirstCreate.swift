@@ -25,6 +25,13 @@ struct ManagerFirstCreate: View {
                 }.frame(width:400,height: 100)
                 .background(Color("green4"))
             Group{
+                Text("お申込みは１団体につき代表者様１名が行って下さい。")
+                    .fontWeight(.bold)
+                    .foregroundColor(.red)
+                    .font(.title)
+                    .padding(.top,30)
+                    .frame(width:300,height: 150)
+                
                 Text("お申し込み前に")
                     .fontWeight(.bold)
                     .foregroundColor(.black)
@@ -122,7 +129,7 @@ struct ManagerFirstCreate: View {
         Image(systemName: "2.circle.fill")
             .foregroundColor(Color("green4"))
             
-        Text("審査完了後「登録完了のお知らせ」メールが届く。")
+        Text("審査完了後「登録完了のお知らせ」メールが届きます。その後、本部より書類が届きますのでお待ち下さい。")
             .fontWeight(.bold)
             .foregroundColor(.black)
             .padding(.top,10)
@@ -133,7 +140,7 @@ struct ManagerFirstCreate: View {
         Image(systemName: "3.circle.fill")
             .foregroundColor(Color("green4"))
             
-        Text("「登録完了のお知らせ」メールの指示に沿って設定を行って下さい。")
+        Text("郵送された書類の指示に沿って設定を行って下さい。")
             .fontWeight(.bold)
             .foregroundColor(.black)
             .padding(.top,10)
