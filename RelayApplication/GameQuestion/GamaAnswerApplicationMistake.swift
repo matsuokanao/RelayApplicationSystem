@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct GamaAnswerApplicationMistake: View {
-    @State var GameMistakeOnBoard = [Board(title: "試合申あああ", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var GameMistakeOnBoard = [Board(title: "試合内容の修正が可能な場合", detail: "試合費用が未払いの状態ですと試合内容の変更が可能です。お出数ですが正しい内容で再度試合を申込みし直してください。", pic: "game9"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "修正が可不可能な場合", detail: "試合費用をお支払いした後は試合内容を変更することが出来ません。ご注意下さい。", pic: "b2"),
             
             Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
         ]
@@ -21,10 +21,10 @@ struct GamaAnswerApplicationMistake: View {
 
     var body: some View {
         VStack{
-                    
-            Image(self.GameMistakeOnBoard[self.index].pic)
+            ScrollView{
+                Image(self.GameMistakeOnBoard[self.index].pic)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
                     
             HStack(spacing: 10){
                         
@@ -80,6 +80,7 @@ struct GamaAnswerApplicationMistake: View {
                         .background(Color.red)
                         .clipShape(Capsule())
                         .padding(.bottom, 70)
+                        }
                     }
                 }.frame(width: 300, height: 600)
                 .edgesIgnoringSafeArea(.top)

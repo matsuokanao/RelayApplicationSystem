@@ -50,7 +50,7 @@ struct UserCreateView: View {
             .fontWeight(.bold)
             .font(.system(size: 35, weight: .bold))
             .foregroundColor(.white)
-        Text("・所属団体パスワード,試合パスワードの詳しい説明に関しましてはHOME画面の良くある質問をご参照下さい")
+        Text("・自身の情報を入力して下さい。")
             .fontWeight(.bold)
             .foregroundColor(.white)
         Group{
@@ -127,6 +127,16 @@ struct UserCreateView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.top,10)
+        HStack{
+        Image(systemName: "exclamationmark.triangle.fill")
+            .foregroundColor(Color.white)
+
+        Text("ユーザーパスは試合申込み時に必要になります。忘れないように注意して下さい。")
+            .foregroundColor(Color.white)
+            .fontWeight(.bold)
+            .padding(.top,30)
+            }
+
         VStack{
             TextField("パスワード", text: $UserPass)
                 .foregroundColor(.white)

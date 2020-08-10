@@ -9,21 +9,26 @@
 import SwiftUI
 
 struct GameAnswerApplication: View {
-    @State var GameApplicationonBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var GameApplicationonBoard = [Board(title: "まずはユーザー登録！", detail: "まず試合に申し込む前に「HOME画面」にてユーザー登録を行って下さい。その際に「ユーザーパス」を記入しますが、試合登録の際に必要になりますので忘れないようにして下さい。", pic: "game1"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "試合に申し込もう！", detail: "次に「試合画面」にて試合申し込みを行いましょう。「申し込む」をクリックして下さい。", pic: "game2"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+            Board(title: "試合を探そう！", detail: "出場したい試合の開催都道府県を記入し試合を探しましょう。", pic: "game3"),
+            
+            Board(title: "出場種目を記入しよう！", detail: "試合を選択し、画面の空欄をお手本通りに記入しましょう。ユーザーパスとメールアドレスは試合を申し込む本人の情報を記入しましょう。全ての項目を記入した後「確認する」ボタンを押して下さい。", pic: "game4"),
+            
+            Board(title: "確認しよう！", detail: "最後に確認画面です。入力した内容に不備がないか確認し、「申し込み」ボタンを押しましょう。以上で試合申し込みが完了となります。", pic: "game5"),
         ]
     
     @State var index = 0
     @Binding var ApplicationSelected: Bool
     var body: some View {
         VStack{
+            ScrollView{
                      
                      Image(self.GameApplicationonBoard[self.index].pic)
                      .resizable()
-                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                     .frame(width: UIScreen.main.bounds.width, height: 500)
                      
                      HStack(spacing: 10){
                          
@@ -37,8 +42,8 @@ struct GameAnswerApplication: View {
                      .padding(.top,10)
                      
                      Text(self.GameApplicationonBoard[self.index].title)
-                         .font(.title)
                          .fontWeight(.bold)
+                        .font(.title)
                          .foregroundColor(.black)
                      
                      Text(self.GameApplicationonBoard[self.index].detail)
@@ -78,9 +83,10 @@ struct GameAnswerApplication: View {
                          .frame(width: UIScreen.main.bounds.width - 200)
                          .background(Color.red)
                          .clipShape(Capsule())
-                         .padding(.bottom, 70)
+                }
+                         
                      }
-                 }.frame(width: 300, height: 600)
+                 }.frame(width: 350, height: 600)
                  .edgesIgnoringSafeArea(.top)
              }
          }

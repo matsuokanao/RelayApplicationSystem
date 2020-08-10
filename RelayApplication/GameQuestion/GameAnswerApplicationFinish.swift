@@ -9,21 +9,20 @@
 import SwiftUI
 
 struct GameAnswerApplicationFinish: View {
-    @State var GameFinishOnBoard = [Board(title: "試合申あああ", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var GameFinishOnBoard = [Board(title: "エントリーを完了したい！", detail: "試合申し込み直後の試合内容はこのようになっているはずです。申し込みをした大会の運営者の指示通りに試合費用をお支払い下さい。", pic: "game9"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "エントリー完了！", detail: "試合費用の確認が出来次第エントリー完了となります。エントリーが完了すると試合内容が変更しますのでご確認下さい。", pic: "b2"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
         ]
     
     @State var index = 0
     @Binding var GameFinishSelected: Bool
     var body: some View {
       VStack{
-                    
+            ScrollView{
                     Image(self.GameFinishOnBoard[self.index].pic)
-                    .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width, height: 500)
                     
                     HStack(spacing: 10){
                         
@@ -79,6 +78,7 @@ struct GameAnswerApplicationFinish: View {
                         .background(Color.red)
                         .clipShape(Capsule())
                         .padding(.bottom, 70)
+                        }
                     }
                 }.frame(width: 300, height: 600)
                 .edgesIgnoringSafeArea(.top)
