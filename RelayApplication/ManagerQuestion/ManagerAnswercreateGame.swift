@@ -9,11 +9,10 @@
 import SwiftUI
 
 struct ManagerAnswercreateGame: View {
-    @State var ManagerCreateOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var ManagerCreateOnBoard = [Board(title: "試合を作成したい！", detail: "まず「大会関係者専用ページ」の「試合を作成する」を開いて下さい。", pic: "manager2"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "試合内容を記入しよう！", detail: "「試合作成」ページにて試合を作成する団体の「団体番号」と「団体パスワード」を入力し、試合内容を入力して下さい。内容に不備が無いか確認し「登録」ボタンを押しましょう。試合の作成が完了しました！", pic: "manager3"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
         ]
     
     @State var index = 0
@@ -21,10 +20,10 @@ struct ManagerAnswercreateGame: View {
 
     var body: some View {
         VStack{
-                            
+                ScrollView{
                             Image(self.ManagerCreateOnBoard[self.index].pic)
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                                .resizable()
+                                .frame(width: UIScreen.main.bounds.width, height: 500)
                             
                             HStack(spacing: 10){
                                 
@@ -80,6 +79,7 @@ struct ManagerAnswercreateGame: View {
                                 .background(Color.red)
                                 .clipShape(Capsule())
                                 .padding(.bottom, 70)
+                                }
                             }
                         }.frame(width: 300, height: 600)
                         .edgesIgnoringSafeArea(.top)

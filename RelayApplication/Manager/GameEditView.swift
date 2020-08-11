@@ -153,8 +153,9 @@ struct GameEditSelectView: View {
 var body: some View {
         List{
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: "circle.fill")
                                     .foregroundColor(Color("green7"))
+                            Text("大会名")
                             Text(gamedata.gamename)
                                     Spacer()
                 
@@ -170,8 +171,9 @@ var body: some View {
                                         }
                                         
                                         HStack {
-                                        Image(systemName: "flame.fill")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("西暦")
                                         Text(gamedata.year)
                                             Spacer()
                                             Button(action: {
@@ -185,8 +187,9 @@ var body: some View {
                                         }
                                         
                                         HStack {
-                                        Image(systemName: "person.3.fill")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("月")
                                         Text(gamedata.month)
                                             Spacer()
                                             Button(action: {
@@ -200,8 +203,9 @@ var body: some View {
                                         }
                                         
                                         HStack {
-                                        Image(systemName: "rosette")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("日")
                                         Text(gamedata.day)
                                             Spacer()
                                             Button(action: {
@@ -216,8 +220,9 @@ var body: some View {
                         
                         
                                         HStack {
-                                        Image(systemName: "envelope.fill")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("都道府県")
                                         Text(gamedata.place)
                                             Spacer()
                                             Button(action: {
@@ -231,8 +236,9 @@ var body: some View {
                                         }
                                         
                                         HStack {
-                                        Image(systemName: "phone.fill")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("会場")
                                         Text(gamedata.gamevenue)
                                             Spacer()
                                             Button(action: {
@@ -246,8 +252,9 @@ var body: some View {
                                         }
                                         
                                         HStack {
-                                        Image(systemName: "folder.fill.badge.person.crop")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("PDF")
                                         Text(gamedata.png)
                                             Spacer()
                                             Button(action: {
@@ -261,8 +268,9 @@ var body: some View {
                                         }
 
                                         HStack {
-                                        Image(systemName: "flag.fill")
+                                        Image(systemName: "circle.fill")
                                             .foregroundColor(Color("green7"))
+                                            Text("リンク")
                                         Text(gamedata.link)
                                             Spacer()
                                             Button(action: {

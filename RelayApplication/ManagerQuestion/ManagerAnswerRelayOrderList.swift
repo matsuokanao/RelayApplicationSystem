@@ -21,9 +21,10 @@ struct ManagerAnswerRelayOrderList: View {
 
     var body: some View {
         VStack{
-            Image(self.ManagerGameOrderOnBoard[self.index].pic)
+             ScrollView{
+                Image(self.ManagerGameOrderOnBoard[self.index].pic)
                             .resizable()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                            .frame(width: UIScreen.main.bounds.width, height: 500)
                             
                             HStack(spacing: 10){
                                 
@@ -79,6 +80,7 @@ struct ManagerAnswerRelayOrderList: View {
                                 .background(Color.red)
                                 .clipShape(Capsule())
                                 .padding(.bottom, 70)
+                                }
                             }
                         }.frame(width: 300, height: 600)
                         .edgesIgnoringSafeArea(.top)

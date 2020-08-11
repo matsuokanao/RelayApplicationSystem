@@ -13,7 +13,6 @@ struct GamaAnswerApplicationMistake: View {
             
             Board(title: "修正が可不可能な場合", detail: "試合費用をお支払いした後は試合内容を変更することが出来ません。ご注意下さい。", pic: "b2"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
         ]
     
     @State var index = 0

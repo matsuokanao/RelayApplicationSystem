@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct ManagerAnswerGameEdit: View {
-    @State var ManagerGameEditOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var ManagerGameEditOnBoard = [Board(title: "試合内容を変更しよう！", detail: "大会関係者専用ページ」の「試合情報を閲覧、編集する」を開いて下さい。", pic: "manager11"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "試合を選ぼう！", detail: "「運営団体番号」と「運営団体パスワード」を記入し内容を変更したい試合を選んでください", pic: "manager12"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+            Board(title: "内容を選ぼう！", detail: "試合内容一覧が表示されます。変更したい内容を選択しましょう。", pic: "manager13"),
+            
+            Board(title: "変更完了！", detail: "正しい内容を記入して下さい。変更が完了します！", pic: "manager14"),
         ]
     
     @State var index = 0
@@ -21,9 +23,10 @@ struct ManagerAnswerGameEdit: View {
 
     var body: some View {
         VStack{
-            Image(self.ManagerGameEditOnBoard[self.index].pic)
+             ScrollView{
+                Image(self.ManagerGameEditOnBoard[self.index].pic)
                             .resizable()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                            .frame(width: UIScreen.main.bounds.width, height: 500)
                             
                             HStack(spacing: 10){
                                 
@@ -79,6 +82,7 @@ struct ManagerAnswerGameEdit: View {
                                 .background(Color.red)
                                 .clipShape(Capsule())
                                 .padding(.bottom, 70)
+                                }
                             }
                         }.frame(width: 300, height: 600)
                         .edgesIgnoringSafeArea(.top)

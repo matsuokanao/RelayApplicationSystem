@@ -61,7 +61,7 @@ struct ManagerTopView: View {
                     self.show.toggle()
                         } ){
 
-            Text("運営関係者ページに移動する")
+            Text("大会関係者ページに移動する")
                 .padding(.vertical)
                 .frame(width: UIScreen.main.bounds.width - 30)
                 .sheet(isPresented: $show){

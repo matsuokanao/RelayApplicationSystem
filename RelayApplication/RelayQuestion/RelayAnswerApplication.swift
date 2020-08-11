@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct RelayAnswerApplication: View {
-    @State var RelayApplicationonBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var RelayApplicationonBoard = [Board(title: "リレーに申し込もう！", detail: "まず「リレー」ページの「リレーに申し込む」を開いて下さい。", pic: "relay1"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "試合を選ぼう！", detail: "出場したい試合の都道府県を入力し、試合を選びましょう。", pic: "relay2"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+            Board(title: "必要項目を入力しよう！", detail: "試合を選択し、画面の空欄をお手本通りに記入しましょう。ユーザーパスとメールアドレスは当日オーダーを提出する人物の情報を記入しましょう。全ての項目を記入した後「確認する」ボタンを押して下さい。", pic: "relay3"),
+            
+            Board(title: "確認しよう！", detail: "最後に確認画面です。入力した内容に不備がないか確認し、「申し込み」ボタンを押しましょう。以上でリレーの申し込みが完了となります。", pic: "relay4"),
         ]
     
     @State var index = 0
@@ -21,11 +23,11 @@ struct RelayAnswerApplication: View {
     
     var body: some View {
        VStack{
-                    
-                    Image(self.RelayApplicationonBoard[self.index].pic)
+            ScrollView{
+                Image(self.RelayApplicationonBoard[self.index].pic)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-                    
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
+                
                     HStack(spacing: 10){
                         
                        ForEach(0..<self.RelayApplicationonBoard.count,id: \.self){i in
@@ -80,6 +82,7 @@ struct RelayAnswerApplication: View {
                         .background(Color.red)
                         .clipShape(Capsule())
                         .padding(.bottom, 70)
+                        }
                     }
                 }.frame(width: 300, height: 600)
                 .edgesIgnoringSafeArea(.top)

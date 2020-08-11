@@ -9,20 +9,21 @@
 import SwiftUI
 
 struct ManagerAnswerGameEndFlow: View {
-    @State var ManagerGameEndFlowOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var ManagerGameEndFlowOnBoard = [Board(title: "大会を終了させよう！", detail: "試合を終了させ流ことによって試合が「終了した試合一覧」リストに移動します。「大会関係者専用ページ」の「試合のエントリーリスト」を開いて下さい。", pic: "manager8"),
                
-               Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+               Board(title: "試合終了画面に移動しよう！", detail: "「エントリーリスト」画面の試合を終了させるボタンを押して下さい。", pic: "manager9"),
                
-               Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+               Board(title: "完了！", detail: "「運営団体番号」と「運営団体パスワード」を記入し終了させたい試合を選んでください。試合が終了します！", pic: "manager10"),
            ]
        
        @State var index = 0
        @Binding var ManagerGameEndFlowSelected: Bool
     var body: some View {
       VStack{
-        Image(self.ManagerGameEndFlowOnBoard[self.index].pic)
+         ScrollView{
+            Image(self.ManagerGameEndFlowOnBoard[self.index].pic)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                        .frame(width: UIScreen.main.bounds.width, height: 500)
                         
                         HStack(spacing: 10){
                             
@@ -78,6 +79,7 @@ struct ManagerAnswerGameEndFlow: View {
                             .background(Color.red)
                             .clipShape(Capsule())
                             .padding(.bottom, 70)
+                            }
                         }
                     }.frame(width: 300, height: 600)
                     .edgesIgnoringSafeArea(.top)

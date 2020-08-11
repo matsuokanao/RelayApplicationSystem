@@ -46,7 +46,7 @@ struct GameFinishView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(Color("green7"))
                 
-                    Text("運営団パスワード")
+                    Text("運営団体パスワード")
                         .foregroundColor(Color("green7"))
                         .fontWeight(.bold)
                     

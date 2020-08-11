@@ -398,7 +398,7 @@ struct CellUserView: View {
                 Text("所属名")
                 .padding(.top,10)
                 Text(userlist.belong)
-                Text("組織代表者名")
+                Text("代表者名")
                 .padding(.top,10)
                 Text(userlist.username)
                 Text("リレーオーダーメンバー")

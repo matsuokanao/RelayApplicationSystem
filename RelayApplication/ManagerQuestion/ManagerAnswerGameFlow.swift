@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct ManagerAnswerGameFlow: View {
-    @State var ManagerGameFlowOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var ManagerGameFlowOnBoard = [Board(title: "試合内容に間違いが無いか確認しよう！", detail: "試合画面」にて「申し込む」をクリックし、試合が表示されるか、試合内容が正しく入力できているか確認しましょう。", pic: "game2"),
+                
+        Board(title: "エントリーを承認しよう！", detail: "「大会関係者専用ページ」の「エントリーを承認する」を開いて下さい。", pic: "manager4"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "試合リストが表示されます！", detail: "「承認ページ」にて「団体番号」と「団体パスワード」を入力し試合を選んでください。", pic: "manager5"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+            Board(title: "選手リストが表示されます！", detail: "試合に申込み中の選手リストが表示されます。試合費用のお支払いが確認できた選手名を選び画面右の矢印を押して下さい。", pic: "manager6"),
+            
+            Board(title: "承認完了！", detail: "選手名、種目を確認し「承認」ボタンを押して下さい。エントリーの承認が完了しました！", pic: "manager7"),
         ]
     
     @State var index = 0
@@ -21,9 +25,10 @@ struct ManagerAnswerGameFlow: View {
 
     var body: some View {
         VStack{
-            Image(self.ManagerGameFlowOnBoard[self.index].pic)
+             ScrollView{
+                Image(self.ManagerGameFlowOnBoard[self.index].pic)
                             .resizable()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                            .frame(width: UIScreen.main.bounds.width, height: 500)
                             
                             HStack(spacing: 10){
                                 
@@ -79,6 +84,7 @@ struct ManagerAnswerGameFlow: View {
                                 .background(Color.red)
                                 .clipShape(Capsule())
                                 .padding(.bottom, 70)
+                                }
                             }
                         }.frame(width: 300, height: 600)
                         .edgesIgnoringSafeArea(.top)

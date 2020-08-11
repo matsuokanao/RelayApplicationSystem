@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct RelayAnswerApplicationOrder: View {
-    @State var RelayOrderOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    //TODO 試合承認後の処理
+    @State var RelayOrderOnBoard = [Board(title: "オーダー表を提出したい！", detail: "「リレー画面」の「リレーオーダー表を提出する」を開いて下さい。試合費用をお支払いしていない場合は提出できませんのでご注意下さい。", pic: "relay10"),
             
             Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
             
@@ -20,10 +21,11 @@ struct RelayAnswerApplicationOrder: View {
     @Binding var RelayOrderSelected: Bool
     
     var body: some View {
-  VStack{
+        VStack{
+            ScrollView{
                            Image(self.RelayOrderOnBoard[self.index].pic)
                                .resizable()
-                               .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                               .frame(width: UIScreen.main.bounds.width, height: 500)
                                           
                        HStack(spacing: 10){
                            ForEach(0..<self.RelayOrderOnBoard.count,id: \.self){i in
@@ -77,6 +79,7 @@ struct RelayAnswerApplicationOrder: View {
                                               .background(Color.red)
                                               .clipShape(Capsule())
                                               .padding(.bottom, 70)
+                                }
                            }
                        }.frame(width: 300, height: 600)
                        .edgesIgnoringSafeArea(.top)

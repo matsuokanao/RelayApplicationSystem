@@ -9,21 +9,21 @@
 import SwiftUI
 
 struct GameAnswerDiaryDelete: View {
-    @State var GameDiaryDeleteOnBoard = [Board(title: "試合申あああ", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var GameDiaryDeleteOnBoard = [Board(title: "試合日記を開こう！", detail: "試合日記ページの「試合一覧」ボタンを押しましょう。", pic: "game10"),
                
-               Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+               Board(title: "削除したい日記を選ぼう！", detail: "項目を入力し削除した日記を選択して下さい。", pic: "game11"),
                
-               Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+               Board(title: "日記を削除しよう！", detail: "画面の一番下にある「この日記を削除する」ボタンを押して下さい。日記に削除が完了します！", pic: "game12"),
            ]
        
        @State var index = 0
        @Binding var GameDiaryDeleteSelected: Bool
     var body: some View {
         VStack{
-                    
-            Image(self.GameDiaryDeleteOnBoard[self.index].pic)
+            ScrollView{
+                Image(self.GameDiaryDeleteOnBoard[self.index].pic)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
                     
             HStack(spacing: 10){
                         
@@ -79,6 +79,7 @@ struct GameAnswerDiaryDelete: View {
                         .background(Color.red)
                         .clipShape(Capsule())
                         .padding(.bottom, 70)
+                        }
                     }
                 }.frame(width: 300, height: 600)
                 .edgesIgnoringSafeArea(.top)

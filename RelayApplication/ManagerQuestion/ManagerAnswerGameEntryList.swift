@@ -20,12 +20,13 @@ struct ManagerAnswerGameEntryList: View {
     @Binding var ManagerGameOrderSelected: Bool
 
     var body: some View {
-  VStack{
-        Image(self.ManagerOnBoard[self.index].pic)
-            .resizable()
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+        VStack{
+            ScrollView{
+                Image(self.ManagerOnBoard[self.index].pic)
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
                         
-    HStack(spacing: 10){
+                HStack(spacing: 10){
                             ForEach(0..<self.ManagerOnBoard.count,id: \.self){i in
                                     
                                     Circle()
@@ -78,6 +79,7 @@ struct ManagerAnswerGameEntryList: View {
                                 .background(Color.red)
                                 .clipShape(Capsule())
                                 .padding(.bottom, 70)
+                                }
                             }
                         }.frame(width: 300, height: 600)
                         .edgesIgnoringSafeArea(.top)

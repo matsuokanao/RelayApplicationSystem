@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct TimeListView: View {
     @ObservedObject var timadata = getTimeList()
@@ -160,6 +161,7 @@ var body: some View {
 
 struct TimeListOpenView: View {
     var time : timelist
+    @State var showAlert = false
         var body: some View {
         ScrollView{
         VStack(spacing: 20){
@@ -227,6 +229,27 @@ struct TimeListOpenView: View {
                 .stroke(Color.black))
                     
                 }
+            Button("この日記を削除する") {
+                                         self.showAlert.toggle()
+                                             }
+                                     .alert(isPresented: $showAlert) {
+                             Alert(title: Text("警告"),
+                                     message: Text("日記が削除されますがよろしいですか？"),
+                                     primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
+                                     secondaryButton: .destructive(Text("削除"),
+                                 action:{
+                                         let db = Firestore.firestore()
+                                             db.collection("timelist")
+                                                 .document(self.time.id)
+                                                 .delete()
+                                             { (err) in
+                                         if err != nil{
+                                             print((err?.localizedDescription)!)
+                                                 return
+                                                 }
+                                             }
+                                         }))
+                                     }
             }
         }.frame(width: 300, height: 600)
     }

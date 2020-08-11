@@ -9,11 +9,8 @@
 import SwiftUI
 
 struct ManagerAnswer: View {
-    @State var ManagerOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var ManagerOnBoard = [Board(title: "運営団体情報とは？", detail: "試合作成、運営時に必要となる運営情報です。お申し込みをした代表者1名が書類の指示に沿って内容をご記入し、団体内で情報を共有して下さい。「運営団体パスワード」と「運営団体番号」は必要になりますので忘れないようにご注意下さい。", pic: "manager1"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
-            
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
         ]
     
     @State var index = 0
@@ -21,10 +18,10 @@ struct ManagerAnswer: View {
     
     var body: some View {
         VStack{
-                     
+             ScrollView{
                      Image(self.ManagerOnBoard[self.index].pic)
-                     .resizable()
-                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width, height: 500)
                      
                      HStack(spacing: 10){
                          
@@ -80,6 +77,7 @@ struct ManagerAnswer: View {
                          .background(Color.red)
                          .clipShape(Capsule())
                          .padding(.bottom, 70)
+                        }
                      }
                  }.frame(width: 300, height: 600)
                  .edgesIgnoringSafeArea(.top)

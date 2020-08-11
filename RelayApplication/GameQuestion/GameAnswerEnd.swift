@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct GameAnswerEnd: View {
-    @State var GameEndOnBoard = [Board(title: "試合申あああ", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var GameEndOnBoard = [Board(title: "試合が終了したら？", detail:
+        //TODO 写真
+        "「試合画面」にて「試合申し込みリスト」を開きましょう。", pic: "game6"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "終了させたい試合を選ぼう！", detail: "「試合申し込みリスト」にて試合申し込み時に記入した「ユーザーパス」と「メールアドレス」を入力して下さい。試合リストが表示されます。終了させたい試合を選びましょう！", pic: "game7"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+            Board(title: "試合を終了させよう！", detail: "試合を選択し、画面右上の「終了した試合ですか？」を押して下さい。試合が終了します。", pic: "b3"),
+            
+            Board(title: "終了した試合を見たい！", detail: "「試合申し込みリスト」の「終了した試合一覧」画面にて内容を確認できます。", pic: "game13"),
         ]
     
     @State var index = 0

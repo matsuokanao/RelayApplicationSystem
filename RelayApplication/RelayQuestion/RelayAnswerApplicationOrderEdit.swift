@@ -9,21 +9,21 @@
 import SwiftUI
 
 struct RelayAnswerApplicationOrderEdit: View {
-    @State var RelayOrderOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var RelayOrderOnBoard = [Board(title: "オーダー表の不備", detail:
+        //todo 画像
+        "提出後のオーダー表の内容を変更することはできません。提出時に不備が無いよう注意してご記入下さい。", pic: "runcatview"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
-            
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
-        ]
+    ]
     
     @State var index = 0
     @Binding var RelayOrderEditSelected: Bool
     
     var body: some View {
         VStack{
+            ScrollView{
                            Image(self.RelayOrderOnBoard[self.index].pic)
                                .resizable()
-                               .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                               .frame(width: UIScreen.main.bounds.width, height: 500)
                                           
                        HStack(spacing: 10){
                            ForEach(0..<self.RelayOrderOnBoard.count,id: \.self){i in
@@ -77,6 +77,7 @@ struct RelayAnswerApplicationOrderEdit: View {
                                               .background(Color.red)
                                               .clipShape(Capsule())
                                               .padding(.bottom, 70)
+                                }
                            }
                        }.frame(width: 300, height: 600)
                        .edgesIgnoringSafeArea(.top)

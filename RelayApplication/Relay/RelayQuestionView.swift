@@ -58,7 +58,7 @@ struct RelayQuestionView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .font(.title)
-                    }.frame(width:400,height: 100)
+                    }.frame(width:400,height: 200)
                         .background(Color("yello4"))
 
                 
