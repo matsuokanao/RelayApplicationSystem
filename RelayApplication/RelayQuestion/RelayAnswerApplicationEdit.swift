@@ -11,7 +11,7 @@ import SwiftUI
 struct RelayAnswerApplicationEdit: View {
     @State var RelayEditOnBoard = [Board(title: "試合内容の修正が可能な場合", detail: "試合費用が未払いの状態ですと試合内容の変更が可能です。お出数ですが正しい内容で再度試合を申込みし直してください。", pic: "relay11"),
             
-            Board(title: "修正が可不可能な場合", detail: "試合費用をお支払いした後は試合内容を変更することが出来ません。ご注意下さい。", pic: "b2"),
+            Board(title: "修正が可不可能な場合", detail: "試合費用をお支払いした後は試合内容を変更することが出来ません。ご注意下さい。", pic: "relay13"),
             
     ]
     

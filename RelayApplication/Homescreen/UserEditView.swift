@@ -80,8 +80,9 @@ struct UserEditView_Previews: PreviewProvider {
         if email == userdata.email && pass == userdata.userpass{
             List{
                 HStack {
-                    Image(systemName: "person.fill")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                    Text("名前")
                     Text(userdata.username)
                         Spacer()
                         Button(action: {
@@ -95,8 +96,9 @@ struct UserEditView_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                    Image(systemName: "flame.fill")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                        Text("登録陸協")
                     Text(userdata.jaaf)
                         Spacer()
                         Button(action: {
@@ -110,8 +112,9 @@ struct UserEditView_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                    Image(systemName: "person.3.fill")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                        Text("所属名")
                     Text(userdata.belong)
                         Spacer()
                         Button(action: {
@@ -125,8 +128,9 @@ struct UserEditView_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                    Image(systemName: "rosette")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                        Text("所属代表者名")
                     Text(userdata.ceo)
                         Spacer()
                         Button(action: {
@@ -140,8 +144,9 @@ struct UserEditView_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                    Image(systemName: "envelope.fill")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                        Text("メールアドレス")
                     Text(userdata.email)
                         Spacer()
                         Button(action: {
@@ -155,8 +160,9 @@ struct UserEditView_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                        Text("電話番号")
                     Text(userdata.phonenumber)
                         Spacer()
                         Button(action: {
@@ -170,8 +176,9 @@ struct UserEditView_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                    Image(systemName: "folder.fill.badge.person.crop")
+                    Image(systemName: "circle.fill")
                         .foregroundColor(Color("red2"))
+                        Text("ユーザーパス")
                     Text(userdata.userpass)
                         Spacer()
                         Button(action: {

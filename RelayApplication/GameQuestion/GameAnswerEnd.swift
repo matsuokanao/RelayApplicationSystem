@@ -15,7 +15,7 @@ struct GameAnswerEnd: View {
             
             Board(title: "終了させたい試合を選ぼう！", detail: "「試合申し込みリスト」にて試合申し込み時に記入した「ユーザーパス」と「メールアドレス」を入力して下さい。試合リストが表示されます。終了させたい試合を選びましょう！", pic: "game7"),
             
-            Board(title: "試合を終了させよう！", detail: "試合を選択し、画面右上の「終了した試合ですか？」を押して下さい。試合が終了します。", pic: "b3"),
+            Board(title: "試合を終了させよう！", detail: "試合を選択し、画面右上の「終了した試合ですか？」を押して下さい。試合が終了します。", pic: "game14"),
             
             Board(title: "終了した試合を見たい！", detail: "「試合申し込みリスト」の「終了した試合一覧」画面にて内容を確認できます。", pic: "game13"),
         ]
@@ -25,10 +25,9 @@ struct GameAnswerEnd: View {
 
     var body: some View {
         VStack{
-                    
             Image(self.GameEndOnBoard[self.index].pic)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
                     
             HStack(spacing: 10){
                         

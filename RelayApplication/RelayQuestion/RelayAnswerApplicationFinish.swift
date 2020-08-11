@@ -11,7 +11,7 @@ import SwiftUI
 struct RelayAnswerApplicationFinish: View {
     @State var RelayFinisOnBoard = [Board(title: "エントリーを完了させたい！", detail: "試合申し込み直後の試合内容はこのようになっているはずです。申し込みをした大会の運営者の指示通りに試合費用をお支払い下さい。", pic: "relay8"),
             //TODO
-            Board(title: "エントリー完了！", detail: "試合費用の確認が出来次第エントリー完了となります。エントリーが完了すると試合内容が変更しますのでご確認下さい。", pic: "b2"),
+            Board(title: "エントリー完了！", detail: "試合費用の確認が出来次第エントリー完了となります。エントリーが完了すると試合内容が変更しますのでご確認下さい。", pic: "relay13"),
             
         ]
     

@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct ManagerAnswerGameEdit: View {
-    @State var ManagerGameEditOnBoard = [Board(title: "試合内容を変更しよう！", detail: "大会関係者専用ページ」の「試合情報を閲覧、編集する」を開いて下さい。", pic: "manager11"),
+    @State var ManagerGameEditOnBoard = [Board(title: "試合内容を変更しよう！", detail: "「大会関係者専用ページ」の「試合情報を閲覧、編集する」を開いて下さい。", pic: "manager11"),
             
-            Board(title: "試合を選ぼう！", detail: "「運営団体番号」と「運営団体パスワード」を記入し内容を変更したい試合を選んでください", pic: "manager12"),
+            Board(title: "試合を選ぼう！", detail: "「運営団体番号」と「運営団体パスワード」を記入し内容を変更したい試合を選んでください。", pic: "manager12"),
             
             Board(title: "内容を選ぼう！", detail: "試合内容一覧が表示されます。変更したい内容を選択しましょう。", pic: "manager13"),
             

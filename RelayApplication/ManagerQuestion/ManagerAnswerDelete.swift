@@ -9,11 +9,10 @@
 import SwiftUI
 
 struct ManagerAnswerDelete: View {
-    @State var ManagerDeleteOnBoard = [Board(title: "試合申し込み方法", detail: "Data analysis is a process of inspecting, cleansing, transforming and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.", pic: "runcatview"),
+    @State var ManagerDeleteOnBoard = [Board(title: "試合を削除しよう！", detail: "「大会関係者専用ページ」の「試合情報を閲覧、編集する」を開いて下さい。", pic: "manager11"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "削除完了！", detail: "運営団体番号」と「運営団体パスワード」を記入し削除したい試合を選び、右の「削除」ボタンを押し、て下さい。削除が完了します。", pic: "manager15"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
         ]
     
     @State var index = 0

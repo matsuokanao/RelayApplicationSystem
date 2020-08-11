@@ -13,7 +13,7 @@ struct RelayAnswerApplicationEnd: View {
             
             Board(title: "終了させたい試合を選ぼう！", detail: "「リレーの申し込みリスト」にてリレー申し込み時に記入した「ユーザーパス」と「メールアドレス」を入力して下さい。リレーリストが表示されます。終了させたい試合を選びましょう！", pic: "relay6"),
             
-            Board(title: "試合を終了させよう！", detail: "試合を選択し、画面右上の「終了した試合ですか？」を押して下さい。試合が終了します。", pic: "b3"),
+            Board(title: "試合を終了させよう！", detail: "試合を選択し、画面右上の「終了した試合ですか？」を押して下さい。試合が終了します。", pic: "relay14"),
             
             Board(title: "終了した試合を見たい！", detail: "「リレーの申し込みリスト」の「終了した試合一覧」画面にて内容を確認できます。", pic: "relay12"),
         ]
@@ -24,7 +24,7 @@ struct RelayAnswerApplicationEnd: View {
     var body: some View {
         VStack{
             ScrollView{
-                           Image(self.RelayEndOnBoard[self.index].pic)
+                    Image(self.RelayEndOnBoard[self.index].pic)
                                .resizable()
                                .frame(width: UIScreen.main.bounds.width, height: 500)
                                           

@@ -11,7 +11,7 @@ import SwiftUI
 struct RelayAnswerApplicationOrderEdit: View {
     @State var RelayOrderOnBoard = [Board(title: "オーダー表の不備", detail:
         //todo 画像
-        "提出後のオーダー表の内容を変更することはできません。提出時に不備が無いよう注意してご記入下さい。", pic: "runcatview"),
+        "提出後のオーダー表の内容を変更することはできません。提出時に不備が無いよう注意してご記入下さい。", pic: "relay15"),
             
     ]
     

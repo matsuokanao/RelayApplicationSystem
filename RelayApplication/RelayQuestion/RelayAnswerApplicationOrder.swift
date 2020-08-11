@@ -12,9 +12,11 @@ struct RelayAnswerApplicationOrder: View {
     //TODO 試合承認後の処理
     @State var RelayOrderOnBoard = [Board(title: "オーダー表を提出したい！", detail: "「リレー画面」の「リレーオーダー表を提出する」を開いて下さい。試合費用をお支払いしていない場合は提出できませんのでご注意下さい。", pic: "relay10"),
             
-            Board(title: "Social Media！！", detail: "Social media are interactive computer-mediated technologies that facilitate the creation or sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.", pic: "b2"),
+            Board(title: "試合を選択しよう！", detail: "オーダー表を提出したい試合を入力して下さい。", pic: "relay15"),
             
-            Board(title: "Software Development", detail: "Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.", pic: "b3"),
+            Board(title: "オーダー表を入力しよう！", detail: "組とレーン、走者を入力して下さい。エントリー時に入力したメンバー以外は入力できません。ご注意下さい。", pic: "relay16"),
+            
+            Board(title: "内容を確認しよう！", detail: "内容に不備が無いか確認を行って下さい。完了ボタンを押した後は内容を変更できません。完了ボタンを押しますとオーダー表提出の完了です！", pic: "relay17"),
         ]
     
     @State var index = 0
