@@ -23,6 +23,9 @@ struct ManagerView: View {
     VStack{
         ScrollView{
             HStack{
+                Image(decorative:"cat4")
+                    .resizable()    // 画像サイズをフレームサイズに合わせる
+                .frame(width: 120, height: 100)
                 Text("大会関係者専用ページ")
                     .font(.title)
                     .fontWeight(.bold)

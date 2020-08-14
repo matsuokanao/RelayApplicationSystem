@@ -21,6 +21,9 @@ struct RelayView: View {
         VStack{
         ScrollView{
             HStack{
+                Image(decorative:"cat3")
+                    .resizable()    // 画像サイズをフレームサイズに合わせる
+                .frame(width: 120, height: 100)
                 Text("リレー")
                     .font(.title)
                     .fontWeight(.bold)

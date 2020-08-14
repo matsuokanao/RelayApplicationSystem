@@ -25,13 +25,13 @@ struct LooginView: View {
                     GeometryReader{_ in
                 
                 VStack{
-                    Image("welcomeview")
+                    Image("top")
                         .resizable()
                         .frame(width: 300.0 , height: 200.0)
                     Text("メールでログイン")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(Color("whiteorange"))
+                        .foregroundColor(Color("yello1"))
                     
                     HStack {
                         Image(systemName: "envelope")
@@ -42,8 +42,7 @@ struct LooginView: View {
                         //自動大文字入力制御
                         .autocapitalization(.none)
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
-                        .background(Color("darkwhiteyellow"))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
                         .padding(.top, 25)
                     
                     
@@ -76,8 +75,8 @@ struct LooginView: View {
                         }
                     }
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 5).stroke(self.pass != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
-                        .background(Color("darkwhiteyellow"))
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(self.pass != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
+                        
                     .padding(.top, 10)
                     
                     //パスワード再設定処理
@@ -88,7 +87,7 @@ struct LooginView: View {
                             })  {
                             Text("パスワードを忘れました")
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("whiteorange"))
+                                .foregroundColor(Color("blackcolor"))
                         }
                     }
                     .padding(.top,10)
@@ -101,7 +100,7 @@ struct LooginView: View {
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 50)
                     }
-                    .background(Color("darkwhiteyellow"))
+                    .background(Color("yello1"))
                     .cornerRadius(30)
                     .padding(.top, 10)
                     }
@@ -117,7 +116,7 @@ struct LooginView: View {
                     })  {
                         Text("新規作成")
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("whiteorange"))
+                                .foregroundColor(Color("yello1"))
                         .padding(.top, 10)
                     }.padding()
                 }

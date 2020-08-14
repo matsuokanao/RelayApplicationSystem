@@ -23,13 +23,27 @@ var body: some View {
                 
                 TabView{
                     Homescreen()
-                        .tabItem{ Text("HOME")}
+                        .tabItem{
+                            
+                            Image(systemName: "house.fill")
+                            .font(.title)
+                    }
                     GameView()
-                        .tabItem{Text("試合")}
+                        .tabItem{
+                            Image(systemName: "flame.fill")
+                            .font(.title)
+                    }
                     RelayView()
-                        .tabItem{ Text("リレー")}
+                        .tabItem{
+                        Image(systemName: "hare.fill")
+                            .font(.title)
+                    }
                     ManagerTopView()
-                        .tabItem{Text("大会関係者ページ")}
+                        .tabItem{
+
+                            Image(systemName: "m.circle.fill")
+                            .font(.title)
+                    }
                 }
             } else {
         ZStack{
@@ -52,7 +66,7 @@ NavigationLink(destination: SingUpView(show: self.$show), isActive: self.$show){
     self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
             }
-        }
+    }
     }
 }
 

@@ -36,9 +36,7 @@ struct SingUpView: View {
             //自動大文字入力制御
                     .autocapitalization(.none)
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
-                    .background(Color("darkwhiteyellow"))
-                    
+                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
                         
                         
                         
@@ -66,8 +64,7 @@ struct SingUpView: View {
                             }
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
-                        .background(Color("darkwhiteyellow"))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
                         .padding(.top, 25)
                         
                 HStack {
@@ -95,8 +92,7 @@ struct SingUpView: View {
                          }
                      }
                      .padding()
-                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("darkorange") : (Color("blackcolor")),lineWidth:  2))
-                    .background(Color("darkwhiteyellow"))
+                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
                      .padding(.top, 25)
 
                       //登録ボタンアクション
@@ -108,7 +104,7 @@ struct SingUpView: View {
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
                         }
-                        .background(Color("darkwhiteyellow"))
+                        .background(Color("yello1"))
                         .cornerRadius(40)
                         .padding(.top, 25)
                         }

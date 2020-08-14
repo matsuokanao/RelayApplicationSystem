@@ -18,6 +18,9 @@ struct GameView: View {
         VStack{
         ScrollView{
             HStack{
+                Image(decorative:"cat2")
+                    .resizable()    // 画像サイズをフレームサイズに合わせる
+                .frame(width: 120, height: 100)
                 Text("試合")
                     .font(.title)
                     .fontWeight(.bold)

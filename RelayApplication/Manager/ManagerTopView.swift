@@ -17,6 +17,9 @@ struct ManagerTopView: View {
 
     var body: some View {
         VStack(spacing:10){
+            Image(decorative:"cat4")
+                .resizable()    // 画像サイズをフレームサイズに合わせる
+            .frame(width: 120, height: 100)
             Text("大会関係者専用ページ")
                 .foregroundColor(Color("green1"))
                 .fontWeight(.heavy)

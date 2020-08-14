@@ -19,12 +19,17 @@ struct Homescreen: View {
         VStack{
         ScrollView{
             HStack{
+                Image(decorative:"cat1")
+                    .resizable()    // 画像サイズをフレームサイズに合わせる
+                .frame(width: 120, height: 100)
+                
             Text("HOME")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("blackcolor"))
                 
                 Spacer(minLength: 0)
+                            
             }
             .padding(.horizontal)
             
