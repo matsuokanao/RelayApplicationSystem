@@ -14,6 +14,7 @@ struct ManagerTopView: View {
     @State var firstPass = ""
     @State var secondPass = ""
     @State var color = Color.black.opacity(0.7)
+    @ObservedObject var keyboard = KeyboardObserver()
 
     var body: some View {
         VStack(spacing:10){
@@ -74,7 +75,12 @@ struct ManagerTopView: View {
                         .cornerRadius(10)
                         .foregroundColor(.white)
                 }
-            }.frame(width: 300, height: 600)
+            }.onAppear{
+                self.keyboard.startObserve()
+            }.onDisappear{
+                self.keyboard.stopObserve()
+            }.padding(.bottom, keyboard.keyboardHeight)
+            .frame(width: 300, height: 600)
             .lineSpacing(1)
     }
 }

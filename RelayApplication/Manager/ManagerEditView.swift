@@ -45,7 +45,6 @@ struct ManagerEditView: View {
 
                                
                 TextField("", text: self.$pass)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("green8"))
             

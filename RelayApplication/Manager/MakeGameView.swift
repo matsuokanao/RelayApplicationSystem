@@ -13,6 +13,8 @@ struct MakeGameView: View {
     @State var num = ""
     @State var pass = ""
     @ObservedObject var data = getManagerList()
+    @ObservedObject var keyboard = KeyboardObserver()
+    
     var body: some View {
         ZStack{
         Color("green3")
@@ -45,14 +47,17 @@ struct MakeGameView: View {
 
                                
                 TextField("", text: self.$pass)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("green3"))
             
             ForEach(self.data.data,id: \.id){i in
                 MakeGamCellView(managerdata: i, num: self.num, pass: self.pass)
                     }
-                }
+                }.onAppear{
+                    self.keyboard.startObserve()
+                }.onDisappear{
+                    self.keyboard.stopObserve()
+                }.padding(.bottom, keyboard.keyboardHeight)
             }.frame(width: 300, height: 600)
         }
     }
@@ -86,27 +91,24 @@ struct MakeGamCellView: View {
     @State var relay = ""
     @State var end = "false"
     
-
-    
     var body: some View {
         VStack{
             if num == managerdata.groupnum && pass == managerdata.grouppass {
                                 
-                            VStack{
-                                Group{
-                                
-                                Text("作成した試合情報は試合編集")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                    Text("ページにて確認できます。")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                Text("試合名")
+                VStack{
+                    Group{
+                            Text("作成した試合情報は試合編集")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("ページにて確認できます。")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("試合名")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     .padding(.top,10)
-                                VStack{
-                                    TextField("試合名", text: $gamename)
+                VStack{
+                        TextField("試合名", text: $gamename)
                                         .foregroundColor(.white)
                                         Divider()
                                             .background(Color.white)

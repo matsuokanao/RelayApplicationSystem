@@ -114,6 +114,7 @@ var gamedata : gamelist
     @State var dismissButton = ""
     @State var eventAlert = false
     @State var linkshow = false
+    @ObservedObject var keyboard = KeyboardObserver()
 
 
     var body: some View {
@@ -152,7 +153,7 @@ var gamedata : gamelist
                     Text("競技種目、種目数は試合要項を確認しご記入下さい。下の種目表の指示通りに種目を記入して下さい。")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.top,10)
+                        .padding(.top,30)
                         }
                         Button(action: {
                                 self.eventAlert.toggle()
@@ -317,7 +318,11 @@ var gamedata : gamelist
                                     Spacer()
                                 }
                             }
-                        }
+                        }.onAppear{
+                            self.keyboard.startObserve()
+                        }.onDisappear{
+                            self.keyboard.stopObserve()
+                        }.padding(.bottom, keyboard.keyboardHeight)
                     }
                 }
             }

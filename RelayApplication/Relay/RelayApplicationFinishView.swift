@@ -17,16 +17,16 @@ struct RelayApplicationFinishView: View {
                         .frame(width: 300.0 , height: 220.0)
                             Spacer().frame(height: 15)
                                 
-                    Text("登録完了！！")
-                        .foregroundColor(.red)
+                    Text("申し込み完了！！")
+                        .foregroundColor(Color("yello1"))
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("・記入したユーザーの情報はHOME画面の「ユーザー情報確認画面」にてご確認できます。")
+                    Text("・試合の申し込みが完了しました。")
                         .fontWeight(.bold)
-                    Text("・ユーザーパスワードは試合の申し込み、閲覧の際に利用します。")
+                    Text("・試合内容は「リレーページ」の「リレーの申し込みリスト」で確認できます。")
                         .fontWeight(.bold)
-                    Text("トラブル防止の為、パスワードの管理には十分お気をつけください。また、パスワードは定期的にご変更ください。")
+                    Text("試合費用をお支払いしてエントリー完了となります。お支払いが確認できない場合は自動キャンセルとなりますのでご注意下さい。")
                         .foregroundColor(.red)
                         .fontWeight(.bold)
 
@@ -41,7 +41,7 @@ struct RelayApplicationFinishView: View {
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 50)
                         }
-                .background(Color(.red))
+                .background(Color("yello1"))
                             .cornerRadius(10)
                             .padding(.top, 25)
 

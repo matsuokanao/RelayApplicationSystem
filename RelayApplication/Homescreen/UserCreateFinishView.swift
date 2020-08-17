@@ -12,9 +12,9 @@ struct UserCreateFinishView: View {
     @State var show = false
     var body: some View {
         VStack(spacing:10){
-            Image("finishview")
+            Image("cat6")
                 .resizable()
-                .frame(width: 300.0 , height: 220.0)
+                .frame(width: 400.0 , height: 220.0)
                     Spacer().frame(height: 15)
                         
             Text("登録完了！！")

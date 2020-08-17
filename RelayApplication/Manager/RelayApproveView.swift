@@ -45,7 +45,6 @@ struct RelayApproveView: View {
 
                                        
                         TextField("", text: self.$pass)
-                            .keyboardType(.numberPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .background(Color("green4"))
                     

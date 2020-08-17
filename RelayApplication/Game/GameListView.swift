@@ -56,7 +56,6 @@ struct GameListView: View {
             .padding(.top,20)
 
         TextField("メールアドレス", text: self.$email)
-            .keyboardType(.numberPad)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .background(Color("blue2"))
                 
@@ -66,7 +65,6 @@ struct GameListView: View {
                     .padding(.top,20)
 
                 TextField("ユーザーパス", text: self.$pass)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("blue2"))
 

@@ -35,6 +35,7 @@ struct UserCreateView: View {
     @State var title = ""
     @State var message = ""
     @State var dismissButton = ""
+    @ObservedObject var keyboard = KeyboardObserver()
     
     
     var body: some View {
@@ -194,7 +195,13 @@ struct UserCreateView: View {
                         Spacer()
                     }
                 }
-            }.frame(width: 350, height: 600)
+            }.onAppear{
+                self.keyboard.startObserve()
+            }.onDisappear{
+                self.keyboard.stopObserve()
+            }.padding(.bottom, keyboard.keyboardHeight)
+            .frame(width: 350, height: 600)
+        
         }
     }
 }

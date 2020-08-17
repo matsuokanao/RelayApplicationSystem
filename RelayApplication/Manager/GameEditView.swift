@@ -11,6 +11,7 @@ import Firebase
 
 struct GameEditView: View {
     @ObservedObject var gamedata = getGamedataList()
+    @ObservedObject var keyboard = KeyboardObserver()
     @State var num = ""
     @State var pass = ""
     @State var show = false
@@ -63,8 +64,8 @@ struct GameEditView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(Color("green7"))
                     Text("団体パスワード")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
 
                                    
                     TextField("", text: self.$pass)
@@ -74,7 +75,11 @@ struct GameEditView: View {
             ForEach(self.gamedata.data,id: \.id){i in
                 CellGameEditView(gamedata: i, num: self.num, pass: self.pass)
                         }
-                    }
+                    }.onAppear{
+                        self.keyboard.startObserve()
+                    }.onDisappear{
+                        self.keyboard.stopObserve()
+                    }.padding(.bottom, keyboard.keyboardHeight)
                 }.frame(width: 300, height: 500)
             }
         }

@@ -38,7 +38,6 @@ struct UserEditView: View {
 
                                
                 TextField("", text: self.$email)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("red3"))
                 Text("ユーザーパス")
@@ -47,7 +46,6 @@ struct UserEditView: View {
 
                                
                 TextField("", text: self.$pass)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("red3"))
 

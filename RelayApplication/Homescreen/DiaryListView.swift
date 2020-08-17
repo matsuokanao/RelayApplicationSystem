@@ -20,6 +20,7 @@ struct DiaryListView: View {
     @State var day = ""
     @State var email = ""
     @State var pass = ""
+    @ObservedObject var keyboard = KeyboardObserver()
     
         var body: some View {
             ZStack{
@@ -64,7 +65,11 @@ struct DiaryListView: View {
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
 
-                }
+                }.onAppear{
+                    self.keyboard.startObserve()
+                }.onDisappear{
+                    self.keyboard.stopObserve()
+                }.padding(.bottom, keyboard.keyboardHeight)
 
             ForEach(self.diarydata.data,id: \.id){i in
                 DiaryListCellView(diary: i, year: self.year, month: self.month, email: self.email, pass: self.pass)

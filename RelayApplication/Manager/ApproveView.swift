@@ -14,6 +14,8 @@ struct ApproveView: View {
     @State var pass = ""
     @State var relayshow = false
     @ObservedObject var gamedata = getGamedataList()
+    @ObservedObject var keyboard = KeyboardObserver()
+    
         var body: some View {
         ZStack{
         Color("green4")
@@ -50,9 +52,9 @@ struct ApproveView: View {
                             .fontWeight(.bold)
                             .padding(.top,20)
                 Text("団体番号")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-                .padding(.top,20)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding(.top,20)
 
                                
                 TextField("", text: self.$num)
@@ -60,12 +62,10 @@ struct ApproveView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("green4"))
                 Text("団体パスワード")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
 
-                               
                 TextField("", text: self.$pass)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("green4"))
             
@@ -73,7 +73,11 @@ struct ApproveView: View {
                 CellApproveView(gamelist: i, num: self.num, pass: self.pass)
                 
                     }
-                }
+                }.onAppear{
+                    self.keyboard.startObserve()
+                }.onDisappear{
+                    self.keyboard.stopObserve()
+                }.padding(.bottom, keyboard.keyboardHeight)
             }.frame(width: 300, height: 500)
         }
     }

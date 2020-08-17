@@ -25,23 +25,23 @@ var body: some View {
                     Homescreen()
                         .tabItem{
                             
-                            Image(systemName: "house.fill")
+                            Image(systemName: "house")
                             .font(.title)
                     }
                     GameView()
                         .tabItem{
-                            Image(systemName: "flame.fill")
+                            Image(systemName: "flame")
                             .font(.title)
                     }
                     RelayView()
                         .tabItem{
-                        Image(systemName: "hare.fill")
+                        Image(systemName: "hare")
                             .font(.title)
                     }
                     ManagerTopView()
                         .tabItem{
 
-                            Image(systemName: "m.circle.fill")
+                            Image(systemName: "exclamationmark.triangle")
                             .font(.title)
                     }
                 }

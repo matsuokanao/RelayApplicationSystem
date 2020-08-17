@@ -20,6 +20,7 @@ struct SingUpView: View {
     @Binding var show : Bool
     @State var alert = false
     @State var error = ""
+    @ObservedObject var keyboard = KeyboardObserver()
     
     var body: some View {
         ZStack{
@@ -27,8 +28,14 @@ struct SingUpView: View {
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack{
-                                                
-                       
+                          Image("cat5")
+                              .resizable()
+                              .frame(width: 300.0 , height: 200.0)
+                          Text("新規登録")
+                              .font(.title)
+                              .fontWeight(.bold)
+                              .foregroundColor(Color("yello1"))
+                          
             HStack {
                 Image(systemName: "envelope")
                     TextField("メールアドレス", text: self.$email)
@@ -124,9 +131,13 @@ struct SingUpView: View {
                     if self.alert{
                         ErrorView(alert: self.$alert, error: $error)
                     }
-                }
-                .navigationBarBackButtonHidden(true)
-            }
+                }.navigationBarBackButtonHidden(true)
+            .onAppear{
+            self.keyboard.startObserve()
+            }.onDisappear{
+            self.keyboard.stopObserve()
+            }.padding(.bottom, keyboard.keyboardHeight)
+        }
           //登録ボタンを押した時の処理
               func register(){
 

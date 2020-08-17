@@ -108,7 +108,7 @@ struct GameEndShowView: View {
     var edit = "true"
     var body: some View {
         VStack{
-            if gamedata.gamename == completedata.gamename && gamedata.end == "true"{
+            if gamedata.gamename == completedata.gamename && completedata.end == "true"{
         VStack{
                 Text(completedata.gamename)
 
@@ -119,8 +119,7 @@ struct GameEndShowView: View {
     ScrollView{
         VStack{
             VStack(alignment: .leading, spacing: 25){
-            
-            WebView(loadUrl: self.gamedata.png).frame(height: 400)
+                WebView(loadUrl: self.gamedata.png).frame(width: 300, height: 400)
              }
             Button(action: {
                     self.linkshow.toggle()
@@ -162,7 +161,7 @@ struct GameEndShowView: View {
             Text(completedata.event3)
         }}
                 }
-            }.frame(width: 300, height: 600)
+            }
         }
     }
 }

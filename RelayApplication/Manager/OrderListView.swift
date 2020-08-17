@@ -40,10 +40,9 @@ struct OrderListView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .background(Color("green5"))
                             Text("団体パスワード")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                                .fontWeight(.bold)
 
-                                           
                             TextField("", text: self.$pass)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .background(Color("green5"))

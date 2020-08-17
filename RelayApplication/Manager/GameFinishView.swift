@@ -11,6 +11,7 @@ import Firebase
 
 struct GameFinishView: View {
     @ObservedObject var gamedata = getGamedataList()
+    @ObservedObject var keyboard = KeyboardObserver()
     @State var pass = ""
     @State var num = ""
     //日付　年
@@ -52,12 +53,11 @@ struct GameFinishView: View {
                     
                                    
                     TextField("", text: self.$pass)
-                        .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(Color("green7"))
                     
                     Text("試合の日付を入力して下さい")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("green7"))
                             .fontWeight(.bold)
                     HStack{
                         TextField("", text: self.$year)
@@ -76,12 +76,12 @@ struct GameFinishView: View {
                             .foregroundColor(Color("green7"))
                             .fontWeight(.bold)
                                     }
-
                             ForEach(self.gamedata.data,id: \.id){i in
                                 CellGameFinishView(gamedata:i,pass: self.pass, num: self.num,year: self.year,month:self.month)
                             }
                         }
                     }.frame(width: 300, height: 500)
+                    .padding(.top,-70)
                 }
             }
         }

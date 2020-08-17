@@ -49,6 +49,7 @@ struct DiaryCellView: View {
     @State var title = ""
     @State var message = ""
     @State var dismissButton = ""
+    @ObservedObject var keyboard = KeyboardObserver()
 
     
 
@@ -137,7 +138,7 @@ struct DiaryCellView: View {
                     }
                 VStack{
                 MultilineTextField(text: self.$diary)
-                    .frame(height: 500)
+                    .frame(height: 300)
                     .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black))
@@ -212,7 +213,11 @@ struct DiaryCellView: View {
                         Spacer()
                     }
                 }
-            }
+            }.onAppear{
+                self.keyboard.startObserve()
+            }.onDisappear{
+                self.keyboard.stopObserve()
+            }.padding(.bottom, keyboard.keyboardHeight)
         }.frame(width: 300, height: 600)
     }
 }

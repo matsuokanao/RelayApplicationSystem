@@ -43,10 +43,8 @@ struct ManagerEndView: View {
                        Text("運営団パスワード")
                         .foregroundColor(Color("green6"))
                         .fontWeight(.bold)
-
-                                      
+                    
                        TextField("", text: self.$pass)
-                           .keyboardType(.numberPad)
                            .textFieldStyle(RoundedBorderTextFieldStyle())
                            .background(Color("green6"))
 

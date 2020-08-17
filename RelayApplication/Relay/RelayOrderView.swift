@@ -34,7 +34,6 @@ struct RelayOrderView: View {
                     .padding(.top,20)
 
             TextField("メールアドレス", text: self.$email)
-                    .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color("yello2"))
                         
@@ -44,7 +43,6 @@ struct RelayOrderView: View {
                             .padding(.top,20)
 
             TextField("ユーザーパス", text: self.$pass)
-                            .keyboardType(.numberPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .background(Color("yello2"))
 
