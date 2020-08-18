@@ -265,7 +265,7 @@ struct CellRelayView: View {
                     .padding(.top,10)
                 Text(relaylist.belong)
                     .fontWeight(.bold)
-                Text("組織代表者名")
+                Text("代表者名")
                     .fontWeight(.bold)
                     .padding(.top,10)
                     
@@ -350,7 +350,7 @@ struct CellRelayView: View {
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 30)
                         .sheet(isPresented: $show){
-                        RelayApplicationFinishView()
+                        RelayOrderFinishView()
                 
                             }
                         }.background(Color("yello2"))

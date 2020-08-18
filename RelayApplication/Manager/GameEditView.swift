@@ -171,7 +171,7 @@ var body: some View {
                         Image(systemName: "play.fill")
                                     .foregroundColor(Color("green7"))
                                         }.sheet(isPresented: self.$show) {
-                                            GameEditPracticeView(gamedata: self.gamedata, name: "username")
+                                            GameEditPracticeView(gamedata: self.gamedata, name: "gamename")
                                             }
                                         }
                                         

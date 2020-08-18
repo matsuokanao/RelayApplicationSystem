@@ -112,7 +112,7 @@ struct CellGameFinishView: View {
                                 .foregroundColor(Color("green7"))
                         Text(gamedata.gamename)
                                 .fontWeight(.bold)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("green7"))
                                 .padding(.top,10)
                     Spacer()
                     Button(action: {
@@ -185,7 +185,8 @@ struct GameFinishShowView: View {
  
                     }
                 }
-            }
+            }.frame(width: 300, height: 500)
+        .padding(.top,-100)
         }
     }
 }

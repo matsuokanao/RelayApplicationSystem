@@ -71,7 +71,7 @@ struct CellOrderListView: View {
 
 var body: some View {
     VStack{
-        if gamedata.groupnum == num && gamedata.grouppass == pass && gamedata.relay == "はい"{
+        if gamedata.groupnum == num && gamedata.grouppass == pass && gamedata.relay == "はい" && gamedata.end == "false"{
                 HStack {
                     Image(systemName: "circle.fill")
                         .foregroundColor(Color.white)

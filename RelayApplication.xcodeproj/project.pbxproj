@@ -11,6 +11,7 @@
 		A37B201724DA37BC00F5C28F /* RelayEventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B201624DA37BC00F5C28F /* RelayEventListView.swift */; };
 		A37B201924DA5B4A00F5C28F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B201824DA5B4A00F5C28F /* WebView.swift */; };
 		A37B201D24DA61AF00F5C28F /* GameApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B201C24DA61AF00F5C28F /* GameApplicationView.swift */; };
+		A37EA9D924EBA88D0055518D /* RelayOrderFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EA9D824EBA88D0055518D /* RelayOrderFinishView.swift */; };
 		A381367824D7C64500826754 /* ordercompletedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A381367724D7C64500826754 /* ordercompletedatabase.swift */; };
 		A384B93C24D6C35F00B9087D /* relaycompletedatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384B93B24D6C35F00B9087D /* relaycompletedatabase.swift */; };
 		A384B94024D6CBF400B9087D /* RelayApproveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384B93F24D6CBF400B9087D /* RelayApproveView.swift */; };
@@ -97,6 +98,7 @@
 		A37B201624DA37BC00F5C28F /* RelayEventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayEventListView.swift; sourceTree = "<group>"; };
 		A37B201824DA5B4A00F5C28F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A37B201C24DA61AF00F5C28F /* GameApplicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameApplicationView.swift; path = ../../../../.Trash/GameApplicationView.swift; sourceTree = "<group>"; };
+		A37EA9D824EBA88D0055518D /* RelayOrderFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOrderFinishView.swift; sourceTree = "<group>"; };
 		A381367724D7C64500826754 /* ordercompletedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ordercompletedatabase.swift; sourceTree = "<group>"; };
 		A384B93B24D6C35F00B9087D /* relaycompletedatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = relaycompletedatabase.swift; sourceTree = "<group>"; };
 		A384B93F24D6CBF400B9087D /* RelayApproveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayApproveView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				A3B2CCC324D67852004E345E /* RelayApplicationView.swift */,
 				A3B2CCC524D6787C004E345E /* RelayApplicationFinishView.swift */,
 				A3B2CCC724D678D5004E345E /* RelayOrderView.swift */,
+				A37EA9D824EBA88D0055518D /* RelayOrderFinishView.swift */,
 				A3B2CCC924D678FA004E345E /* RelayListView.swift */,
 				A37B201624DA37BC00F5C28F /* RelayEventListView.swift */,
 				A3B3D27824DACF7B005B79A1 /* RelayEndView.swift */,
@@ -528,6 +531,7 @@
 				A3D7121224CECB1300A3B298 /* DiaryListView.swift in Sources */,
 				A3BDA16724DF7F5300F94764 /* RelayAnswerApplicationWho.swift in Sources */,
 				A3D4A52224C7060100A93215 /* Homescreen.swift in Sources */,
+				A37EA9D924EBA88D0055518D /* RelayOrderFinishView.swift in Sources */,
 				A3CCC74024D0618E0018E78D /* GameEditView.swift in Sources */,
 				A3BDA16524DF7F2200F94764 /* RelayAnswerApplicationFinish.swift in Sources */,
 				A38629F924CFFC02004D4155 /* EntryListView.swift in Sources */,

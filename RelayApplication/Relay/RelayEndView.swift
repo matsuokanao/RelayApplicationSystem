@@ -73,7 +73,7 @@ var email : String
 @State var show = false
  var body: some View {
      VStack{
-        if relaydata.email == email && relaydata.userpass ==  pass && relaydata.end == "true"{
+        if relaydata.email == email && relaydata.userpass ==  pass {
                     HStack {
                         Image(systemName: "person.fill")
                             .foregroundColor(Color("yello3"))
@@ -101,12 +101,11 @@ struct RelayEndShowView: View {
     var relaydata : relaycomplete
     var gamedata : gamelist
     @State var linkshow = false
-    
     var name = "end"
     var edit = "true"
     var body: some View {
         VStack{
-            if gamedata.gamename == relaydata.gamename && gamedata.end == "true"{
+            if gamedata.gamename == relaydata.gamename && relaydata.end == "true"{
         VStack{
                 Text(relaydata.gamename)
 
@@ -118,7 +117,7 @@ struct RelayEndShowView: View {
         VStack{
             VStack(alignment: .leading, spacing: 25){
             
-            WebView(loadUrl: self.gamedata.png).frame(height: 400)
+            WebView(loadUrl: self.gamedata.png).frame(width: 300, height: 400)
              }
             Button(action: {
                     self.linkshow.toggle()
@@ -131,7 +130,7 @@ struct RelayEndShowView: View {
                     .background(Color.white)
                     .clipShape(Capsule())
                             }.padding(.top,20)
-            .sheet(isPresented: self.$linkshow) {
+        .sheet(isPresented: self.$linkshow) {
                     WebViewLink(gamedata: self.gamedata)
                             }
 
@@ -168,7 +167,7 @@ struct RelayEndShowView: View {
                         }
                     }
                 }
-            }.frame(width: 300, height: 600)
+            }
         }
     }
 }

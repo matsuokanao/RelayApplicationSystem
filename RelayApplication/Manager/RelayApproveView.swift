@@ -116,6 +116,7 @@ var body: some View {
                 .foregroundColor(Color("green4"))
              
             Text(relaylist.belong)
+            Text(relaylist.username)
             Text(relaylist.event)
                                 Spacer()
                     Button(action: {

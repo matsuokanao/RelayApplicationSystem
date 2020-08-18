@@ -91,6 +91,9 @@ struct CellEntryListView: View {
     var pass : String
     var num : String
     @State var show = false
+     @State var gshow = false
+    @State var sex = ""
+    
     var body: some View {
         VStack{
             if gamedata.grouppass == pass && gamedata.groupnum == num && gamedata.end == "false" {
@@ -103,14 +106,26 @@ struct CellEntryListView: View {
                                 .padding(.top,10)
 
                                             Spacer()
+                    VStack{
+                    //男子
                     Button(action: {
                                     self.show.toggle()
                                                 }) {
                         Image(systemName: "play.fill")
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(Color.blue)
                                                 }.sheet(isPresented: self.$show) {
-                                                    EntrySelectListView(gamedata: self.gamedata, pass: self.pass, num: self.num)
+                                                    EntrySelectListView(gamedata: self.gamedata, pass: self.pass, num: self.num, sex: "男子")
                                         
+                    }
+                    //女子
+                    Button(action: {
+                                    self.gshow.toggle()
+                                                }) {
+                        Image(systemName: "play.fill")
+                                    .foregroundColor(Color.red)
+                                                }.sheet(isPresented: self.$gshow) {
+                                                    EntrySelectListView(gamedata: self.gamedata, pass: self.pass, num: self.num, sex: "女子")
+                        }
                     }
                 }
             }
@@ -126,13 +141,14 @@ struct EntrySelectListView: View {
     var pass : String
     var num : String
     @State var show = false
+    var sex : String
     
     var body: some View {
          List{
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("100m")
+            Text(sex + "100m")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -141,14 +157,14 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                          ForEach(self.completelist.data,id: \.id){i in
-                                              EntryShowListView(completelist: i, gamedata: self.gamedata, name: "100m", num: self.num, pass: self.pass)
+                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "100m", num: self.num, pass: self.pass, sex: self.sex)
                                  }
                              }
                          }
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("200m")
+                         Text(sex + "200m")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -157,14 +173,14 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                         ForEach(self.completelist.data,id: \.id){i in
-                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "200m", num: self.num, pass: self.pass)
+                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "200m", num: self.num, pass: self.pass, sex: self.sex)
                                  }
                              }
                          }
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("400m")
+                         Text(sex + "400m")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -173,14 +189,14 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                          ForEach(self.completelist.data,id: \.id){i in
-                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "400m", num: self.num, pass: self.pass)
+                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "400m", num: self.num, pass: self.pass, sex: self.sex)
                                  }
                              }
                          }
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("ハードル走")
+                         Text(sex + "ハードル走")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -189,13 +205,13 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                         ForEach(self.completelist.data,id: \.id){i in
-                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "ハードル走", num: self.num, pass: self.pass)                                 }
+                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "ハードル走", num: self.num, pass: self.pass, sex: self.sex)                                 }
                              }
                          }
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("走り幅跳び")
+                         Text(sex + "走り幅跳び")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -204,14 +220,14 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                       ForEach(self.completelist.data,id: \.id){i in
-                                                     EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り幅跳び", num: self.num, pass: self.pass)
+                                        EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り幅跳び", num: self.num, pass: self.pass, sex: self.sex)
                                  }
                              }
                          }
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("砲丸投げ")
+                         Text(sex + "砲丸投げ")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -220,14 +236,14 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                       ForEach(self.completelist.data,id: \.id){i in
-                                                      EntryShowListView(completelist: i, gamedata: self.gamedata, name: "砲丸投げ", num: self.num, pass: self.pass)
+                                        EntryShowListView(completelist: i, gamedata: self.gamedata, name: "砲丸投げ", num: self.num, pass: self.pass, sex: self.sex)
                                  }
                              }
                          }
          HStack {
              Image(systemName: "circle.fill")
                                  .foregroundColor(Color("green6"))
-                         Text("7組目")
+                         Text(sex + "走り高跳び")
                                  Spacer()
                      Button(action: {
                              self.show.toggle()
@@ -236,7 +252,7 @@ struct EntrySelectListView: View {
                                  .foregroundColor(Color("green6"))
                                      }.sheet(isPresented: self.$show) {
                                          ForEach(self.completelist.data,id: \.id){i in
-                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り高跳び", num: self.num, pass: self.pass)
+                                            EntryShowListView(completelist: i, gamedata: self.gamedata, name: "走り高跳び", num: self.num, pass: self.pass, sex: self.sex)
                                  }
                              }
                          }
@@ -250,32 +266,19 @@ struct EntryShowListView: View {
     var name : String
     var num : String
     var pass : String
+    var sex : String
     @State var show = false
     
     var body: some View {
         VStack{
-            if completelist.pay == "true" && gamedata.gamename == completelist.gamename{
-                if completelist.sex == "男子"{
+            if completelist.pay == "true" && gamedata.gamename == completelist.gamename && completelist.sex == self.sex{
                     if completelist.event1 == name || completelist.event2 == name || completelist.event3 == name{
             HStack{
                 Image(systemName: "person.fill")
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color("green6"))
                 Text(completelist.sex)
                 Text(completelist.username)
                 Text(completelist.belong)
-                    }
-                }
-            }
-        if completelist.sex == "女子"{
-            if completelist.event1 == name || completelist.event2 == name || completelist.event3 == name {
-                HStack{
-                    Image(systemName: "person.fill")
-                        .foregroundColor(Color.red)
-                    Text(completelist.sex)
-                        .foregroundColor(Color.red)
-                    Text(completelist.username)
-                    Text(completelist.belong)
-                        }
                     }
                 }
             }

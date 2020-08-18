@@ -90,7 +90,7 @@ struct CellRelayListView: View {
     @State var show = false
     var body: some View {
         VStack{
-        if relaylist.email == email && relaylist.userpass == pass  {
+            if relaylist.email == email && relaylist.userpass == pass && relaylist.end == "false" {
             HStack {
                 Image(systemName: "person.fill")
                         .foregroundColor(Color.white)
@@ -145,7 +145,7 @@ struct RelayShowListView: View {
                                                              
                             let db = Firestore.firestore()
                                  //試合申し込み完了テーブルに入れる
-                             db.collection("gamecomplete")
+                             db.collection("relaycomplete")
                                  .document(self.relaylist.id)
                                  .updateData([self.name: self.edit])
                                      { (err) in
@@ -180,6 +180,9 @@ struct RelayShowListView: View {
             Text("参加種目")
                 .padding(.top,10)
             Text(relaylist.event)
+            Text("代表者")
+                .padding(.top,10)
+            Text(relaylist.username)
     Group{
             Text("メンバー")
                 .padding(.top,10)
@@ -197,7 +200,7 @@ struct RelayShowListView: View {
                 .fontWeight(.bold)
                 .padding(.top,10)
                             } else{
-                Text("試合費用のお支払いが完了していません。")
+                Text("試合費用のお支払いが完了していません。代表者がお支払いください。")
                 .foregroundColor(.red)
                 .fontWeight(.bold)
                 .padding(.top,10)

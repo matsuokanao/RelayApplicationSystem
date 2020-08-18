@@ -172,25 +172,35 @@ struct MakeGamCellView: View {
                                             .background(Color.white)
                                         }
                                     
-                            
-                                        Text("試合要項")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.white)
-                                                .padding(.top,10)
-                                Text("(PDFファイルを貼って下さい）")
+                    Group{
+                            Text("試合要項")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(.top,10)
+                            Text("⚠️大会ホームページ上の")
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
+                        Text("大会要項PDFを貼って下さい。")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                        Text("例　https://www/JAF/youkou.pdf")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.top,20)
+                    }
+                    
                                     
                                 VStack{
                                             TextField("試合要項画像のPDFをお貼り下さい", text: $png)
                                                 .foregroundColor(.white)
+                                                .padding(.top,30)
                                             Divider()
                                                 .background(Color.white)
                                            
                                     Text("大会ホームページのURLリンク")
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.white)
-                                                    .padding(.top,10)
+                                                    .padding(.top,30)
                                         VStack{
                                             TextField("大会ホームページのURL", text: $link)
                                                     .foregroundColor(.white)
