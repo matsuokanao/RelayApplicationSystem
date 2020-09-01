@@ -14,7 +14,6 @@ struct ManagerAnswercreateGame: View {
             Board(title: "試合内容を記入しよう！", detail: "「試合作成」ページにて試合を作成する団体の「団体番号」と「団体パスワード」を入力し、試合内容を入力して下さい。内容に不備が無いか確認し「登録」ボタンを押しましょう。試合の作成が完了しました！", pic: "manager3"),
             
         ]
-    
     @State var index = 0
     @Binding var ManagerGameCreateSelected: Bool
 

@@ -124,8 +124,7 @@ struct CellApproveView: View {
                                     }
                                 }
                             }
-                        }
-                    }
+        }        }
                 }
             }
 
@@ -152,6 +151,8 @@ var body: some View {
                                         
                                         ApprovecompleateView(gamelist: self.gamelist, completelist: self.completelist)
                 }
+            } else {
+                
             }
         }
     }

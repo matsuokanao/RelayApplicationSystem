@@ -19,6 +19,7 @@ struct ManagerAnswer: View {
     var body: some View {
         VStack{
              ScrollView{
+                
                      Image(self.ManagerOnBoard[self.index].pic)
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width, height: 500)
@@ -77,12 +78,12 @@ struct ManagerAnswer: View {
                          .background(Color.red)
                          .clipShape(Capsule())
                          .padding(.bottom, 70)
-                        }
-                     }
-                 }.frame(width: 300, height: 600)
-                 .edgesIgnoringSafeArea(.top)
-             }
-         }
+                }
+            }
+        }.frame(width: 300, height: 600)
+        .edgesIgnoringSafeArea(.top)
+    }
+}
 
 
 struct ManagerAnswer_Previews: PreviewProvider {

@@ -87,11 +87,98 @@ var body: some View {
                 Image(systemName: "play.fill")
                     .foregroundColor(Color.white)
                                 }.sheet(isPresented: self.$show) {
-                                    OrderListSelectView(gamedata: self.gamedata,num : self.num,pass:self.pass)
+                                    OrderListEventView(gamedata: self.gamedata,num : self.num,pass:self.pass)
                     }
                 }
             }
         }
+    }
+}
+
+
+struct OrderListEventView :View {
+        var gamedata : gamelist
+        var num : String
+        var pass : String
+        @State var event = ""
+        @State var show = false
+    
+    var body: some View {
+        List{
+            HStack {
+                 Image(systemName: "circle.fill")
+                                     .foregroundColor(Color("green5"))
+                             Text("男子4*100mR")
+                                .foregroundColor(Color.blue)
+                                     Spacer()
+                         Button(action: {
+                                 self.show.toggle()
+                                             }) {
+                         Image(systemName: "play.fill")
+                                     .foregroundColor(Color("green5"))
+                                         }.sheet(isPresented: self.$show) {
+                                            OrderListSelectView(gamedata: self.gamedata, num: self.num, pass: self.pass, event: "男子4*100mR")
+                }
+            }
+            HStack {
+                 Image(systemName: "circle.fill")
+                                     .foregroundColor(Color("green5"))
+                             Text("女子4*100mR")
+                .foregroundColor(Color.red)
+                                     Spacer()
+                         Button(action: {
+                                 self.show.toggle()
+                                             }) {
+                         Image(systemName: "play.fill")
+                                     .foregroundColor(Color("green5"))
+                                         }.sheet(isPresented: self.$show) {
+                                            OrderListSelectView(gamedata: self.gamedata, num: self.num, pass: self.pass, event: "女子4*100mR")
+                }
+            }
+            HStack {
+                 Image(systemName: "circle.fill")
+                                     .foregroundColor(Color("green5"))
+                             Text("男子4*400mR")
+                .foregroundColor(Color.blue)
+                                     Spacer()
+                         Button(action: {
+                                 self.show.toggle()
+                                             }) {
+                         Image(systemName: "play.fill")
+                                     .foregroundColor(Color("green5"))
+                                         }.sheet(isPresented: self.$show) {
+                                            OrderListSelectView(gamedata: self.gamedata, num: self.num, pass: self.pass, event: "男子4*400mR")
+                }
+            }
+            HStack {
+                 Image(systemName: "circle.fill")
+                                     .foregroundColor(Color("green5"))
+                             Text("女子4*400mR")
+                .foregroundColor(Color.red)
+                                     Spacer()
+                         Button(action: {
+                                 self.show.toggle()
+                                             }) {
+                         Image(systemName: "play.fill")
+                                     .foregroundColor(Color("green5"))
+                                         }.sheet(isPresented: self.$show) {
+                                            OrderListSelectView(gamedata: self.gamedata, num: self.num, pass: self.pass, event: "女子4*400mR")
+                }
+            }
+            HStack {
+                 Image(systemName: "circle.fill")
+                                     .foregroundColor(Color("green5"))
+                             Text("男女混成4*400mR")
+                                     Spacer()
+                         Button(action: {
+                                 self.show.toggle()
+                                             }) {
+                         Image(systemName: "play.fill")
+                                     .foregroundColor(Color("green5"))
+                                         }.sheet(isPresented: self.$show) {
+                                            OrderListSelectView(gamedata: self.gamedata, num: self.num, pass: self.pass, event: "男女混成4*400mR")
+                }
+            }
     }
 }
 
@@ -100,6 +187,7 @@ struct OrderListSelectView: View {
     var gamedata : gamelist
     var num : String
     var pass : String
+    var event :String
     @State var show = false
 var body: some View {
         List{
@@ -115,7 +203,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                             ForEach(self.ordercomplete.data,id: \.id){i in
-                                                OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "1",num: self.num,pass : self.pass)
+                                                OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "1",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -131,7 +219,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                            ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "2",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "2",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -147,7 +235,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                             ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "3",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "3",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -163,7 +251,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                            ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "4",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "4",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -179,7 +267,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                          ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -195,7 +283,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                          ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "6",num: self.num,pass : self.pass)
+                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "6",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -211,7 +299,7 @@ var body: some View {
                                     .foregroundColor(Color("green5"))
                                         }.sheet(isPresented: self.$show) {
                                             ForEach(self.ordercomplete.data,id: \.id){i in
-                                                        OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5",num: self.num,pass : self.pass)
+                                                OrderListShowView(ordercomplete: i, gamedata: self.gamedata, name: "5",num: self.num,pass : self.pass, event: self.event)
                                     }
                                 }
                             }
@@ -229,32 +317,32 @@ struct OrderListShowView: View {
     var num : String
     var pass : String
     @State var show = false
+    var event :String
 var body: some View {
     VStack{
-        if ordercomplete.pay == "true" && ordercomplete.groupnum == num && ordercomplete.grouppass == pass &&   ordercomplete.gamename == gamedata.gamename{
-            if ordercomplete.event == "男子4*100mR" && ordercomplete.set == name {
+        if ordercomplete.pay == "true" && ordercomplete.groupnum == num && ordercomplete.grouppass == pass &&   ordercomplete.gamename == gamedata.gamename && ordercomplete.event == event && ordercomplete.set == name {
                 VStack{
                     Text(ordercomplete.event)
                         .fontWeight(.bold)
                         .padding(.top,10)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("green5"))
                 HStack{
                     Text(ordercomplete.set)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("green5"))
                     Text("組")
                         .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("green5"))
                     Text(ordercomplete.lanes)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("green5"))
                     Text("レーン")
                         .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("green5"))
                 }
                 Text(ordercomplete.belong)
                     .fontWeight(.bold)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color("green5"))
                 HStack{
                     Text("1走")
                     Text(ordercomplete.order1)
@@ -271,175 +359,7 @@ var body: some View {
                 HStack{
                     Text("4走")
                     Text(ordercomplete.order4)
-                }
-
-                }
-            } else if ordercomplete.event == "女子4*100mR" && ordercomplete.set == name {
-                VStack{
-                Text(ordercomplete.event)
-                    .fontWeight(.bold)
-                    .padding(.top,10)
-                    .foregroundColor(Color.red)
-                HStack{
-                    
-                    Text(ordercomplete.set)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                    Text("組")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                    Text(ordercomplete.lanes)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                    Text("レーン")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                }
-                Text(ordercomplete.belong)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.red)
-                HStack{
-                    Text("1走")
-                    Text(ordercomplete.order1)
-                }
-                HStack{
-                    Text("2走")
-                    Text(ordercomplete.order2)
-                }
-                HStack{
-                    Text("3走")
-                    Text(ordercomplete.order3)
-                }
-
-                HStack{
-                    Text("4走")
-                    Text(ordercomplete.order4)
-                }
-
-                }
-                
-        }else if ordercomplete.event == "男子4*400mR" && ordercomplete.set == name {
-            VStack{
-                Text(ordercomplete.event)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.purple)
-                    .padding(.top,10)
-                HStack{
-                    
-                    Text(ordercomplete.set)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.purple)
-                    Text("組")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.purple)
-                    Text(ordercomplete.lanes)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.purple)
-                    Text("レーン")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.purple)
-                }
-                Text(ordercomplete.belong)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.purple)
-                HStack{
-                    Text("1走")
-                    Text(ordercomplete.order1)
-                }
-                HStack{
-                    Text("2走")
-                    Text(ordercomplete.order2)
-                }
-                HStack{
-                    Text("3走")
-                    Text(ordercomplete.order3)
-                }
-
-                HStack{
-                    Text("4走")
-                    Text(ordercomplete.order4)
-                }
-            }
-                
-                }else if ordercomplete.event == "女子4*400mR" && ordercomplete.set == name {
-                VStack{
-                Text(ordercomplete.event)
-                    .fontWeight(.bold)
-                    .padding(.top,10)
-                    .foregroundColor(Color.pink)
-                HStack{
-                    
-                    Text(ordercomplete.set)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.pink)
-                    Text("組")
-                        .fontWeight(.bold)
-                         .foregroundColor(Color.pink)
-                    Text(ordercomplete.lanes)
-                        .fontWeight(.bold)
-                         .foregroundColor(Color.pink)
-                    Text("レーン")
-                        .fontWeight(.bold)
-                         .foregroundColor(Color.pink)
-                }
-                Text(ordercomplete.belong)
-                    .fontWeight(.bold)
-                     .foregroundColor(Color.pink)
-                HStack{
-                    Text("1走")
-                    Text(ordercomplete.order1)
-                }
-                HStack{
-                    Text("2走")
-                    Text(ordercomplete.order2)
-                }
-                HStack{
-                    Text("3走")
-                    Text(ordercomplete.order3)
-                }
-
-                HStack{
-                    Text("4走")
-                    Text(ordercomplete.order4)
-                }
-
-                }
-                
-                }else if ordercomplete.event == "男女混成4*400mR" && ordercomplete.set == name {
-                VStack{
-                Text(ordercomplete.event)
-                    .fontWeight(.bold)
-                    .padding(.top,10)
-                HStack{
-                    
-                    Text(ordercomplete.set)
-                        .fontWeight(.bold)
-                    Text("組")
-                        .fontWeight(.bold)
-                    Text(ordercomplete.lanes)
-                        .fontWeight(.bold)
-                    Text("レーン")
-                        .fontWeight(.bold)
-                }
-                Text(ordercomplete.belong)
-                    .fontWeight(.bold)
-                HStack{
-                    Text("1走")
-                    Text(ordercomplete.order1)
-                }
-                HStack{
-                    Text("2走")
-                    Text(ordercomplete.order2)
-                }
-                HStack{
-                    Text("3走")
-                    Text(ordercomplete.order3)
-                }
-
-                HStack{
-                    Text("4走")
-                    Text(ordercomplete.order4)
-                        }
+                     }
                     }
                 }
             }
