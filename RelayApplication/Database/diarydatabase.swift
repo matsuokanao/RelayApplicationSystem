@@ -49,7 +49,7 @@ class getDiaryList : ObservableObject{
                 let day = i.get("day") as! String
                 let weather = i.get("weather") as! String
                 let mental = i.get("mental") as! String
-                 let tournamentname = i.get("tournamentname") as! String
+                let tournamentname = i.get("tournamentname") as! String
                 let email = i.get("email") as! String
                 let userpass = i.get("userpass") as! String
                 

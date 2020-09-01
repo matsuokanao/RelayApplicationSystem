@@ -15,8 +15,8 @@ struct UserCreateFinishView: View {
             Image("cat6")
                 .resizable()
                 .frame(width: 400.0 , height: 220.0)
-                    Spacer().frame(height: 15)
-                        
+            Spacer().frame(height: 15)
+            
             Text("登録完了！！")
                 .foregroundColor(.red)
                 .font(.title)
@@ -29,23 +29,23 @@ struct UserCreateFinishView: View {
             Text("トラブル防止の為、パスワードの管理には十分お気をつけください。また、パスワードは定期的にご変更ください。")
                 .foregroundColor(.red)
                 .fontWeight(.bold)
-
-                                
-        Button(action: {
-            //HOME画面遷移
+            
+            
+            Button(action: {
+                //HOME画面遷移
                 UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
-                                } ){
+            } ){
                 Text("HOME画面に移動する")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 50)
-                }
-        .background(Color(.red))
-                    .cornerRadius(10)
-                    .padding(.top, 25)
-
-            }.frame(width: 300, height: 600)
+            }
+            .background(Color(.red))
+            .cornerRadius(10)
+            .padding(.top, 25)
+            
+        }.frame(width: 300, height: 600)
     }
 }
 

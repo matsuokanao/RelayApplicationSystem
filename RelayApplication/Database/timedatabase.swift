@@ -32,7 +32,7 @@ struct timelist: Identifiable {
     var event : String
     //記録
     var time : String
-
+    
 }
 
 //読み込み

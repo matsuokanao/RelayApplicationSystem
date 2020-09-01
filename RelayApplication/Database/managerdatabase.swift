@@ -35,7 +35,7 @@ class getManagerList : ObservableObject{
                 let groupnum = i.get("groupnum") as! String
                 let grouppass = i.get("grouppass") as! String
                 let email = i.get("email") as! String
-
+                
                 
                 self.data.append(managerlist(id: id, groupname: groupname, groupnum: groupnum, grouppass: grouppass, email: email))
             }

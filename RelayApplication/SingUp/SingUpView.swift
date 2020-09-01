@@ -24,85 +24,85 @@ struct SingUpView: View {
     
     var body: some View {
         ZStack{
-                    
+            
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack{
-                          Image("cat5")
-                              .resizable()
-                              .frame(width: 300.0 , height: 200.0)
-                          Text("新規登録")
-                              .font(.title)
-                              .fontWeight(.bold)
-                              .foregroundColor(Color("yello1"))
-                          
-            HStack {
-                Image(systemName: "envelope")
-                    TextField("メールアドレス", text: self.$email)
-                    }
-            //自動大文字入力制御
-                    .autocapitalization(.none)
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
+                        Image("cat5")
+                            .resizable()
+                            .frame(width: 300.0 , height: 200.0)
+                        Text("新規登録")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("yello1"))
+                        
+                        HStack {
+                            Image(systemName: "envelope")
+                            TextField("メールアドレス", text: self.$email)
+                        }
+                            //自動大文字入力制御
+                            .autocapitalization(.none)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
                         
                         
                         
-            HStack(spacing: 15){
-                HStack {
-                    Image(systemName: "questionmark")
-                        VStack{
-                            if self.visible{
-                                TextField("パスワード", text:  self.$pass)
-                                .autocapitalization(.none)
-
-                            }else{
-                                SecureField("パスワード", text: self.$pass)
-                                .autocapitalization(.none)
-
+                        HStack(spacing: 15){
+                            HStack {
+                                Image(systemName: "questionmark")
+                                VStack{
+                                    if self.visible{
+                                        TextField("パスワード", text:  self.$pass)
+                                            .autocapitalization(.none)
+                                        
+                                    }else{
+                                        SecureField("パスワード", text: self.$pass)
+                                            .autocapitalization(.none)
+                                        
+                                    }
                                 }
                             }
-                        }
                             Button(action: {
                                 //クリックによってパスワードを表示
                                 self.visible.toggle()
-                                }) {
-                                    Image(systemName: self.visible ? "eye.slash.fill": "eye.fill")
-                                        .foregroundColor(Color("blackcolor"))
+                            }) {
+                                Image(systemName: self.visible ? "eye.slash.fill": "eye.fill")
+                                    .foregroundColor(Color("blackcolor"))
                             }
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
                         .padding(.top, 25)
                         
-                HStack {
-                    Image(systemName: "questionmark")
+                        HStack {
+                            Image(systemName: "questionmark")
+                            
+                            HStack(spacing: 15){
+                                VStack{
+                                    if self.revisible{
+                                        TextField("再入力", text:  self.$repass)
+                                            .autocapitalization(.none)
+                                        
+                                    }else{
+                                        SecureField("再入力", text: self.$repass)
+                                            .autocapitalization(.none)
+                                        
+                                    }
+                                }
+                            }
+                            Button(action: {
+                                //クリックによってパスワードを表示
+                                self.revisible.toggle()
+                            }) {
+                                Image(systemName: self.revisible ? "eye.slash.fill": "eye.fill")
+                                    .foregroundColor(Color("blackcolor"))
+                            }
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
+                        .padding(.top, 25)
                         
-                    HStack(spacing: 15){
-                         VStack{
-                         if self.revisible{
-                             TextField("再入力", text:  self.$repass)
-                            .autocapitalization(.none)
-
-                         }else{
-                             SecureField("再入力", text: self.$repass)
-                            .autocapitalization(.none)
-
-                             }
-                         }
-                    }
-                         Button(action: {
-                             //クリックによってパスワードを表示
-                             self.revisible.toggle()
-                             }) {
-                                 Image(systemName: self.revisible ? "eye.slash.fill": "eye.fill")
-                                     .foregroundColor(Color("blackcolor"))
-                         }
-                     }
-                     .padding()
-                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("yello1") : (Color("blackcolor")),lineWidth:  2))
-                     .padding(.top, 25)
-
-                      //登録ボタンアクション
+                        //登録ボタンアクション
                         Button(action: {
                             self.register()
                         }){
@@ -114,85 +114,85 @@ struct SingUpView: View {
                         .background(Color("yello1"))
                         .cornerRadius(40)
                         .padding(.top, 25)
-                        }
-                        .padding(.horizontal, 25)
-                        }
-                        
-                        Button(action: {
-                            self.show.toggle()
-                        })  {
-                           Image(systemName: "chevron.left")
-                            .font(.title)
-                            .foregroundColor(Color("blackcolor"))
-                        }
-                    .padding()
                     }
+                    .padding(.horizontal, 25)
+                }
                 
-                    if self.alert{
-                        ErrorView(alert: self.$alert, error: $error)
-                    }
-                }.navigationBarBackButtonHidden(true)
+                Button(action: {
+                    self.show.toggle()
+                })  {
+                    Image(systemName: "chevron.left")
+                        .font(.title)
+                        .foregroundColor(Color("blackcolor"))
+                }
+                .padding()
+            }
+            
+            if self.alert{
+                ErrorView(alert: self.$alert, error: $error)
+            }
+        }.navigationBarBackButtonHidden(true)
             .onAppear{
-            self.keyboard.startObserve()
-            }.onDisappear{
+                self.keyboard.startObserve()
+        }.onDisappear{
             self.keyboard.stopObserve()
-            }.padding(.bottom, keyboard.keyboardHeight)
-        }
-          //登録ボタンを押した時の処理
-              func register(){
-
-                if self.email != "" {
-                      
-                      if self.pass == self.repass{
-                        
-                        if self.pass.count >= 6 {
+        }.padding(.bottom, keyboard.keyboardHeight)
+    }
+    //登録ボタンを押した時の処理
+    func register(){
+        
+        if self.email != "" {
+            
+            if self.pass == self.repass{
+                
+                if self.pass.count >= 6 {
+                    
+                    
+                    
+                    Auth.auth().createUser(withEmail: self.email, password: self.pass){
+                        (res, err) in
+                        if err == nil {
                             
-                            
-                          
-                          Auth.auth().createUser(withEmail: self.email, password: self.pass){
-                              (res, err) in
-                            if err == nil {
-                              
-                              if err != nil{
-                             
-                                  self.error = ""
-                                  self.alert.toggle()
-                                  return
+                            if err != nil{
                                 
-                              }
-                                print("成功しました")
-                                let db = Firestore.firestore()
-                                let data: [String : Any] = ["email": self.email]
-                                    db.collection("authority")
-                                        .document(self.email)
-                                        .setData(data)
+                                self.error = ""
+                                self.alert.toggle()
+                                return
+                                
+                            }
+                            print("成功しました")
+                            let db = Firestore.firestore()
+                            let data: [String : Any] = ["email": self.email]
+                            db.collection("authority")
+                                .document(self.email)
+                                .setData(data)
                                 { (err) in
                                     if err != nil{
-                                            print((err?.localizedDescription)!)
-                                                    return
+                                        print((err?.localizedDescription)!)
+                                        return
                                     }
-                                }
-                              UserDefaults.standard.set(true, forKey: "status")
-                              NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                            }else{
-                                self.error = "このメールアドレスは使用されている可能性があります。再度ご確認下さい。"
-                                self.alert.toggle()
-
                             }
+                            UserDefaults.standard.set(true, forKey: "status")
+                            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                        }else{
+                            self.error = "このメールアドレスは使用されている可能性があります。再度ご確認下さい。"
+                            self.alert.toggle()
+                            
                         }
-                      }else{
-                      self.error = "パスワードは６文字以上で入力して下さい。"
-                        self.alert.toggle()
-                        
                     }
-                      }
-                      else{
-                          self.error = "パスワードが一致していません"
-                          self.alert.toggle()
-                      }
-                  }else{
-                      self.error = "すべての項目を入力してください"
-                      self.alert.toggle()
+                }else{
+                    self.error = "パスワードは６文字以上で入力して下さい。"
+                    self.alert.toggle()
+                    
+                }
+            }
+            else{
+                self.error = "パスワードが一致していません"
+                self.alert.toggle()
+            }
+        }else{
+            self.error = "すべての項目を入力してください"
+            self.alert.toggle()
         }
     }
 }

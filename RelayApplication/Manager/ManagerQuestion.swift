@@ -17,12 +17,12 @@ struct ManagerQuestion: View {
     @State var ManagerGameDeleteSelected: Bool = false
     @State var ManagerRelayOrderSelected: Bool = false
     @State var ManagerGameOrderSelected: Bool = false
-
+    
     var body: some View {
-            VStack{
-                    ScrollView{
-                    VStack{
-
+        VStack{
+            ScrollView{
+                VStack{
+                    
                     if(self.ManagerSelected == true){
                         ManagerAnswer(ManagerSelected: self.$ManagerSelected)
                         
@@ -43,148 +43,148 @@ struct ManagerQuestion: View {
                         
                     } else if(self.ManagerRelayOrderSelected == true){
                         ManagerAnswerRelayOrderList(ManagerRelayOrderSelected: self.$ManagerRelayOrderSelected)
-
+                        
                     } else if(self.ManagerGameOrderSelected == true){
                         ManagerAnswerGameEntryList(ManagerGameOrderSelected: self.$ManagerGameOrderSelected)
-
+                        
                     }else {
-        VStack{
-            Text("大会関係者専用ページ")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .font(.title)
-            Text("使い方ガイド")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .font(.title)
+                        VStack{
+                            Text("大会関係者専用ページ")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .font(.title)
+                            Text("使い方ガイド")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .font(.title)
                         }.frame(width:400,height: 100)
                             .background(Color("green2"))
-
-                    
-        VStack{
-            HStack{
-                Image(systemName: "lightbulb.fill")
-                    .foregroundColor(Color("green2"))
-                Text("運営団体情報とは？")
-                            
-                            Spacer()
-            Button(action: {
-                            self.ManagerSelected.toggle()
+                        
+                        
+                        VStack{
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("運営団体情報とは？")
+                                
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerSelected.toggle()
                                 })  {
-                Image(systemName: "play.fill")
-                    .foregroundColor(Color("green2"))
-                                        }
-                                    }.frame(width:300,height: 15)
-                                    .padding(.top,20)
-                            
-                            
-                HStack{
-                    Image(systemName: "lightbulb.fill")
-                            .foregroundColor(Color("green2"))
-                    Text("試合を作成したい！")
-                                            Spacer()
-                    Button(action: {
-                                    self.ManagerGameCreateSelected.toggle()
-                                        })  {
-                    Image(systemName: "play.fill")
-                        .foregroundColor(Color("green2"))
-                                    }
-                            }.frame(width:300,height: 20)
-                            .padding(.top,20)
-
-                 
-                            
-                HStack{
-                    Image(systemName: "lightbulb.fill")
-                            .foregroundColor(Color("green2"))
-                    Text("試合を作成をした後の、大会までの流れを知りたい")
-                            Spacer()
-                Button(action: {
-                                self.ManagerGameFlowSelected.toggle()
-                                })  {
-                    Image(systemName: "play.fill")
-                                .foregroundColor(Color("green2"))
-                                                }
-                                                }.frame(width:300,height: 50)
-            
-            
-                HStack{
-                    Image(systemName: "lightbulb.fill")
-                            .foregroundColor(Color("green2"))
-                    Text("大会終了後の流れを知りたい")
-                            Spacer()
-                Button(action: {
-                                self.ManagerGameEndFlowSelected.toggle()
-                            })  {
-                    Image(systemName: "play.fill")
-                            .foregroundColor(Color("green2"))
-                                                }
-                                                }.frame(width:300,height: 50)
-                            
-                            
-                HStack{
-                     Image(systemName: "lightbulb.fill")
-                        .foregroundColor(Color("green2"))
-                            Text("登録した試合情報の内容を変更したい")
-                    Spacer()
-                    Button(action: {
-                            self.ManagerGameEditSelected.toggle()
-                        })  {
-                    Image(systemName: "play.fill")
-                        .foregroundColor(Color("green2"))
-                                            }
-                                        }.frame(width:300,height: 50)
-                                           
-
-                            
-                            
-                HStack{
-                    Image(systemName: "lightbulb.fill")
-                        .foregroundColor(Color("green2"))
-                    Text("登録した試合を削除したい")
-                            Spacer()
-                Button(action: {
-                                self.ManagerGameDeleteSelected.toggle()
-                            })  {
-                    Image(systemName: "play.fill")
-                                .foregroundColor(Color("green2"))
-                                        }
-                                    }.frame(width:300,height: 55)
-                                                   
-                            
-                HStack{
-                    Image(systemName: "lightbulb.fill")
-                            .foregroundColor(Color("green2"))
-                    Text("リレーのオーダーリストについて知りたい")
-                        Spacer()
-                Button(action: {
-                                self.ManagerRelayOrderSelected.toggle()
-                            })  {
-                    Image(systemName: "play.fill")
-                            .foregroundColor(Color("green2"))
-                                            }
-                                        }.frame(width:300,height: 55)
-                            
-                            
-                HStack{
-                     Image(systemName: "lightbulb.fill")
-                        .foregroundColor(Color("green2"))
-                            Text("試合のエントリーリストについて知りたい")
-                    Spacer()
-                Button(action: {
-                            self.ManagerGameOrderSelected.toggle()
-                        })  {
-                    Image(systemName: "play.fill")
-                        .foregroundColor(Color("green2"))
-                                        }
-                                    }.frame(width:300,height: 55)
-                                    }
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
                                 }
-                            }
+                            }.frame(width:300,height: 15)
+                                .padding(.top,20)
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("試合を作成したい！")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerGameCreateSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 20)
+                                .padding(.top,20)
+                            
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("試合を作成をした後の、大会までの流れを知りたい")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerGameFlowSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 50)
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("大会終了後の流れを知りたい")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerGameEndFlowSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 50)
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("登録した試合情報の内容を変更したい")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerGameEditSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 50)
+                            
+                            
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("登録した試合を削除したい")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerGameDeleteSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 55)
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("リレーのオーダーリストについて知りたい")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerRelayOrderSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 55)
+                            
+                            
+                            HStack{
+                                Image(systemName: "lightbulb.fill")
+                                    .foregroundColor(Color("green2"))
+                                Text("試合のエントリーリストについて知りたい")
+                                Spacer()
+                                Button(action: {
+                                    self.ManagerGameOrderSelected.toggle()
+                                })  {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color("green2"))
+                                }
+                            }.frame(width:300,height: 55)
                         }
                     }
                 }
             }
+        }
+    }
+}
 
 struct ManagerQuestion_Previews: PreviewProvider {
     static var previews: some View {

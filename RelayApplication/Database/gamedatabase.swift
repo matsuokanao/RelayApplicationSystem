@@ -58,7 +58,7 @@ class getGamedataList : ObservableObject{
                 let relay = i.get("relay") as! String
                 let end = i.get("end") as! String
                 
-
+                
                 self.data.append(gamelist(id: id, gamename: gamename, year: year, month: month, day: day, place: place, gamevenue: gamevenue, png: png, link: link, groupname: groupname, groupnum: groupnum, email: email,grouppass :grouppass,relay : relay,end : end))
             }
         }

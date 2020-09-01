@@ -23,116 +23,116 @@ struct ManagerCreateView: View {
     @State var message = ""
     @State var dismissButton = ""
     @ObservedObject var keyboard = KeyboardObserver()
-            
+    
     var body: some View {
-
+        
         ZStack{
-                Color("green1")
-                    .edgesIgnoringSafeArea(.all)
-        //画面スクロール処理
-        ScrollView(.vertical){
+            Color("green1")
+                .edgesIgnoringSafeArea(.all)
+           
+            ScrollView(.vertical){
                 
-            VStack(alignment: .leading, spacing: 25){
-                Text("運営団体情報")
-                    .fontWeight(.bold)
-                    .font(.system(size: 35, weight: .bold))
-                    .foregroundColor(.white)
-                Text("・詳しい説明に関しましては大会関係者専用ページの「ページの説明」をご参照下さい")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                Group{
-                Text("運営団体名")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(.top,10)
-                VStack{
-                    TextField("団体", text: $groupname)
+                VStack(alignment: .leading, spacing: 25){
+                    Text("運営団体情報")
+                        .fontWeight(.bold)
+                        .font(.system(size: 35, weight: .bold))
                         .foregroundColor(.white)
-                        Divider()
-                            .background(Color.white)
-                        }
-                
-                Text("運営団体番号")
+                    Text("・詳しい説明に関しましては大会関係者専用ページの「ページの説明」をご参照下さい")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.top,10)
-                VStack{
-                    TextField("登録陸連", text: $groupnum)
-                        .keyboardType(.numberPad)
-                        .foregroundColor(.white)
-                        Divider()
-                            .background(Color.white)
+                    Group{
+                        Text("運営団体名")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(.top,10)
+                        VStack{
+                            TextField("団体", text: $groupname)
+                                .foregroundColor(.white)
+                            Divider()
+                                .background(Color.white)
                         }
-                
-                Text("運営団体パスワード  4文字以上でご記入下さい")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.top,10)
-                VStack{
-                    TextField("所属団体", text: $grouppass)
-                        .foregroundColor(.white)
-                        Divider()
-                            .background(Color.white)
+                        
+                        Text("運営団体番号")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(.top,10)
+                        VStack{
+                            TextField("登録陸連", text: $groupnum)
+                                .keyboardType(.numberPad)
+                                .foregroundColor(.white)
+                            Divider()
+                                .background(Color.white)
                         }
-                
-                Text("運営団体メールアドレス")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.top,10)
-                VStack{
-                    TextField("運営団体メールアドレス", text: $email)
-                        .foregroundColor(.white)
-                        Divider()
-                            .background(Color.white)
+                        
+                        Text("運営団体パスワード  4文字以上でご記入下さい")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(.top,10)
+                        VStack{
+                            TextField("所属団体", text: $grouppass)
+                                .foregroundColor(.white)
+                            Divider()
+                                .background(Color.white)
+                        }
+                        
+                        Text("運営団体メールアドレス")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(.top,10)
+                        VStack{
+                            TextField("運営団体メールアドレス", text: $email)
+                                .foregroundColor(.white)
+                            Divider()
+                                .background(Color.white)
                         }
                     }
-            
-                HStack{
+                    
+                    HStack{
                         Spacer()
-                    Button(action: {
-                        if self.groupname == "" || self.groupnum == "" || self.grouppass == "" || self.email == ""  {
-                        self.showAlert.toggle()
-                            self.title = "エラー"
-                            self.message = "全ての項目を入力して下さい。"
-                            self.dismissButton = "OK"
-                        }else if self.grouppass.count <= 4{
-                            self.showAlert.toggle()
-                            self.title = "エラー"
-                            self.message = "パスワードは4文字以上入力して下さい。"
-                            self.dismissButton = "OK"
-                        }else{
-                        self.showAlert.toggle()
-                            self.title = "保存完了！"
-                            self.message = "内容を保存しました。"
-                            self.dismissButton = "OK"
-                        let db = Firestore.firestore()
-                        let data: [String : Any] = ["groupname": self.groupname,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]                        //試合申し込み完了テーブルに入れる
-                        db.collection("managerlist")
-                            .document(self.groupname)
-                            .setData(data)
-                                { (err) in
-                                    if err != nil{
-                                        print((err?.localizedDescription)!)
+                        Button(action: {
+                            if self.groupname == "" || self.groupnum == "" || self.grouppass == "" || self.email == ""  {
+                                self.showAlert.toggle()
+                                self.title = "エラー"
+                                self.message = "全ての項目を入力して下さい。"
+                                self.dismissButton = "OK"
+                            }else if self.grouppass.count <= 4{
+                                self.showAlert.toggle()
+                                self.title = "エラー"
+                                self.message = "パスワードは4文字以上入力して下さい。"
+                                self.dismissButton = "OK"
+                            }else{
+                                self.showAlert.toggle()
+                                self.title = "保存完了！"
+                                self.message = "内容を保存しました。"
+                                self.dismissButton = "OK"
+                                let db = Firestore.firestore()
+                                let data: [String : Any] = ["groupname": self.groupname,"groupnum": self.groupnum, "grouppass": self.grouppass, "email": self.email]
+                                db.collection("managerlist")
+                                    .document(self.groupname)
+                                    .setData(data)
+                                    { (err) in
+                                        if err != nil{
+                                            print((err?.localizedDescription)!)
                                             return
                                     }
                                 }
                             }
-                    }){
-                        Text("登録する")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("green1"))
-                            .padding(.vertical)
-                            .padding(.horizontal,45)
-                            .background(Color.white)
-                            .clipShape(Capsule())
+                        }){
+                            Text("登録する")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("green1"))
+                                .padding(.vertical)
+                                .padding(.horizontal,45)
+                                .background(Color.white)
+                                .clipShape(Capsule())
                             
-                    
-                    }.alert(isPresented: $showAlert){
-                        Alert(title: Text(self.title),
-                              message: Text(self.message),
-                              dismissButton: .default(Text(self.dismissButton)))
-                    }
-
+                            
+                        }.alert(isPresented: $showAlert){
+                            Alert(title: Text(self.title),
+                                  message: Text(self.message),
+                                  dismissButton: .default(Text(self.dismissButton)))
+                        }
+                        
                         Spacer()
                     }
                 }
@@ -141,7 +141,7 @@ struct ManagerCreateView: View {
             }.onDisappear{
                 self.keyboard.stopObserve()
             }.padding(.bottom, keyboard.keyboardHeight)
-            .frame(width: 350, height: 600)
+                .frame(width: 350, height: 600)
         }
     }
 }

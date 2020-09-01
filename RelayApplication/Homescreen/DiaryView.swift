@@ -50,154 +50,154 @@ struct DiaryCellView: View {
     @State var message = ""
     @State var dismissButton = ""
     @ObservedObject var keyboard = KeyboardObserver()
-
     
-
+    
+    
     var body: some View {
-    VStack{
-                VStack{
-           Text("今日の練習はどうでしたか？")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-            Text("思った事を書き出してみましょう")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-        }.frame(width:500,height: 100)
-            .background(Color("red3"))
-        ScrollView{
-            VStack(alignment: .leading, spacing: 20){
-                HStack{
-                Image(systemName: "calendar")
-                        .foregroundColor(Color("red3"))
-                Text("日付")
-                    Spacer()
-                Button(action: {
-                    self.show.toggle()
-                        }) {
-                    Text("日記一覧")
-                        .padding(.vertical)
-                        .frame(width: 100,height: 30)
-                        .sheet(isPresented: $show){
-                            DiaryListView()
-                                    }
-                                }.background(Color("red3"))
-                                .foregroundColor(.white)
-
-                }
-            HStack{
-            TextField("", text: self.$year)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
-            Text("年")
-                
-            TextField("", text: self.$month)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
-            Text("月")
-                
-            TextField("", text: self.$day)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
-            Text("日")
-                    }
-            HStack{
-                Image(systemName: "sun.max.fill")
-                        .foregroundColor(Color("red3"))
-            Text("天気")
-            TextField("", text: self.$weather)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
-              
-                
-            Image(systemName: "heart.fill")
-                .foregroundColor(Color("red3"))
-            Text("気持ち")
-            TextField("", text: self.$mental)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("red3"))
-                    }
-            HStack{
-                Image(systemName: "sparkles")
-                .foregroundColor(Color("red3"))
-                Text("目次")
-                }
-                
-                
+        VStack{
             VStack{
-            TextField("", text: self.$tournamentname)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                Text("今日の練習はどうでしたか？")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                Text("思った事を書き出してみましょう")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }.frame(width:500,height: 100)
                 .background(Color("red3"))
-                }
-                HStack{
-                    Image(systemName: "book.fill")
-                    .foregroundColor(Color("red3"))
-                    Text("気持ち")
+            ScrollView{
+                VStack(alignment: .leading, spacing: 20){
+                    HStack{
+                        Image(systemName: "calendar")
+                            .foregroundColor(Color("red3"))
+                        Text("日付")
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                        }) {
+                            Text("日記一覧")
+                                .padding(.vertical)
+                                .frame(width: 100,height: 30)
+                                .sheet(isPresented: $show){
+                                    DiaryListView()
+                            }
+                        }.background(Color("red3"))
+                            .foregroundColor(.white)
+                        
                     }
-                VStack{
-                MultilineTextField(text: self.$diary)
-                    .frame(height: 300)
-                    .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black))
+                    HStack{
+                        TextField("", text: self.$year)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(Color("red3"))
+                        Text("年")
+                        
+                        TextField("", text: self.$month)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(Color("red3"))
+                        Text("月")
+                        
+                        TextField("", text: self.$day)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(Color("red3"))
+                        Text("日")
                     }
-                
-                Group{
-                HStack{
-                    Image(systemName: "sparkles")
-                    .foregroundColor(Color("red3"))
-                    Text("メールアドレス")
+                    HStack{
+                        Image(systemName: "sun.max.fill")
+                            .foregroundColor(Color("red3"))
+                        Text("天気")
+                        TextField("", text: self.$weather)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(Color("red3"))
+                        
+                        
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(Color("red3"))
+                        Text("気持ち")
+                        TextField("", text: self.$mental)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(Color("red3"))
+                    }
+                    HStack{
+                        Image(systemName: "sparkles")
+                            .foregroundColor(Color("red3"))
+                        Text("目次")
                     }
                     
                     
-                VStack{
-                TextField("", text: self.$email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
+                    VStack{
+                        TextField("", text: self.$tournamentname)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .background(Color("red3"))
                     }
-
-                HStack{
-                    Image(systemName: "sparkles")
-                    .foregroundColor(Color("red3"))
-                    Text("ユーザーパス")
+                    HStack{
+                        Image(systemName: "book.fill")
+                            .foregroundColor(Color("red3"))
+                        Text("気持ち")
+                    }
+                    VStack{
+                        MultilineTextField(text: self.$diary)
+                            .frame(height: 300)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black))
                     }
                     
-                    
-                VStack{
-                TextField("", text: self.$userpass)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("red3"))
+                    Group{
+                        HStack{
+                            Image(systemName: "sparkles")
+                                .foregroundColor(Color("red3"))
+                            Text("メールアドレス")
+                        }
+                        
+                        
+                        VStack{
+                            TextField("", text: self.$email)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .background(Color("red3"))
+                        }
+                        
+                        HStack{
+                            Image(systemName: "sparkles")
+                                .foregroundColor(Color("red3"))
+                            Text("ユーザーパス")
+                        }
+                        
+                        
+                        VStack{
+                            TextField("", text: self.$userpass)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .background(Color("red3"))
+                        }
                     }
-                }
-                HStack{
-                Spacer()
-                Button(action: {
-                    if self.diary == "" || self.email == "" || self.userpass == "" || self.year == "" || self.month == "" || self.day == "" || self.weather == "" || self.mental == "" || self.tournamentname == ""{
-                    self.showAlert.toggle()
-                        self.title = "エラー"
-                        self.message = "メールアドレス、ユーザーパスを入力して下さい。"
-                        self.dismissButton = "OK"
-                    }else{
-                        self.showAlert .toggle()
-                        self.title = "完了"
-                        self.message = "日記の書き込みが完了しました！"
-                        self.dismissButton = "OK"
-
-                    let db = Firestore.firestore()
-                    let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname,"email": self.email,"userpass": self.userpass]
-                    //試合申し込み完了テーブルに入れる
-                    db.collection("diarylist")
-                        .addDocument(data:data)
-                            { (err) in
-                                if err != nil{
-                                    print((err?.localizedDescription)!)
-                                        return
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            if self.diary == "" || self.email == "" || self.userpass == "" || self.year == "" || self.month == "" || self.day == "" || self.weather == "" || self.mental == "" || self.tournamentname == ""{
+                                self.showAlert.toggle()
+                                self.title = "エラー"
+                                self.message = "メールアドレス、ユーザーパスを入力して下さい。"
+                                self.dismissButton = "OK"
+                            }else{
+                                self.showAlert .toggle()
+                                self.title = "完了"
+                                self.message = "日記の書き込みが完了しました！"
+                                self.dismissButton = "OK"
+                                
+                                let db = Firestore.firestore()
+                                let data: [String : Any] = ["diary": self.diary, "year": self.year, "month": self.month, "day": self.day, "weather": self.weather, "mental": self.mental, "tournamentname": self.tournamentname,"email": self.email,"userpass": self.userpass]
+                                //試合申し込み完了テーブルに入れる
+                                db.collection("diarylist")
+                                    .addDocument(data:data)
+                                    { (err) in
+                                        if err != nil{
+                                            print((err?.localizedDescription)!)
+                                            return
+                                        }
                                 }
                             }
-                        }
-                }){Text("登録する")
+                        }){Text("登録する")
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                             .padding(.vertical)
@@ -206,9 +206,9 @@ struct DiaryCellView: View {
                             .clipShape(Capsule())
                             
                         }.alert(isPresented: $showAlert){
-                        Alert(title: Text(self.title),
-                              message: Text(self.message),
-                              dismissButton: .default(Text(self.dismissButton)))
+                            Alert(title: Text(self.title),
+                                  message: Text(self.message),
+                                  dismissButton: .default(Text(self.dismissButton)))
                         }
                         Spacer()
                     }
@@ -227,7 +227,7 @@ struct DiaryCellView: View {
 // 複数行入力するためのTextField
 struct MultilineTextField: UIViewRepresentable {
     @Binding var text: String
-
+    
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
         view.delegate = context.coordinator
@@ -237,29 +237,29 @@ struct MultilineTextField: UIViewRepresentable {
         view.font = UIFont.systemFont(ofSize: 18)
         return view
     }
-
+    
     func updateUIView(_ uiView: UITextView, context: Context) {
         if uiView.text != text {
             uiView.text = text
         }
     }
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
     class Coordinator : NSObject, UITextViewDelegate {
-
+        
         var parent: MultilineTextField
-
+        
         init(_ textView: MultilineTextField) {
             self.parent = textView
         }
-
+        
         func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
             return true
         }
-
+        
         func textViewDidChange(_ textView: UITextView) {
             self.parent.text = textView.text
         }

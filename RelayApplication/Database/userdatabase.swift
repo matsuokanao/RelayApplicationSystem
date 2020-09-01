@@ -11,22 +11,22 @@ import FirebaseFirestore
 
 
 struct userlist: Identifiable {
-var id: String
-//名前
-var username : String
-//登録陸連
+    var id: String
+    //名前
+    var username : String
+    //登録陸連
     var jaaf : String
-//所属名
+    //所属名
     var belong : String
-//代表者名
+    //代表者名
     var ceo : String
-//メールアドレス
+    //メールアドレス
     var email : String
-//電話番号
+    //電話番号
     var phonenumber : String
-//ユーザーパスワード
+    //ユーザーパスワード
     var userpass : String
-
+    
 }
 
 //読み込み
@@ -49,7 +49,7 @@ class getUserdataList : ObservableObject{
                 let ceo = i.get("ceo") as! String
                 let phonenumber = i.get("phonenumber") as! String
                 let userpass = i.get("userpass") as! String
-                                
+                
                 self.data.append(userlist(id: id,username: username, jaaf: jaaf, belong: belong, ceo: ceo, email: email, phonenumber: phonenumber, userpass: userpass))
             }
         }

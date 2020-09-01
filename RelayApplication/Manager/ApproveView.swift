@@ -16,62 +16,62 @@ struct ApproveView: View {
     @ObservedObject var gamedata = getGamedataList()
     @ObservedObject var keyboard = KeyboardObserver()
     
-        var body: some View {
+    var body: some View {
         ZStack{
-        Color("green4")
-            .edgesIgnoringSafeArea(.all)
+            Color("green4")
+                .edgesIgnoringSafeArea(.all)
             
-        VStack(alignment: .leading){
-            ScrollView{
-            Text("承認ページ")
-                          .font(.title)
-                          .fontWeight(.bold)
-                .foregroundColor(Color.white)
-                
-                HStack{
-                                Spacer()
-                    Button(action: {
+            VStack(alignment: .leading){
+                ScrollView{
+                    Text("承認ページ")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                    
+                    HStack{
+                        Spacer()
+                        Button(action: {
                             self.relayshow.toggle()
-                                }) {
-                        Text("リレー承認ページ")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("green4"))
-                            .padding(.vertical)
-                            .padding(.horizontal,10)
-                            .background(Color.white)
-                            .clipShape(Capsule())
-                                    }.padding(.top,20)
-                    .sheet(isPresented: self.$relayshow) {
-                            RelayApproveView()
+                        }) {
+                            Text("リレー承認ページ")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("green4"))
+                                .padding(.vertical)
+                                .padding(.horizontal,10)
+                                .background(Color.white)
+                                .clipShape(Capsule())
+                        }.padding(.top,20)
+                            .sheet(isPresented: self.$relayshow) {
+                                RelayApproveView()
                         }
-                }
-
-
-                Text("試合の団体番号と団体パスワードを入力して下さい")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.bold)
-                            .padding(.top,20)
-                Text("団体番号")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-                    .padding(.top,20)
-
-                               
-                TextField("", text: self.$num)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("green4"))
-                Text("団体パスワード")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-
-                TextField("", text: self.$pass)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color("green4"))
-            
-            ForEach(self.gamedata.data,id: \.id){i in
-                CellApproveView(gamelist: i, num: self.num, pass: self.pass)
-                
+                    }
+                    
+                    
+                    Text("試合の団体番号と団体パスワードを入力して下さい")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                        .padding(.top,20)
+                    Text("団体番号")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                        .padding(.top,20)
+                    
+                    
+                    TextField("", text: self.$num)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .background(Color("green4"))
+                    Text("団体パスワード")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                    
+                    TextField("", text: self.$pass)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .background(Color("green4"))
+                    
+                    ForEach(self.gamedata.data,id: \.id){i in
+                        CellApproveView(gamelist: i, num: self.num, pass: self.pass)
+                        
                     }
                 }.onAppear{
                     self.keyboard.startObserve()
@@ -98,58 +98,58 @@ struct CellApproveView: View {
     @ObservedObject var completelist = getGameCompleteList()
     
     var body: some View {
-    VStack{
-        
-        if gamelist.grouppass == pass && gamelist.groupnum == num && gamelist.end == "false"{
-
-        HStack {
+        VStack{
             
-            Image(systemName: "person.fill")
-                    .foregroundColor(Color.white)
-            Text(gamelist.gamename)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(.top,10)
-
-                        Spacer()
-            Button(action: {
-                            self.show.toggle()
-                                        }) {
-                Image(systemName: "play.fill")
+            if gamelist.grouppass == pass && gamelist.groupnum == num && gamelist.end == "false"{
+                
+                HStack {
+                    
+                    Image(systemName: "person.fill")
                         .foregroundColor(Color.white)
-                                    }.sheet(isPresented: self.$show) {
-            ForEach(self.completelist.data,id: \.id){i in
-                    ApproveSelectView(gamelist: self.gamelist, completelist: i)
-                                        
-                                    }
-                                }
-                            }
-        }        }
+                    Text(gamelist.gamename)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.top,10)
+                    
+                    Spacer()
+                    Button(action: {
+                        self.show.toggle()
+                    }) {
+                        Image(systemName: "play.fill")
+                            .foregroundColor(Color.white)
+                    }.sheet(isPresented: self.$show) {
+                        ForEach(self.completelist.data,id: \.id){i in
+                            ApproveSelectView(gamelist: self.gamelist, completelist: i)
+                            
+                        }
+                    }
                 }
-            }
+            }        }
+    }
+}
 
 
 struct ApproveSelectView: View {
     var gamelist : gamelist
     var completelist : gamecomplete
     @State var show = false
-var body: some View {
+    var body: some View {
         HStack {
             if gamelist.gamename == completelist.gamename && completelist.pay == "false"{
-            Image(systemName: "person.fill")
-                        .foregroundColor(Color("green4"))
+                Image(systemName: "person.fill")
+                    .foregroundColor(Color("green4"))
                 
-            Text(completelist.username)
-            Text(completelist.belong)
-                                Spacer()
-                    Button(action: {
-                            self.show.toggle()
-                                        }) {
+                Text(completelist.username)
+                Text(completelist.belong)
+                Spacer()
+                Button(action: {
+                    self.show.toggle()
+                }) {
                     Image(systemName: "play.fill")
-                                .foregroundColor(Color("green4"))
-                                    }.sheet(isPresented: self.$show) {
-                                        
-                                        ApprovecompleateView(gamelist: self.gamelist, completelist: self.completelist)
+                        .foregroundColor(Color("green4"))
+                }.sheet(isPresented: self.$show) {
+                    
+                    ApprovecompleateView(gamelist: self.gamelist, completelist: self.completelist)
                 }
             } else {
                 
@@ -166,45 +166,45 @@ struct ApprovecompleateView: View {
     @State var Alertshow = false
     @State var pay = "pay"
     @State var t = "true"
-var body: some View {
-    HStack {
+    var body: some View {
+        HStack {
             Image(systemName: "person.fill")
-                            .foregroundColor(Color("green4"))
-        VStack{
-        Text(completelist.username)
-            Text(completelist.event1)
-            Text(completelist.event2)
-            Text(completelist.event3)
-        }
-                        Spacer()
-                    Button(action: {
-                        self.Alertshow.toggle()
-                            let db = Firestore.firestore()
-                            //試合申し込み完了テーブルに入れる
-                            db.collection("gamecomplete")
-                                .document(self.completelist.id)
-                                .updateData([self.pay: self.t])
-                                { (err) in
+                .foregroundColor(Color("green4"))
+            VStack{
+                Text(completelist.username)
+                Text(completelist.event1)
+                Text(completelist.event2)
+                Text(completelist.event3)
+            }
+            Spacer()
+            Button(action: {
+                self.Alertshow.toggle()
+                let db = Firestore.firestore()
+               
+                db.collection("gamecomplete")
+                    .document(self.completelist.id)
+                    .updateData([self.pay: self.t])
+                    { (err) in
                         if err != nil{
                             print((err?.localizedDescription)!)
-                                    return
-                                        }
-                                    }
-
-                            }) {
-                        Text("承認")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("green4"))
-                            .padding(.vertical)
-                            .padding(.horizontal,45)
-                            .background(Color.white)
-                            .clipShape(Capsule())
-                                        
-                                }.alert(isPresented: $Alertshow){
-                            Alert(title: Text("承認完了！"),
-                            message: Text("承認が完了しました。内容をご確認下さい。"),
-                            dismissButton: .default(Text("わかりました")))
-                    }
+                            return
+                        }
+                }
+                
+            }) {
+                Text("承認")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("green4"))
+                    .padding(.vertical)
+                    .padding(.horizontal,45)
+                    .background(Color.white)
+                    .clipShape(Capsule())
+                
+            }.alert(isPresented: $Alertshow){
+                Alert(title: Text("承認完了！"),
+                      message: Text("承認が完了しました。内容をご確認下さい。"),
+                      dismissButton: .default(Text("わかりました")))
+            }
             Spacer()
         }.padding(.top,20)
     }

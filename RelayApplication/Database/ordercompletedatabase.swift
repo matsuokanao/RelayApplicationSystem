@@ -35,8 +35,8 @@ struct ordercomplete: Identifiable {
     var set : String
     var lanes : String
     var event : String
-
-
+    
+    
 }
 
 //読み込み

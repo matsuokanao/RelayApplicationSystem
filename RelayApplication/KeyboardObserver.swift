@@ -10,9 +10,9 @@ import SwiftUI
 import Combine
 
 class KeyboardObserver: ObservableObject {
-
+    
     @Published var keyboardHeight:CGFloat = 0.0
-
+    
     func startObserve() {
         NotificationCenter
             .default

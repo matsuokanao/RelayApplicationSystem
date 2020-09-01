@@ -22,27 +22,27 @@ struct DiaryListView: View {
     @State var pass = ""
     @ObservedObject var keyboard = KeyboardObserver()
     
-        var body: some View {
-            ZStack{
+    var body: some View {
+        ZStack{
             Color("red3")
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
                 Text("ユーザーのメールアドレスを入力して下さい")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
                 TextField("", text: self.$email)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("red3"))
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
                 
-            Text("ユーザーパスを入力して下さい")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-            TextField("", text: self.$pass)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .background(Color("red3"))
-
+                Text("ユーザーパスを入力して下さい")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                TextField("", text: self.$pass)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color("red3"))
+                
                 
                 Text("日付の日付を入力して下さい")
                     .foregroundColor(Color.white)
@@ -53,28 +53,28 @@ struct DiaryListView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(Color("red3"))
                     Text("年")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-
-                                   
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                    
+                    
                     TextField("", text: self.$month)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .background(Color("red3"))
                     Text("月")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                    
                 }.onAppear{
                     self.keyboard.startObserve()
                 }.onDisappear{
                     self.keyboard.stopObserve()
                 }.padding(.bottom, keyboard.keyboardHeight)
-
-            ForEach(self.diarydata.data,id: \.id){i in
-                DiaryListCellView(diary: i, year: self.year, month: self.month, email: self.email, pass: self.pass)
                 
-            }.padding(.top,20)
+                ForEach(self.diarydata.data,id: \.id){i in
+                    DiaryListCellView(diary: i, year: self.year, month: self.month, email: self.email, pass: self.pass)
+                    
+                }.padding(.top,20)
             }.frame(width: 300, height: 600)
         }
     }
@@ -99,33 +99,33 @@ struct DiaryListCellView: View {
         VStack{
             if email == diary.email && pass == diary.userpass {
                 if diary.year == self.year && diary.month == self.month {
-                HStack {
-                Image(systemName: "circle.fill")
-                    .foregroundColor(Color.white)
-            Text(diary.month)
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-            Text("月")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-            Text(diary.day)
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-            Text("日")
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-            Text(diary.tournamentname)
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-                    
-                    Spacer()
-                    Button(action: {
-                        self.show.toggle()
-                            }) {
-                    Image(systemName: "play.fill")
-                        .foregroundColor(Color.white)
-                            }.sheet(isPresented: self.$show) {
-                                DiaryListOpenView(diary: self.diary)
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(Color.white)
+                        Text(diary.month)
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                        Text("月")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                        Text(diary.day)
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                        Text("日")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                        Text(diary.tournamentname)
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        Button(action: {
+                            self.show.toggle()
+                        }) {
+                            Image(systemName: "play.fill")
+                                .foregroundColor(Color.white)
+                        }.sheet(isPresented: self.$show) {
+                            DiaryListOpenView(diary: self.diary)
                         }
                     }
                 }
@@ -139,94 +139,95 @@ struct DiaryListOpenView: View {
     var diary : diarylist
     @State var showAlert = false
     
-        var body: some View {
+    var body: some View {
         ScrollView{
-        VStack(spacing: 20){
-            HStack{
-            Image(systemName: "calendar")
-                .foregroundColor(Color("red3"))
-            Text("日付")
-            }
-            HStack{
-                Text(diary.year)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Text("年")
-            
-                Text(diary.month)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-
-        Text("月")
-            
-                Text(diary.day)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-
-        Text("日")
+            VStack(spacing: 20){
+                HStack{
+                    Image(systemName: "calendar")
+                        .foregroundColor(Color("red3"))
+                    Text("日付")
                 }
-        HStack{
-            Image(systemName: "sun.max.fill")
-                    .foregroundColor(Color("red3"))
-        Text("天気")
-            Text(diary.weather)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-        Image(systemName: "heart.fill")
-            .foregroundColor(Color("red3"))
-        Text("気持ち")
-            Text(diary.mental)
-            .keyboardType(.numberPad)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            
+                HStack{
+                    Text(diary.year)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("年")
+                    
+                    Text(diary.month)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Text("月")
+                    
+                    Text(diary.day)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Text("日")
                 }
-        HStack{
-            Image(systemName: "sparkles")
-            .foregroundColor(Color("red3"))
-            Text("項目（大会名や題名など）")
-            }
-            
-            
-        VStack{
-            Text(diary.tournamentname)
-            .keyboardType(.numberPad)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            }
-            HStack{
-                Image(systemName: "book.fill")
-                .foregroundColor(Color("red3"))
-                Text("気持ち")
-                }
-            VStack{
-                Text(diary.diary)
-                .frame(width: UIScreen.main.bounds.width * 0.8, height: 500)
-                .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.black))
+                HStack{
+                    Image(systemName: "sun.max.fill")
+                        .foregroundColor(Color("red3"))
+                    Text("天気")
+                    Text(diary.weather)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(Color("red3"))
+                    Text("気持ち")
+                    Text(diary.mental)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                 }
-            Button("この日記を削除する") {
-                              self.showAlert.toggle()
-                                  }
-                          .alert(isPresented: $showAlert) {
-                  Alert(title: Text("警告"),
+                HStack{
+                    Image(systemName: "sparkles")
+                        .foregroundColor(Color("red3"))
+                    Text("項目（大会名や題名など）")
+                }
+                
+                
+                VStack{
+                    Text(diary.tournamentname)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                HStack{
+                    Image(systemName: "book.fill")
+                        .foregroundColor(Color("red3"))
+                    Text("気持ち")
+                }
+                VStack{
+                    Text(diary.diary)
+                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 500)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black))
+                    
+                }
+                Button("この日記を削除する") {
+                    self.showAlert.toggle()
+                }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("警告"),
                           message: Text("日記が削除されますがよろしいですか？"),
-                          primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
-                          secondaryButton: .destructive(Text("削除"),
-                      action:{
-                              let db = Firestore.firestore()
-                                  db.collection("diarylist")
-                                      .document(self.diary.id)
-                                      .delete()
-                                  { (err) in
-                              if err != nil{
-                                  print((err?.localizedDescription)!)
-                                      return
-                                      }
-                                  }
-                              }))
-                          }
+                          primaryButton: .cancel(Text("キャンセル")),
+                        secondaryButton: .destructive(Text("削除"),
+                                                      action:{
+                                                        let db = Firestore.firestore()
+                                                        db.collection("diarylist")
+                                                            .document(self.diary.id)
+                                                            .delete()
+                                                                { (err) in
+                                                                    if err != nil{
+                                                                        print((err?.localizedDescription)!)
+                                                                        return
+                                                                }
+                                                        }
+                        })
+                    )
+                }
             }
         }.frame(width: 300, height: 600)
     }
