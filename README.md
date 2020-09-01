@@ -1,9 +1,12 @@
-RelayApplicationSystem
+LIMPLEとは
 ====
-RelayApplicationSystem（アプリケーション名　SIMPLE）とは、陸上競技においての試合申し込みや大会運営などの一連のフローの効率化を目的としたワークフローシステムです。
+SIMPLE（シンプル）とは、陸上競技においての試合申し込みや大会運営などの一連のフローの効率化を目的とした業務ワークフローシステムです。
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
 
 
-## Description
+
+## 機能
+
 
 ## Demo
 
