@@ -1,7 +1,7 @@
-Name
+RelayApplicationSystem
 ====
+RelayApplicationSystem（アプリケーション名　SIMPLE）とは、陸上競技においての試合申し込みや大会運営などの一連のフローの効率化を目的としたワークフローシステムです。
 
-Overview
 
 ## Description
 
@@ -17,10 +17,10 @@ Overview
 
 ## Contribution
 
-## Licence
+## Document
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[アプリケーション紹介ページです。ご覧下さい。](https://stark-hamlet-44140.herokuapp.com/)
 
 ## Author
 
-[
+
