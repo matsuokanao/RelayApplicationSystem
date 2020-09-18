@@ -164,7 +164,7 @@ struct GameFinishShowView: View {
                             .clipShape(Capsule())
                     }.padding(.top,20)
                         .sheet(isPresented: self.$linkshow) {
-                            WebViewLink(gamedata: self.gamedata)
+                            WebViewLink(gamedata: self.gamedata.link)
                     }
                     
                     Text("試合日程")

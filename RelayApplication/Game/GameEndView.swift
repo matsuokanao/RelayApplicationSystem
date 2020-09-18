@@ -133,7 +133,7 @@ struct CellGameEndViewView: View {
                                     .clipShape(Capsule())
                             }.padding(.top,20)
                                 .sheet(isPresented: self.$linkshow) {
-                                    WebViewLink(gamedata: self.gamedata)
+                                    WebViewLink(gamedata: self.gamedata.link)
                             }
                             
                             Group{
@@ -166,3 +166,6 @@ struct CellGameEndViewView: View {
         }
     }
 }
+
+
+
