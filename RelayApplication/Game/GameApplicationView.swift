@@ -243,10 +243,10 @@ struct GameApplicationListView: View {
                                 self.title = "エラー"
                                 self.message = "全ての項目を入力して下さい。"
                                 self.dismissButton = "OK"
-                            }else if self.sex != "男" || self.sex != "女" {
+                            }else if self.sex != "男子" && self.sex != "女子" {
                                 self.showAlert.toggle()
                                 self.title = "エラー"
-                                self.message = "男か女で入力して下さい"
+                                self.message = "男子か女子で入力して下さい"
                                 self.dismissButton = "OK"
                                 
                             }else if self.event1 != "100m" && self.event1 != "200m" && self.event1 != "400m" && self.event1 != "ハードル走" && self.event1 != "走り幅跳び" && self.event1 != "砲丸投げ" && self.event1 != "走り高跳び" && self.event1 != "なし" {
